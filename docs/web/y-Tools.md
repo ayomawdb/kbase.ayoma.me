@@ -56,3 +56,5 @@ Project security, vulnerability and general risk highlighting tool. It is meant 
 - https://www.owasp.org/index.php/OWASP_Hacking_Lab
 - http://www.dvwa.co.uk/
 - http://www.itsecgames.com/
+- Damn Vulnerable Serverless Application: https://www.owasp.org/index.php/OWASP_DVSA
+  - https://serverlessrepo.aws.amazon.com/applications/arn:aws:serverlessrepo:us-east-1:889485553959:applications~DVSA
