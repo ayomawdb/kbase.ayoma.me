@@ -399,20 +399,20 @@ KiTrap0d
 - Machine must have 2+ CPU cores
 
 Exploits:
-- https://github.com/SecWiki/windows-kernel-exploits/tree/master/MS16-032
-- http://willgenovese.com/ms16-032-one-liners/
+- [https://github.com/SecWiki/windows-kernel-exploits/tree/master/MS16-032](https://github.com/SecWiki/windows-kernel-exploits/tree/master/MS16-032)
+- [http://willgenovese.com/ms16-032-one-liners/](http://willgenovese.com/ms16-032-one-liners/)
 - `ms16_032_secondary_logon_handle_privesc`
 
 References
-- https://googleprojectzero.blogspot.co.uk/2016/03/exploiting-leaked-thread-handle.html
+- [https://googleprojectzero.blogspot.co.uk/2016/03/exploiting-leaked-thread-handle.html](https://googleprojectzero.blogspot.co.uk/2016/03/exploiting-leaked-thread-handle.html)
 
 ### MS11-080 -  Ancillary Function Driver (AfdJoinLeaf)
 - XP, 2003 both - 32/64 bit
 
 Exploits:
-- https://github.com/SecWiki/windows-kernel-exploits/tree/master/MS11-080
-- https://www.exploit-db.com/exploits/18176
-- https://hackingandsecurity.blogspot.com/2016/05/ms11-080-privilege-escalation-windows.html
+- [https://github.com/SecWiki/windows-kernel-exploits/tree/master/MS11-080](https://github.com/SecWiki/windows-kernel-exploits/tree/master/MS11-080)
+- [https://www.exploit-db.com/exploits/18176](https://www.exploit-db.com/exploits/18176)
+- [https://hackingandsecurity.blogspot.com/2016/05/ms11-080-privilege-escalation-windows.html](https://hackingandsecurity.blogspot.com/2016/05/ms11-080-privilege-escalation-windows.html)
 
 ```
 python py installer module
@@ -423,8 +423,31 @@ python pyinsaller.py --onefile example.py
 - XP SP3, 2003, 7, 2008 R2
 
 Exploits:
-- https://github.com/SecWiki/windows-kernel-exploits/tree/master/MS12-042
-- https://www.exploit-db.com/exploits/20861
+- [https://github.com/SecWiki/windows-kernel-exploits/tree/master/MS12-042](https://github.com/SecWiki/windows-kernel-exploits/tree/master/MS12-042)
+- [https://www.exploit-db.com/exploits/20861](https://www.exploit-db.com/exploits/20861)
+
+### MS15-051 - Windows Kernel-Mode Drivers
+- 2003 SP2, Vista SP2, 2008 SP2, 7 SP1, 2008 R2 SP1, 8, 8.1, 2012, 2012 R2, RT, RT 8.1 - 32/64 bit
+
+Exploits:
+- [https://github.com/SecWiki/windows-kernel-exploits/tree/master/MS15-051](https://github.com/SecWiki/windows-kernel-exploits/tree/master/MS15-051)
+- [https://www.exploit-db.com/exploits/37049](https://www.exploit-db.com/exploits/37049)
+- [https://github.com/hfiref0x/CVE-2015-1701](https://github.com/hfiref0x/CVE-2015-1701)
+- `exploit/windows/local/ms15_051_client_copy_image`
+
+References:
+- [https://www.fireeye.com/blog/threat-research/2015/04/probable_apt28_useo.html](https://www.fireeye.com/blog/threat-research/2015/04/probable_apt28_useo.html)
+
+### MS10-092 - Task Scheduler
+- Vista SP1/SP2, 2008, 7 2008 R2 - 32/64bit
+
+Exploits:
+- [https://github.com/SecWiki/windows-kernel-exploits/tree/master/MS10-092](https://github.com/SecWiki/windows-kernel-exploits/tree/master/MS10-092)
+- `exploit/windows/local/ms10_092_schelevator`
+
+References:
+- [https://docs.microsoft.com/en-us/security-updates/securitybulletins/2010/ms10-092](https://docs.microsoft.com/en-us/security-updates/securitybulletins/2010/ms10-092)
+- [http://daveschull.com/wp-content/uploads/2015/05/Stuxnet_Under_the_Microscope.pdf](http://daveschull.com/wp-content/uploads/2015/05/Stuxnet_Under_the_Microscope.pdf)
 
 ## References
 > - https://pentest.blog/windows-privilege-escalation-methods-for-pentesters/
