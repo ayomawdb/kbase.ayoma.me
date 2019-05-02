@@ -1,7 +1,10 @@
+# Lab Setup
+
+## External Sources
 - Terminator Configuration / Zsh: https://guide.offsecnewbie.com/kali-configuration/terminator-shortcuts
 - CherryTree template: https://guide.offsecnewbie.com/cherrytree-oscp-template
 
-# Aliases
+## Aliases
 ```
 ## ALIASES
 alias vpn='openvpn /root/pwnshare/VPN/OS-XXXXX-PWK.ovpn'
@@ -16,7 +19,7 @@ alias ssx='searchsploit -x $1'
 ```
 
 
-# Important Locations
+## Important Locations
 ```
 /etc/
 /etc/passwd

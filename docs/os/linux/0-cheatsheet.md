@@ -465,3 +465,19 @@ rlinetd.conf
 ```
 - Disable unnecessary demons
 - Configure IPs that can access a demon
+
+## Restricted shell
+- Ref: https://www.gnu.org/software/bash/manual/html_node/The-Restricted-Shell.html
+```
+rbash, or the --restricted or -r
+```
+
+Bypass:
+```
+ssh mindy@10.10.10.51 bash
+```
+
+## Change password (one liner)
+```
+echo root:password | /usr/sbin/chpasswd
+```

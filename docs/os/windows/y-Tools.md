@@ -1,5 +1,10 @@
 # Tools
 
+## WinEXE
+Winexe remotely executes commands on Windows NT/2000/XP/2003 systems from GNU/Linux (and possibly also from other Unices capable of building the Samba 4 software package).-
+
+- https://sourceforge.net/projects/winexe/
+
 ## PowerUpSQL
 
 - Dumping Active Directory Domain Info – with PowerUpSQL!: https://blog.netspi.com/dumping-active-directory-domain-info-with-powerupsql/

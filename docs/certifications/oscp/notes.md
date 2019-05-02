@@ -1,6 +1,8 @@
-# Networking
+# Notes
 
-## OSI / TCP / UDP
+## Networking
+
+### OSI / TCP / UDP
 
 ![](https://www.pluralsight.com/content/dam/pluralsight/resources/blog/2007/10/networking-basics-tcp-udp-tcpip-osi-models/wp/img/TCP1.jpg)
 

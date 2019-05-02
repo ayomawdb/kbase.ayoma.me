@@ -11,10 +11,21 @@
 - Windows Privilege Escalation Fundamentals: http://www.fuzzysecurity.com/tutorials/16.html
 
 ## Tools
+- https://github.com/pentestmonkey/windows-privesc-check/raw/master/windows-privesc-check2.exe
 - BeRoot: https://github.com/AlessandroZ/BeRoot/tree/master/Windows
 - Windows-Exploit-Suggester - https://github.com/GDSSecurity/Windows-Exploit-Suggester
 - Check Insecure Services: https://gist.github.com/wdormann/db533d84df57a70e9580a6a2127e33bb
 
+## Metasploit
+In 32bit systems:
+```
+local_exploit_suggester
+```
+
+In 64bit systems:
+```
+search exploit/windows/local
+```
 ## PowerUp
 
 PowerUp to check for all service misconfigurations:
@@ -382,11 +393,38 @@ wmic qfe get Caption,Description,HotFixID,InstalledOn
 KiTrap0d
 
 ## Exploits
-- `MS11-080` AfdJoinLeaf xp 2003 both 32 and 64 / MS12-042
+
+### MS16-032 - Secondary Logon to Address Elevation of Privilege
+- Win7-Win10 & 2008-2012 - 32/64 bit
+- Machine must have 2+ CPU cores
+
+Exploits:
+- https://github.com/SecWiki/windows-kernel-exploits/tree/master/MS16-032
+- http://willgenovese.com/ms16-032-one-liners/
+- `ms16_032_secondary_logon_handle_privesc`
+
+References
+- https://googleprojectzero.blogspot.co.uk/2016/03/exploiting-leaked-thread-handle.html
+
+### MS11-080 -  Ancillary Function Driver (AfdJoinLeaf)
+- XP, 2003 both - 32/64 bit
+
+Exploits:
+- https://github.com/SecWiki/windows-kernel-exploits/tree/master/MS11-080
+- https://www.exploit-db.com/exploits/18176
+- https://hackingandsecurity.blogspot.com/2016/05/ms11-080-privilege-escalation-windows.html
+
 ```
 python py installer module
 python pyinsaller.py --onefile example.py
 ```
+
+### MS12-042 - Windows Kernel - SYSRET
+- XP SP3, 2003, 7, 2008 R2
+
+Exploits:
+- https://github.com/SecWiki/windows-kernel-exploits/tree/master/MS12-042
+- https://www.exploit-db.com/exploits/20861
 
 ## References
 > - https://pentest.blog/windows-privilege-escalation-methods-for-pentesters/

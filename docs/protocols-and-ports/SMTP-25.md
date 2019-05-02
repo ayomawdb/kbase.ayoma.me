@@ -19,13 +19,15 @@ EXPN username (verifies if username is valid - enumeration of accounts)
 ```
 
 ```
-  VRFY existing_user
-  Results in: 250
+VRFY existing_user
+Results in: 250
 
-  VRFY nonexisting_user
-  Results in: 550
+VRFY nonexisting_user
+Results in: 550
+```
 
-  for user in $(cat users.txt); do echo VRFY $user | nc -nv -w <ip> 25 2>/dev/null | grep ^"250"; done
+```
+for user in $(cat users.txt); do echo VRFY $user | nc -nv -w <ip> 25 2>/dev/null | grep ^"250"; done
 ```
 
 ## Mail Spoofing
@@ -55,6 +57,23 @@ Disparate formatting2 - mail from: <user@[IP Address]> rcpt to: <recipient_domai
 ```
 > http://0daysecurity.com/penetration-testing/enumeration.html
 
+## Sending a mail
+```
+HELO my.server.com
+MAIL FROM:
+RCPT TO:
+DATA
+From: Danny Dolittle
+To: Sarah Smith
+Subject: Email sample
+Mime-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+
+This is a test email for you to read.
+.
+QUIT
+```
+
 ## Tools
 
 ### smtp_enum
@@ -66,3 +85,31 @@ auxiliary/scanner/smtp/smtp_enum
 ```
 nmap –script smtp-enum-users.nse 172.16.212.133
 ```
+## Other commands
+
+| Command | Comment |
+| :------ | :------ |
+| ATRN |	Authenticated TURN |
+| AUTH | 	Authentication |
+| BDAT | 	Binary data |
+| BURL | 	Remote content |
+| DATA | 	The actual email message to be sent. This command is terminated with a line that contains only a |
+| EHLO | 	Extended HELO |
+| ETRN | 	Extended turn |
+| EXPN | 	Expand |
+| HELO | 	Identify yourself to the SMTP server. |
+| HELP | 	Show available commands |
+| MAIL | 	Send mail from email account, MAIL FROM: me@mydomain.com |
+| NOOP | 	No-op. Keeps you connection open. |
+| ONEX | 	One message transaction only |
+| QUIT | 	End session |
+| RCPT | 	Send email to recipient,  RCPT TO: you@yourdomain.com |
+| RSET | 	Reset |
+| SAML | 	Send and mail |
+| SEND | 	Send |
+| SOML | 	Send or mail |
+| STARTTLS | |
+| SUBMITTER | SMTP responsible submitter |
+| TURN | 	Turn |
+| VERB | 	Verbose |
+| VRFY | 	Verify |

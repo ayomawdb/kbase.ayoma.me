@@ -9,7 +9,6 @@
 | SMB 3.0 | Windows 8 and Windows Server 2012 |
 | SMB 3.0.2 | Windows 8.1 and Windows Server 2012 R2 |
 | SMB 3.1.1 | Windows 10 and Windows Server 2016 |
-|   |   |
 
 ## Ports
 
@@ -238,8 +237,18 @@ echo "" && sleep .1
 
 ## References
 - https://www.youtube.com/watch?v=jUc1J31DNdw&t=445s
+- [Implementing CIFS - The Common Internet Filesystem - http://www.ubiqx.org/cifs/](http://www.ubiqx.org/cifs/)
+- [Using Samba 2nd Edition - http://www.samba.org/samba/docs/using_samba/toc.html](http://www.samba.org/samba/docs/using_samba/toc.html)
 
 ## Vulnerabilities
--  Samba versions 3.0.20 through 3.0.25rc3
-    - https://www.rapid7.com/db/modules/exploit/multi/samba/usermap_script
+- Linux
+  -  CVE-2007-2447 - Samba versions 3.0.20 through 3.0.25rc3
+    - When the "username map script" smb.conf option is enabled
     - https://github.com/amriunix/cve-2007-2447
+    - `exploit/windows/smb/ms08_067_netapi`
+- Windows
+  - CVE-2008-4250 MS08-067 - Microsoft Server Service Relative Path Stack Corruption
+    - Microsoft Windows 2000 SP4, XP SP2 and SP3, Server 2003 SP1 and SP2, Vista Gold and SP1, Server 2008, and 7 Pre-Beta
+    - https://github.com/jivoi/pentest/blob/master/exploit_win/ms08-067.py
+    - https://vulners.com/exploitdb/EDB-ID:6824
+    - `exploit/windows/smb/ms08_067_netapi`

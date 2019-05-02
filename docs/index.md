@@ -15,6 +15,9 @@ Home page is reserved mainly to list down `pending analysis` and `pending resear
 
 ## Other Collections
 
+- ComputerSecurityStudent - Metasploitable Project >> Exploits: https://www.computersecuritystudent.com/cgi-bin/CSS/process_request_v3.pl?HID=f213c73c216e2231c8f0d65f3d93ac18&TYPE=SUB
+- Exploit collection - https://github.com/jivoi/pentest
+
 - Hacking Methodology: https://www.greycampus.com/opencampus/ethical-hacking/hacking-methodology
   - https://twitter.com/Alra3ees/status/1075569238474141697
 - Red Team Tips: https://vincentyiu.co.uk/red-team-tips/
@@ -29,7 +32,6 @@ Home page is reserved mainly to list down `pending analysis` and `pending resear
 - Offensive Security Bookmarks: https://jivoi.github.io/2015/07/03/offensive-security-bookmarks/
 - List of Awesome Red Teaming Resources: https://github.com/yeyintminthuhtut/Awesome-Red-Teaming
 - http://ired.team/offensive-security-experiments/offensive-security-cheetsheets
--
 - Playbook for system hardening maintained by the #! security research team.: https://github.com/hashbang/hardening
 
 ## Important files

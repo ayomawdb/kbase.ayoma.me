@@ -1,21 +1,21 @@
-# Scan for hosts
+## Scan for hosts
 ```
 nmap -sn $iprange -oG - | grep Up | cut -d' ' -f2 > network.txt
 ```
 
-# Port scanning
+## Port scanning
 
-## TCP Top 1000:
+### TCP Top 1000:
 ```
 nmap -Pn -sC -sV -oA tcp -vv $ip
 ```
 
-## All TCP Ports:
+### All TCP Ports:
 ```
 nmap -Pn -sC -sV -oA all -vv -p- $ip
 ```
 
-## UDP Top 100:
+### UDP Top 100:
 ```
 nmap -Pn -sU --top-ports 100 -oA udp -vv $ip
 ```
