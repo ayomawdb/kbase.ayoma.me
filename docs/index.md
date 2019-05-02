@@ -1,4 +1,4 @@
-# BriskSec Security Knowledge Base
+# Home
 
 This is the home of BriskSec Security Knowledge Base. Please check different categories for relevant details.
 
