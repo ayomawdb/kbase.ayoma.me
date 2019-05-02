@@ -1,0 +1,5 @@
+- There is a user called `scriptmanager`
+- `www` user can run any command as `scriptmanager` (`sudo -l`)
+- Use `sudo -u scriptmanager bash -i` to get a shell as `scriptmanager`
+- `/scripts` folder owned by `scriptmanager` has test.py that writes to a root owned file
+- Change `test.py` to create a reverse shell from root account

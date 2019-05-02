@@ -1,0 +1,7 @@
+# Client Side Attacks
+
+## References
+
+### Browser Exploitation
+- LinkedIn browser plugin enumeration: https://github.com/dandrews/nefarious-linkedin
+- Browser, VMEscape and Kernel Exploitation (Chrome/Safari): https://github.com/vngkv123/aSiagaming
