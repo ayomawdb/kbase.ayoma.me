@@ -10,8 +10,10 @@ Home page is reserved mainly to list down `pending analysis` and `pending resear
 
 ## Day-to-day Tools
 
-- CyberChef:  https://gchq.github.io/CyberChef
-  - https://www.youtube.com/watch?v=LnhSTZgzKuY
+- CyberChef:  [https://gchq.github.io/CyberChef](https://gchq.github.io/CyberChef)
+  - [https://www.youtube.com/watch?v=LnhSTZgzKuY](https://www.youtube.com/watch?v=LnhSTZgzKuY)
+- GoogleToolbox: [https://toolbox.googleapps.com/apps/main/](https://toolbox.googleapps.com/apps/main/)
+  - Browserinfo, MX, Dig, HAR, Log Analyzer, Mail Headers, Encode/Decode
 
 ## Other Collections
 
@@ -33,6 +35,14 @@ Home page is reserved mainly to list down `pending analysis` and `pending resear
 - List of Awesome Red Teaming Resources: https://github.com/yeyintminthuhtut/Awesome-Red-Teaming
 - http://ired.team/offensive-security-experiments/offensive-security-cheetsheets
 - Playbook for system hardening maintained by the #! security research team.: https://github.com/hashbang/hardening
+
+## Blogs
+
+- https://blog.0patch.com
+
+## POC Repos
+
+- https://github.com/qazbnm456/awesome-cve-poc
 
 ## Important files
 
@@ -59,9 +69,9 @@ Home page is reserved mainly to list down `pending analysis` and `pending resear
 
 - https://twitter.com/trimstray-
 
-## Pentesting Analysis Tools
+## Pending Analysis Tools
 
-- A Testing Environment for Manual Security Testers: https://github.com/pavanw3b/sh00t
+- sh00t - A Testing Environment for Manual Security Testers: https://github.com/pavanw3b/sh00t
 
 ## Discord Channels
 

@@ -28,10 +28,14 @@ Scan one community string for multiple IPs
 ```
 onesixtyone -c community.txt -i ips.txt
 ```
+## SNMPWalk
+```
+snmpwalk -Os -c public -v 1 <ip>
+```
 
 ## Probe MBI
 ```
-snmpwalk -c public -v1 <ip> 1.3.6.1.2.1.25.4.2.1.2
+snmpwalk -c public -v 1 <ip> 1.3.6.1.2.1.25.4.2.1.2
  • 1.3.6.1.2.1.25.1.6.0 System Processes
  • 1.3.6.1.2.1.25.4.2.1.2 Running Programs
  • 1.3.6.1.2.1.25.4.2.1.4 Processes Path
@@ -51,9 +55,11 @@ cisco
 ```
 
 ## Important properties
-```
 Windows NT
+```
 .1.3.6.1.2.1.1.5 Hostnames
+.1.3.6.1.2.1.4.34.1.5.2.16 IPv6 Address
+
 .1.3.6.1.4.1.77.1.4.2 Domain Name
 .1.3.6.1.4.1.77.1.2.25 Usernames
 .1.3.6.1.4.1.77.1.2.3.1.1 Running Services

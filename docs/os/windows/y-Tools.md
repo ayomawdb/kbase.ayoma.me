@@ -1,5 +1,36 @@
 # Tools
 
+## ntdsXtract
+
+Active Directory forensic framework
+
+-​ https://github.com/csababarta/ntdsxtract
+
+Extract users from ESE DB export:
+```
+dsusers.py kotarak.dit.export/datatable.3 kotarak.dit.export/link_table.5 hashdump --syshive
+kotarak.bin --passwordhashes --lmoutfile lmout.txt --ntoutfile ntout.txt --pwdformat ophc
+```
+
+Practice:
+- HTB: Kotarak
+
+## LibEseDB
+
+libesedb is a library to access the Extensible Storage Engine (ESE) Database File (EDB) format.
+
+The ESE database format is used in may different applications like Windows Search, Windows Mail, Exchange, Active Directory, etc.
+
+- https://github.com/libyal/libesedb
+
+Dump tables:
+```
+esedbexport -m tables 20170721114636_default_192.168.110.133_psexec.ntdsgrab._333512.dit  
+```
+
+Practice:
+- HTB: Kotarak
+
 ## WinEXE
 Winexe remotely executes commands on Windows NT/2000/XP/2003 systems from GNU/Linux (and possibly also from other Unices capable of building the Samba 4 software package).-
 

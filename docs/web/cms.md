@@ -17,6 +17,7 @@
 ### Tools
 - [WPScan - https://github.com/wpscanteam/wpscan](https://github.com/wpscanteam/wpscan)
 - [Droopescan - https://github.com/droope/droopescan](https://github.com/droope/droopescan)
+- [wpBullet - Static code analysis for WordPress Plugins/Themes](https://github.com/webarx-security/wpbullet)
 
 ## Joomla
 

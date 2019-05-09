@@ -5,6 +5,9 @@
 | Pfsense  | <= 2.2.6 | Command Injection | [exploit-db](https://www.exploit-db.com/exploits/39709/) | |
 | Pfsense  |  < 2.1.4 | Command Injection | [exploit-db](https://www.exploit-db.com/exploits/43560)  | |
 | Drupal   |      7.x | RCE | [exploit-db](https://www.exploit-db.com/exploits/41564) |   |
+| October CMS | 1.0.412 | RCE, PHP object injection | [exploit-db](https://www.exploit-db.com/exploits/41936)  |   |
+| NibbleBlog | 0 | Usernames  | /nibbleblog/content/private/users.xml | |
+| Apache Struts | 2 2.3.x before 2.3.32 <br> 2.5.x before 2.5.10.1 | RCE | CVE-2017-5638 <br> [https://github.com/mazen160/struts-pwn](https://github.com/mazen160/struts-pwn) |   |
 
 
 ## Pfsense issues

@@ -3,8 +3,8 @@
 ## Tools
 - BeRoot: https://github.com/AlessandroZ/BeRoot/tree/master/Linux
 - unix-privesc-check: https://github.com/pentestmonkey/unix-privesc-check
-- Linux: linuxprivchecker.py - http://www.securitysift.com/download/linuxprivchecker.py
-- Linux: LinEnum - https://github.com/rebootuser/LinEnum
+- linuxprivchecker.py - http://www.securitysift.com/download/linuxprivchecker.py
+- LinEnum - https://github.com/rebootuser/LinEnum
 
 ## File Permissions
 - Check file permissions of /etc/passwd and /etc/shadow
@@ -80,6 +80,8 @@ umask
 - Linux PAM 1.1.0 (Ubuntu 9.10/10.04) - MOTD File Tampering Privilege Escalation (2)
     - https://www.exploit-db.com/exploits/14339
     - HTB: Beep
+
+- [GNU Screen 4.5.0 - Local Privilege Escalation - https://www.exploit-db.com/exploits/41154](https://www.exploit-db.com/exploits/41154) - Nice example for learning exploit writing
 
 ### overlayfs
 - Linux Kernel 3.13.0 < 3.19 (Ubuntu 12.04/14.04/14.10/15.04) - 'overlayfs' Local Privilege Escalation: https://www.exploit-db.com/exploits/37292

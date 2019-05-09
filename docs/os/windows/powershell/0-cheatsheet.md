@@ -23,6 +23,11 @@ Function
 `Get-Alias -Name ps`
 `Get-Alias -Definition Get-Process`
 
+## Download Files
+```
+powershell wget "http://example.com/abc.txt" -outfile "abc.txt"
+```
+
 ## Execution Policy
 
 - Not a security feature

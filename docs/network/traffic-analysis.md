@@ -1,5 +1,10 @@
 # Traffic Analysis
 
+## Using a Capture
+```
+aircrack-ng captured.cap​
+```
+
 ## Tools
 
 - Netcap - A framework for secure and scalable network traffic analysis: https://github.com/dreadl0ck/netcap

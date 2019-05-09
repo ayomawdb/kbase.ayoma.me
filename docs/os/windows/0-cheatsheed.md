@@ -1,5 +1,39 @@
 # Cheatsheet
 
+## Extract ZIP
+```
+Add-Type -assembly
+'system.io.compression.filesystem';[io.compression.zipfile]::ExtractToDirectory
+("C:\backup.zip","C:\Example\")
+```
+
+## View File Systems
+```
+gdr -PSProvider 'FileSystem'
+```
+
+## Access shared volume
+```
+net use y: \\10.10.10.57\c$ /user:administrator 1234test
+```
+
+## Invoke command with credentials 
+```
+$user = '.\administrator';
+$psw = '1234test';
+$secpsw = ConvertTo-SecureString $psw -AsPlainText -Force;
+$credential = New-Object System.Management.Automation.PSCredential $user, $secpsw
+```
+```
+invoke-command -computername localhost -credential $credential
+-scriptblock {cd C:\Users\Administrator\Desktop\;C:\Users\Administrator\Desktop\root.exe}
+```
+## Alternate Data Stream
+- Listing: `dir /R`
+- Find Streams: `​get-item -path *.* -stream *`
+- Reading: `​powershell Get-Content -Path "hm.txt" -Stream "root.txt"`
+- Reading: `get-content backup.zip -stream 'pass'`
+
 ## MSI
 
 ### Installing MSI

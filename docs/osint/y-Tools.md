@@ -1,6 +1,7 @@
 # Tools
 - Craal (GitHub, Pastebin, S3 Buckets, Protoxin, CertStream): https://github.com/jaylagorio/craal
 - Semi-automatic OSINT framework and package manager: https://github.com/kpcyrd/sn0int
+- Discover and extract hostnames providing a large set of target IP addresses: -https://github.com/SpiderLabs/HostHunter
 
 ## Email
 ### TheHarvester

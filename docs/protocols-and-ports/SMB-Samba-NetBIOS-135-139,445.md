@@ -88,14 +88,52 @@ Downloads a file in quiet mode:
 smbmap -R $sharename -H $ip -A $fileyouwanttodownload -q
 ```
 
-
 ### mblookup
 
 NetBIOS over TCP/IP client used to lookup NetBIOS names
 
-## SMB Client
+## rpcclient
+- Part of the Samba suite
+- Originally designed for troubleshooting and debugging Windows and Linux Samba daemon configurations
+
+### Find SID of a user
+```
+rpcclient -U htb\\james mantis.htb.local
+
+rpcclient $> srvinfo
+rpcclient $> enum<tab><tab>
+rpcclient $> enumdomusers
+rpcclient $> enumalsgroups domain    // enum aliases groups
+rpcclient $> enumalsgroups builtin
+rpcclient $> lookupnames james
+```
+
+## smbclient
 ```
 smbclient -L //server/share password options
+smbclient -L 10.10.10.52 -U james -p 445
+   password: <prompt>
+```
+
+## Null Session Enumeration
+
+Null Session Enumeration (enabled by default in SMB1)
+```
+net use \\192.168.1.1\ipc$ "" /u:""
+net view \\ip_address
+```
+
+```
+rpcclient -U "" ip (give empty password)
+  > srvinfo
+  > enumdomusers
+  > getdompwinfo
+```
+
+## Use UpTime to guess patch level
+- https://github.com/SpiderLabs/Responder/blob/master/tools/FindSMB2UPTime.py
+```
+python FindSMB2UpTime.py 172.16.80.10
 ```
 
 ## Enable / Disable / Status
@@ -173,21 +211,6 @@ sc.exe config mrxsmb20 start= disabled
 ```
 sc.exe config lanmanworkstation depend= bowser/mrxsmb10/mrxsmb20/nsi
 sc.exe config mrxsmb20 start= auto
-```
-
-## Null Session Enumeration
-
-Null Session Enumeration (enabled by default in SMB1)
-```
-net use \\192.168.1.1\ipc$ "" /u:""
-net view \\ip_address
-```
-
-```
-rpcclient -U "" ip (give empty password)
-  > srvinfo
-  > enumdomusers
-  > getdompwinfo
 ```
 
 ## Tools

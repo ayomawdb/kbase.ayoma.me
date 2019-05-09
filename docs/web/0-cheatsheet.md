@@ -11,6 +11,9 @@ example.php%
 filename="shell.php%00.jpg"
 ```
 
+### Creating GIF
+Put `GIF89a;`​ as the first line in the file and save the file with a ​ `.gif`​ extension
+
 ## Applet
 ```
 root@kali:~# javac Java.java

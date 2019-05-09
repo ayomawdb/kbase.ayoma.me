@@ -67,3 +67,17 @@ oclHashcat input file should be in format: `passwordhash:salt`
 ```
 oclHashcat-plus64.bin -m 110 hashes.txt ../big-wordlist --force
 ```
+
+# RSA Private Key Password Recovery
+
+```
+ssh2john id_rsa > id_john
+john id_john --wordlist=<PATH TO ROCKYOU.TXT>
+```
+
+# KeePass Password Recovery
+
+```
+keepass2john jeeves.kdbx > jeeves.hash
+john jeeves.hash
+```

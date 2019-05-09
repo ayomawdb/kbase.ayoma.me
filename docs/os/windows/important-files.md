@@ -4,6 +4,11 @@
 
 - Living Off The Land Binaries and Scripts: https://lolbas-project.github.io/ li, https://github.com/LOLBAS-Project/LOLBAS
 
+## Version information
+- `sysinfo`
+- Windows 7+: `/windows/system32/license.rtf`
+- `/windows/system32/eula.txt`
+
 ## Update Download locations
 ```
 C:\Windows\SoftwareDistribution\Download  

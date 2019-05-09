@@ -481,3 +481,12 @@ ssh mindy@10.10.10.51 bash
 ```
 echo root:password | /usr/sbin/chpasswd
 ```
+
+## New line in command line
+```
+$ echo "abc[CTRL+M]
+def"
+```
+
+## Log file locations
+- `/var/www/syslog`

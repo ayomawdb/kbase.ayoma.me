@@ -12,14 +12,6 @@
 ## Password Attacks
 - W3brute - Automatic Web Application Brute Force Attack Tool: https://github.com/aprilahijriyan/w3brute
 
-## Command Injection
-
-### Commix
-
-GitHub: https://github.com/commixproject/commix
-Usage examples: https://github.com/commixproject/commix/wiki/Usage-Examples
-
-
 ## ADAPT
 ADAPT is a tool that performs automated Penetration Testing for WebApps.
 

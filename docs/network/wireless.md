@@ -1,5 +1,10 @@
 # Wireless
 
+##
+```
+aircrack-ng captured.cap​
+aircrack-ng -a 2 -b <BSSID> -w wordlist captured.cap​
+```
 ## WPA/WPA2 PMKID
 
 STEP 1:
