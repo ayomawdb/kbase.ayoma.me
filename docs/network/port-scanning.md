@@ -22,8 +22,11 @@ nc -nv -u -z -w 1 <ip> <port-range>
 
 ## Port Knocking
 ```
-for x in 1111, 2222, 3333; do nmap -Pn --scan-delay 0.2 --max-retries 0 -p $x <IP>; done
+for x in 1111, 2222, 3333; do nmap -Pn --host_timeout 201 --scan-delay 0.2 --max-retries 0 -p $x <IP>; done
 ```
+
+Look for: `knockd`
+Configured at: `​/etc/knockd.conf​`
 
 ## Scanning Methods
 

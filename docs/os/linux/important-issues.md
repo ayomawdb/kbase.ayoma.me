@@ -107,6 +107,8 @@ Data Theft
 ### CVE-2014-7169
 
 ### CVE-2014-0160 - Heartbleed
+Exploits:
+- [https://github.com/sensepost/heartbleed-poc](https://github.com/sensepost/heartbleed-poc)
 
 #### References
 - https://fedoramagazine.org/update-on-cve-2014-0160-aka-heartbleed/

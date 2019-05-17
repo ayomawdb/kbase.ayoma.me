@@ -1,7 +1,11 @@
 Disclaimer: These links are intended to be used by information security researchers who are interested in understanding the capabilities of frameworks/data-sets used in real-life. I am not responsible if you choose to use my work or this documentation to do something dumb and/or illegal.
 
 ## Leaked Datasets
-
+### Shadowbroker
+- https://www.comae.com/reports/us-17-Suiche-TheShadowBrokers-Cyber-Fear-Game-Changers-wp.pdf
+- https://swithak.github.io/SH20TAATSB18/Study/AnalysesANDProfiles/TSB-ZeroNet/
+- https://lostar.com.tr/2017/04/nsa-hepimizi-izliyor.html
+- https://www.revolvy.com/page/The-Shadow-Brokers
 - [EQGRP Lost in Translation](https://github.com/x0rz/EQGRP_Lost_in_Translation)
   - References:
     - [MUSTREAD]: [Buckeye: Espionage Outfit Used Equation Group Tools Prior to Shadow Brokers Leak](https://www.symantec.com/blogs/threat-intelligence/buckeye-windows-zero-day-exploit)
@@ -80,3 +84,30 @@ Disclaimer: These links are intended to be used by information security research
     - **RPCOUTCH** get info about windows via RPC
     - **DOPU** used to connect to machines exploited by ETERNALCHAMPIONS
     - **NAMEDPIPETOUCH** Utility to test for a predefined list of named pipes, mostly AV detection. User can add checks for custom named pipes.
+
+## Scylla
+
+Download Torrents
+```
+curl -A "UserAgentString" -s https://scylla.sh/ | grep -A 3 "/torrent/" | sed ':a;N;$!ba;s/\n//g' | sed 's/<\/tr>/\n/g' | awk -F'<td' '{$0=$4$2}1' | sed 's/<\/td>//g' | sed 's/style=""><a href=//g' |  cut -d ">" -f1 | sed 's/"//g' | sed 's/http/https/' > torrents.lst
+```
+```
+while read x; do  axel -n 1 --no-clobber $x; done <torrents.lst
+```
+
+Download all non-torrent files (smallest file first)
+```
+html2utf8() {
+  perl -ne 'binmode STDOUT, ":utf8"; s/&#([0-9]*);/pack("U",$1)/eg; print'
+}
+```
+```
+curl -A "UserAgentString" -s https://scylla.sh/ | grep -A 3 "/dbs/" | sed ':a;N;$!ba;s/\n//g' | sed 's/<\/tr>/\n/g' | awk -F'<td' '{$0=$2}1' | sed 's/<\/td>//g' | sed 's/style=""><a href=//g' |  cut -d ">" -f1 | sed 's/"//g' | tac | sed '/^$/d' | sed 's/http/https/' | html2utf8 > downloads.lst
+```
+```
+while read x; do axel -n 1 --no-clobber $x; done <downloads.lst
+```
+
+> Old script with manual ordering: ```
+curl -A "UserAgentString" -s https://scylla.sh/ | grep -A 3 "/dbs/" | sed ':a;N;$!ba;s/\n//g' | sed 's/<\/tr>/\n/g' | awk -F'<td' '{$0=$4$2}1' | sed 's/<\/td>//g' | sed 's/style=""><a href=//g' |  cut -d ">" -f2 | sed "s/K /000 /" | sed "s/M /000000 /" | sed "s/G /000000000 /" | sed "s/B / /" | tr -s " " | sort -n | cut -d " " -f2 | sed 's/"//g' | sed '/^$/d' | sed 's/http/https/' > downloads.lst
+```

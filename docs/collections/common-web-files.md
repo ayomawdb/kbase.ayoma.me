@@ -1,9 +1,19 @@
 ## Common Files and Directories
-```
-changelog.txt​​
+```​
+pom.xml
+.git
+.svn
+db
 CHANGELOG.txt
-CHANGELOG.TXT
+CHANGELOG.md
 CHANGELOG
+COPYRIGHT
+LICENSE
+README.md
+VERSION.md
+VERSIONS.md
+version
+versions
 system-user.txt​​
 backend
 frontend
@@ -25,4 +35,21 @@ files
 monitoring
 welcome
 action
+feed
+config
+backup
+remote
+mvc
+```
+
+- SecList/Discovery/Web-Content/common.txt
+
+## Subdomains
+```
+admin
+administrator
+internal
+intranet
+intra
+manager
 ```

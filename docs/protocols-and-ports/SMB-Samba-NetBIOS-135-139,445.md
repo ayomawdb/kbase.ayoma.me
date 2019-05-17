@@ -23,59 +23,96 @@ netbios-ssn `139/udp`
 
 microsoft-ds `445/tcp` # (SMB over IP) If you are using Active Directory (used when SMB is used directly on TCP stack, without using NetBIOS)
 
-## Configuration Files
+
+## NetBIOS suffixes
+
+For unique names:
 ```
-smb.conf
-lmhosts
+00: Workstation Service (workstation name)
+03: Windows Messenger service
+06: Remote Access Service
+20: File Service (also called Host Record)
+21: Remote Access Service client
+1B: Domain Master Browser – Primary Domain Controller for a domain
+1D: Master Browser
+```
+
+For group names:
+```
+00: Workstation Service (workgroup/domain name)
+1C: Domain Controllers for a domain
+1E: Browser Service Elections
 ```
 
 ## Scanning
 
-### nbtstat
+> - Ref: [https://www.hackingarticles.in/a-little-guide-to-smb-enumeration/](https://www.hackingarticles.in/a-little-guide-to-smb-enumeration/)
+
+### nmap
+
 ```
-nbtstat <ip>
-nbtscan -‐r 192.168.11.0/24
+nmap --script safe -445 $ip
 ```
+
+```
+nmap --script smb-protocols -p445 $ip
+```
+
+```
+nmap -p 139,446 $ip --open
+```
+
+```
+nmap ‐v ‐p 139,445 -‐script smb‐*  $ip
+nmap ‐v ‐p 139,445 -‐script smb‐vuln*  $ip
+nmap ‐v ‐p 139,445 -‐script smb‐security‐mode  $ip
+nmap ‐v ‐p 139,445 -‐script smb‐os-discovery  $ip
+nmap ‐v ‐p 139,445 -‐script smb‐check-vulns --script-args=unsafe=1  $ip
+```
+
 ### nmblookup
+
+- Query NetBIOS names and map them to IP addresses in a network
+- Using NetBIOS over TCP/IP queries
+
 ```
 nmblookup -A $ip
 ```
 
-### enum4linux
-Wrapper for `smbclient`, `rpcclient`, `net` and `nmblookup`:
-```
-enum4linux -‐a 192.168.11.227
-enum4linux -U 192.168.11.227
-```
-> https://hackercool.com/2016/07/smb-enumeration-with-kali-linux-enum4linuxacccheck-smbmap/
+### nbtscan
 
-### nmap
+- Scan NetBIOS name servers open on a local or remote TCP/IP network
+- Works on a whole subnet instead of individual IP
+- Similar to `nbtstat` (Windows standard tool)
+
 ```
-nmap --script smb-protocols -p445 (target/range)
-```
-```
-nmap -p 139,446 <ip-range> --open
-```
-```
-nmap ‐v ‐p 139, 445 -‐script=smb‐security‐mode 192.168.11.236
-nmap ‐v ‐p 139, 445 -‐script=smb‐os-discovery 192.168.11.227
-nmap ‐v ‐p 139, 445 -‐script=smb‐check-vulns --script-args=unsafe=1 192.168.11.227
+nbtscan $ip/24
 ```
 
-### acccheck - Password Attacks
+### nbtstat
+
 ```
-acccheck -v -t <ip> -u <user> -P <password_file>
+nbtstat $ip
+nbtscan -‐r $ip/24
 ```
 
 ### SMBMap - enumerate samba share drives across an entire domain
-```
-smbmap -u <user> -p <password> -d <workgroup> -H <ip>
-smbmap -u <user> -p <password> -d <workgroup> -H <ip> -L  #test command execution
-smbmap -u <user> -p <password> -d <workgroup> -H <ip> -r  #read drive
-```
+
+- Allows users to enumerate samba share drives across an entire domain
+- Usage
+  - List share drives, drive permissions, share contents
+  - Upload/download functionality
+  - File name auto-download pattern matching
+  - Execute remote commands
 
 ```
 smbmap -H $ip
+```
+
+```
+smbmap -u <user> -p <password> -d <workgroup> -H $ip
+smbmap -u <user> -p <password> -d <workgroup> -H $ip -L  #test command execution
+smbmap -u <user> -p <password> -d <workgroup> -H $ip -r  #read drive
 ```
 
 Recursively list dirs, and files:
@@ -83,36 +120,106 @@ Recursively list dirs, and files:
 smbmap -R $sharename -H $ip
 ```
 
+Search for `Groups.xml` in given share:
+```
+smbmap -R $shareName -H $ip -A Groups.xml -q
+```
+
 Downloads a file in quiet mode:
 ```
 smbmap -R $sharename -H $ip -A $fileyouwanttodownload -q
 ```
 
-### mblookup
+### smbclient
 
-NetBIOS over TCP/IP client used to lookup NetBIOS names
+- Client that can "talk" to an SMB/CIFS server
+- Operations
+  - Upload/download functionality
+  - Retrieving directory information
 
-## rpcclient
+```
+smbclient -L $ip
+smbclient -L $ip -U $username -p 445
+   password: <prompt>
+smbclient -L //server/share
+smbclient -L //server/share password options
+```
+
+```
+smb: \> RECURSE ON
+smb: \> PROMPT OFF
+smb: \> mget *
+```
+
+### rpcclient
+
 - Part of the Samba suite
-- Originally designed for troubleshooting and debugging Windows and Linux Samba daemon configurations
+- Developed to test MS-RPC functionality in Samba
+- Usable to open an authenticated SMB session to a target machine
 
-### Find SID of a user
+NULL session:
+```
+rpcclient -U "" -N 192.168.1.102
+```
+
+User session:
 ```
 rpcclient -U htb\\james mantis.htb.local
+```
 
+Querying:
+```
 rpcclient $> srvinfo
 rpcclient $> enum<tab><tab>
-rpcclient $> enumdomusers
-rpcclient $> enumalsgroups domain    // enum aliases groups
+rpcclient $> enumdomusers            // Username and RID (suffix of SID)
+rpcclient $> queryuser 0x3e8         // Info of the user for given RID
+rpcclient $> enumalsgroups domain    // Enum aliases groups
 rpcclient $> enumalsgroups builtin
 rpcclient $> lookupnames james
 ```
 
-## smbclient
+### Enum4linux
+
+- Tool for enumerating information from Windows and Samba systems
+- Wrapper for `smbclient`, `rpcclient`, `net` and `nmblookup`
+
 ```
-smbclient -L //server/share password options
-smbclient -L 10.10.10.52 -U james -p 445
-   password: <prompt>
+enum4linux -a $ip
+enum4linux -U $ip
+```
+
+```
+- RID cycling (When RestrictAnonymous is set to 1 on Windows 2000)
+- User listing (When RestrictAnonymous is set to 0 on Windows 2000)
+- Listing of group membership information
+- Share enumeration
+- Detecting if the host is in a workgroup or a domain
+- Identifying the remote operating system
+- Password policy retrieval
+```
+
+> - Ref: https://hackercool.com/2016/07/smb-enumeration-with-kali-linux-enum4linuxacccheck-smbmap/
+
+### acccheck
+
+- Password attacks
+
+```
+acccheck -v -t $ip -u <user> -P <password_file>
+```
+
+### mblookup
+
+- NetBIOS over TCP/IP client used to lookup NetBIOS names
+
+## Mount SMB share
+
+```
+sudo apt-get install cifs-utils
+```
+```
+mkdir /mnt/$shareName
+mount -t cifs //$ip/$shareName /mnt/$shareName -o username=$username,password=$password,domain=$domain
 ```
 
 ## Null Session Enumeration
@@ -131,7 +238,9 @@ rpcclient -U "" ip (give empty password)
 ```
 
 ## Use UpTime to guess patch level
+
 - https://github.com/SpiderLabs/Responder/blob/master/tools/FindSMB2UPTime.py
+
 ```
 python FindSMB2UpTime.py 172.16.80.10
 ```
@@ -141,40 +250,51 @@ python FindSMB2UpTime.py 172.16.80.10
 > Detect, enable and disableyeha SMBv1, SMBv2, and SMBv3 in Windows and Windows Server: https://support.microsoft.com/en-gb/help/2696547/how-to-detect-enable-and-disable-smbv1-smbv2-and-smbv3-in-windows-and
 
 ### Windows Server 2012 R2 & 2016: PowerShell methods
+
 #### SMB v1
+
 - Detect: `Get-WindowsFeature FS-SMB1`
 - Disable: `Disable-WindowsOptionalFeature -Online -FeatureName smb1protocol`
 - Enable: `Enable-WindowsOptionalFeature -Online -FeatureName smb1protocol`
 
 #### SMB v2/v3
+
 - Detect: `Get-SmbServerConfiguration | Select EnableSMB2Protocol`
 - Disable: `Set-SmbServerConfiguration -EnableSMB2Protocol $false`
 - Enable: `Set-SmbServerConfiguration -EnableSMB2Protocol $true`
 
 ### Windows 8.1 and Windows 10: PowerShell method
+
 #### SMB v1 Protocol
+
 - Detect:	`Get-WindowsOptionalFeature –Online –FeatureName SMB1Protocol`
 - Disable:	`Disable-WindowsOptionalFeature -Online -FeatureName SMB1Protocol`
 - Enable:	`Enable-WindowsOptionalFeature -Online -FeatureName SMB1Protocol`
 
 #### SMB v2/v3 Protocol
+
 - Detect:	`Get-SmbServerConfiguration | Select EnableSMB2Protocol`
 - Disable: `Set-SmbServerConfiguration –EnableSMB2Protocol $false`
 - Enable:	`Set-SmbServerConfiguration –EnableSMB2Protocol $true`
 
 ### Windows 8 and Windows Server 2012
+
 #### SMB v1 on SMB Server
+
 - Detect:	`Get-SmbServerConfiguration | Select EnableSMB1Protocol`
 - Disable:	`Set-SmbServerConfiguration -EnableSMB1Protocol $false`
 - Enable:	`Set-SmbServerConfiguration -EnableSMB1Protocol $true`
 
 #### SMB v2/v3 on SMB Server
+
 - Detect:	`Get-SmbServerConfiguration | Select EnableSMB2Protocol`
 - Disable:	`Set-SmbServerConfiguration -EnableSMB2Protocol $false`
 - Enable:	`Set-SmbServerConfiguration -EnableSMB2Protocol $true`
 
 ###  Windows 7, Windows Server 2008 R2, Windows Vista, and Windows Server 2008
+
 #### SMB v1 on SMB Server
+
 Default configuration = Enabled (No registry key is created), so no SMB1 value will be returned
 
 - Detect: `Get-Item HKLM:\SYSTEM\CurrentControlSet\Services\LanmanServer\Parameters | ForEach-Object {Get-ItemProperty $_.pspath}`
@@ -182,12 +302,15 @@ Default configuration = Enabled (No registry key is created), so no SMB1 value w
 - Enable: `Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\LanmanServer\Parameters" SMB1 -Type DWORD -Value 1 –Force`
 
 #### SMB v2/v3 on SMB Server
+
 - Detect: `Get-ItemProperty HKLM:\SYSTEM\CurrentControlSet\Services\LanmanServer\Parameters | ForEach-Object {Get-ItemProperty $_.pspath}``
 - Disable: `Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\LanmanServer\Parameters" SMB2 -Type DWORD -Value 0 –Force`
 - Enable: `Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\LanmanServer\Parameters" SMB2 -Type DWORD -Value 1 –Force`
 
 ### Disable SMB Client
+
 #### SMB v1 on SMB Client
+
 - Detect:	`sc.exe qc lanmanworkstation`
 - Disable:
 ```
@@ -201,6 +324,7 @@ sc.exe config mrxsmb10 start= auto
 ```
 
 #### SMB v2/v3 on SMB Client
+
 - Detect:	`sc.exe qc lanmanworkstation`
 - Disable:
 ```
@@ -213,57 +337,67 @@ sc.exe config lanmanworkstation depend= bowser/mrxsmb10/mrxsmb20/nsi
 sc.exe config mrxsmb20 start= auto
 ```
 
-## Tools
-- nbtstat
-- SuperScan
-- Hyena
-- Winfingerprint
-- NetBIOS enumerator
-- nbtscan
-- enum4linux
-- rpcclient
-
 ## Samba Configuration
-Configuration file:
+
+Configuration file
+
 ```
 /etc/samba/smb.conf
+smb.conf
+lmhosts
 ```
 
 Test & reload configuration
+
 ```
 testparm -v
 service smb restart
 ```
 
-User creation:
+User creation
+
 ```
 smbpasswd -a <username>
 ```
 
 ## Samba Enumeration
+
 ```
 #!/bin/sh
-#Author: rewardone
-#Description:
-# Requires root or enough permissions to use tcpdump
-# Will listen for the first 7 packets of a null login
-# and grab the SMB Version
-#Notes:
-# Will sometimes not capture or will print multiple
-# lines. May need to run a second time for success.
+
+# Author: rewardone
+# Description:
+#  Requires root or enough permissions to use tcpdump
+#  Will listen for the first 7 packets of a null login
+#  and grab the SMB Version
+# Notes:
+#  Will sometimes not capture or will print multiple
+#  lines. May need to run a second time for success.
+
 if [ -z $1 ]; then echo "Usage: ./smbver.sh RHOST {RPORT}" && exit; else rhost=$1; fi
 if [ ! -z $2 ]; then rport=$2; else rport=139; fi
+
 tcpdump -s0 -n -i tap0 src $rhost and port $rport -A -c 7 2>/dev/null | grep -i "samba\|s.a.m" | tr -d '.' | grep -oP 'UnixSamba.*[0-9a-z]' | tr -d '\n' & echo -n "$rhost: " &
+
 echo "exit" | smbclient -L $rhost 1>/dev/null 2>/dev/null
 echo "" && sleep .1
 ```
 
+## Pending Tools
+
+- SuperScan
+- Hyena
+- Winfingerprint
+- NetBIOS enumerator
+
 ## References
+
 - https://www.youtube.com/watch?v=jUc1J31DNdw&t=445s
 - [Implementing CIFS - The Common Internet Filesystem - http://www.ubiqx.org/cifs/](http://www.ubiqx.org/cifs/)
 - [Using Samba 2nd Edition - http://www.samba.org/samba/docs/using_samba/toc.html](http://www.samba.org/samba/docs/using_samba/toc.html)
 
 ## Vulnerabilities
+
 - Linux
   -  CVE-2007-2447 - Samba versions 3.0.20 through 3.0.25rc3
     - When the "username map script" smb.conf option is enabled

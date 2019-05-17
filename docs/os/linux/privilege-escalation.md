@@ -90,3 +90,4 @@ umask
 
 ## References
 - Linux Local Privilege Escalation via SUID /proc/pid/mem Write - https://git.zx2c4.com/CVE-2012-0056/about/
+- [https://www.defensecode.com/public/DefenseCode_Unix_WildCards_Gone_Wild.txt](https://www.defensecode.com/public/DefenseCode_Unix_WildCards_Gone_Wild.txt)

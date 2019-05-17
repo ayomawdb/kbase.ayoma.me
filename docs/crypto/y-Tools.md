@@ -1,4 +1,5 @@
 # Tools
+
 - [Crypto Operations](http://rumkin.com/tools/cipher/)
 - [RsaCtfTool](https://github.com/Ganapati/RsaCtfTool)
 ```
@@ -29,6 +30,11 @@ Binary to ASCII
 echo"010000" | perl -lpe '$_=pack"B*",$_'
 ```
 
+- Ook and Brainfuck
+  - [https://www.splitbrain.org/_static/ook/](https://www.splitbrain.org/_static/ook/)
+  - [https://www.splitbrain.org/services/ook](https://www.splitbrain.org/services/ook)
+  - [https://github.com/splitbrain/ook](https://github.com/splitbrain/ook)
+
 ### Base64
 
 Decode
@@ -44,4 +50,9 @@ echo "NmQy" | base64
 ```
 
 ## Hashes
+
 - [https://hashkiller.co.uk](https://hashkiller.co.uk)
+
+## Concurrency
+
+- Multi-threaded CPU miner: [https://github.com/hyc/cpuminer-multi](https://github.com/hyc/cpuminer-multi)

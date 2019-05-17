@@ -1,5 +1,10 @@
 # Important Files / Folders
 
+## Private keys
+```
+~/.ssh/id_rsa
+```
+
 ## APT sources
 ```
 /etc/apt/sources.list

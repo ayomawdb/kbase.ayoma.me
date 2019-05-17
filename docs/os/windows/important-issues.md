@@ -43,6 +43,20 @@ Exploit:
 
 References:
 
+### MS10-061 - Windows Printer Spooler (Stuxnet)
+- XP SP2/SP3, 2003 SP2, Vista SP1/SP2, 2008, 7, 2008 R2
+- Execute code with `SYSTEM` privilege if a printer is shared on the network (patched September 2010)
+- Making DCE RPC request to the StartDocPrinter procedure (notifies the spooler that a new job arrived)
+- Impersonate the Printer Spooler service (spoolsv.exe) to create a file (from working dir: `%SystemRoot%\system32`)
+- Sending `WritePrinter` requests, an attacker can fully control the content of the created file
+- Gain code execution by writing to a directory used by WMI to deploy applications
+  - `Wbem\Mof` is periodically scanned and any new `.mof` files
+
+References:
+- [http://poppopret.blogspot.com/2011/09/playing-with-mof-files-on-windows-for.html](http://poppopret.blogspot.com/2011/09/playing-with-mof-files-on-windows-for.html)
+- os/windows/wmi.md
+
+
 ## Privilege Escalation Exploits
 
 ### MS16-032 - Secondary Logon to Address Elevation of Privilege

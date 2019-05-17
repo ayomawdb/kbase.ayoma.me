@@ -9,7 +9,7 @@ PHP config can be used to disable URL file access. But still local files can be 
 
 ### RCE with Logs
 - Use NC to write logs with malicious content to access_logs.
-- Connect and just send the attack string.
+- Connect and just send the attack string (In user-agent etc.).
 - Then include the log file (local file inclusion)
 
 ### RCE over SQLi

@@ -8,6 +8,7 @@
 | October CMS | 1.0.412 | RCE, PHP object injection | [exploit-db](https://www.exploit-db.com/exploits/41936)  |   |
 | NibbleBlog | 0 | Usernames  | /nibbleblog/content/private/users.xml | |
 | Apache Struts | 2 2.3.x before 2.3.32 <br> 2.5.x before 2.5.10.1 | RCE | CVE-2017-5638 <br> [https://github.com/mazen160/struts-pwn](https://github.com/mazen160/struts-pwn) |   |
+| PHPLiteAdmin | 1.9.2 | RCE | [exploit-db](https://www.exploit-db.com/exploits/24044) <br> ​ Rename Database​ page <br> show the full path |   |
 
 
 ## Pfsense issues

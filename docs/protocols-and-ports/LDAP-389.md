@@ -1,4 +1,6 @@
-## Configuration files
+## LDAP
+
+### Configuration files
 ```
 containers.ldif
 ldap.cfg
@@ -9,7 +11,7 @@ ldap-realm.xml
 slapd.conf
 ```
 
-## Tools
+### Tools
 - Softerra LDAP Administrator
 - Jxplorer
 - active directory domain services management pack for system center

@@ -64,6 +64,7 @@ Home page is reserved mainly to list down `pending analysis` and `pending resear
   - CVE-2019-1653 - Allows a remote attacker to get sensitive device configuration details without a password.
   - CVE-2019-1652 - Allows a remote attacker to inject and run admin commands on the device without a password.
 - EternalRomance (MS17-010)
+- Stuxnet CVEs
 
 ## Pending Analysis Tweets
 

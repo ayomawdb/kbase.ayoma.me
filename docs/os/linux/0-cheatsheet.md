@@ -4,6 +4,55 @@
 - Bash cheatsheet: https://devhints.io/bash.html
 - Archiving: https://null-byte.wonderhowto.com/how-to/linux-basics-for-aspiring-hacker-archiving-compressing-files-0166153/
 
+## Essential escalation checks
+```
+# SUDO
+sodu -l
+
+# New file permissions
+umask
+
+# Scheduled
+crontab -l
+ls -alh /var/spool/cron
+ls -alh /etc/ | grep cron
+cat /etc/cron*
+cat /etc/at.*
+cat /etc/anacrontab
+cat /var/spool/cron/crontabs/root
+
+# Word Writables
+find -type f -maxdepth 1 -writable
+
+# SUID SGID
+find "$DIRECTORY" -perm /6000 -exec ls -lah {} \;
+
+# Distribution
+cat /etc/issue
+cat /etc/*-release
+cat /etc/lsb-release
+cat /etc/redhat-release
+
+# Kernel
+cat /proc/version
+uname -a
+rpm -q kernel
+dmesg | grep Linux
+
+# Environment
+env
+set
+cat /etc/profile
+cat /etc/bashrc
+cat ~/.bash_profile
+cat ~/.bashrc
+cat ~/.bash_logout
+
+# Processes
+ps -aux | grep root
+ps -aux | grep root | grep  tmux
+```
+
 ## File System
 
 ### File information
@@ -422,6 +471,7 @@ cat /var/spool/cron/crontabs/root
 Script to start necessary processes in the background when the system boots up
 
 ## Managing Hard Disks
+
 `hda` for hard disks.
 `sda` for newer SATA disks (SCSI).
 
@@ -434,6 +484,15 @@ Partitions within `sda` are `sda1`, `sda2`, ...
   - `(parted) print`
   - `(parted) select /dev/sdb`
 - Change HDD parameters: `hdparm`
+
+### Debugfs
+
+- Simple-to-use RAM-based file system specially designed for debugging purposes
+- Mount file system (usable to access `/root` by only being in `disk` group)
+
+```
+debugfs /dev/sda1
+```
 
 ## General Text Manipulation Commands
 ```
@@ -483,10 +542,49 @@ echo root:password | /usr/sbin/chpasswd
 ```
 
 ## New line in command line
+
 ```
 $ echo "abc[CTRL+M]
 def"
 ```
 
 ## Log file locations
+
 - `/var/www/syslog`
+
+## Code execution
+
+Files in `SLAPPER_FILES` list will get executed:
+```
+for i in ${SLAPPER_FILES}; do
+   if [ -f ${i} ]; then
+      file_port=$file_port $i
+      STATUS=1
+   fi
+done
+```
+
+Should be corrected to:
+```
+file_port="$file_port $i"
+```
+
+> Ref: https://www.exploit-db.com/exploits/33899
+
+## Tmux
+
+Connect to existing session:
+```
+tmux -S /.devs/dev_sess​
+```
+
+## Special File Handling
+
+### 7z files
+
+- Print file information: `7z l -slt example.zip`
+- Extract: `7z x example.zip`
+
+### Microsoft Outlook Personal Folder (PST)
+
+- Examine: `readpst -tea -m example.pst`

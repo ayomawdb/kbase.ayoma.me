@@ -42,6 +42,7 @@ stty raw -echo
 ```
 reset
 export SHELL=bash
+xterm
 export TERM=xterm
 stty rows 38 columns 116
 ```

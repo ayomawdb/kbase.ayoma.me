@@ -14,7 +14,14 @@ AAD3B435B51404EEAAD3B435B51404EE
 ## Dumping hashes
 - Cannot copy SAM when sys is in use
 
+## Capturing Hashes
+
+### Responder
+### Inveigh
+### Impacket's smbserver.py
+
 ## Pass the Hash
+
 Auth using username and NTLM hash (since NTLM and LM hashes are not salted)
 
 - Replace "no password" in dump wih empty LM hash

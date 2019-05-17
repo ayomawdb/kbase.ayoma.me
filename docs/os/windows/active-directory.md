@@ -51,6 +51,28 @@ pingcastle.exe --healthcheck --server <DOMAIN_CONTROLLER_IP> --user <USERNAME> -
 
 - Automating AD Enumeration (Bloodhound, PowerUp, Responder, CrackMapExec): https://medium.com/bugbountywriteup/automating-ad-enumeration-with-frameworks-f8c7449563be
 
+## Tools
+
+### ldapsearch
+
+- Query the Domain Controller for Active Directory
+  - UserAccountControl attributes of active accounts
+  - Other specific configurations
+- Possible UserAccountControl values: [https://support.microsoft.com/en-gb/help/305144/how-to-use-the-useraccountcontrol-flags-to-manipulate-user-account-pro](https://support.microsoft.com/en-gb/help/305144/how-to-use-the-useraccountcontrol-flags-to-manipulate-user-account-pro)
+
+Active users (2 == disabled account status)
+```
+ldapsearch -x -h $ip -p 389 -D 'SVC_TGS'​ -w ​$password -b ​ "dc=active,dc=htb"​ -s sub "(&(objectCategory=person)(objectClass=user)(!(useraccountcontrol:1.2.840.113556.1.4.803:=2)))"​ samaccountname
+```
+
+### Impacket’s GetADUsers.py
+
+- Enumerate domain user accounts
+
+```
+GetADUsers.py -all active.htb/svc_tgs -dc-ip $ip
+```
+
 ## Attack Patterns
 
 - Wagging the Dog: Abusing Resource-Based Constrained Delegation to Attack Active Directory: https://shenaniganslabs.io/2019/01/28/Wagging-the-Dog.html

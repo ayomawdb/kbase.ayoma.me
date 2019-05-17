@@ -3,6 +3,7 @@
 ## File Upload
 
 ### Filename Suffixes
+
 ```
 example.php%
 ```
@@ -12,7 +13,12 @@ filename="shell.php%00.jpg"
 ```
 
 ### Creating GIF
+
 Put `GIF89a;`​ as the first line in the file and save the file with a ​ `.gif`​ extension
+
+### Bypass Validation
+
+- File name validation: `valid.txt` with `valid.txt.php`
 
 ## Applet
 ```

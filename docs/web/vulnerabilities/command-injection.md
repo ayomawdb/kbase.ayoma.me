@@ -1,5 +1,11 @@
 ## Command Injection
 
+### Pypass Filter
+```
+w\h\o\a\m\i
+\w\h\o\a\m\i
+```
+
 ### Commix
 
 GitHub: https://github.com/commixproject/commix

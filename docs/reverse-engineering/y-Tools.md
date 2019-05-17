@@ -34,3 +34,7 @@ Supports editing NES, SNES, Genesis, PCE, GG, WS/C, GB/C, MSX 1+2, NGP/C, SMS, a
 ProcDump is a Linux reimagining of the classic ProcDump tool from the Sysinternals suite of tools for Windows. ProcDump provides a convenient way for Linux developers to create core dumps of their application based on performance triggers.
 
 - GitHub: https://github.com/Microsoft/ProcDump-for-Linux
+
+## Other
+
+- mleak - small memory leak tracer for C programs: [https://github.com/hyc/mleak](https://github.com/hyc/mleak)

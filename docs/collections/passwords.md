@@ -9,3 +9,6 @@
 
 ## Tomcat
 - [https://raw.githubusercontent.com/danielmiessler/SecLists/master/Passwords/Default-Credentials/tomcat-betterdefaultpasslist.txt](https://raw.githubusercontent.com/danielmiessler/SecLists/master/Passwords/Default-Credentials/tomcat-betterdefaultpasslist.txt)
+
+## Important files from lists
+- SecLists/Passwords/darkweb2017-top1000.txt
