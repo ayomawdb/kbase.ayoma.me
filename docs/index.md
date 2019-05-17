@@ -1,6 +1,8 @@
 # Home
 
-This is the home of BriskSec Security Knowledge Base. Please check different categories for relevant details.
+This repository contains structurally organized, security related quick references, cheat-sheets, and resources maintained by [ayomawdb](https://twitter.com/ayomawdb). 
+
+Please check different categories for more details.
 
 Home page is reserved mainly to list down `pending analysis` and `pending research` items, and also to point to other similar security related knowledge bases.
 
