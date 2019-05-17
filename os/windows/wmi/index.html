@@ -5253,6 +5253,33 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#interesting-cim-classes" title="Interesting CIM classes" class="md-nav__link">
+    Interesting CIM classes
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mof-managed-object-format" title="MOF (Managed Object Format)" class="md-nav__link">
+    MOF (Managed Object Format)
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#usages" title="Usages" class="md-nav__link">
+    Usages
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#list-all-the-systems-within-the-current-environmentdirectory" title="List all the systems within the current environment/directory" class="md-nav__link">
     List all the systems within the current environment/directory
   </a>
@@ -6995,6 +7022,33 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#interesting-cim-classes" title="Interesting CIM classes" class="md-nav__link">
+    Interesting CIM classes
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mof-managed-object-format" title="MOF (Managed Object Format)" class="md-nav__link">
+    MOF (Managed Object Format)
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#usages" title="Usages" class="md-nav__link">
+    Usages
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#list-all-the-systems-within-the-current-environmentdirectory" title="List all the systems within the current environment/directory" class="md-nav__link">
     List all the systems within the current environment/directory
   </a>
@@ -7047,7 +7101,7 @@
 <li>Allows</li>
 <li>Execute some code when the notification of an event</li>
 </ul>
-<p><img alt="" src=".assets/WMI architecture.png" /></p>
+<p><img alt="" src="../_assets/WMI architecture.png" /></p>
 <blockquote>
 <ul>
 <li>http://poppopret.blogspot.com/2011/09/playing-with-mof-files-on-windows-for.html</li>
@@ -7059,12 +7113,10 @@
 <li>CIM classes</li>
 <li>hierarchically organized with subclasses</li>
 <li>grouped in namespaces (logical group of classes)</li>
-<li>
-<p>root\cimv2 includes most of the classes that represent computer's resources</p>
-</li>
-<li>
-<p>Interesting CIM classes</p>
-</li>
+<li>root\cimv2 includes most of the classes that represent computer's resources</li>
+</ul>
+<h2 id="interesting-cim-classes">Interesting CIM classes</h2>
+<ul>
 <li><a href="http://msdn.microsoft.com/en-us/library/aa394639%28v=vs.85%29.aspx">__EventFilter</a> [<a href="http://msdn.microsoft.com/en-us/library/aa389741%28VS.85%29.aspx">create</a>]: permits to define a Windows event</li>
 <li><a href="http://msdn.microsoft.com/en-us/library/aa384749%28VS.85%29.aspx">__EventConsumer</a>: (abstract consumer class)<ul>
 <li><a href="http://msdn.microsoft.com/en-us/library/aa394635">ActiveScriptEventConsumer</a>: possible to embed VBScript or JSScript in the consumer (only available in <code>root\subscription</code>)</li>
@@ -7072,27 +7124,20 @@
 <li><code>Vista</code>, it is running under the LOCAL_SERVICE user</li>
 </ul>
 </li>
-<li>
-<p><a href="http://msdn.microsoft.com/en-us/library/aa394647%28v=VS.85%29.aspx">__FilterToConsumerBinding</a>: link two other instances. (permits to activate the consumer - and to execute its code - whenever the defined event occurs)</p>
-</li>
-<li>
-<p><a href="http://msdn.microsoft.com/en-us/library/aa823192%28VS.85%29.aspx">MOF (Managed Object Format)</a></p>
-</li>
+<li><a href="http://msdn.microsoft.com/en-us/library/aa394647%28v=VS.85%29.aspx">__FilterToConsumerBinding</a>: link two other instances. (permits to activate the consumer - and to execute its code - whenever the defined event occurs)</li>
+</ul>
+<hr />
+<h2 id="mof-managed-object-format"><a href="http://msdn.microsoft.com/en-us/library/aa823192%28VS.85%29.aspx">MOF (Managed Object Format)</a></h2>
+<ul>
 <li>Language used to describe CIM classes</li>
-<li>MOF file needs to be registered into the CIM/WMI repository in order to be taken into account by WMI<ul>
+<li>MOF file needs to be registered into the CIM/WMI repository in order to be taken into account by WMI</li>
 <li>CIM class(es) MOF describes are added into the repository</li>
-</ul>
-</li>
-<li>Compilation<ul>
+<li>Compilation</li>
 <li>Compiled using <code>mofcomp.exe</code></li>
-</ul>
-</li>
-<li>Auto compile &amp; register<ul>
+<li>Auto compile &amp; register</li>
 <li>Writable to <code>Administrator</code> only</li>
 <li>Files added to  <code>%SystemRoot%\System32\wbem\mof\</code> get auto compiled and registered (before Vista)</li>
 <li>Logs are in <code>%SystemRoot%\System32\wbem\mof\Logs\mofcomp.log</code></li>
-</ul>
-</li>
 </ul>
 <p>Wait for a windows event and trigger:</p>
 <pre><code>#pragma namespace (&quot;\\\\.\\root\\subscription&quot;)
@@ -7166,8 +7211,8 @@ instance of WoootClass
 
 </code></pre>
 
+<h3 id="usages">Usages</h3>
 <ul>
-<li>Usages</li>
 <li>Automatically kill some processes as soon as they are launched (anti-rootkits...),</li>
 <li>Automatically detect when the backdoor/rootkit has been deleted to load it again (dropper),</li>
 <li>Automatically infect USB devices</li>
