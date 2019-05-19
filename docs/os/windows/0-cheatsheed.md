@@ -42,6 +42,7 @@ invoke-command -computername localhost -credential $credential
 - Find Streams: `​get-item -path *.* -stream *`
 - Reading: `​powershell Get-Content -Path "hm.txt" -Stream "root.txt"`
 - Reading: `get-content backup.zip -stream 'pass'`
+- Reading: `streams.exe /accepteula -s` from sysinternals
 
 ## MSI
 

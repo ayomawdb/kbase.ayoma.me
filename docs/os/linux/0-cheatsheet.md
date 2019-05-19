@@ -588,3 +588,19 @@ tmux -S /.devs/dev_sess​
 ### Microsoft Outlook Personal Folder (PST)
 
 - Examine: `readpst -tea -m example.pst`
+
+## Screenshot
+
+- Need `video` group access
+- Resolution: `cat /sys/class/graphics/fb0/virtual_size`
+- Video feed: Open `​/dev/fb0​` in a image editor
+
+```
+cp /dev/fb0 screenshot.raw
+iraw2png 1024 768 < screenshot.raw > screenshot.png
+
+fbdump
+```
+
+References
+- [https://www.kernel.org/doc/Documentation/fb/framebuffer.txt](https://www.kernel.org/doc/Documentation/fb/framebuffer.txt)

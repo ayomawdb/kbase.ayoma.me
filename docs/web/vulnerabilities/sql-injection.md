@@ -1,6 +1,10 @@
 # SQL Injection
 
 ## Tools
+- SqlMap:
+```
+sqlmap -r sqlmap.req --level=5 --risk=3 --dump-all​
+```
 - AutoSQLi: https://github.com/jesuiscamille/AutoSQLi
 - SQLiDumper: https://www.cybrary.it/0p3n/pentesting-sqli-dumper-v8-tool/
 - Automatic SQL injection with Charles and sqlmap api

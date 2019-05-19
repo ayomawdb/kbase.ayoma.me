@@ -1,4 +1,3 @@
-## LDAP
 
 ### Configuration files
 ```

@@ -22,8 +22,11 @@ padbuster http://10.10.10.18
 -cookies auth=2zKLNWhe0Xt7G4ymYDK%2BEdptckP8a8vO
 -encoding 0 -plaintext user=admin
 ```
+- [Elliptic Curve Cryptography for Python - https://pypi.org/project/seccure/](https://pypi.org/project/seccure/)
 
 ## Encoding/Decoding
+
+- IP to Decimal: [https://www.browserling.com/tools/ip-to-dec](https://www.browserling.com/tools/ip-to-dec)
 
 Binary to ASCII
 ```

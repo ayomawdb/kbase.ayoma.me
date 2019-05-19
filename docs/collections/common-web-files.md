@@ -3,6 +3,7 @@
 pom.xml
 .git
 .svn
+.ssh
 db
 CHANGELOG.txt
 CHANGELOG.md
@@ -40,6 +41,16 @@ config
 backup
 remote
 mvc
+documents
+uploads
+upload
+download
+downloads
+secret
+cgi-bin
+tmp
+temp
+dump
 ```
 
 - SecList/Discovery/Web-Content/common.txt

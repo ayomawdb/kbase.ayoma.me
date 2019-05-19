@@ -1,6 +1,6 @@
 # Home
 
-This repository contains structurally organized, security related quick references, cheat-sheets, and resources maintained by [ayomawdb](https://twitter.com/ayomawdb). 
+This repository contains structurally organized, security related quick references, cheat-sheets, and resources maintained by [ayomawdb](https://twitter.com/ayomawdb).
 
 Please check different categories for more details.
 
@@ -75,6 +75,7 @@ Home page is reserved mainly to list down `pending analysis` and `pending resear
 ## Pending Analysis Tools
 
 - sh00t - A Testing Environment for Manual Security Testers: https://github.com/pavanw3b/sh00t
+- http://rumkin.com/tools
 
 ## Discord Channels
 

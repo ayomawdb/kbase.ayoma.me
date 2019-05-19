@@ -94,3 +94,7 @@ fcrackzip -D -p wordlist.txt -u test.zip
 ## Generators
 - Common password pattern generator using strings list: [https://github.com/localh0t/m4ngl3m3](https://github.com/localh0t/m4ngl3m3)
 - A script for generating custom passphrase lists to be used for password cracking with hashcat rules: [https://github.com/dafthack/PassphraseGen](https://github.com/dafthack/PassphraseGen)
+
+## Extraction
+
+- Firefox Decrypt - Tool to extract passwords from Mozilla (Firefox/Thunderbird/Seabird) profiles: [https://github.com/unode/firefox_decrypt](https://github.com/unode/firefox_decrypt)

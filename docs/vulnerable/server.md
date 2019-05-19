@@ -13,3 +13,4 @@
 | Zabbix | 2.2 < 3.0.3 |  | RCE | [exploit-db](https://www.exploit-db.com/exploits/39937) |   |
 | CouchDB | < 2.1.0 | CVE-2017-12636 | RCE | [exploit-db](https://www.exploit-db.com/exploits/44913/) <br> [ref](https://justi.cz/security/2017/11/14/couchdb-rce-npm.html) |   |
 | PlaySMS | 1.4 |  | RCE | [exploit-db](https://www.exploit-db.com/exploits/42044) |   |
+| ImageMagick  | < 6.9.3-9 <br> released 2016-04-30  | CVE-2016–3714 | RCE | [https://imagetragick.com/](https://imagetragick.com/) |   |

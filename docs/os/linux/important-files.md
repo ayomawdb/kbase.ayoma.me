@@ -90,3 +90,10 @@ mail.* /var/log/mail
 ```
 Log all events of the emergency priority (emerg) to all logged on users.
 ```
+
+## Squid Proxy
+
+```
+/etc/squid/squid.conf
+/etc/squid/passwords
+```
