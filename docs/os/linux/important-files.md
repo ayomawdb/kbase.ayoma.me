@@ -97,3 +97,17 @@ Log all events of the emergency priority (emerg) to all logged on users.
 /etc/squid/squid.conf
 /etc/squid/passwords
 ```
+
+## Apache
+
+```
+/etc/apache2/sites-enabled/000-default.conf
+/etc/apache/sites-enabled/000-default.conf
+/etc/httpd/sites-enabled/000-default.conf
+```
+
+## TFTPD
+
+```
+/etc/default/tftpd-hpa
+```

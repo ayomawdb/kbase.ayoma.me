@@ -11,6 +11,7 @@ CHANGELOG
 COPYRIGHT
 LICENSE
 README.md
+VERSION
 VERSION.md
 VERSIONS.md
 version
@@ -51,6 +52,9 @@ cgi-bin
 tmp
 temp
 dump
+composer.json
+project.json
+lib
 ```
 
 - SecList/Discovery/Web-Content/common.txt

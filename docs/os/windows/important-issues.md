@@ -203,3 +203,15 @@ References:
 - [Additional information about CVE-2014-6324](https://blogs.technet.microsoft.com/srd/2014/11/18/additional-information-about-cve-2014-6324/)
 - [Attack Methods for Gaining Domain Admin Rights in Active Directory](https://adsecurity.org/?p=2362)
 - HTB - Mantis
+
+### CVE-2017-0213 - COM Aggregate Marshaler/IRemUnknown2 Type Confusion Privilege Escalation
+
+- 10, 7, 8.1, 2008, 2008 R2, 2012, 2012 R2, 2016
+- When accessing an OOP COM object using IRemUnknown2 the local unmarshaled proxy can be for a different interface to that requested by QueryInterface resulting in a type confusion which can result in EoP.
+
+Exploit:
+- [https://github.com/WindowsExploits/Exploits/tree/master/CVE-2017-0213](https://github.com/WindowsExploits/Exploits/tree/master/CVE-2017-0213)
+
+References:
+- [https://bugs.chromium.org/p/project-zero/issues/detail?id=1107](https://bugs.chromium.org/p/project-zero/issues/detail?id=1107)
+- [https://www.exploit-db.com/exploits/42020](https://www.exploit-db.com/exploits/42020)

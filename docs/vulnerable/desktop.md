@@ -3,6 +3,7 @@
 | Software | Version  | Vulnerability     | References | Msf |
 | :------- | :------- | :---------------- | :--------- | :-- |
 | Chkrootkit | 0.49 | Prev Esc | [exploit-db](https://www.exploit-db.com/exploits/33899) |   |
+| Mozilla Firefox | < 45.0 | RCE | [exploit-db](https://www.exploit-db.com/exploits/42484)  |   |
 
 ## Uncategorized
 - Vsftpd 2.3.4 - does have a built-in backdoor

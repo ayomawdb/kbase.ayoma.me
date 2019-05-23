@@ -11,6 +11,12 @@ davtest -url http://grandpa.htb/
 cadaver http://10.10.10.15
 ```
 
+### Upload file
+
+```
+curl --upload-file ./example.php --user user:password http://<ip>/webdav_url
+```
+
 ## Exploits:
 - IIS 6.0 in Microsoft Windows Server 2003 R2 (CVE-2017-7269): iis_webdav_scstoragepathfromurl
     - https://www.rapid7.com/db/modules/exploit/windows/iis/iis_webdav_scstoragepathfromurl
