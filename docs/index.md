@@ -40,7 +40,8 @@ Home page is reserved mainly to list down `pending analysis` and `pending resear
 
 ## Blogs
 
-- https://blog.0patch.com
+- [https://blog.0patch.com](https://blog.0patch.com)
+- [https://scriptdotsh.com](https://scriptdotsh.com)
 
 ## POC Repos
 

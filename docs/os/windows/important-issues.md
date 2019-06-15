@@ -1,4 +1,4 @@
-## Exploits
+## Remote Exploits
 
 ### IIS
 
@@ -32,6 +32,30 @@ References:
 - [https://blogs.technet.microsoft.com/srd/2017/06/29/eternal-champion-exploit-analysis/](https://blogs.technet.microsoft.com/srd/2017/06/29/eternal-champion-exploit-analysis/)
 - [https://github.com/qazbnm456/awesome-cve-poc/blob/master/MS17-010.md](https://github.com/qazbnm456/awesome-cve-poc/blob/master/MS17-010.md)
 - [https://blog.rapid7.com/2017/05/19/metasploit-the-power-of-the-community-and-eternalblue/](https://blog.rapid7.com/2017/05/19/metasploit-the-power-of-the-community-and-eternalblue/)
+
+### Active Directory / Kerberos 
+
+#### MS14-068 (PyKEK)
+- KDC did not validate PAC checksum correctly
+- Can rewrite ticket to be domain admin
+- Internals
+	- Request TGT with no PAC
+	- Create a forged PAC signed with user's password hash 
+	- TGT is sent with forged PAC as the authenticator 
+	- KDS does validation
+		- Request is for a Service Tickect with no PAC
+		- Sees that TGT is with no PAC
+		- Takes the forged PAC in the authenticator 
+		- Include that in a new TGT and use it for issueing Service Ticket  
+	- Request a deligation ticket to get it woking across DCs 
+
+Detect by:
+- AS-REQ and TGS-REQ both containing "Include PAC:false"
+
+Fix:
+- Apply KB3011780 before DCPromo
+- 
+
 
 ## Other (Local)
 
@@ -142,6 +166,7 @@ References:
 
 Exploits:
 - [Python Kerberos Exploitation Kit - https://github.com/SecWiki/windows-kernel-exploits/tree/master/MS14-068/pykek](https://github.com/SecWiki/windows-kernel-exploits/tree/master/MS14-068/pykek)
+- [The Mystery of Duqu 2.0: a sophisticated cyberespionage actor returns](https://securelist.com/the-mystery-of-duqu-2-0-a-sophisticated-cyberespionage-actor-returns/70504/)
 
 ```
 apt-get install krb5-user cifs-utils rdate
@@ -191,7 +216,7 @@ mv TGT_James@HTB.local.ccache /tmp/krb5cc_0
 With Impacket (Golden PAC module):
 - `kinit james`  (options ?)
 - `klist` (options ?)
-- ​`python goldenPac.py htb.local/james@mantis.htb.local`​
+- `python goldenPac.py htb.local/james@mantis.htb.local`​
 - Entering the password for the ​ `james` ​ user
 
 Manually:
@@ -215,3 +240,5 @@ Exploit:
 References:
 - [https://bugs.chromium.org/p/project-zero/issues/detail?id=1107](https://bugs.chromium.org/p/project-zero/issues/detail?id=1107)
 - [https://www.exploit-db.com/exploits/42020](https://www.exploit-db.com/exploits/42020)
+
+### MS11-013

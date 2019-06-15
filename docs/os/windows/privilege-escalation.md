@@ -357,12 +357,12 @@ C:\Windows\System32\sysprep\
 - `GPP` allows for configuration of Domain-attached machines via `group policy`.
 - GPPs are stored in the `SYSVOL` share, which is world-readable to authenticated users.
 - Domain machines periodically reach out and authenticate to the Domain Controller utilizing the Domain credentials of the `logged-in user` and pull down policies.
-- Group Policies for account management are stored on the Domain Controller in `Groups.xml` files buried in the `SYSVOL` folder
+- Group Policies for account management are stored on the Domain Controller in `Groups.xml` files buried in the `SYSVOL` folder (`\\Domain\SYSVOL\<DOMAIN>\Policies`)
 - `cpassword` is used to set passwords for the Local Administrator account.
-- Password is AES encrypted using a published key: [https://msdn.microsoft.com/en-us/library/Cc422924.aspx](https://msdn.microsoft.com/en-us/library/Cc422924.aspx)
-
+- Password is AES-256 encrypted using a published key: [https://msdn.microsoft.com/en-us/library/Cc422924.aspx](https://msdn.microsoft.com/en-us/library/Cc422924.aspx)
 - Metasploit: `post/windows/gather/credentials/gpp`
 - PowerSploit: https://github.com/PowerShellMafia/PowerSploit/blob/master/Exfiltration/Get-GPPPassword.ps1
+- `Get-DecryptedPassword` to decrypt the AES encryption
 
 Decrypt encrypted password:
 ```
@@ -376,6 +376,11 @@ Get-NetOU -GUID "{4C86DD57-4040-41CD-B163-58F208A26623}" | %{ Get-NetComputer -A
 ```
 
 - Future - Local Administrator Password Solution (LAPS): https://www.microsoft.com/en-us/download/details.aspx?id=46899
+
+#### Defense 
+
+- Prevent passwords from getting added to GPP (KB2962486) and delete existing GPP from SYSVOL containing passwords.
+- **[ALERTING]** Detect by setting Everyone:DENY on SYSVOL GPP file. (Logs: Audit access denied)
 
 ### Token Impersonation
 
@@ -482,7 +487,28 @@ wmic qfe get Caption,Description,HotFixID,InstalledOn
 ```
 KiTrap0d
 
+## Using logical flaws
+
+### Directory Replication Service (DRSR)
+
+###Netlogon Remote Service (NRPC)
+
+###BackupKey Remote Service (BKRP)
+
+###Local Service Authority (Domain Policy) Remote Protocol (LSAD)
+
+###Privilege Attribute Certificate Data Structure (PAC)
+
+### Kerberos 
+
+#### Kerberos Protocol Extension (KILE)
+
+#### Kerberos Protocol Extension, Service for User and Constrained Delegation Protocol (SFU)
+
+### 
+
 ## References
+
 > - https://pentest.blog/windows-privilege-escalation-methods-for-pentesters/
 > - http://www.greyhathacker.net/?p=738
 > - https://toshellandback.com/2015/11/24/ms-priv-esc

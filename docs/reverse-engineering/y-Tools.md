@@ -1,6 +1,9 @@
 # Tools
 
+- Diaphora - is a program diffing plugin for IDA / Ghidra: [https://github.com/joxeankoret/diaphora](https://github.com/joxeankoret/diaphora)
+
 ## Collections
+
 - Vagrant box with binary analysis tools: https://github.com/Hamz-a/binanalysisbox
 
 ## radare2

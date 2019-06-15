@@ -2,6 +2,7 @@
 - Exam Day Prep: https://www.vortex.id.au/2017/05/oscp-exam-preparation-exam-day-report-day/
 - https://guide.offsecnewbie.com/
 - TJNulls_Preparation_Guide: https://www.netsecfocus.com/oscp/2019/03/29/The_Journey_to_Try_Harder-_TJNulls_Preparation_Guide_for_PWK_OSCP.html
+- https://scriptdotsh.com/index.php/2018/04/17/31-days-of-oscp-experience/
 
 # Focused Cheetsheets
 - Cheatsheets:  https://ired.team/ / https://github.com/jmfrouin/Offensive-Security-OSCP-Cheatsheets
