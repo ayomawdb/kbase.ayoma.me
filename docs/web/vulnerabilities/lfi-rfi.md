@@ -17,3 +17,4 @@ Return <?php echo "test"?> from SQL and see results to check if RCE is possible 
 
 ## References
 - Universal LFI for Windows + PHP (using phpinfo): https://rdot.org/forum/showthread.php?t=1134
+- https://www.owasp.org/index.php/Path_Traversal

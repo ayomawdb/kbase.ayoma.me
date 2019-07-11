@@ -105,3 +105,12 @@ It is possible that the set of updates is too large for only one response messag
 Utility to generate a summary of a Windows system
 
 https://github.com/bitsadmin/miscellaneous/blob/master/localrecon.cmd
+
+## Other 
+
+- BloodHound uses graph theory to reveal the hidden and often unintended relationships within an Active Directory environment: [https://github.com/BloodHoundAD/BloodHound](https://github.com/BloodHoundAD/BloodHound)
+- Empire is a post-exploitation framework that includes a pure-PowerShell2.0 Windows agent, and a pure Python 2.6/2.7 Linux/OS X agent: [https://github.com/EmpireProject/Empire](https://github.com/EmpireProject/Empire)
+- A little toolbox to play with Microsoft Kerberos in C: [https://github.com/gentilkiwi/kekeo/](https://github.com/gentilkiwi/kekeo/)
+- A little tool to play with Windows security: [https://github.com/gentilkiwi/mimikatz](https://github.com/gentilkiwi/mimikatz)
+- C# toolset for raw Kerberos interaction and abuses: [https://github.com/GhostPack/Rubeus](https://github.com/GhostPack/Rubeus)
+- C# project that performs a number of security oriented host-survey "safety checks": [https://github.com/GhostPack/Seatbelt](https://github.com/GhostPack/Seatbelt)

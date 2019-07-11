@@ -21,7 +21,6 @@ Home page is reserved mainly to list down `pending analysis` and `pending resear
 
 - ComputerSecurityStudent - Metasploitable Project >> Exploits: https://www.computersecuritystudent.com/cgi-bin/CSS/process_request_v3.pl?HID=f213c73c216e2231c8f0d65f3d93ac18&TYPE=SUB
 - Exploit collection - https://github.com/jivoi/pentest
-
 - Hacking Methodology: https://www.greycampus.com/opencampus/ethical-hacking/hacking-methodology
   - https://twitter.com/Alra3ees/status/1075569238474141697
 - Red Team Tips: https://vincentyiu.co.uk/red-team-tips/
@@ -42,6 +41,7 @@ Home page is reserved mainly to list down `pending analysis` and `pending resear
 
 - [https://blog.0patch.com](https://blog.0patch.com)
 - [https://scriptdotsh.com](https://scriptdotsh.com)
+- [https://room362.com/blog](https://room362.com/blog)
 
 ## POC Repos
 
@@ -120,6 +120,7 @@ Home page is reserved mainly to list down `pending analysis` and `pending resear
 - universal command-line interface for SQL databases: https://github.com/xo/usql
 - Video editing: https://twitter.com/digininja/status/1007936435129847808
 - Multitail - Look at multiple log files in the same time
+- A collection of security related toolsets (mostly Windows): [https://github.com/GhostPack](https://github.com/GhostPack)
 
 ## Pending Reads
 

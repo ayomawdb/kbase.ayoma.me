@@ -71,6 +71,26 @@ ldd <filename>
 
 ### File Permissions
 
+Permission in numeric mode
+
+```
+0 = No Permission
+1 = Execute
+2 = Write
+4 = Read
+```
+
+Commands 
+
+```
+chmod 
+chown
+chgrp
+
+```
+
+
+
 #### Setuid - Set User ID
 The process's effective user ID gets set to that of the program file itself (rather than that of the user running it).
 
@@ -116,7 +136,7 @@ whereis sdb
 ```
 find  /  -­‐name  sbd*
 find / --name sdb* --exec file {} \;
-  ```
+```
 
 #### Search for hidden (dot) files
 ```

@@ -1,5 +1,9 @@
 - Exam Guide: https://support.offensive-security.com/oscp-exam-guide/
 - Exam Day Prep: https://www.vortex.id.au/2017/05/oscp-exam-preparation-exam-day-report-day/
+
+- Exam requirements (also contains reporting requirements): https://support.offensive-security.com/#!oscp-exam-guide.md
+- PWK support page: https://support.offensive-security.com/#!pwk-support.md
+
 - https://guide.offsecnewbie.com/
 - TJNulls_Preparation_Guide: https://www.netsecfocus.com/oscp/2019/03/29/The_Journey_to_Try_Harder-_TJNulls_Preparation_Guide_for_PWK_OSCP.html
 - https://scriptdotsh.com/index.php/2018/04/17/31-days-of-oscp-experience/
@@ -7,6 +11,8 @@
 # Focused Cheetsheets
 - Cheatsheets:  https://ired.team/ / https://github.com/jmfrouin/Offensive-Security-OSCP-Cheatsheets
 - OSCP-Cheatsheet-God: https://github.com/sumas/OSCP-Cheatsheet-God
+- [http://pwnwiki.io](http://pwnwiki.io)
+- [https://jivoi.github.io/2015/07/01/pentest-tips-and-tricks/](https://jivoi.github.io/2015/07/01/pentest-tips-and-tricks/)
 
 # Guides
 - Module Prep Guide: https://tulpasecurity.files.wordpress.com/2016/09/tulpa-pwk-prep-guide1.pdf
@@ -156,6 +162,14 @@
 > * Linux: LinEnum - https://github.com/rebootuser/LinEnum
 > * http://resources.infosecinstitute.com/privilege-escalation-linux-live-examples/#gref
 
+- [Basic Linux Privilege Escalation (g0tmi1k)](http://blog.g0tmi1k.com/2011/08/basic-linux-privilege-escalation.html)
+
+- [Linux/Unix privileges from a blackhats perspective](http://incolumitas.com/wp-content/uploads/2012/12/blackhats_view.pdf)
+
+- [Automated Unix Privilege Escalation Check (pentestmonkey)](http://pentestmonkey.net/tools/audit/unix-privesc-check)
+
+  
+
 # Privilege Escalation - Windows
 > * https://github.com/pentestmonkey/windows-privesc-check
 > * Windows Privilege Escalation Methods for Pentesters: https://pentest.blog/windows-privilege-escalation-methods-for-pentesters/
@@ -167,6 +181,8 @@
 
 * Windows: Privilege Escalation Fundamentals - http://www.fuzzysecurity.com/tutorials/16.html
 * Practical Windows Privilege Escalation - https://www.youtube.com/watch?v=PC_iMqiuIRQ
+* [Automated Windows Privilege Escalation Check (pentestmonkey)](http://pentestmonkey.net/tools/windows-privesc-check)
+* [Windows Privilege Escalation – a cheatsheet (Tim Arneaud)](http://it-ovid.blogspot.com/2012/02/windows-privilege-escalation.html)
 
 # Privilege Escalation - Common
 > - MySQL Root to System Root with UDF -
@@ -213,3 +229,27 @@ https://www.adampalmer.me/iodigitalsec/2013/08/13/mysql-root-to-system-root-with
 
 # Payloads
 - Creating Metasploit Payloads: https://netsec.ws/?p=331
+
+
+
+## Sites 
+
+[OSCP Exam Guide](https://support.offensive-security.com/#!oscp-exam-guide.md), [PentestMonkey](http://pentestmonkey.net/cheat-sheet/shells/reverse-shell-cheat-sheet), [Hash Cracking Sites](https://hashkiller.co.uk/md5-decrypter.aspx), [Privilege Escalation](https://blog.g0tmi1k.com/2011/08/basic-linux-privilege-escalation/), [Practical OSCP Tips/Tricks](https://medium.com/@hakluke/haklukes-ultimate-oscp-guide-part-3-practical-hacking-tips-and-tricks-c38486f5fc97), [Exploit-DB](https://www.exploit-db.com/), [Low Priv Enum Linux (g0tmi1k)](https://blog.g0tmi1k.com/2011/08/basic-linux-privilege-escalation/), [Default Credentials (open-sez.me)](http://open-sez.me/), [RTFM online](https://doc.lagout.org/rtfm-red-team-field-manual.pdf), [0daysecurity master enumeration](http://0daysecurity.com/penetration-testing/enumeration.html), [how to use vi (for the brave)](https://staff.washington.edu/rells/R110/), [GTFO bins](https://gtfobins.github.io/) (love these), [LOL Bins](https://github.com/api0cradle/LOLBAS)
+
+
+
+[Corelan Buffer Overflow Exploit Part 1](https://www.corelan.be/index.php/2009/07/19/exploit-writing-tutorial-part-1-stack-based-overflows/)
+
+[Buffer Overflow Guide](https://youtu.be/p2UZmO5re1g) by Stefan Molls 
+
+
+
+[File Transfer Guide](https://sushant747.gitbooks.io/total-oscp-guide/transfering_files_to_windows.html),[ SQL Auth Bypass](https://pentestlab.blog/2012/12/24/sql-injection-authentication-bypass-cheat-sheet/), [SQL Injection Cheat Sheet](http://pentestmonkey.net/cheat-sheet/sql-injection/mssql-sql-injection-cheat-sheet), [Metasploit Basics](https://www.offensive-security.com/metasploit-unleashed/meterpreter-basics/), [LFI Cheat Sheet](https://highon.coffee/blog/lfi-cheat-sheet/), [Cold Fusion Cheat Sheet](https://nets.ec/Coldfusion_hacking#Remote_File_Disclosure_of_Password_Hashes), [All The Things Payloads](https://github.com/swisskyrepo/PayloadsAllTheThings), [Ultimate Windows Priv Esc Methods](https://pentest.blog/windows-privilege-escalation-methods-for-pentesters/), [NFS Attacks](https://www.youtube.com/watch?v=FlRAA-1UXWQ&feature=youtu.be), [Michael LaSalvia: Path to the OSCP](https://www.youtube.com/user/genxweb), [Rumkin Cyphers](http://rumkin.com/tools/cipher/), [All the Exploit Papers](https://www.exploit-db.com/papers/), and [OSCP Practical Tips](https://medium.com/@hakluke/haklukes-ultimate-oscp-guide-part-3-practical-hacking-tips-and-tricks-c38486f5fc97).
+
+
+
+**Movie**: Zero Days
+
+**Audio Books**: Deep Work, The Art of Invisibility, Grit, 
+Spam Nation, Red Team: How to think like the enemy, Ghost in the Wires, 
+The Girl With the Dragon Tattoo, and Mastery.
