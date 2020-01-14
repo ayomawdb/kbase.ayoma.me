@@ -33,29 +33,51 @@ References:
 - [https://github.com/qazbnm456/awesome-cve-poc/blob/master/MS17-010.md](https://github.com/qazbnm456/awesome-cve-poc/blob/master/MS17-010.md)
 - [https://blog.rapid7.com/2017/05/19/metasploit-the-power-of-the-community-and-eternalblue/](https://blog.rapid7.com/2017/05/19/metasploit-the-power-of-the-community-and-eternalblue/)
 
-### Active Directory / Kerberos 
+### Active Directory / Kerberos
 
 #### MS14-068 (PyKEK)
 - KDC did not validate PAC checksum correctly
 - Can rewrite ticket to be domain admin
 - Internals
 	- Request TGT with no PAC
-	- Create a forged PAC signed with user's password hash 
-	- TGT is sent with forged PAC as the authenticator 
+	- Create a forged PAC signed with user's password hash
+	- TGT is sent with forged PAC as the authenticator
 	- KDS does validation
 		- Request is for a Service Tickect with no PAC
 		- Sees that TGT is with no PAC
-		- Takes the forged PAC in the authenticator 
+		- Takes the forged PAC in the authenticator
 		- Include that in a new TGT and use it for issueing Service Ticket  
-	- Request a deligation ticket to get it woking across DCs 
+	- Request a deligation ticket to get it woking across DCs
 
 Detect by:
 - AS-REQ and TGS-REQ both containing "Include PAC:false"
 
 Fix:
 - Apply KB3011780 before DCPromo
-- 
 
+
+### RPC
+
+#### MS03-026 - DCOM RPC Overflow Discovered by LSD
+
+Over Port - 135
+Exploit:
+- https://github.com/SecWiki/windows-kernel-exploits/tree/master/MS03-026
+
+References:
+- https://github.com/SecWiki/windows-kernel-exploits/tree/master/MS03-026
+- https://www.trustwave.com/en-us/resources/blogs/spiderlabs-blog/10-years-on-a-look-back-at-ms08-067/
+
+#### MS05-017
+
+Exploit:
+- https://raw.githubusercontent.com/offensive-security/exploitdb/master/exploits/windows/remote/1075.c
+
+#### MS07-029 - Microsoft DNS RPC Service extractQuotedChar() Overflow (TCP)
+
+
+
+#### MS07-065
 
 ## Other (Local)
 

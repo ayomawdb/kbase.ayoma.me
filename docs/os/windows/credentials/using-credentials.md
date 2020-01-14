@@ -31,7 +31,7 @@ net view \\machine-name /all
 PsExec is a light-weight telnet-replacement that lets you execute processes on other systems, complete with full interactivity for console applications, without having to manually install client software
 ```
 ```
-PsExec.exe \\machinename -u user@domainname -p password cmd.exe
+\\machinename -u user@domainname -p password cmd.exe
 ```
 - `-s` to get `SYSTEM` shell
 - Use runas to use Kerberos TGT and avoid giving password:

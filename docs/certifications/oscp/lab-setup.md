@@ -12,8 +12,10 @@ alias rdp='rdesktop -g 85% -u offsec -p PASSWORD_HERE 10.11.14.134 &'
 alias mapshare='ln -s /mnt/hgfs/Pwn_Share/ /root/pwnshare'
 alias l='ls -la'
 alias webup='python -m SimpleHTTPServer 80'
+
 //  run tcpdump’s from VPN interface and to only look at source IP’s from the other attackers range and with a destination of my assigned IP
 alias shieldsup='tcpdump -i tap0 -nnvv src net 10.11.0.0/24 and dst 10.11.0.54 -w - | tee capture.pcap | tcpdump -n -r -'
+
 alias ss='searchsploit $1'
 alias ssx='searchsploit -x $1'
 ```
@@ -27,4 +29,22 @@ alias ssx='searchsploit -x $1'
 /etc/hosts
 /etc/init.d
 /usr/sbin
+```
+
+## Terminator
+- Terminator Scrollback
+```
+- Ctrl + Shift + O = Vertical split
+- Ctrl + Shift + E = Horizontal split
+- Ctrl + Shift + Z = Maximizes
+- Ctrl + Shift + T = New tab
+- Ctrl + Shift + C = Copy
+- Ctrl + Shift + V = Paste
+```
+
+## Proxychains
+
+/etc/proxychains.conf
+```
+Comment: proxy_dns
 ```

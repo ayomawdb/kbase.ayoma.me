@@ -1,6 +1,28 @@
 # Important Files / Folders
 
+## Collections
+
+- GTFOBins is a curated list of Unix binaries that can be exploited by an attacker to bypass local security restrictions: [https://gtfobins.github.io/](https://gtfobins.github.io/)
+- [https://www.gracefulsecurity.com/path-traversal-cheat-sheet-linux/](https://www.gracefulsecurity.com/path-traversal-cheat-sheet-linux/)/path-traversal-cheat-sheet-linux/
+
+## Proc
+
+- `/proc/self/environ` - environment variables
+
+## User Information
+
+```
+/etc/passwd
+```
+
+## Email
+
+```
+/var/log/mail/USER
+```
+
 ## Private keys
+
 ```
 ~/.ssh/id_rsa
 ```
@@ -101,6 +123,7 @@ Log all events of the emergency priority (emerg) to all logged on users.
 ## Apache
 
 ```
+/var/log/apache2/access.log
 /etc/apache2/sites-enabled/000-default.conf
 /etc/apache/sites-enabled/000-default.conf
 /etc/httpd/sites-enabled/000-default.conf
@@ -110,4 +133,11 @@ Log all events of the emergency priority (emerg) to all logged on users.
 
 ```
 /etc/default/tftpd-hpa
+```
+
+## PHP Sessions
+
+```
+/tmp/sess_ID
+/var/lib/php5/sess_ID
 ```

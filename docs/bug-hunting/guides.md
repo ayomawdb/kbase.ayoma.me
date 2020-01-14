@@ -9,7 +9,7 @@
 - [Getting started in bugbounties](https://www.bugbountynotes.com/getting-started)
 
 ## Writeup Collections
-- https://pentester.land/list-of-bug-bounty-writeups.html
+- [https://pentester.land/list-of-bug-bounty-writeups.html](https://pentester.land/list-of-bug-bounty-writeups.html)
 
 ## Writeups
 
@@ -18,3 +18,4 @@
 
 ### Google writeups
 - [$7.5k Google Cloud Platform organization issue](https://www.ezequiel.tech/2019/01/75k-google-cloud-platform-organization.html)
+

@@ -9,6 +9,25 @@ Home page is reserved mainly to list down `pending analysis` and `pending resear
 ## Cheatsheets
 
 - http://cheat.sh/
+- Nmap: https://blogs.sans.org/pen-testing/files/2013/10/NmapCheatSheetv1.1.pdf
+- Wireshark: [https://packetlife.net/media/library/13/Wireshark_Display_Filters.pdf](https://packetlife.net/media/library/13/Wireshark_Display_Filters.pdf)
+- TcpDump: [https://packetlife.net/media/library/12/tcpdump.pdf](https://packetlife.net/media/library/12/tcpdump.pdf)
+- Netcat: [https://www.sans.org/security-resources/sec560/netcat_cheat_sheet_v1.pdf](https://www.sans.org/security-resources/sec560/netcat_cheat_sheet_v1.pdf)
+- Ncat: [https://medium.com/@pentest_it/ncat-cheatsheet-ddc5f07d8533](https://medium.com/@pentest_it/ncat-cheatsheet-ddc5f07d8533)
+- Scapy: [https://blogs.sans.org/pen-testing/files/2016/04/ScapyCheatSheet_v0.2.pdf](https://blogs.sans.org/pen-testing/files/2016/04/ScapyCheatSheet_v0.2.pdf)
+- Powershell: https://blogs.sans.org/pen-testing/files/2016/05/PowerShellCheatSheet_v41.pdf
+- Metasploit: [https://blogs.sans.org/pen-testing/files/2017/02/MetasploitCheatsheet2.0.pdf](https://blogs.sans.org/pen-testing/files/2017/02/MetasploitCheatsheet2.0.pdf)
+
+
+
+- Reverse Shell: [https://highon.coffee/blog/reverse-shell-cheat-sheet/](https://highon.coffee/blog/reverse-shell-cheat-sheet/)
+- Pentest Tools: [https://highon.coffee/blog/penetration-testing-tools-cheat-sheet/](https://highon.coffee/blog/penetration-testing-tools-cheat-sheet/)
+- LFI: [https://highon.coffee/blog/lfi-cheat-sheet/](https://highon.coffee/blog/lfi-cheat-sheet/)
+- VI: [https://highon.coffee/blog/vi-cheat-sheet/](https://highon.coffee/blog/vi-cheat-sheet/)
+- Systemd: [https://highon.coffee/blog/systemd-cheat-sheet/](https://highon.coffee/blog/systemd-cheat-sheet/)
+- Nbtscan: [https://highon.coffee/blog/nbtscan-cheat-sheet/](https://highon.coffee/blog/nbtscan-cheat-sheet/)
+- Nmap: [https://highon.coffee/blog/nmap-cheat-sheet/](https://highon.coffee/blog/nmap-cheat-sheet/)
+- Linux: [https://highon.coffee/blog/linux-commands-cheat-sheet/](https://highon.coffee/blog/linux-commands-cheat-sheet/)
 
 ## Day-to-day Tools
 
@@ -16,9 +35,13 @@ Home page is reserved mainly to list down `pending analysis` and `pending resear
   - [https://www.youtube.com/watch?v=LnhSTZgzKuY](https://www.youtube.com/watch?v=LnhSTZgzKuY)
 - GoogleToolbox: [https://toolbox.googleapps.com/apps/main/](https://toolbox.googleapps.com/apps/main/)
   - Browserinfo, MX, Dig, HAR, Log Analyzer, Mail Headers, Encode/Decode
+- https://pentest.ws/
 
 ## Other Collections
 
+- [Rawsec's CyberSecurity Inventory](https://inventory.rawsec.ml/resources.html)
+- https://chryzsh.gitbooks.io/pentestbook/
+-
 - ComputerSecurityStudent - Metasploitable Project >> Exploits: https://www.computersecuritystudent.com/cgi-bin/CSS/process_request_v3.pl?HID=f213c73c216e2231c8f0d65f3d93ac18&TYPE=SUB
 - Exploit collection - https://github.com/jivoi/pentest
 - Hacking Methodology: https://www.greycampus.com/opencampus/ethical-hacking/hacking-methodology
@@ -42,6 +65,7 @@ Home page is reserved mainly to list down `pending analysis` and `pending resear
 - [https://blog.0patch.com](https://blog.0patch.com)
 - [https://scriptdotsh.com](https://scriptdotsh.com)
 - [https://room362.com/blog](https://room362.com/blog)
+- [https://root4loot.com/](https://root4loot.com/)
 
 ## POC Repos
 
@@ -141,3 +165,9 @@ VPN Services:
 - https://www.linkedin.com/in/kushantha
 - https://www.linkedin.com/in/chanakaseekkuge/
 -
+
+## Scripts
+
+```
+tr -s ' ' | tr '\t' ' ' | sed 's/:/ |/' | sed 's/- /| /' | sed -e 's/$/ |/'
+```

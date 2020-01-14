@@ -10,6 +10,7 @@
 | SMB 3.0.2 | Windows 8.1 and Windows Server 2012 R2 |
 | SMB 3.1.1 | Windows 10 and Windows Server 2016 |
 
+
 ## Ports
 
 netbios-ns `137/tcp` # (NBT over IP) NETBIOS Name Service
@@ -44,14 +45,32 @@ For group names:
 1E: Browser Service Elections
 ```
 
+## Version
+```
+auxiliary/scanner/smb/smb_version
+```
+
+## Brute force
+```
+auxiliary/scanner/smb/smb_login
+```
+
+## User enumerate
+```
+scanner/smb/smb_lookupsid
+```
+
 ## Scanning
 
 > - Ref: [https://www.hackingarticles.in/a-little-guide-to-smb-enumeration/](https://www.hackingarticles.in/a-little-guide-to-smb-enumeration/)
 
 ### nmap
+```
+ls -lh /usr/share/nmap/scripts/smb*
+```
 
 ```
-nmap --script safe -445 $ip
+nmap --script safe -p445 $ip
 ```
 
 ```
@@ -64,11 +83,23 @@ nmap -p 139,446 $ip --open
 
 ```
 nmap ‐v ‐p 139,445 -‐script smb‐*  $ip
+nmap ‐v ‐p 139,445 --script vuln $ip
 nmap ‐v ‐p 139,445 -‐script smb‐vuln*  $ip
 nmap ‐v ‐p 139,445 -‐script smb‐security‐mode  $ip
 nmap ‐v ‐p 139,445 -‐script smb‐os-discovery  $ip
 nmap ‐v ‐p 139,445 -‐script smb‐check-vulns --script-args=unsafe=1  $ip
 ```
+
+```
+smb-vuln-conficker
+smb-vuln-cve2009-3103
+smb-vuln-ms06-025
+smb-vuln-ms07-029
+smb-vuln-regsvc-dos
+smb-vuln-ms08-067
+```
+
+https://security.stackexchange.com/questions/119827/missing-scripts-in-nmap
 
 ### nmblookup
 
@@ -96,6 +127,14 @@ nbtstat $ip
 nbtscan -‐r $ip/24
 ```
 
+- nbtstat -c: displays the contents of the NetBIOS name cache, the table of NetBIOS names and their resolved IP addresses.
+- nbtstat -n: displays the names that have been registered locally on the system.
+- nbtstat -r: displays the count of all NetBIOS names resolved by broadcast and querying a WINS server.
+- nbtstat -R: purges and reloads the remote cache name table.
+- nbtstat -RR: sends name release packets to WINs and then starts Refresh.
+- nbtstat -s: lists the current NetBIOS sessions and their status, including statistics.
+- nbtstat -S: lists sessions table with the destination IP addresses.
+
 ### SMBMap - enumerate samba share drives across an entire domain
 
 - Allows users to enumerate samba share drives across an entire domain
@@ -110,6 +149,7 @@ smbmap -H $ip
 ```
 
 ```
+smbmap -u "" -p "" -d <workgroup> -H $ip
 smbmap -u <user> -p <password> -d <workgroup> -H $ip
 smbmap -u <user> -p <password> -d <workgroup> -H $ip -L  #test command execution
 smbmap -u <user> -p <password> -d <workgroup> -H $ip -r  #read drive
@@ -136,6 +176,10 @@ smbmap -R $sharename -H $ip -A $fileyouwanttodownload -q
 - Operations
   - Upload/download functionality
   - Retrieving directory information
+```
+smbclient -L \\WIN7\IPC$ -I 192.168.13.218
+smbclient \\192.168.13.236\some-share -o user=root,pass=root,workgroup=BOB
+```
 
 ```
 smbclient -L $ip
@@ -149,6 +193,11 @@ smbclient -L //server/share password options
 smb: \> RECURSE ON
 smb: \> PROMPT OFF
 smb: \> mget *
+```
+
+Upload file:
+```
+smbclient //192.168.31.142/ADMIN$ -U "nobody"%"somepassword" -c "put 40280.py"
 ```
 
 ### rpcclient
@@ -220,6 +269,12 @@ sudo apt-get install cifs-utils
 ```
 mkdir /mnt/$shareName
 mount -t cifs //$ip/$shareName /mnt/$shareName -o username=$username,password=$password,domain=$domain
+
+mount -t auto --source //192.168.31.147/kathy --target /tmp/smb/ -o username=root,workgroup=WORKGROUP
+```
+
+```
+net use X: \\<server>\<sharename> /USER:<domain>\<username> <password> /PERSISTENT:YES
 ```
 
 ## Null Session Enumeration
@@ -389,6 +444,11 @@ echo "" && sleep .1
 - Hyena
 - Winfingerprint
 - NetBIOS enumerator
+
+## NetBios
+
+https://dzone.com/articles/practical-fun-with-netbios-name-service-and-comput
+https://dzone.com/articles/fun-with-netbios-name-service-and-computer-browser
 
 ## References
 

@@ -14,7 +14,7 @@
 ### Vulnix
 
 ## Unknown Complexity
-### FristiLeaks
+### FristiLeaks (1.3?)
 ### Stapler
 ### PwnLab
 ### VulnOS
@@ -23,7 +23,7 @@
 ### SkyTower
 ### Pinky’s Palace
 ### /dev/random: scream
-### pWnOS
+### pWnOS (2.0)
 ### Metasploitable 1
 ### Metasploitable 2
 ### Lin.Security
@@ -34,6 +34,8 @@
 ### Pinky’s Palace v3
 ### Pinky’s Palace v4
 ### zico2
+
+### Nebula
 
 ## Windows
 - Hack The Box

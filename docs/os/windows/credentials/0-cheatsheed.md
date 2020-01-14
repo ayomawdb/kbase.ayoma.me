@@ -1,5 +1,14 @@
 # Cheatsheet
 
+## Stored Credentials
+
+- Creates, lists, and deletes stored user names and passwords or credentials.
+- Usable with "runas /savecred"
+
+```
+cmdkey /list
+```
+
 ## LM hashes
 - Password longer than 7 is split and each half hashed separately
 - Passwords are converted into uppercase
@@ -28,8 +37,11 @@ Auth using username and NTLM hash (since NTLM and LM hashes are not salted)
 
 - Replace "no password" in dump wih empty LM hash
 - Copy admins dumped hash (LM:NTML)
-- export SMBHASH=LM:NTML
-- pth-winexe -U administrator% //ip cmd
+
+```
+export SMBHASH=LM:NTML
+pth-winexe -U administrator% //ip cmd
+```
 
 #### pth-winexe
 ```
@@ -38,29 +50,29 @@ pth-winexe
 //10.10.10.63 cmd
 ```
 
-### RDP Password Brute-forcing 
+### RDP Password Brute-forcing
 ```
 ncrack -v -f --user administrator -P password.txt rdp://ip,CL=1
 ```
 
 ### LSASS
 
-## Attack Techniques 
+## Attack Techniques
 
 ### DPAPI Backup Key
 
 - Access to secret keys of all users in a domain (certificate, private key, etc.)
 - Obtaining the never changing DPAPI master key
 - In a domain setup, all master keys are required to decrypt the keys.
-  - All master keys are protected using  one never renewed  key. 
+  - All master keys are protected using  one never renewed  key.
   - Backup key protocol can be used (Mimikatz) to get this key from DC.
 
 ### Skeleton Key
 - Actors can use a password of their choosing to authenticate as any user.
 
-- Skeleton Key is deployed as an in-memory patch on a victim's AD domain controllers to allow the threat actor to authenticate as any user, while legitimate users can continue to authenticate as normal. 
+- Skeleton Key is deployed as an in-memory patch on a victim's AD domain controllers to allow the threat actor to authenticate as any user, while legitimate users can continue to authenticate as normal.
 
-  
+
 
 >  Ref: https://www.secureworks.com/research/skeleton-key-malware-analysis](https://www.secureworks.com/research/skeleton-key-malware-analysis)
 
@@ -86,7 +98,7 @@ ncrack -v -f --user administrator -P password.txt rdp://ip,CL=1
 >    - SamIRetrieveMultiplePrimaryCredentials (only Windows 2008 R2 (6.1))
 >    - SamIRetrievePrimaryCredentials (all compatible Windows versions other than Windows 2008 R2 (6.1))
 >
-> 
+>
 >
 > Skeleton Key performs the following steps to patch each function:
 >
@@ -94,7 +106,7 @@ ncrack -v -f --user administrator -P password.txt rdp://ip,CL=1
 > 2. Call the WriteProcessMemory function to change the address of the target function to point to the patched code. This change causes calls to the target function to use the patch instead.
 > 3. Restore the original memory protection by calling VirtualProtectEx with the original memory protection flags. This step is likely to avoid suspicious writable and executable memory allocations.
 
-### Manipulating SID 
+### Manipulating SID
 
 - sidHistory can be used to manipulate SID and become domain admin
 - Use SID of the DC to look ad domain admin
@@ -114,13 +126,13 @@ ncrack -v -f --user administrator -P password.txt rdp://ip,CL=1
 
 - WDigest provider to auth to Web/SASL/LDAP - RFC2617
 - Password constantly stays in memory
-- LSA SSO secrets protected by LsaEncryptMemory and unencrypted by LsaUnprotectMemory 
+- LSA SSO secrets protected by LsaEncryptMemory and unencrypted by LsaUnprotectMemory
   - RC4 DESx
 - Key and IV are stored near the secret in LSASS process
 - TsPks (CredSSP) provider can be added manually in XP
   - Terminal server single sign on
   - Credential delegation for terminal server/PowerShell/Double hop, etc.
-- LiveSSP - For using live account to logon to windows 
+- LiveSSP - For using live account to logon to windows
 
 ### Windows Vista/7
 
@@ -133,7 +145,7 @@ ncrack -v -f --user administrator -P password.txt rdp://ip,CL=1
 ### Windows 8/8.1
 
 - Clear text domain passwords in Vault
-  - When using PIN, Picture or Fingerprint to authenticate 
+  - When using PIN, Picture or Fingerprint to authenticate
   - Offline access is possible
 - Pass the hash, over pass the hash and pass the ticket for RDP
 
@@ -141,35 +153,35 @@ ncrack -v -f --user administrator -P password.txt rdp://ip,CL=1
 
 - WDigest is off by default.
 - No password in memory by default.
-- LSA login session cache cleaner 
+- LSA login session cache cleaner
 - Restricted admin mode for RDP
-  - Avoid credentials from getting sent to server 
+  - Avoid credentials from getting sent to server
   - Pass the hash, over pass the hash and pass the ticket for RDP (with CredSSP)
 - LSA protection
-  - LSASS is a protected process. No memory access provided. 
+  - LSASS is a protected process. No memory access provided.
   - Can be bypassed by:
     - A driver
-    - Another protected process 
+    - Another protected process
 - Protected Users security group
   - No NTLM, WDigest, CredSSP, delegation or SSO
   - Strengthen eKerberos only
 - KB2975625 - Restricted admin is disabled by default
 
-### Windows 10 
+### Windows 10
 
 - VMS introduce for enterprise users
-  - Use Crypto HSM approach 
+  - Use Crypto HSM approach
   - When Windows Credential Guard is enabled:
     - NTLM hash of the password stored in the memory in "secure world", encrypted with a "session-key".
     - User will get a blob.
     - When authenticating, user sends the blob with NTLM challenge.
     - Secure world will do the hashing operation and create the NTML challenge response and send the response to the normal world.
     - In Kerberos, process is same (secure-world maintain more keys)
-    - Limitations 
+    - Limitations
       - TGS session key is not protected (TGT is protected)
-      - Not available in VMs and not enabled by default 
+      - Not available in VMs and not enabled by default
     - More to protect:
-      - DPAPI 
+      - DPAPI
       - SAM / DSRM
       - PAC signature
 

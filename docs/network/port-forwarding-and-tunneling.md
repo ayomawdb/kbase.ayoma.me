@@ -1,5 +1,6 @@
 # Port Forwarding
 
+
 ## Local Port Forwarding
 
 ```
@@ -152,10 +153,14 @@ WebSocket
 DNS (A/CNAME, PRIVATE, NULL) - Proof of Concept
 RDP (Windows only)
 ```
+- https://github.com/sshuttle/sshuttle
+- https://github.com/klsecservices/rpivot
+- https://github.com/wolfSSL/wolfssh
 
 ## References
 
 ### Summarized References:
+- https://unix.stackexchange.com/questions/115897/whats-ssh-port-forwarding-and-whats-the-difference-between-ssh-local-and-remot
 - https://chamibuddhika.wordpress.com/2012/03/21/ssh-tunnelling-explained/
 - http://www.debianadmin.com/howto-use-ssh-local-and-remote-port-forwarding.html
 - https://blog.trackets.com/2014/05/17/ssh-tunnel-local-and-remote-port-forwarding-explained-with-examples.html

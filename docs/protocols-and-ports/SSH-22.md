@@ -1,3 +1,11 @@
+## User Enumeration
+```
+searchsploit -m 40136
+```
+```
+auxiliary/scanner/ssh/ssh_enumusers
+```
+
 ## Configuration Files
 ```
 ssh_config

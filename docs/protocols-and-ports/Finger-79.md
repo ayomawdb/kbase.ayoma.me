@@ -15,6 +15,7 @@ finger test@example.com
 ```
 finger-user-enum.pl -U seclists/Usernames/Names/names.txt -t <ip>
 ```
+https://github.com/s0wr0b1ndef/OSCP-note/blob/master/ENUMERATION/FINGER/finger_enum_user.sh
 
 ## Finger Redirect
 

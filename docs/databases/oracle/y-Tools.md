@@ -1,5 +1,5 @@
 # Tools
-- ​ [Oracle Database Attack Tool (ODAT)](https://github.com/quentinhardy/odat)
+-  [Oracle Database Attack Tool (ODAT)](https://github.com/quentinhardy/odat)
 ```
 All checks:
 ./odat.py all -s 10.10.10.82 -p 1521

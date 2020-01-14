@@ -3,6 +3,7 @@
 - Semi-automatic OSINT framework and package manager: https://github.com/kpcyrd/sn0int
 - Discover and extract hostnames providing a large set of target IP addresses: -https://github.com/SpiderLabs/HostHunter
 - [sslyze - Fast and powerful SSL/TLS server scanning library.](https://github.com/nabla-c0d3/sslyze)
+- https://github.com/BishopFox/GitGot
 
 ## Email
 ### TheHarvester

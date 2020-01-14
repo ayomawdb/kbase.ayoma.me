@@ -1,18 +1,24 @@
 # Tools
 
+- VHostScan: <https://github.com/codingo/VHostScan>
+
 ## Burp Suite
 
 ### Extensions
-- Extensions: https://github.com/snoopysecurity/awesome-burp-extensions
-- Turbo Intruder: https://github.com/PortSwigger/turbo-intruder
+
+- Extensions: <https://github.com/snoopysecurity/awesome-burp-extensions>
+- Turbo Intruder: <https://github.com/PortSwigger/turbo-intruder>
 
 ### References
-- Burp Suite Pro Real-life tips & tricks: https://www.agarri.fr/docs/HiP2k13-Burp_Pro_Tips_and_Tricks.pdf
+
+- Burp Suite Pro Real-life tips & tricks: <https://www.agarri.fr/docs/HiP2k13-Burp_Pro_Tips_and_Tricks.pdf>
 
 ## Password Attacks
-- W3brute - Automatic Web Application Brute Force Attack Tool: https://github.com/aprilahijriyan/w3brute
+
+- W3brute - Automatic Web Application Brute Force Attack Tool: <https://github.com/aprilahijriyan/w3brute>
 
 ## ADAPT
+
 ADAPT is a tool that performs automated Penetration Testing for WebApps.
 
 ```
@@ -34,19 +40,24 @@ ADAPT is a tool that performs automated Penetration Testing for WebApps.
 * OTG-SESS-001 - Testing for Session Management Schema
 * OTG-SESS-002 – Cookie Attributes
 ```
-- GitHub: https://github.com/secdec/adapt
+
+- GitHub: <https://github.com/secdec/adapt>
 
 ## Hawkeye
+
 Project security, vulnerability and general risk highlighting tool. It is meant to be integrated into your pre-commit hooks and your pipelines.
 
-- GitHub: https://github.com/hawkeyesec/scanner-cli
+- GitHub: <https://github.com/hawkeyesec/scanner-cli>
 
 ## Other
-- Adobe Experience Manager (AEM) hacker toolset: https://github.com/0ang3el/aem-hacker
+
+- Adobe Experience Manager (AEM) hacker toolset: <https://github.com/0ang3el/aem-hacker>
 
 ## Practice Tools
-- https://www.owasp.org/index.php/OWASP_Hacking_Lab
-- http://www.dvwa.co.uk/
-- http://www.itsecgames.com/
-- Damn Vulnerable Serverless Application: https://www.owasp.org/index.php/OWASP_DVSA
-  - https://serverlessrepo.aws.amazon.com/applications/arn:aws:serverlessrepo:us-east-1:889485553959:applications~DVSA
+
+- <https://www.owasp.org/index.php/OWASP_Hacking_Lab>
+- <http://www.dvwa.co.uk/>
+- <http://www.itsecgames.com/>
+- Damn Vulnerable Serverless Application: <https://www.owasp.org/index.php/OWASP_DVSA>
+
+  - <https://serverlessrepo.aws.amazon.com/applications/arn:aws:serverlessrepo:us-east-1:889485553959:applications~DVSA>

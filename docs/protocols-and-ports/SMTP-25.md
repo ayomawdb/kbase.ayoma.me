@@ -14,6 +14,10 @@ nc -‐nv 192.168.11.215 25
 ## User enumeration with: "VRFY", "EXPN" & "RCPT" commands:
 
 ```
+smtp-user-enum -M VRFY -U /usr/share/wordlists/metasploit/unix_users.txt -t 10.11.1.22
+```
+
+```
 VRFY username (verifies if username exists - enumeration of accounts)
 EXPN username (verifies if username is valid - enumeration of accounts)
 ```

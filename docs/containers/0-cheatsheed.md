@@ -16,7 +16,7 @@ docker run --rm
 
 List all images:
 ```
-docker images --all​
+docker images --all
 ```
 ## Identifying Docker
 
@@ -24,3 +24,4 @@ Presence of files:
 ```
 /.dockerenv
 ```
+

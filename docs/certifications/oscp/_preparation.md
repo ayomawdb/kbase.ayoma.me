@@ -1,12 +1,24 @@
+# Was checking
+
+- https://scund00r.com/all/oscp/2018/02/25/passing-oscp.html
+- https://www.peerlyst.com/posts/offensive-security-certified-professional-oscp-study-guide-peerlyst-resources-chiheb-chebbi?utm_source=twitter&utm_medium=social&utm_content=peerlyst_post&utm_campaign=peerlyst_shared_post
+- https://www.abatchy.com/2017/03/how-to-prepare-for-pwkoscp-noob
+- https://www.netsecfocus.com/oscp/2019/03/29/The_Journey_to_Try_Harder-_TJNulls_Preparation_Guide_for_PWK_OSCP.html
+- https://dann.com.br/oscp-offensive-security-certification-pwk-course-review/
+- https://guide.offsecnewbie.com/cherrytree-oscp-template
+- https://gist.github.com/natesubra/5117959c660296e12d3ac5df491da395
+- http://0xc0ffee.io/blog/OSCP-Goldmine
+
+# Main
+
 - Exam Guide: https://support.offensive-security.com/oscp-exam-guide/
 - Exam Day Prep: https://www.vortex.id.au/2017/05/oscp-exam-preparation-exam-day-report-day/
-
 - Exam requirements (also contains reporting requirements): https://support.offensive-security.com/#!oscp-exam-guide.md
 - PWK support page: https://support.offensive-security.com/#!pwk-support.md
-
 - https://guide.offsecnewbie.com/
 - TJNulls_Preparation_Guide: https://www.netsecfocus.com/oscp/2019/03/29/The_Journey_to_Try_Harder-_TJNulls_Preparation_Guide_for_PWK_OSCP.html
 - https://scriptdotsh.com/index.php/2018/04/17/31-days-of-oscp-experience/
+- https://backdoorshell.gitbooks.io/oscp-useful-links/
 
 # Focused Cheetsheets
 - Cheatsheets:  https://ired.team/ / https://github.com/jmfrouin/Offensive-Security-OSCP-Cheatsheets
@@ -132,6 +144,7 @@
 > - Reconnaissance with Recon-Ng, Part 1 (Getting Started): https://null-byte.wonderhowto.com/how-to/hack-like-pro-reconnaissance-with-recon-ng-part-1-getting-started-0169854/
 
 # Buffer Overflow
+- https://github.com/justinsteven/dostackbufferoverflowgood
 - https://www.sans.org/reading-room/whitepapers/threats/paper/481
 * https://github.com/justinsteven/dostackbufferoverflowgood
 
@@ -168,7 +181,7 @@
 
 - [Automated Unix Privilege Escalation Check (pentestmonkey)](http://pentestmonkey.net/tools/audit/unix-privesc-check)
 
-  
+
 
 # Privilege Escalation - Windows
 > * https://github.com/pentestmonkey/windows-privesc-check
@@ -232,7 +245,7 @@ https://www.adampalmer.me/iodigitalsec/2013/08/13/mysql-root-to-system-root-with
 
 
 
-## Sites 
+## Sites
 
 [OSCP Exam Guide](https://support.offensive-security.com/#!oscp-exam-guide.md), [PentestMonkey](http://pentestmonkey.net/cheat-sheet/shells/reverse-shell-cheat-sheet), [Hash Cracking Sites](https://hashkiller.co.uk/md5-decrypter.aspx), [Privilege Escalation](https://blog.g0tmi1k.com/2011/08/basic-linux-privilege-escalation/), [Practical OSCP Tips/Tricks](https://medium.com/@hakluke/haklukes-ultimate-oscp-guide-part-3-practical-hacking-tips-and-tricks-c38486f5fc97), [Exploit-DB](https://www.exploit-db.com/), [Low Priv Enum Linux (g0tmi1k)](https://blog.g0tmi1k.com/2011/08/basic-linux-privilege-escalation/), [Default Credentials (open-sez.me)](http://open-sez.me/), [RTFM online](https://doc.lagout.org/rtfm-red-team-field-manual.pdf), [0daysecurity master enumeration](http://0daysecurity.com/penetration-testing/enumeration.html), [how to use vi (for the brave)](https://staff.washington.edu/rells/R110/), [GTFO bins](https://gtfobins.github.io/) (love these), [LOL Bins](https://github.com/api0cradle/LOLBAS)
 
@@ -240,7 +253,7 @@ https://www.adampalmer.me/iodigitalsec/2013/08/13/mysql-root-to-system-root-with
 
 [Corelan Buffer Overflow Exploit Part 1](https://www.corelan.be/index.php/2009/07/19/exploit-writing-tutorial-part-1-stack-based-overflows/)
 
-[Buffer Overflow Guide](https://youtu.be/p2UZmO5re1g) by Stefan Molls 
+[Buffer Overflow Guide](https://youtu.be/p2UZmO5re1g) by Stefan Molls
 
 
 
@@ -250,6 +263,6 @@ https://www.adampalmer.me/iodigitalsec/2013/08/13/mysql-root-to-system-root-with
 
 **Movie**: Zero Days
 
-**Audio Books**: Deep Work, The Art of Invisibility, Grit, 
-Spam Nation, Red Team: How to think like the enemy, Ghost in the Wires, 
+**Audio Books**: Deep Work, The Art of Invisibility, Grit,
+Spam Nation, Red Team: How to think like the enemy, Ghost in the Wires,
 The Girl With the Dragon Tattoo, and Mastery.

@@ -22,12 +22,20 @@ commuity strings - public / private / manager / ...
 
 ## Scanning
 ```
-nmap -sU --open -p 161 <ip> --open
+nmap -sU -p 161 --open <ip>
+nmap -sU -p 161 --script=*snmp* 192.168.1.200
+xprobe2 -v -p udp:161:open 192.168.1.200
 ```
 Scan one community string for multiple IPs
 ```
 onesixtyone -c community.txt -i ips.txt
 ```
+
+```
+auxiliary/scanner/snmp/snmp_login
+auxiliary/scanner/snmp/snmp_enum
+```
+
 ## SNMPWalk
 ```
 snmpwalk -Os -c public -v 1 <ip>
@@ -86,3 +94,9 @@ snmpwalk -c public 192.168.38.200 -v 1
 - snmpcheck
 - onesixtyone
   - Scan one community string for multiple IPs
+
+```
+snmp-check 192.168.1.2 -c public
+snmpget -v 1 -c public IP
+snmpbulkwalk -v2c -c public -Cn0 -Cr10 IP
+```
