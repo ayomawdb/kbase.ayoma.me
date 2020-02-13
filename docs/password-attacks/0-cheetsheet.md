@@ -143,3 +143,20 @@ echo "username:encryptedPassWd"  | chpasswd -e
 OR
 useradd -p 'encryptedPassWd'  username
 ```
+
+## VNC
+
+```
+reg query HKLM\SOFTWARE\RealVNC\vncserver
+Value: Password
+
+reg query HKCU\Software\TightVNC\Server
+Value: Password or PasswordViewOnly
+
+reg query HKLU\Software\TigerVNC\WinVNC4
+reg query HKLM\Software\TigerVNC\WinVNC4
+Value: Password
+
+C:\Program Files\UltraVNC\ultravnc.ini
+Value: passwd or passwd2
+```

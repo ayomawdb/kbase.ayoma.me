@@ -2,6 +2,14 @@
 
 - VHostScan: <https://github.com/codingo/VHostScan>
 
+## httprobe - https://github.com/tomnomnom/httprobe
+
+Take a list of domains and probe for working HTTP and HTTPS servers.
+```
+cat domains.txt | httprobe | tee alive.txt
+cat domains.txt | httprobe -p http:8080 -p https:4443 | tee alive.txt
+```
+
 ## Burp Suite
 
 ### Extensions

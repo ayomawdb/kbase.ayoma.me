@@ -17,3 +17,16 @@ UnrealIRCD    | 3.2.8.1                                   | Backdoor RCE        
 - [PfSense Vulnerabilities Part 2: Command Injection - https://www.proteansec.com/linux/pfsense-vulnerabilities-part-2-command-injection/](https://www.proteansec.com/linux/pfsense-vulnerabilities-part-2-command-injection/)
 - [PfSense Vulnerabilities Part 3: Local File Inclusion - https://www.proteansec.com/linux/pfsense-vulnerabilities-part-3-local-file-inclusion/](https://www.proteansec.com/linux/pfsense-vulnerabilities-part-3-local-file-inclusion/)
 - [PfSense Vulnerabilities Part 4: Directory Traversal - https://www.proteansec.com/linux/pfsense-vulnerabilities-part-4-directory-traversal/](https://www.proteansec.com/linux/pfsense-vulnerabilities-part-4-directory-traversal/)
+
+## Magento
+
+ExploitDB: 37977 (change password), 37811
+
+- https://dustri.org/b/writing-a-simple-extensionbackdoor-for-magento.html
+- https://www.foregenix.com/blog/anatomy-of-a-magento-attack-froghopper
+- http://www.ethanjoachimeldridge.info/tech-blog/exploiting-magento
+- https://0xdf.gitlab.io/2019/09/28/htb-swagshop.html
+
+Plugins to exploit: 
+- https://pluginarchive.com/magento/magpleasure_filesystem
+- https://github.com/lavalamp-/LavaMagentoBD

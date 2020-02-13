@@ -1,2 +1,5 @@
 site_name: Security Knowledge Base
 theme: material
+
+extra_css:
+  - '_site/extra.css'

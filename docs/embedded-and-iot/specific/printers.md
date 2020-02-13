@@ -11,6 +11,7 @@
 
 ## Exploitation
 - PRET - Printer Exploitation Toolkit: https://github.com/RUB-NDS/PRET
+- praedasploit - https://github.com/MooseDojo/praedasploit
 
 ## Attack Patterns
 - Plunder Pillage & Print: https://hackinparis.com/data/slides/2014/DeralHeilandandPeterArzamendi.pdf

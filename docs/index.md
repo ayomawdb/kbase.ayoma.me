@@ -8,14 +8,32 @@ Home page is reserved mainly to list down `pending analysis` and `pending resear
 
 ## Cheatsheets
 
+- Command line reference – Database and OS scripting: https://ss64.com/
+- RTFM (Red Team Field Manual) - https://github.com/leostat/rtfm
 - http://cheat.sh/
-- Nmap: https://blogs.sans.org/pen-testing/files/2013/10/NmapCheatSheetv1.1.pdf
+
+```
+curl https://cht.sh/:cht.sh | sudo tee /usr/local/bin/cht.sh
+chmod +x /usr/local/bin/cht.sh
+
+mkdir ~/.bash.d
+curl https://cheat.sh/:bash_completion > ~/.bash.d/cht.sh
+chmod +x ~/.bash.d/cht.sh
+. ~/.bash.d/cht.sh
+# and add . ~/.bash.d/cht.sh to ~/.bashrc
+
+mkdir  ~/.zsh.d
+curl https://cheat.sh/:zsh > ~/.zsh.d/_cht
+echo 'fpath=(~/.zsh.d/ $fpath)' >> ~/.zshrc
+```
+
+- Nmap: <https://blogs.sans.org/pen-testing/files/2013/10/NmapCheatSheetv1.1.pdf>
 - Wireshark: [https://packetlife.net/media/library/13/Wireshark_Display_Filters.pdf](https://packetlife.net/media/library/13/Wireshark_Display_Filters.pdf)
 - TcpDump: [https://packetlife.net/media/library/12/tcpdump.pdf](https://packetlife.net/media/library/12/tcpdump.pdf)
 - Netcat: [https://www.sans.org/security-resources/sec560/netcat_cheat_sheet_v1.pdf](https://www.sans.org/security-resources/sec560/netcat_cheat_sheet_v1.pdf)
 - Ncat: [https://medium.com/@pentest_it/ncat-cheatsheet-ddc5f07d8533](https://medium.com/@pentest_it/ncat-cheatsheet-ddc5f07d8533)
 - Scapy: [https://blogs.sans.org/pen-testing/files/2016/04/ScapyCheatSheet_v0.2.pdf](https://blogs.sans.org/pen-testing/files/2016/04/ScapyCheatSheet_v0.2.pdf)
-- Powershell: https://blogs.sans.org/pen-testing/files/2016/05/PowerShellCheatSheet_v41.pdf
+- Powershell: <https://blogs.sans.org/pen-testing/files/2016/05/PowerShellCheatSheet_v41.pdf>
 - Metasploit: [https://blogs.sans.org/pen-testing/files/2017/02/MetasploitCheatsheet2.0.pdf](https://blogs.sans.org/pen-testing/files/2017/02/MetasploitCheatsheet2.0.pdf)
 
 
@@ -36,6 +54,8 @@ Home page is reserved mainly to list down `pending analysis` and `pending resear
 - GoogleToolbox: [https://toolbox.googleapps.com/apps/main/](https://toolbox.googleapps.com/apps/main/)
   - Browserinfo, MX, Dig, HAR, Log Analyzer, Mail Headers, Encode/Decode
 - https://pentest.ws/
+- Defining scope in Burp / ZAP: https://github.com/root4loot/rescope
+- https://www.hackingarticles.in/koadic-com-command-control-framework/
 
 ## Other Collections
 
@@ -62,6 +82,8 @@ Home page is reserved mainly to list down `pending analysis` and `pending resear
 
 ## Blogs
 
+- https://github.com/sectalks/sectalks
+- Practical use of JavaScript and COM Scriptlets for Penetration Testing: http://www.labofapenetrationtester.com/2016/05/
 - [https://blog.0patch.com](https://blog.0patch.com)
 - [https://scriptdotsh.com](https://scriptdotsh.com)
 - [https://room362.com/blog](https://room362.com/blog)
@@ -170,4 +192,27 @@ VPN Services:
 
 ```
 tr -s ' ' | tr '\t' ' ' | sed 's/:/ |/' | sed 's/- /| /' | sed -e 's/$/ |/'
+```
+
+```
+.md-typeset {
+    font-size: 0.6rem;
+    line-height: 1.1;
+}
+.md-typeset h2 {
+    margin: 1rem 0 .8rem;
+}
+.md-nav {
+    font-size: .6rem;
+    line-height: 1;
+}
+.md-sidebar--secondary {
+    margin-left: -1;
+}
+.md-grid {
+    max-width: none;
+}
+.md-main__inner {
+    padding-top: 0rem;
+}
 ```

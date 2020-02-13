@@ -1,0 +1,2 @@
+- NoSQLMap - https://github.com/codingo/NoSQLMap
+- SQLMap - http://sqlmap.org/

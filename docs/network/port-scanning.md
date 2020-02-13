@@ -23,6 +23,23 @@ for ip in $(seq 1 254);do
         ping -c 1 192.168.1.$ip | grep "bytes from" | cut -d" " -f4 | cut -d":" -f1 &
 done
 ```
+## Evade Firewall
+
+- `-sA` - TCP ACK Scan
+	- Because of the ACK packets the firewall cannot create the log
+	- Firewalls treat ACK packet as the response of the SYN packet
+		- Open port (few ports in the case of the firewall)
+    - Closed port (most ports are closed because of the firewall)
+    - Filtered (Nmap is not sure whether the port is open or not)
+    - Unfiltered (Nmap can access the port but is still confused about the open status of the port)
+- `-sW` - TCP Window Scan
+	- Designed to differentiate between open and closed ports instead of showing unfiltered
+	- Does not open any active session with the target computer
+	- Send ACK packets and receive a single RST packet in response
+- `-f`, `-ff` - Fragment Packets
+- `-spoof-mac Cisco` - Spoof MAC
+- `-scan_delay` - control the delay between each and every request
+- `-host-timeout`
 
 ## Types of port scans
 

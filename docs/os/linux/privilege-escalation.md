@@ -102,6 +102,11 @@ umask
 
 - [GNU Screen 4.5.0 - Local Privilege Escalation - https://www.exploit-db.com/exploits/41154](https://www.exploit-db.com/exploits/41154) - Nice example for learning exploit writing
 
+- CVE-2010-2961 - Ubuntu 10.04/10.10) - Local Privilege Escalation
+  - mountall.c in mountall before 2.15.2 uses 0666 permissions for the root.rules file, which allows local users to gain privileges by modifying this file.
+  - http://www.outflux.net/blog/archives/2010/10/13/mountall-umask/
+  - https://www.ethicalhacker.net/features/root/tutorial-hacking-linux-with-armitage/
+
 ### overlayfs
 
 - Linux Kernel 3.13.0 < 3.19 (Ubuntu 12.04/14.04/14.10/15.04) - 'overlayfs' Local Privilege Escalation: <https://www.exploit-db.com/exploits/37292>

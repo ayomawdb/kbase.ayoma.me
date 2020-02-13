@@ -5,6 +5,10 @@
 - Collection of PowerShell network security scripts for system administrators: <https://github.com/thom-s/netsec-ps-scripts>
 - [CyberScan: Network's Forensics ToolKit](https://github.com/medbenali/CyberScan)
 
+# Sparta
+
+https://github.com/SECFORCE/sparta
+
 # BetterCap
 
 Swiss army knife for network attacks and monitoring: <https://www.bettercap.org/>

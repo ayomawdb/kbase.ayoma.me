@@ -1,6 +1,14 @@
 # Port Forwarding
 
+```
+Local:   ssh <gateway> -L <local port to listen>:<remote host>:<remote port>
+Remote:  ssh <gateway> -R <remote port to bind>:<local host>:<local port>
+Dynamic: ssh <gateway> -D <port to bind>
 
+Local:   plink.exe <gateway> -L <local port to listen>:<remote host>:<remote port>
+Remote:  plink.exe <gateway> -R <remote port to bind>:<local host>:<local port>
+Dynamic: plink.exe <gateway> -D <port to bind>
+```
 ## Local Port Forwarding
 
 ```

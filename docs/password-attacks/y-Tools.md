@@ -3,6 +3,8 @@
 ## Word-lists
 
 - CeWL - Custom Word List Generator: <https://github.com/digininja/CeWL>
+- Crunch - Wordlist generator based on criteria you specify: https://github.com/crunchsec/crunch
+- Wordhound - Wordlist generator that builds a list of password candidates for a specific target website: https://bitbucket.org/mattinfosec/wordhound/src/master/
 
 ## Password Spraying
 
@@ -131,6 +133,13 @@ fcrackzip -D -p wordlist.txt -u test.zip
 ## Extraction
 
 - Firefox Decrypt - Tool to extract passwords from Mozilla (Firefox/Thunderbird/Seabird) profiles: <https://github.com/unode/firefox_decrypt>
+
+### Responder
+
+- https://github.com/SpiderLabs/Responder
+- Pwning with Responder – A Pentester’s Guide: https://www.notsosecure.com/pwning-with-responder-a-pentesters-guide/
+
+A LLMNR, NBT-NS and MDNS poisoner, with built-in HTTP/SMB/MSSQL/FTP/LDAP rogue authentication server supporting NTLMv1/NTLMv2/LMv2, Extended Security NTLMSSP and Basic HTTP authentication.
 
 ## Bruteforce Steghide
 

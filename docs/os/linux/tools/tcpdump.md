@@ -38,3 +38,6 @@ tcpdump -A -n 'tcp[13] = 24' -­‐r password_cracking_filtered.pcap
 - `-S` to print absolute sequence numbers
 - `-s` can be used to increase the default snap-length from 262144 to higher
 - `-s` 0 to capture full packet
+
+## References
+- https://hackertarget.com/tcpdump-examples/

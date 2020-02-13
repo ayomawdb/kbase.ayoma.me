@@ -36,11 +36,11 @@ Invoke-AllChecks
 
 ### Service Unquoted Path
 
-```
+```powershell
 Get-ServiceUnquoted -Verbose
 ```
 
-```
+```powershell
 Get-WmiObject -Class win32_service | f` *
 ```
 

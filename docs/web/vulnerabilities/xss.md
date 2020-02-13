@@ -8,6 +8,7 @@
 - Advance XSS Persistence With Oauth: https://github.com/dxa4481/XSSOauthPersistence
 - https://blog.secureideas.com/2018/12/twelve-days-of-xssmas.html
 - XSS Cheat Sheet: https://brutelogic.com.br/blog/xss-cheat-sheet/
+- http://www.xss-payloads.com/payloads.html
 
 ### XSS via Image
 ### XSS via HTTP Response Splitting
