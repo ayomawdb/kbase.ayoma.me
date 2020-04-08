@@ -1,4 +1,4 @@
-/* .md-typeset {
+.md-typeset {
     font-size: 0.6rem !important;
     line-height: 1.1 !important;
 }
@@ -9,12 +9,13 @@
     font-size: .6rem !important;
     line-height: 1 !important;
 }
-.md-sidebar--secondary {
+.md-main__inner {
+    padding-top: 0rem !important;
+}
+
+/*.md-sidebar--secondary {
     margin-left: -1 !important;
 }
 .md-grid {
     max-width: none !important;
-}
-.md-main__inner {
-    padding-top: 0rem !important;
-} */
+}*/
