@@ -3,6 +3,41 @@
 - Designed to lessening authentication related packets transmitted in the network  
 - Not designed for today's network security
 - Loosing KDC means, security is at total loss 
+- Kerberos uses either UDP/88 or TCP/88 as transport protocol. Hence Kerberos itself is responsible of encrypting data.
+- Several agents working together:
+  - `Client` or user: who wants to access to the service.
+  - `AP (Application Server)`: offers the service required by the user.
+  - `KDC (Key Distribution Center)`: main service of Kerberos, responsible of issuing the tickets, installed on the DC (Domain Controller). It is supported by the `AS (Authentication Service)`, which issues the `TGTs`.
+- Keys:
+  - `KDC key` or `krbtgt key`: Derivate from krbtgt account NTLM hash.
+  - `User key`: Derivate from user NTLM hash.
+  - `Service key`: Derivate from the NTLM hash of service owner, which can be an user or computer account.
+  - `Session key`: Negotiated between the user and KDC.
+  - `Service session key`: to be use between user and service.
+- Tickets:
+  - `TGS (Ticket Granting Service)`: Ticket which user can use to authenticate against a service. It is encrypted with the service key.
+  - `TGT (Ticket Granting Ticket)`: Ticket presented to the KDC to request for TGSs. It is encrypted with the KDC key.
+- `PAC (Privilege Attribute Certificate)` is an structure included in almost every ticket.
+  - It is possible to services to verify the PAC by comunicating with the KDC
+- Messages:
+  - KRB_AS_REQ: Used to request the TGT to KDC.
+  - KRB_AS_REP: Used to deliver the TGT by KDC.
+  - KRB_TGS_REQ: Used to request the TGS to KDC, using the TGT.
+  - KRB_TGS_REP: Used to deliver the TGS by KDC.
+  - KRB_AP_REQ: Used to authenticate a user against a service, using the TGS.
+  - KRB_AP_REP: (Optional) Used by service to identify itself against the user.
+  - KRB_ERROR: Message to comunicate error conditions.
+  - KERB_VERIFY_PAC_REQUEST: AP send message to KDC including the signature of PAC, and verify if it is correct. (not part of Kerberos, but NRPC)
+
+## Attacks 
+
+- Kerberos brute-force
+- ASREPRoast
+- Kerberoasting
+- Pass the key
+- Pass the ticket
+- Silver ticket
+- Golden ticket
 
 ## Protocol Flow
 
@@ -715,7 +750,9 @@ DCShadow attack: a new attack where attackers gain enough access inside a networ
 > - https://docs.microsoft.com/en-us/windows/desktop/secauthn/authentication-portal
 > - https://docs.microsoft.com/en-us/windows/desktop/secauthn/microsoft-kerberos
 > - https://drive.google.com/open?id=1eaQki6QuqfbHqMfkaKH66z2OAnI0lV0H
+> - https://www.tarlogic.com/en/blog/how-kerberos-works/
 
 > - [Tim Medin - Attacking Kerberos: Kicking the Guard Dog of Hades](https://www.youtube.com/watch?v=HHJWfG9b0-E)
+
 - [Attacking Microsoft Kerberos Kicking the Guard Dog of Hades Tim Medin](https://www.youtube.com/watch?v=PUyhlN-E5MU ) 
 - https://blog.redforce.io/oh-my-kerberos-do-not-get-kerberoasted/

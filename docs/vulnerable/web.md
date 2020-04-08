@@ -30,3 +30,6 @@ ExploitDB: 37977 (change password), 37811
 Plugins to exploit: 
 - https://pluginarchive.com/magento/magpleasure_filesystem
 - https://github.com/lavalamp-/LavaMagentoBD
+
+# HelpDeskZ - RCE
+- https://github.com/weaknetlabs/Penetration-Testing-Grimoire/blob/master/Vulnerabilities/Web/helpdeskz-file-enum.md

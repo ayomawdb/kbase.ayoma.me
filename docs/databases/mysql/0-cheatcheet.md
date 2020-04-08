@@ -1,5 +1,10 @@
 # Cheatsheet
 
+## Brute-forcing 
+```
+hydra -l root -P /path/to/wordlist.txt (TARGET IP ADDRESS) mysql
+```
+
 ## Connection tests
 ```
 mysql -h <Hostname> -u root
@@ -7,6 +12,9 @@ mysql -h <Hostname> -u root
 mysql -h <Hostname> -u root@localhost
 mysql -h <Hostname>
 mysql -h <Hostname> -u ""@localhost
+
+mysql -u john -phiroshima -e 'show databases'
+mysql -u john -phiroshima -D webapp -e 'show tables'
 ```
 
 ## Configuration files

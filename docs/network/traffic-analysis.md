@@ -1,5 +1,23 @@
 # Traffic Analysis
 
+## Accounting Traffic 
+
+```bash
+#!/bin/bash
+
+# Reset counters and iptables rules
+iptables -Z && iptables -F
+
+# Measure incoming traffic from lab machine
+iptables -I INPUT 1 -s 192.168.1.23 -j ACCEPT
+
+# Measure outgoing traffic to lab machine
+iptables -I OUTPUT 1 -d 192.168.1.23 -j ACCEPT
+```
+```
+watch -n 1 iptables -nvL
+```
+
 ## Using a Capture
 ```
 aircrack-ng captured.cap​

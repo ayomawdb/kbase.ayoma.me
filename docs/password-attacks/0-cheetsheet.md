@@ -6,20 +6,6 @@ grep -rl hash
 grep -rl password
 ```
 
-## Wordlist creation
-```
-crunch 6 6 0123456789ABCDEF -o list.txt
-crunch 8 8 -t ,@@^^%%%
-```
-```
-/usr/share/crunch/charset.lsr mixalpha -o  mixda.txt
-```
-
-## Wordlist using keywords from a site
-```
-cewl example.com -m 6 -w out.txt
-```
-
 ## Mutate wordlists
 ```
 /etc/john/john.conf
@@ -29,11 +15,6 @@ cewl example.com -m 6 -w out.txt
 ```
 john --wordlist=out.txt --rules --stdout > mutated.txt
 ```
-
-## Tools
-- pwdump
-- fgdump
-- windows credential editor (WCE) - Steal NTLM hashes from memory and auth modules
 
 ## Password Cracking
 ```

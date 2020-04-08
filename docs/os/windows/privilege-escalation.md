@@ -7,6 +7,8 @@
 - Misconfigured Services
 
 ## Guides
+- https://github.com/weaknetlabs/Penetration-Testing-Grimoire/blob/master/Flow%20Charts/Privilege%20Escalation/windows.md
+- https://github.com/weaknetlabs/Penetration-Testing-Grimoire/blob/master/Privilege%20Escalation/Windows/windows-services.md
 - https://www.absolomb.com/2018-01-26-Windows-Privilege-Escalation-Guide/
 - Windows Privilege Escalation Fundamentals: http://www.fuzzysecurity.com/tutorials/16.html
 
@@ -234,18 +236,21 @@ msfvenom -f msi-nouac -p windows/exec cmd="C:\Users\testuser\AppData\Local\Temp\
 
 ### DLL Hijacking (DLL preloading attack or a binary planting attack)
 
+- https://github.com/Arvanaghi/Windows-DLL-Injector
+- https://securityxploded.com/remote-dll-injector.php
+- https://pentestlab.blog/2017/04/04/dll-injection/
 - https://msdn.microsoft.com/en-us/library/windows/desktop/ff919712(v=vs.85).aspx
 - Search order: https://msdn.microsoft.com/en-us/library/windows/desktop/ms682586(v=vs.85).aspx
 
 ```
 When an application dynamically loads a dynamic-link library without specifying a fully qualified path name, Windows attempts to locate the DLL by searching a well-defined set of directories in a particular order, as described in Dynamic-Link Library Search Order.
 
-The directory from which the application loaded.
-The system directory.
-The 16-bit system directory.
-The Windows directory.
-The current directory.
-The directories that are listed in the PATH environment variable.
+The directory from which the application loaded
+32-bit System directory (C:\Windows\System32)
+16-bit System directory (C:\Windows\System)
+Windows directory (C:\Windows)
+The current working directory (CWD)
+Directories in the PATH environment variable (system then user)
 ```
 
 - Services running under SYSTEM does not search through user path environment.

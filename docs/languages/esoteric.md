@@ -1,0 +1,3 @@
+- Malbolge compiler: https://www.tutorialspoint.com/execute_malbolge_online.php
+- Brainfuck Interpreter: https://sange.fi/esoteric/brainfuck/impl/interp/i.html
+- Piet Interpreter: https://www.bertnase.de/npiet/npiet-execute.php

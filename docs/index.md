@@ -6,6 +6,11 @@ Please check different categories for more details.
 
 Home page is reserved mainly to list down `pending analysis` and `pending research` items, and also to point to other similar security related knowledge bases.
 
+## Training Platforms 
+
+- https://www.enisa.europa.eu/topics/trainings-for-cybersecurity-specialists/online-training-material/technical-operational
+- https://community.turgensec.com/shodan-pentesting-guide/
+
 ## Cheatsheets
 
 - Command line reference – Database and OS scripting: https://ss64.com/
@@ -59,6 +64,7 @@ echo 'fpath=(~/.zsh.d/ $fpath)' >> ~/.zshrc
 
 ## Other Collections
 
+- https://github.com/juliocesarfort/public-pentesting-reports
 - [Rawsec's CyberSecurity Inventory](https://inventory.rawsec.ml/resources.html)
 - https://chryzsh.gitbooks.io/pentestbook/
 -
@@ -130,6 +136,7 @@ echo 'fpath=(~/.zsh.d/ $fpath)' >> ~/.zshrc
 - https://discordapp.com/invite/2AG6TCm
 - https://discordapp.com/invite/4gHhxS8
 - https://discordapp.com/invite/7Z2PmWP
+- https://discordapp.com/invite/malwaretech
 
 ## VMS
 
@@ -194,25 +201,3 @@ VPN Services:
 tr -s ' ' | tr '\t' ' ' | sed 's/:/ |/' | sed 's/- /| /' | sed -e 's/$/ |/'
 ```
 
-```
-.md-typeset {
-    font-size: 0.6rem;
-    line-height: 1.1;
-}
-.md-typeset h2 {
-    margin: 1rem 0 .8rem;
-}
-.md-nav {
-    font-size: .6rem;
-    line-height: 1;
-}
-.md-sidebar--secondary {
-    margin-left: -1;
-}
-.md-grid {
-    max-width: none;
-}
-.md-main__inner {
-    padding-top: 0rem;
-}
-```

@@ -164,6 +164,7 @@ RDP (Windows only)
 - https://github.com/sshuttle/sshuttle
 - https://github.com/klsecservices/rpivot
 - https://github.com/wolfSSL/wolfssh
+- https://github.com/jpillora/chisel
 
 ## References
 

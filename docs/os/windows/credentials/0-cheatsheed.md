@@ -1,5 +1,7 @@
 # Cheatsheet
 
+- https://github.com/weaknetlabs/Penetration-Testing-Grimoire/blob/master/Privilege%20Escalation/Windows/credential-search.md
+
 ## Stored Credentials
 
 - Creates, lists, and deletes stored user names and passwords or credentials.
@@ -16,13 +18,25 @@ cmdkey /list
 - Empty LM hash
 ```
 AAD3B435B51404EE
+aad3b435b51404ee
 AAD3B435B51404EEAAD3B435B51404EE
+aad3b435b51404eeaad3b435b51404ee
 ```
 ## NTLM hashes
 
+```
+Administrator:500:aad3b435b51404eeaad3b435b51404ee:8118cb8789b3a147c790db402b016a08:::
+(UID):(UID NUM):(LM HASH):(NT HASH):(COMMENT):(USER HOME PATH):
+```
+
 ## Dumping hashes
 - Cannot copy SAM when sys is in use
-
+```
+C:\> reg.exe save hklm\sam sam
+C:\> reg.exe save hklm\security security
+C:\> reg.exe save hklm\system system
+```
+Use secretsdump.py to extract 
 ## Capturing Hashes
 
 ### Inveigh

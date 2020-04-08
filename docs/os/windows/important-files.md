@@ -1,5 +1,16 @@
 # Important Files
 
+```
+LFI Windows Files:
+%SYSTEMROOT%\repair\system
+%SYSTEMROOT%\repair\SAM
+%SYSTEMROOT%\repair\SAM
+%WINDIR%\win.ini
+%SYSTEMDRIVE%\boot.ini
+%WINDIR%\Panther\sysprep.inf
+%WINDIR%\system32\config\AppEvent.Evt
+```
+
 ## Collections
 
 - Windows EXE / DLL files: http://www.saule-spb.ru/touch/windows_files.html
@@ -294,4 +305,10 @@ C:/Program Files/MySQL/MySQL Server 5.1/my.ini
 C:/Windows/System32/inetsrv/config/schema/ASPNET_schema.xml
 C:/Windows/System32/inetsrv/config/applicationHost.config
 C:/inetpub/logs/LogFiles/W3SVC1/u_ex[YYMMDD].log
+```
+
+# Base64 encode / decode
+```
+certutil -encode inputfile outputfile
+certutil -decode inputfile outputfile
 ```

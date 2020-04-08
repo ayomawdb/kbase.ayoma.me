@@ -1,5 +1,23 @@
 # Important Files / Folders
 
+```
+/etc/issue
+/proc/version
+/etc/profile
+/etc/passwd
+/etc/passwd
+/etc/shadow
+/root/.bash_history
+/var/log/dmessage
+/var/mail/root
+/var/spool/cron/crontabs/root
+```
+
+## Files owned by User
+```
+find / -type f -uid 1000 -ls 2>/dev/null
+```
+
 ## Collections
 
 - GTFOBins is a curated list of Unix binaries that can be exploited by an attacker to bypass local security restrictions: [https://gtfobins.github.io/](https://gtfobins.github.io/)

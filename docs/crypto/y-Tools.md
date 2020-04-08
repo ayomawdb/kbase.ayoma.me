@@ -1,5 +1,8 @@
 # Tools
 
+- Compare unknown cipher against ACA cipher types: <http://web.archive.org/web/20120624074941/http://home.comcast.net/~acabion/refscore.html>
+- Ceasar Cipher: https://www.xarg.org/tools/caesar-cipher/
+- Vigenere Cipher: https://www.dcode.fr/vigenere-cipher
 - [Crypto Operations](http://rumkin.com/tools/cipher/)
 - [RsaCtfTool](https://github.com/Ganapati/RsaCtfTool)
 - [One time pad decipher](https://www.braingle.com/brainteasers/codes/onetimepad.php#form)

@@ -117,3 +117,8 @@ nmap –script smtp-enum-users.nse 172.16.212.133
 | TURN | 	Turn |
 | VERB | 	Verbose |
 | VRFY | 	Verify |
+
+## Brute-forcing 
+```
+hydra (TARGET IP ADDRESS) smtp -l (USERNAME) -P /path/to/wordlist.txt -V -s (TARGET PORT)
+```

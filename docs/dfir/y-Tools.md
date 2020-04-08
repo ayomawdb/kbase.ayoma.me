@@ -1,5 +1,7 @@
 # Tools
 
+- Unicode steganography: https://www.irongeek.com/i.php?page=security/unicode-steganography-homoglyph-encoder
+
 ## Widows
 
 ### Images

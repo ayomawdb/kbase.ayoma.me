@@ -26,10 +26,6 @@ nmap -sU -p 161 --open <ip>
 nmap -sU -p 161 --script=*snmp* 192.168.1.200
 xprobe2 -v -p udp:161:open 192.168.1.200
 ```
-Scan one community string for multiple IPs
-```
-onesixtyone -c community.txt -i ips.txt
-```
 
 ```
 auxiliary/scanner/snmp/snmp_login
@@ -38,7 +34,22 @@ auxiliary/scanner/snmp/snmp_enum
 
 ## SNMPWalk
 ```
+sudo apt install --no-upgrade snmp-mibs-downloader
+```
+```
 snmpwalk -Os -c public -v 1 <ip>
+```
+```
+snmpwalk -c public (TARGET IP ADDRESS) -v1 -On
+snmpwalk -c public -v2c (TARGET IP ADDRESS)
+v3 doesnt have easily guessable / default community string
+```
+
+## onesixtyone
+Scan one community string for multiple IPs
+```
+onesixtyone -c community.txt -i ips.txt
+onesixtyone -c /pwnt/passwords/wordlists/SecLists/Discovery/SNMP/snmp.txt (TARGET IP ADDRESS)
 ```
 
 ## Probe MBI

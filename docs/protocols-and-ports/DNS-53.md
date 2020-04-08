@@ -7,6 +7,9 @@
 dnsrecon -r 127.0.0.0/24 -n 10.10.10.29
 dnsrecon -r 127.0.1.0/24 -n 10.10.10.29
 dnsrecon -r 10.10.10.0/24 -n 10.10.10.29
+
+☐ dnsrecon -d thinc.local -n 10.11.1.220 -t axfr -r 10.11.1.0/24
+☐ dnsrecon -d site.com
 ```
 
 ## Configuration files
@@ -41,11 +44,22 @@ host -t mx example.com
 
 host www.example.com -> results in IP address
 host nonexistent.example.com -> results in not found error
+
+host -l site.com ns2.site.com
 ```
+```
+host -l friendzone.red 10.10.10.123| grep 'has address'|awk '{print $1}'
+```
+
 
 ### nslookup
 ```
 nslookup <ip>
+
+nslookup site.com
+☐ nslookup -query=mx site.com
+☐ nslookup -query=ns site.com
+☐ nslookup -query=any site.com
 ```
 ```
 > set type=a
@@ -64,6 +78,13 @@ Usage:  dig [@global-server] [domain] [q-type] [q-class] {q-opt}
 dig google.com
 dig google.com mx
 dig @ns1.google.com google.com
+
+☐ dig site.com
+☐ dig site.com A
+☐ dig +nocmd shite.com MX +noall +answer
+☐ dig +nocmd site.com NS +noall +answer
+☐ dig +nocmd site.com A +noall +answer
+☐ dig site.com +nocmd AXFR +noall +answer @dns_server.com Zone Transfer
 ```
 
 ## Reverse Lookup
@@ -124,6 +145,14 @@ done
 ```
 
 ## Bruteforcing
+
+```
+☐ fierce -dns site.com
+☐ fierce -dns site.com -dnserver ns1.site.com
+
+☐ dnsenum site.com –dnsserver ns1.site.com
+☐ dnsenum site.com -f /root/hostlist.txt
+```
 
 ### Subdomain bruteforcing
 ```

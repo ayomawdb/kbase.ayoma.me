@@ -1,10 +1,29 @@
 # Tools
 
 ## Word-lists
-
-- CeWL - Custom Word List Generator: <https://github.com/digininja/CeWL>
-- Crunch - Wordlist generator based on criteria you specify: https://github.com/crunchsec/crunch
 - Wordhound - Wordlist generator that builds a list of password candidates for a specific target website: https://bitbucket.org/mattinfosec/wordhound/src/master/
+- pwdump
+- fgdump
+- windows credential editor (WCE) - Steal NTLM hashes from memory and auth modules
+
+### CeWL 
+- Custom Word List Generator: <https://github.com/digininja/CeWL>
+
+```
+cewl example.com -m 6 -w out.txt
+```
+
+### Crunch
+- Wordlist generator based on criteria you specify: https://github.com/crunchsec/crunch
+
+```
+crunch 6 6 0123456789ABCDEF -o list.txt
+crunch 8 8 -t ,@@^^%%%
+```
+
+```
+/usr/share/crunch/charset.lsr mixalpha -o  mixda.txt
+```
 
 ## Password Spraying
 
@@ -123,6 +142,9 @@ Redis, PostgreSQL, MySQL, MSSQL, MongoDB, Cassandra, WinRM, OWA, DICOM.
 
 ```
 fcrackzip -D -p wordlist.txt -u test.zip
+```
+```
+7z2john.pl backup.7z > 7z2john.out
 ```
 
 ## Generators

@@ -128,7 +128,8 @@ References:
 - <https://www.netsparker.com/blog/web-security/php-type-juggling-vulnerabilities/>
 - <https://0xdf.gitlab.io/2018/06/23/htb-falafel.html#php-type-juggling-intro>
 - <https://pen-testing.sans.org/blog/2014/12/18/php-weak-typing-woes-with-some-pontification-about-code-and-pen-testing>
-
+- <https://hydrasky.com/network-security/php-string-comparison-vulnerabilities/>
+  
 ![1558284487209](_assets/PHP_loose_comparisons.png)
 
 ![](_assets/table_representing_behavior_of_PHP_with_loose_type_comparisons.png)
@@ -157,6 +158,22 @@ var_dump("2 bottles" == 2); // ==> TRUE
 $values = array("apple","orange","pear","grape"); in_array(0, $values); // ==> TRUE
 
 if($password == "secretpass") // ==> TRUE when $password=0
+```
+
+Example:
+```php
+<php
+  $token = "0e124656823434657657655654324342";
+  if(isset($_COOKIE['token']) && $_COOKIE['token'] == $token) {
+    // access to privilege area
+  }
+  else {
+    // login require
+  }
+?>
+
+$COOKIE[‘token’] == $token (‘0e124656823434657657655654324342’ == ‘0’) will return TRUE
+$COOKIE[‘token’] != $token (‘0e124656823434657657655654324342’ != ‘0’) will return FALSE
 ```
 
 ### Reduction in Entropy (Insecure HMAC)

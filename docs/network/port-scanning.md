@@ -11,6 +11,9 @@ for ip in $(seq 1 5);
 	do nc -nvv -z 192.168.1.$ip 80 &>> /tmp/ncscan.txt
 done
 ```
+```
+nc -z -v (TARGET IP ADDRESS) 1-1024 2>/dev/stdout| grep -v refused
+```
 
 ARP ping:
 ```
@@ -22,6 +25,33 @@ Ping:
 for ip in $(seq 1 254);do
         ping -c 1 192.168.1.$ip | grep "bytes from" | cut -d" " -f4 | cut -d":" -f1 &
 done
+```
+
+```
+#!/bin/bash
+# 2019 WeakNet Labs, Douglas Berdeaux
+# Port scanner script using /dev/tcp
+target=$1
+range=$(echo $2| sed 's/-/ /g')
+usage () {
+ printf "[!] Usage: ./portscan.sh (TARGET IP ADDRESS)\n"
+ exit 1;
+}
+if [[ "$range" == "" ]]
+ then
+  usage
+fi # OK GO
+printf "[*] Got sockets $target: $range\n";
+for port in $(seq $range);
+ do
+ (echo $port > /dev/tcp/$target/$port && printf "[!] $port is open.\n") 2>/dev/null
+done
+```
+
+## Port monitor 
+```
+watch -n1 nc -w1 -nvz 192.168.1.23 123
+# -w1: timeout 1 sec, -n: no reverse lookup, -v: verbose, -z: no IO, act as a scanner
 ```
 ## Evade Firewall
 

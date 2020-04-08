@@ -37,3 +37,17 @@ scanssh -p -r -e excludes random(no.)/Network_ID/Subnet_Mask
 "HASSH" is a network fingerprinting standard which can be used to identify specific Client and Server SSH implementations. The fingerprints can be easily stored, searched and shared in the form of an MD5 fingerprint.
 
 - GitHub: https://github.com/salesforce/hassh/
+
+
+### PPK (Putty) to SSH/RSA key-file
+```
+puttygen my_private_key.ppk -O private-openssh -o keyfile
+chmood 600 keyfile
+ssh -l (USERNAME) (TARGET IP ADDRESS) -i keyfile
+```
+
+### RSA key cracking 
+```
+ssh2john id_rsa > id_rsa.john
+john --wordlist=/path/to/rockyou.txt id_rsa.john
+```
