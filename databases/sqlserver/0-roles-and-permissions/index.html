@@ -7955,7 +7955,7 @@
 <p>Principals are entities that can request SQL Server resources.</p>
 <h3 id="sql-server-level-principals">SQL Server-level principals<a class="headerlink" href="#sql-server-level-principals" title="Permanent link">&para;</a></h3>
 <ul>
-<li>SQL Server authentication Login</li>
+<li>SQL Server authentication Login<ul>
 <li>sa<ul>
 <li>Created when instance is installed</li>
 <li>Default database is <code class="codehilite"><span class="n">master</span></code></li>
@@ -7966,6 +7966,8 @@
 <li>Every login belongs to the this role</li>
 </ul>
 </li>
+</ul>
+</li>
 <li>Windows authentication login for a Windows user</li>
 <li>Windows authentication login for a Windows group</li>
 <li>Azure Active Directory authentication login for a AD user</li>
@@ -7974,7 +7976,7 @@
 </ul>
 <h3 id="database-level-principals">Database-level principals<a class="headerlink" href="#database-level-principals" title="Permanent link">&para;</a></h3>
 <ul>
-<li>Database User (There are 11 types of users. For more information, see CREATE USER.)</li>
+<li>Database User (There are 11 types of users. For more information, see CREATE USER.)<ul>
 <li>dbo<ul>
 <li>Created for each database</li>
 <li>Has all permissions in the database</li>
@@ -7985,6 +7987,8 @@
 <li>Permissions granted are inherited by users who have access to the database, but who do not have a user account in the database.</li>
 <li>Cannot be dropped</li>
 <li>Can be disabled by revoking it's CONNECT permission (<code class="codehilite"><span class="nv">REVOKE</span> <span class="k">CONNECT</span> <span class="nv">FROM</span> <span class="nv">GUEST</span><span class="c1">;</span></code>)</li>
+</ul>
+</li>
 </ul>
 </li>
 <li>Database Role</li>
@@ -8109,12 +8113,10 @@
 <h3 id="special-roles-for-sql-database-and-sql-data-warehouse">Special Roles for SQL Database and SQL Data Warehouse<a class="headerlink" href="#special-roles-for-sql-database-and-sql-data-warehouse" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Exist only in the virtual master database.</li>
-<li>
-<p>Permissions are restricted to actions performed in master.</p>
-</li>
-<li>
-<p>Only database users in master can be added to these roles.</p>
-</li>
+<li>Permissions are restricted to actions performed in master.</li>
+</ul>
+<ul>
+<li>Only database users in master can be added to these roles.</li>
 <li>Logins cannot be added to these roles, but users can be created based on logins and then those users can be added to the roles. Contained database users in master, can also be added to these roles.</li>
 </ul>
 <table>

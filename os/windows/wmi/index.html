@@ -7937,17 +7937,23 @@
                 <p>WMI</p>
 <ul>
 <li>Implementation of Common Information Model (CIM) and Web-Based Enterprise Management (WBEM)</li>
-<li>WBEM standard encompasses the design of an</li>
+<li>WBEM standard encompasses the design of an<ul>
 <li>extensible enterprise data-collection and data-management facility</li>
 <li>that has the flexibility and extensibility</li>
 <li>required to manage local and remote systems that comprise arbitrary components  </li>
-<li>WMI consists of four main components:</li>
+</ul>
+</li>
+<li>WMI consists of four main components:<ul>
 <li>management applications</li>
 <li>WMI infrastructure</li>
 <li>providers</li>
 <li>managed objects (system, disks, processes, network components...)</li>
-<li>Allows</li>
+</ul>
+</li>
+<li>Allows<ul>
 <li>Execute some code when the notification of an event</li>
+</ul>
+</li>
 </ul>
 <p><img alt="" src="../_assets/WMI architecture.png" /></p>
 <blockquote>
@@ -7961,7 +7967,7 @@
 <p><a href="https://www.blackhat.com/docs/us-15/materials/us-15-Graeber-Abusing-Windows-Management-Instrumentation-WMI-To-Build-A-Persistent%20Asynchronous-And-Fileless-Backdoor-wp.pdf">https://www.blackhat.com/docs/us-15/materials/us-15-Graeber-Abusing-Windows-Management-Instrumentation-WMI-To-Build-A-Persistent%20Asynchronous-And-Fileless-Backdoor-wp.pdf</a> </p>
 </blockquote>
 <ul>
-<li>CIM classes</li>
+<li>CIM classes<ul>
 <li>hierarchically organized with subclasses</li>
 <li>grouped in namespaces (logical group of classes)</li>
 <li>root\cimv2 includes most of the classes that represent computer's resources</li>
@@ -7973,59 +7979,61 @@
 </li>
 <li>Types<ul>
 <li><strong>Abstract</strong> - Template classes used to define other classes. </li>
-<li><strong>Static</strong> - Stores data </li>
+<li><strong>Static</strong> - Stores data <ul>
 <li>WMI configuration</li>
 <li>Operational data</li>
+</ul>
+</li>
 <li><strong>Dynamic</strong> - Retrieved from a provider, and represents managed resource (process, service, file, etc.)</li>
 <li><strong>Association</strong> - Describe relationship between classes or resources. </li>
 </ul>
 </li>
+</ul>
+</li>
 <li>
 <p>WMI Provider </p>
-</li>
-<li>
-<p>Bridge between managed object and WMI</p>
-</li>
+<ul>
+<li>Bridge between managed object and WMI</li>
 <li>Provide access to classes </li>
-<li>
-<p>Namespaces </p>
-</li>
-<li>
-<p>CIM classes are decided logically using namespaces </p>
-</li>
+<li>Namespaces </li>
+</ul>
+<ul>
+<li>CIM classes are decided logically using namespaces </li>
 <li>For easier discovery and use</li>
 <li><code class="codehilite"><span class="n">root</span><span class="err">\</span><span class="n">cimv2</span></code> <code class="codehilite"><span class="n">root</span><span class="err">\</span><span class="k">default</span></code> <code class="codehilite"><span class="n">root</span><span class="err">\</span><span class="k">security</span></code> <code class="codehilite"><span class="n">root</span><span class="err">\</span><span class="n">subscription</span></code> </li>
-<li>
-<p>WMI repository - stores CIM classes' definitions</p>
-</li>
-<li>
-<p><code class="codehilite"><span class="c">%SystemRoot%\System32\wbem\Repository</span></code></p>
+<li>WMI repository - stores CIM classes' definitions</li>
+</ul>
+<ul>
+<li><code class="codehilite"><span class="c">%SystemRoot%\System32\wbem\Repository</span></code></li>
+</ul>
 </li>
 </ul>
 <h2 id="interesting-cim-classes">Interesting CIM classes<a class="headerlink" href="#interesting-cim-classes" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="http://msdn.microsoft.com/en-us/library/aa394639%28v=vs.85%29.aspx">__EventFilter</a> [<a href="http://msdn.microsoft.com/en-us/library/aa389741%28VS.85%29.aspx">create</a>]: permits to define a Windows event</li>
-<li><a href="http://msdn.microsoft.com/en-us/library/aa384749%28VS.85%29.aspx">__EventConsumer</a>: (abstract consumer class)<ul>
-<li><a href="http://msdn.microsoft.com/en-us/library/aa394635">ActiveScriptEventConsumer</a>: possible to embed VBScript or JSScript in the consumer (only available in <code class="codehilite"><span class="n">root</span><span class="err">\</span><span class="n">subscription</span></code>)</li>
-<li>Consumer runs with SYSTEM privilege on <code class="codehilite"><span class="n">Windows</span> <span class="n">XP</span></code> and <code class="codehilite"><span class="n">Windows</span> <span class="mi">2003</span> <span class="n">Server</span></code></li>
-<li><code class="codehilite"><span class="n">Vista</span></code>, it is running under the LOCAL_SERVICE user</li>
-</ul>
-</li>
-<li><a href="http://msdn.microsoft.com/en-us/library/aa394647%28v=VS.85%29.aspx">__FilterToConsumerBinding</a>: link two other instances. (permits to activate the consumer - and to execute its code - whenever the defined event occurs)</li>
-</ul>
+<p>- <a href="http://msdn.microsoft.com/en-us/library/aa394639%28v=vs.85%29.aspx">__EventFilter</a> [<a href="http://msdn.microsoft.com/en-us/library/aa389741%28VS.85%29.aspx">create</a>]: permits to define a Windows event
+  - <a href="http://msdn.microsoft.com/en-us/library/aa384749%28VS.85%29.aspx">__EventConsumer</a>: (abstract consumer class)
+    - <a href="http://msdn.microsoft.com/en-us/library/aa394635">ActiveScriptEventConsumer</a>: possible to embed VBScript or JSScript in the consumer (only available in <code class="codehilite"><span class="n">root</span><span class="err">\</span><span class="n">subscription</span></code>)
+      - Consumer runs with SYSTEM privilege on <code class="codehilite"><span class="n">Windows</span> <span class="n">XP</span></code> and <code class="codehilite"><span class="n">Windows</span> <span class="mi">2003</span> <span class="n">Server</span></code>
+      - <code class="codehilite"><span class="n">Vista</span></code>, it is running under the LOCAL_SERVICE user
+  - <a href="http://msdn.microsoft.com/en-us/library/aa394647%28v=VS.85%29.aspx">__FilterToConsumerBinding</a>: link two other instances. (permits to activate the consumer - and to execute its code - whenever the defined event occurs)</p>
 <hr />
 <h2 id="mof-managed-object-format"><a href="http://msdn.microsoft.com/en-us/library/aa823192%28VS.85%29.aspx">MOF (Managed Object Format)</a><a class="headerlink" href="#mof-managed-object-format" title="Permanent link">&para;</a></h2>
 <ul>
 <li>Language used to describe CIM classes, namespaces and providers </li>
-<li>MOF file needs to be registered into the CIM/WMI repository in order to be taken into account by WMI</li>
+<li>MOF file needs to be registered into the CIM/WMI repository in order to be taken into account by WMI<ul>
 <li>CIM class(es) MOF describes are added into the repository</li>
 <li>Stored in <code class="codehilite"><span class="c">%SystemRoot%\System32\wbem</span></code></li>
-<li>Compilation</li>
+</ul>
+</li>
+<li>Compilation<ul>
 <li>Compiled using <code class="codehilite"><span class="n">mofcomp</span><span class="p">.</span><span class="n">exe</span></code></li>
-<li>Auto compile &amp; register</li>
+</ul>
+</li>
+<li>Auto compile &amp; register<ul>
 <li>Writable to <code class="codehilite"><span class="n">Administrator</span></code> only</li>
 <li>Files added to  <code class="codehilite"><span class="c">%SystemRoot%\System32\wbem\mof\</span></code> get auto compiled and registered (before Vista)</li>
 <li>Logs are in <code class="codehilite"><span class="c">%SystemRoot%\System32\wbem\mof\Logs\mofcomp.log</span></code></li>
+</ul>
+</li>
 </ul>
 <p>Wait for a windows event and trigger:
 <div class="codehilite"><pre><span></span><span class="p">#</span><span class="nn">pragma</span> <span class="nt">namespace</span> <span class="o">(</span><span class="s2">&quot;\\\\.\\root\\subscription&quot;</span><span class="o">)</span>
@@ -8097,11 +8105,9 @@
 <span class="err">}</span><span class="p">;</span><span class="w"></span>
 </pre></div></p>
 <h3 id="usages">Usages<a class="headerlink" href="#usages" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Automatically kill some processes as soon as they are launched (anti-rootkits...),</li>
-<li>Automatically detect when the backdoor/rootkit has been deleted to load it again (dropper),</li>
-<li>Automatically infect USB devices</li>
-</ul>
+<p>- Automatically kill some processes as soon as they are launched (anti-rootkits...),
+  - Automatically detect when the backdoor/rootkit has been deleted to load it again (dropper),
+  - Automatically infect USB devices</p>
 <h2 id="exploring">Exploring<a class="headerlink" href="#exploring" title="Permanent link">&para;</a></h2>
 <h3 id="exploring-namespaces">Exploring Namespaces<a class="headerlink" href="#exploring-namespaces" title="Permanent link">&para;</a></h3>
 <p><div class="codehilite"><pre><span></span><span class="k">Get</span><span class="o">-</span><span class="n">WmiObject</span> <span class="o">-</span><span class="n">Namespace</span> <span class="ss">&quot;root&quot;</span> <span class="o">-</span><span class="k">Class</span> <span class="ss">&quot;__Namespace&quot;</span> <span class="o">|</span> <span class="k">select</span> <span class="n">name</span>
@@ -8210,35 +8216,41 @@ To read nested namespaces:
 </ul>
 <h2 id="useful-wmi-classes">Useful WMI Classes<a class="headerlink" href="#useful-wmi-classes" title="Permanent link">&para;</a></h2>
 <ul>
-<li>
-<p>Win32_OperatingSystem</p>
-</li>
-<li>
-<p>Win32_Process</p>
-</li>
-<li>
-<p>Win32_IP4RouteTable</p>
-</li>
-<li>
-<p>Win32_UserAccount</p>
-</li>
-<li>
-<p>Win32_Groups</p>
-</li>
+<li>Win32_OperatingSystem</li>
+</ul>
+<ul>
+<li>Win32_Process</li>
+</ul>
+<ul>
+<li>Win32_IP4RouteTable</li>
+</ul>
+<ul>
+<li>Win32_UserAccount</li>
+</ul>
+<ul>
+<li>Win32_Groups</li>
+</ul>
+<ul>
 <li>
 <p>Win32_ShadowCopy</p>
-</li>
-<li>
-<p>Create a shadow copy of AD's drive and extract NTDS.dit</p>
-</li>
-<li>
-<p><code class="codehilite"><span class="p">(</span><span class="k">Get</span><span class="o">-</span><span class="n">WmiObject</span> <span class="o">-</span><span class="k">Class</span> <span class="n">Win32_ShadowCopy</span> <span class="o">-</span><span class="n">list</span><span class="p">).</span><span class="k">create</span><span class="p">(</span><span class="ss">&quot;C:\&quot;</span><span class="p">,</span> <span class="ss">&quot;CreateAccessible&quot;</span><span class="p">)</span><span class="err">$</span><span class="n">link</span> <span class="o">=</span> <span class="p">(</span><span class="k">Get</span><span class="o">-</span><span class="n">WmiObject</span> <span class="o">-</span><span class="k">Class</span> <span class="n">Winn32_ShadowCopy</span><span class="p">).</span><span class="n">DeviceObject</span> <span class="o">+</span> <span class="ss">&quot;\&quot;</span><span class="n">cmd</span> <span class="o">/</span><span class="k">c</span> <span class="n">mklink</span> <span class="o">/</span><span class="n">d</span> <span class="k">C</span><span class="p">:</span><span class="err">\</span><span class="n">shadowcopy</span> <span class="ss">&quot;$link&quot;</span></code></p>
-</li>
+<ul>
+<li>Create a shadow copy of AD's drive and extract NTDS.dit</li>
+</ul>
+<ul>
+<li><code class="codehilite"><span class="p">(</span><span class="k">Get</span><span class="o">-</span><span class="n">WmiObject</span> <span class="o">-</span><span class="k">Class</span> <span class="n">Win32_ShadowCopy</span> <span class="o">-</span><span class="n">list</span><span class="p">).</span><span class="k">create</span><span class="p">(</span><span class="ss">&quot;C:\&quot;</span><span class="p">,</span> <span class="ss">&quot;CreateAccessible&quot;</span><span class="p">)</span><span class="err">$</span><span class="n">link</span> <span class="o">=</span> <span class="p">(</span><span class="k">Get</span><span class="o">-</span><span class="n">WmiObject</span> <span class="o">-</span><span class="k">Class</span> <span class="n">Winn32_ShadowCopy</span><span class="p">).</span><span class="n">DeviceObject</span> <span class="o">+</span> <span class="ss">&quot;\&quot;</span><span class="n">cmd</span> <span class="o">/</span><span class="k">c</span> <span class="n">mklink</span> <span class="o">/</span><span class="n">d</span> <span class="k">C</span><span class="p">:</span><span class="err">\</span><span class="n">shadowcopy</span> <span class="ss">&quot;$link&quot;</span></code></li>
+</ul>
+<ul>
 <li></li>
+</ul>
+</li>
+</ul>
+<ul>
 <li>
 <p>AD</p>
-</li>
+<ul>
 <li></li>
+</ul>
+</li>
 </ul>
 <h2 id="tools">Tools<a class="headerlink" href="#tools" title="Permanent link">&para;</a></h2>
 <ul>
@@ -8263,17 +8275,21 @@ To read nested namespaces:
 </ul>
 <h2 id="remoting">Remoting<a class="headerlink" href="#remoting" title="Permanent link">&para;</a></h2>
 <ul>
-<li>WMI Cmdlets  </li>
+<li>WMI Cmdlets  <ul>
 <li>Uses DCOM </li>
 <li>Port 135 (winmgmt service)</li>
 <li>Not firewall / NAT friendly </li>
 <li>Data exchanged on dynamic ports (<code class="codehilite"><span class="n">HKLM</span><span class="err">\</span><span class="n">Software</span><span class="err">\</span><span class="n">Microsoft</span><span class="err">\</span><span class="n">Rpc</span><span class="err">\</span><span class="n">Internet</span></code>)</li>
-<li>CIM Cmdlets </li>
+</ul>
+</li>
+<li>CIM Cmdlets <ul>
 <li>DCOM 135</li>
 <li>WinRm/WSMan<ul>
 <li>5385 - HTTP</li>
 <li>5386 - HTTPS</li>
 <li>Firewall and NAT friendly </li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>

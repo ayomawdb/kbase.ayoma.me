@@ -7749,16 +7749,22 @@
                 <h1 id="ships">Ships<a class="headerlink" href="#ships" title="Permanent link">&para;</a></h1>
 <h2 id="shodan-searches">Shodan searches<a class="headerlink" href="#shodan-searches" title="Permanent link">&para;</a></h2>
 <ul>
-<li>org:"Inmarsat Solutions US"</li>
+<li>org:"Inmarsat Solutions US"<ul>
 <li>Login for Globe wireless</li>
-<li>title:"sailor 900"</li>
+</ul>
+</li>
+<li>title:"sailor 900"<ul>
 <li>Sat antenna details</li>
 <li>Exploit: <a href="https://www.exploit-db.com/exploits/35932">https://www.exploit-db.com/exploits/35932</a></li>
 <li>Default credentials: admin/1234</li>
-<li>html:commbox</li>
+</ul>
+</li>
+<li>html:commbox<ul>
 <li>KVH CommBox terminals</li>
 <li>Vessel name / network structure leaked</li>
 <li>"Show Users" link (or can request the content by appending /rest.php?action=QCgetActiveUsers)</li>
+</ul>
+</li>
 </ul>
 <h2 id="vuln-ship-tracker">Vuln Ship Tracker<a class="headerlink" href="#vuln-ship-tracker" title="Permanent link">&para;</a></h2>
 <ul>
@@ -7768,18 +7774,24 @@
 <ul>
 <li><code class="codehilite"><span class="n">ECDIS</span></code> are the electronic chart systems that are needed to navigate.</li>
 <li><code class="codehilite"><span class="n">AIS</span> <span class="n">transceiver</span></code> - system that ships use to avoid colliding with each other.</li>
-<li><code class="codehilite"><span class="n">NMEA</span> <span class="mi">0183</span></code> messages</li>
+<li><code class="codehilite"><span class="n">NMEA</span> <span class="mi">0183</span></code> messages<ul>
 <li>Ethernet and serial networks are often ‘bridged’ at several points (GPS,satcom terminal, ECDIS)</li>
 <li>OT systems are used to control the steering gear, engines, ballast pumps and lots more.</li>
 <li>They communicate using  NMEA 0183 messages.</li>
 <li>No message authentication, encryption or validation (only 2 byte XOR checksum)</li>
 </ul>
+</li>
+</ul>
 <h2 id="attack-patterns">Attack Patterns<a class="headerlink" href="#attack-patterns" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Spoof the <code class="codehilite"><span class="n">ECDIS</span></code> using the vulnerable config interface, 'grow' the ship and 'jump' it in to the shipping lanes.</li>
+<li>Spoof the <code class="codehilite"><span class="n">ECDIS</span></code> using the vulnerable config interface, 'grow' the ship and 'jump' it in to the shipping lanes.<ul>
 <li>Other ships AIS will alert the ships captain to a collision scenario</li>
-<li>MitM and change NMEA 0183 messages to read differently</li>
+</ul>
+</li>
+<li>MitM and change NMEA 0183 messages to read differently<ul>
 <li>Ex: change the rudder command by modifying a GPS autopilot command</li>
+</ul>
+</li>
 </ul>
 <h1 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h1>
 <h2 id="summarized-references">Summarized References<a class="headerlink" href="#summarized-references" title="Permanent link">&para;</a></h2>

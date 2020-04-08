@@ -8183,21 +8183,19 @@ Mimikatz features: <a href="https://adsecurity.org/?page_id=1821">https://adsecu
 </blockquote>
 <h2 id="recon">Recon<a class="headerlink" href="#recon" title="Permanent link">&para;</a></h2>
 <ul>
-<li>
-<p>IP, subnet, default gateway etc: <code class="codehilite"><span class="n">ipconfig</span> <span class="o">/</span><span class="k">all</span></code></p>
-</li>
-<li>
-<p>Current user name, info in current access token, SID, privs and group that current user belongs to: <code class="codehilite"><span class="n">whoami</span> <span class="o">/</span><span class="k">all</span></code></p>
-</li>
-<li>
-<p>Local groups on current machine: <code class="codehilite"><span class="n">net</span> <span class="n">localgroup</span></code></p>
-</li>
-<li>
-<p>Local administrators of current machine: <code class="codehilite"><span class="n">net</span> <span class="n">localgroup</span> <span class="ss">&quot;administrators&quot;</span></code></p>
-</li>
-<li>
-<p>Active tcp connections, ports, which the computer is listening, ethernet statistics, ip routing table: <code class="codehilite"><span class="n">netstat</span> <span class="o">-</span><span class="n">an</span></code></p>
-</li>
+<li>IP, subnet, default gateway etc: <code class="codehilite"><span class="n">ipconfig</span> <span class="o">/</span><span class="k">all</span></code></li>
+</ul>
+<ul>
+<li>Current user name, info in current access token, SID, privs and group that current user belongs to: <code class="codehilite"><span class="n">whoami</span> <span class="o">/</span><span class="k">all</span></code></li>
+</ul>
+<ul>
+<li>Local groups on current machine: <code class="codehilite"><span class="n">net</span> <span class="n">localgroup</span></code></li>
+</ul>
+<ul>
+<li>Local administrators of current machine: <code class="codehilite"><span class="n">net</span> <span class="n">localgroup</span> <span class="ss">&quot;administrators&quot;</span></code></li>
+</ul>
+<ul>
+<li>Active tcp connections, ports, which the computer is listening, ethernet statistics, ip routing table: <code class="codehilite"><span class="n">netstat</span> <span class="o">-</span><span class="n">an</span></code></li>
 <li>Running processes with verbose mode: <code class="codehilite"><span class="n">tasklist</span> <span class="o">/</span><span class="n">V</span></code></li>
 <li>Startup programs: <code class="codehilite"><span class="n">net</span> <span class="k">start</span></code></li>
 <li>Windows services with binary paths: <code class="codehilite"><span class="n">sc</span> <span class="n">qc</span> <span class="o">&lt;</span><span class="n">service</span><span class="o">&gt;</span></code></li>

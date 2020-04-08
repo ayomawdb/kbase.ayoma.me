@@ -8400,22 +8400,30 @@
 <li>Not designed for today's network security</li>
 <li>Loosing KDC means, security is at total loss </li>
 <li>Kerberos uses either UDP/88 or TCP/88 as transport protocol. Hence Kerberos itself is responsible of encrypting data.</li>
-<li>Several agents working together:</li>
+<li>Several agents working together:<ul>
 <li><code class="codehilite"><span class="n">Client</span></code> or user: who wants to access to the service.</li>
 <li><code class="codehilite"><span class="n">AP</span> <span class="p">(</span><span class="n">Application</span> <span class="n">Server</span><span class="p">)</span></code>: offers the service required by the user.</li>
 <li><code class="codehilite"><span class="n">KDC</span> <span class="p">(</span><span class="k">Key</span> <span class="n">Distribution</span> <span class="n">Center</span><span class="p">)</span></code>: main service of Kerberos, responsible of issuing the tickets, installed on the DC (Domain Controller). It is supported by the <code class="codehilite"><span class="k">AS</span> <span class="p">(</span><span class="n">Authentication</span> <span class="n">Service</span><span class="p">)</span></code>, which issues the <code class="codehilite"><span class="n">TGTs</span></code>.</li>
-<li>Keys:</li>
+</ul>
+</li>
+<li>Keys:<ul>
 <li><code class="codehilite"><span class="n">KDC</span> <span class="k">key</span></code> or <code class="codehilite"><span class="n">krbtgt</span> <span class="k">key</span></code>: Derivate from krbtgt account NTLM hash.</li>
 <li><code class="codehilite"><span class="k">User</span> <span class="k">key</span></code>: Derivate from user NTLM hash.</li>
 <li><code class="codehilite"><span class="n">Service</span> <span class="k">key</span></code>: Derivate from the NTLM hash of service owner, which can be an user or computer account.</li>
 <li><code class="codehilite"><span class="k">Session</span> <span class="k">key</span></code>: Negotiated between the user and KDC.</li>
 <li><code class="codehilite"><span class="n">Service</span> <span class="k">session</span> <span class="k">key</span></code>: to be use between user and service.</li>
-<li>Tickets:</li>
+</ul>
+</li>
+<li>Tickets:<ul>
 <li><code class="codehilite"><span class="n">TGS</span> <span class="p">(</span><span class="n">Ticket</span> <span class="n">Granting</span> <span class="n">Service</span><span class="p">)</span></code>: Ticket which user can use to authenticate against a service. It is encrypted with the service key.</li>
 <li><code class="codehilite"><span class="n">TGT</span> <span class="p">(</span><span class="n">Ticket</span> <span class="n">Granting</span> <span class="n">Ticket</span><span class="p">)</span></code>: Ticket presented to the KDC to request for TGSs. It is encrypted with the KDC key.</li>
-<li><code class="codehilite"><span class="n">PAC</span> <span class="p">(</span><span class="n">Privilege</span> <span class="n">Attribute</span> <span class="n">Certificate</span><span class="p">)</span></code> is an structure included in almost every ticket.</li>
+</ul>
+</li>
+<li><code class="codehilite"><span class="n">PAC</span> <span class="p">(</span><span class="n">Privilege</span> <span class="n">Attribute</span> <span class="n">Certificate</span><span class="p">)</span></code> is an structure included in almost every ticket.<ul>
 <li>It is possible to services to verify the PAC by comunicating with the KDC</li>
-<li>Messages:</li>
+</ul>
+</li>
+<li>Messages:<ul>
 <li>KRB_AS_REQ: Used to request the TGT to KDC.</li>
 <li>KRB_AS_REP: Used to deliver the TGT by KDC.</li>
 <li>KRB_TGS_REQ: Used to request the TGS to KDC, using the TGT.</li>
@@ -8424,6 +8432,8 @@
 <li>KRB_AP_REP: (Optional) Used by service to identify itself against the user.</li>
 <li>KRB_ERROR: Message to comunicate error conditions.</li>
 <li>KERB_VERIFY_PAC_REQUEST: AP send message to KDC including the signature of PAC, and verify if it is correct. (not part of Kerberos, but NRPC)</li>
+</ul>
+</li>
 </ul>
 <h2 id="attacks">Attacks<a class="headerlink" href="#attacks" title="Permanent link">&para;</a></h2>
 <ul>
@@ -8455,52 +8465,52 @@
 <p>Ref: <a href="https://www.blackhat.com/docs/us-14/materials/us-14-Duckwall-Abusing-Microsoft-Kerberos-Sorry-You-Guys-Don't-Get-It.pdf">https://www.blackhat.com/docs/us-14/materials/us-14-Duckwall-Abusing-Microsoft-Kerberos-Sorry-You-Guys-Don't-Get-It.pdf</a></p>
 </blockquote>
 <ul>
-<li>Client constructs an authenticator (request for TGT) containing:</li>
+<li>Client constructs an authenticator (request for TGT) containing:<ul>
 <li>Identify information - unencrypted.</li>
 <li>Timestamp - <strong>encrypted using user's password</strong> (hash). User's password (hash) is used as symmetric key. </li>
-<li>When a client sends a request (<strong>AS-REQ</strong>) for a ticket to the <strong>Key Distribution Center (KDC)</strong>. </li>
+</ul>
+</li>
+<li>When a client sends a request (<strong>AS-REQ</strong>) for a ticket to the <strong>Key Distribution Center (KDC)</strong>. <ul>
 <li>A timestamp is sent encrypted with user's password hash (also called <strong>user's long term key</strong>).<ul>
-<li>[When using SmartCard] </li>
+<li>[When using SmartCard] <ul>
 <li>[non-DH] Timestamp is signed using public-key and public-key is sent to DC</li>
 <li>[DH] Timestamp is signed using public-key and public-key and DH parameters are sent to DC</li>
+</ul>
+</li>
 </ul>
 </li>
 <li>If request can be decrypted with user's password hash,</li>
 <li>
 <p>And If request's time is within 5 minutes:</p>
 <ul>
-<li>The KDC creates a <strong>Ticket-Granting Ticket (TGT)</strong> for the client</li>
+<li>The KDC creates a <strong>Ticket-Granting Ticket (TGT)</strong> for the client<ul>
 <li>Special ticket that permits the client to obtain additional Kerberos tickets within the same Kerberos realm.</li>
 <li>Usually good for 10 hours.</li>
-<li>
-<p>Containing: </p>
-<ul>
+<li>Containing: <ul>
 <li>client name</li>
 <li>IP address</li>
 <li>timestamp</li>
 <li>validity period - 10 hours max by default</li>
 </ul>
 </li>
+</ul>
+</li>
+</ul>
+<ul>
 <li>
 <p>Sends (<strong>AS-REP</strong>) the encrypted <strong>TGT</strong> + <strong>TGS Session Key</strong> back to the client</p>
-</li>
-<li>
-<p>User portion (client can decrypt) - Encrypted with <strong>user's password</strong> (hash), contains:</p>
 <ul>
+<li>User portion (client can decrypt) - Encrypted with <strong>user's password</strong> (hash), contains:<ul>
 <li><strong>TGS Session Key</strong> - Usable to encrypt communication between client and TGS</li>
 </ul>
 </li>
-<li>
-<p>[When using SmartCard] </p>
-<ul>
-<li>[non-DH] Encrypted with public-key</li>
-<li>[DH] Encrypted with DH info (?) not public-key</li>
+<li>[When using SmartCard] 
+    * [non-DH] Encrypted with public-key
+    * [DH] Encrypted with DH info (?) not public-key</li>
 </ul>
-</li>
-<li>
-<p>Server portion (client cannot decrypt) - Encrypted with <strong>KDC's secret key</strong> (<strong>Domain key</strong> / <strong>krbtgt account</strong>), contains:</p>
 <ul>
-<li><strong>TGT</strong> - Permits the client to obtain additional tickets (like TGS) which gives permission for specific services. Contains:</li>
+<li>Server portion (client cannot decrypt) - Encrypted with <strong>KDC's secret key</strong> (<strong>Domain key</strong> / <strong>krbtgt account</strong>), contains:<ul>
+<li><strong>TGT</strong> - Permits the client to obtain additional tickets (like TGS) which gives permission for specific services. Contains:<ul>
 <li>[Microsoft]  <strong>Privilege Attribute Certificate (PAC)</strong> containing:<ul>
 <li>Username</li>
 <li>User's RID</li>
@@ -8514,11 +8524,21 @@
 </li>
 </ul>
 </li>
-<li>If TGS Session Key can be decrypted using user's password (hash):</li>
-<li>Client stores <strong>encrypted</strong> TGT and <strong>decrypted (?)</strong> TGS Session Key in <strong>Kerberos Tray</strong> </li>
+</ul>
+</li>
+<li>If TGS Session Key can be decrypted using user's password (hash):<ul>
+<li>Client stores <strong>encrypted</strong> TGT and <strong>decrypted (?)</strong> TGS Session Key in <strong>Kerberos Tray</strong> <ul>
 <li>Always lives in memory</li>
 <li>Never saved into disk</li>
 <li>Kerberos Tray can be explored with <code class="codehilite"><span class="n">kerbtray</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -8530,7 +8550,7 @@
 <h3 id="client-service-authentication">Client - Service Authentication<a class="headerlink" href="#client-service-authentication" title="Permanent link">&para;</a></h3>
 <ul>
 <li><strong>TGS - Ticket granting service</strong> is a KDC component that issues a service ticket when a client requests connection to a Kerberos service.</li>
-<li>Client sends following to TGS (<strong>TGS-REQ</strong>)</li>
+<li>Client sends following to TGS (<strong>TGS-REQ</strong>)<ul>
 <li>Copy of <strong>TGT</strong> <ul>
 <li>TGS can decrypt this using KDC's secret key</li>
 </ul>
@@ -8540,7 +8560,9 @@
 <li>TGS can decrypt this using user's password (hash)</li>
 </ul>
 </li>
-<li>TGS will return (<strong>TGS-REP</strong>):</li>
+</ul>
+</li>
+<li>TGS will return (<strong>TGS-REP</strong>):<ul>
 <li>User Portion (User can decrypt) - Encrypted with <strong>TGS Session Key</strong><ul>
 <li><strong>Service Session Key</strong></li>
 <li>Validity time</li>
@@ -8548,9 +8570,11 @@
 </li>
 <li>Server Portion / Service Ticket (User cannot decrypt) - Encrypted with <strong>service secret key</strong><ul>
 <li><strong>Privilege Attribute Certificate (PAC)</strong></li>
-<li>2 HMAC signatures:</li>
+<li>2 HMAC signatures:<ul>
 <li>Target key - Service account's hash (might be crackable)</li>
 <li>KDC Key - Krbtgt account's hash (not easily crackable)</li>
+</ul>
+</li>
 </ul>
 </li>
 <li><strong>Service Session Key</strong><ul>
@@ -8562,32 +8586,46 @@
 <li>Validating if the user has access to the service is up to the service.</li>
 </ul>
 </li>
+</ul>
+</li>
 <li>Service Session Key and Service Ticket is stored in <strong>Kerberos Tray</strong> (?)</li>
-<li>Client send the following to service when necessary:</li>
+<li>Client send the following to service when necessary:<ul>
 <li>Encrypted <strong>Service Ticket</strong></li>
 <li>Time stamped authenticator encrypted with the <strong>Service Session Key</strong></li>
-<li>Service will:</li>
+</ul>
+</li>
+<li>Service will:<ul>
 <li>Decrypt the <strong>Service Ticket</strong> with its secret and validate both HMAC</li>
 <li>Validate timestamped authenticator.</li>
 <li>If both are fine, decrypted <strong>Service Ticket</strong> and check <strong>Privilege Attribute Certificate (PAC)</strong> to decide if access should be granted. </li>
 <li>2 HMAC signatures during <strong>PAC Validation</strong>:<ul>
-<li>Target key - Service account's hash (might be crackable)</li>
+<li>Target key - Service account's hash (might be crackable)<ul>
 <li>Always verified</li>
-<li>KDC key - Krbtgt account's hash (not easily crackable)</li>
+</ul>
+</li>
+<li>KDC key - Krbtgt account's hash (not easily crackable)<ul>
 <li>Verified with KDC "sometimes" (since data should be sent to KDC for verification)</li>
 <li>Windows send PAC Validation message to <strong>NetLogin service</strong> of DC if:<ul>
 <li>TCB (act as part of the OS) privilege is not there and it is not a <strong>Service Control Manager (SCM)</strong> account. </li>
-<li>:. generally if application is running as a service in local system, hash is not checked:</li>
+<li>:. generally if application is running as a service in local system, hash is not checked:<ul>
 <li>SQL Server, Exchange server: Generally does not check</li>
 <li>App pools in web servers: Always check </li>
+</ul>
+</li>
 <li>Can be asked to check always using regkey "ValidateKdcPacSignature"</li>
 </ul>
 </li>
 </ul>
 </li>
-<li>Service may:</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Service may:<ul>
 <li>Send a response with timestamp encrypted with the Service Session Key</li>
 <li>Client decrypt and verify to prevent MitM</li>
+</ul>
+</li>
 </ul>
 <h3 id="inter-forest-authentication">Inter-forest Authentication<a class="headerlink" href="#inter-forest-authentication" title="Permanent link">&para;</a></h3>
 <ul>
@@ -8622,13 +8660,15 @@
 <li>which can be <strong>cracked offline</strong> in order to <strong>retrieve the plain-text password</strong> of the service</li>
 <li>because <strong>service tickets are encrypted with the hash (NTLM) of the service account</strong></li>
 <li>so any domain user can dump hashes from services without the need to get a shell into the system that is running the service.</li>
-<li>Any domain user has the rights by default on a standard domain to:</li>
+<li>Any domain user has the rights by default on a standard domain to:<ul>
 <li>To request a Service Ticket for any service.<ul>
 <li>Permission checks are done later at the service. </li>
 </ul>
 </li>
 <li>Request a copy of the service accounts. </li>
 <li>Request correlating password hash relevant to service accounts (?)</li>
+</ul>
+</li>
 </ul>
 <p>Crackable and important tickets can be identified by considering:</p>
 <ul>
@@ -8639,25 +8679,35 @@
 </ul>
 <h4 id="tips">Tips<a class="headerlink" href="#tips" title="Permanent link">&para;</a></h4>
 <ul>
-<li>Look for SQL Server instances with domain admin used as the service account</li>
+<li>Look for SQL Server instances with domain admin used as the service account<ul>
 <li>This is not recommended </li>
 <li>Instead, each service should use separate user accounts </li>
+</ul>
+</li>
 <li>SMB by default use a computer account</li>
 <li>Exchange server defaults to user account</li>
 </ul>
 <h4 id="step-1-service-provider-name-spn-and-spn-discovery">Step 1 - Service Provider Name (SPN) and SPN Discovery<a class="headerlink" href="#step-1-service-provider-name-spn-and-spn-discovery" title="Permanent link">&para;</a></h4>
 <ul>
 <li>Format: <code class="codehilite"><span class="n">ServiceType</span><span class="o">/</span><span class="k">Host</span><span class="o">[</span><span class="n">:Port</span><span class="o">][</span><span class="n">/DistinguishedName</span><span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="n">ServiceAccountName</span><span class="o">]</span><span class="w"></span></code></li>
-<li>Users system doesn't know the account running the service</li>
+<li>Users system doesn't know the account running the service<ul>
 <li>But KDC needs this info, so that Service Ticket can be encrypted using that account's hash</li>
-<li>SPN is the name by which </li>
+</ul>
+</li>
+<li>SPN is the name by which <ul>
 <li>a Kerberos client uniquely identifies an instance of a service </li>
 <li>for a given Kerberos target computer</li>
 <li><strong>KDC has a mapping between ["Service" to "Account"]</strong></li>
-<li>A given service instance can have multiple SPNs </li>
+</ul>
+</li>
+<li>A given service instance can have multiple SPNs <ul>
 <li>if there are multiple names that clients might use for authentication.</li>
-<li>SPN always includes the name of the host computer </li>
+</ul>
+</li>
+<li>SPN always includes the name of the host computer <ul>
 <li>A SPN is registered for each host alias</li>
+</ul>
+</li>
 <li>Point users to the appropriate resource for connection</li>
 <li>Discovery via LDAP queries</li>
 <li>Help in identify hosts that are running important services</li>
@@ -8672,13 +8722,17 @@
 <h6 id="setspn">SetSPN<a class="headerlink" href="#setspn" title="Permanent link">&para;</a></h6>
 <p>Can, view, edit, and delete SPN registrations.</p>
 <ul>
-<li>Register</li>
+<li>Register<ul>
 <li><code class="codehilite"><span class="n">setspn</span> <span class="o">-</span><span class="n">s</span> <span class="n">ServiceClass</span><span class="o">/</span><span class="k">Host</span><span class="p">:</span><span class="n">Port</span> <span class="n">AccountName</span></code></li>
 <li><code class="codehilite"><span class="n">setspn</span> <span class="o">-</span><span class="n">s</span> <span class="n">FIMService</span><span class="o">/</span><span class="n">FIMSVR</span><span class="p">.</span><span class="n">contoso</span><span class="p">.</span><span class="n">com</span> <span class="n">CONTOSO</span><span class="err">\</span><span class="n">FIMService</span></code> (-s verify that there are no duplicates)</li>
 <li><code class="codehilite"><span class="n">setspn</span> <span class="o">-</span><span class="n">s</span> <span class="n">http</span><span class="o">/</span><span class="n">CES1</span><span class="p">.</span><span class="n">corp</span><span class="p">.</span><span class="n">contoso</span><span class="p">.</span><span class="n">com</span> <span class="n">CORP</span><span class="err">\</span><span class="n">CES</span></code></li>
-<li>View all the mappings:</li>
+</ul>
+</li>
+<li>View all the mappings:<ul>
 <li><code class="codehilite"><span class="n">setspn</span> <span class="o">-</span><span class="n">L</span> <span class="n">hostname</span></code> (?)</li>
 <li><code class="codehilite"><span class="n">setspn</span> <span class="o">-</span><span class="n">T</span> <span class="n">pentestlab</span> <span class="o">-</span><span class="n">Q</span> <span class="o">*</span><span class="cm">/*</span></code></li>
+</ul>
+</li>
 <li>Delete: <code class="codehilite"><span class="n">setspn</span> <span class="o">-</span><span class="n">d</span> <span class="n">ServiceClass</span><span class="o">/</span><span class="k">Host</span><span class="p">:</span><span class="n">Port</span> <span class="n">AccountName</span></code></li>
 <li>Reset SPN registrations for account: <code class="codehilite"><span class="n">setspn</span> <span class="o">-</span><span class="n">r</span> <span class="n">AccountName</span></code></li>
 <li>Re-register all SPNs for a given host: <code class="codehilite"><span class="n">setspn</span> <span class="o">-</span><span class="n">R</span> <span class="n">hostname</span></code></li>
@@ -8696,12 +8750,10 @@
 </ul>
 <h6 id="powershell-ad-recon">PowerShell AD Recon<a class="headerlink" href="#powershell-ad-recon" title="Permanent link">&para;</a></h6>
 <ul>
-<li>
-<p>Part of: <a href="https://github.com/PyroTek3/PowerShell-AD-Recon">https://github.com/PyroTek3/PowerShell-AD-Recon</a></p>
-</li>
-<li>
-<p>Query the Active Directory for interesting services such as Exchange, Microsoft SQL, Terminal etc</p>
-</li>
+<li>Part of: <a href="https://github.com/PyroTek3/PowerShell-AD-Recon">https://github.com/PyroTek3/PowerShell-AD-Recon</a></li>
+</ul>
+<ul>
+<li>Query the Active Directory for interesting services such as Exchange, Microsoft SQL, Terminal etc</li>
 </ul>
 <div class="codehilite"><pre><span></span><span class="n">powershell_import</span> <span class="o">/</span><span class="n">root</span><span class="o">/</span><span class="n">Discover</span><span class="o">-</span><span class="n">PSMSSQLServers</span><span class="o">.</span><span class="n">ps1</span>
 <span class="n">powershell_execute</span> <span class="n">Discover</span><span class="o">-</span><span class="n">PSMSSQLServers</span>
@@ -8838,9 +8890,11 @@
 <ul>
 <li>Kerberos tickets are signed with the NTLM hash of the password. </li>
 <li>If the ticket hash has been cracked then it is possible to  rewrite the ticket with Kerberoast python script.</li>
-<li>Allow: </li>
+<li>Allow: <ul>
 <li>Impersonate any domain user when the service is going to be accessed.</li>
 <li>Privilege escalation is also possible as the user can be added into an elevated group such as Domain Admins. </li>
+</ul>
+</li>
 </ul>
 <div class="codehilite"><pre><span></span><span class="n">python</span> <span class="n">kerberoast</span><span class="p">.</span><span class="n">py</span> <span class="o">-</span><span class="n">p</span> <span class="n">Password123</span> <span class="o">-</span><span class="n">r</span> <span class="n">PENTESTLAB_001</span><span class="p">.</span><span class="n">kirbi</span> <span class="o">-</span><span class="n">w</span> <span class="n">PENTESTLAB</span><span class="p">.</span><span class="n">kirbi</span> <span class="o">-</span><span class="n">u</span> <span class="mi">500</span>
 <span class="n">python</span> <span class="n">kerberoast</span><span class="p">.</span><span class="n">py</span> <span class="o">-</span><span class="n">p</span> <span class="n">Password123</span> <span class="o">-</span><span class="n">r</span> <span class="n">PENTESTLAB_001</span><span class="p">.</span><span class="n">kirbi</span> <span class="o">-</span><span class="n">w</span> <span class="n">PENTESTLAB</span><span class="p">.</span><span class="n">kirbi</span> <span class="o">-</span><span class="k">g</span> <span class="mi">512</span>
@@ -8874,37 +8928,35 @@
 <li>Use <code class="codehilite"><span class="o">*-</span><span class="n">ADServiceAccount</span></code> cmdlet to create service accounts</li>
 <li>Pick really random, good passwords (25+ chars )</li>
 <li>Monitor DC for bursts of Service Ticket requests (Event ID 4769)</li>
-<li>Force services to verify PAC<ul>
-<li>Doesn't prevent cracking</li>
-<li>Prevent writing</li>
-<li>Can impact performance</li>
-</ul>
-</li>
+<li>Force services to verify PAC
+    - Doesn't prevent cracking
+    - Prevent writing
+    - Can impact performance</li>
 </ul>
 <h3 id="golden-ticket">Golden Ticket<a class="headerlink" href="#golden-ticket" title="Permanent link">&para;</a></h3>
 <ul>
-<li>
-<p>Ticket not made by KDC (ticket is self-made)</p>
-</li>
-<li>
-<p>Not limited by GPO</p>
-</li>
-<li>
-<p>Smart-card independent</p>
-</li>
-<li>
-<p>Hence, it's possible to push anything</p>
-</li>
-<li>
-<p>Since we have krbtgt</p>
-</li>
+<li>Ticket not made by KDC (ticket is self-made)</li>
+</ul>
+<ul>
+<li>Not limited by GPO</li>
+</ul>
+<ul>
+<li>Smart-card independent</li>
+</ul>
+<ul>
+<li>Hence, it's possible to push anything</li>
+</ul>
+<ul>
+<li>Since we have krbtgt<ul>
 <li>Can modify PAC</li>
-<li>
-<p>Group ID, SID, Username</p>
+<li>Group ID, SID, Username</li>
+</ul>
 </li>
+</ul>
+<ul>
 <li>
 <p><strong>Kerberos is stateless</strong></p>
-</li>
+<ul>
 <li>
 <p>All account policy is client side enforcement </p>
 <ul>
@@ -8913,17 +8965,21 @@
 <li>Protected Users  and other group memberships</li>
 </ul>
 </li>
+</ul>
+<ul>
 <li>
 <p>With Kerberos 5 - TGS / KDC has no way of validating that account is still valid when presented with TGT.</p>
 <ul>
 <li>
 <p>Microsoft implement:</p>
+<ul>
+<li>If <strong>TGT</strong> is <strong>older than 20 mins</strong> the <strong>TGS</strong> will validate the account with KDC when issuing a service ticket. Account validity and check enabled state is checked.  </li>
+</ul>
+<ul>
+<li>However, with Golden Ticket we issuer our own TGT. Therefore, it is possible to issue TGT with recent issued-times to bypass this check.</li>
+</ul>
 </li>
-<li>
-<p>If <strong>TGT</strong> is <strong>older than 20 mins</strong> the <strong>TGS</strong> will validate the account with KDC when issuing a service ticket. Account validity and check enabled state is checked.  </p>
-</li>
-<li>
-<p>However, with Golden Ticket we issuer our own TGT. Therefore, it is possible to issue TGT with recent issued-times to bypass this check.</p>
+</ul>
 </li>
 </ul>
 </li>
@@ -9030,13 +9086,15 @@
 <li>If certificate based authentication is required DH must be implemented (as per spec)</li>
 <li>RFC 4556</li>
 <li>RFC 5349</li>
-<li>Microsoft improved current protocol with draft:</li>
+<li>Microsoft improved current protocol with draft:<ul>
 <li><a href="https://tools.ietf.org/html/draft-ietf-kitten-pkinit-freshness-07">https://tools.ietf.org/html/draft-ietf-kitten-pkinit-freshness-07</a></li>
 <li><a href="https://datatracker.ietf.org/meeting/91/session/kitten">https://datatracker.ietf.org/meeting/91/session/kitten</a><ul>
 <li><a href="https://datatracker.ietf.org/meeting/91/materials/slides-91-kitten-1.pdf">https://datatracker.ietf.org/meeting/91/materials/slides-91-kitten-1.pdf</a></li>
 </ul>
 </li>
 <li>In order for GPO to work full network should be aware of it (&gt; Windows 10 &amp; 2016)</li>
+</ul>
+</li>
 <li>Detect using IPS rule to inspect AS-REQ (AS-REQ is now signed, not encrypted)</li>
 </ul>
 <h3 id="attacking-windows-pki">Attacking Windows PKI<a class="headerlink" href="#attacking-windows-pki" title="Permanent link">&para;</a></h3>
@@ -9049,9 +9107,11 @@
 <li>Allows reusing the end-user credentials to access resources hosted on a different server.</li>
 <li>Used when <code class="codehilite"><span class="n">Kerberos</span> <span class="n">Double</span> <span class="n">Hop</span></code> is required.</li>
 <li>Impersonating the incoming/authentication user is necessary to work.</li>
-<li>Types:</li>
+<li>Types:<ul>
 <li>Unconstrained (only Windows Server 2003 &lt;) - Allow authentication to any service in the domain</li>
 <li>Constrained</li>
+</ul>
+</li>
 </ul>
 <h3 id="unconstrained-kerberos-delegation">Unconstrained Kerberos Delegation<a class="headerlink" href="#unconstrained-kerberos-delegation" title="Permanent link">&para;</a></h3>
 <p><img alt="Kerberos Delegation" src="https://lh5.googleusercontent.com/MgazYuWpQRvg25S48nMh5iPbeX76N-GF078pRWy7jBo4MqO3k4rPaBHdZXDL-GLEqv2GDfrsMlp6gNahYYLU=w1360-h611-rw" /></p>
@@ -9064,9 +9124,9 @@
 <li>User request TGS for web service</li>
 <li>DC provides TGS (TGS contains user's TGT)</li>
 <li>User sends TGT and TGS to web Server</li>
-<li>Web server service account use user's TGT to request a TGS got database server from DC</li>
-<li>Web server service account can decrypt TGS and extract the user's TGT</li>
-<li>This is because TGS is encryoted with web server service account's NTLM hash</li>
+<li>Web server service account use user's TGT to request a TGS got database server from DC
+ - Web server service account can decrypt TGS and extract the user's TGT
+ - This is because TGS is encryoted with web server service account's NTLM hash</li>
 <li>Web server service account connects to database impersonating the user</li>
 </ol>
 <h4 id="identifying-nodes-with-unconstrained-delegation-enabled">Identifying Nodes with Unconstrained Delegation Enabled<a class="headerlink" href="#identifying-nodes-with-unconstrained-delegation-enabled" title="Permanent link">&para;</a></h4>
@@ -9126,12 +9186,10 @@
 <li><a href="https://docs.microsoft.com/en-us/windows/desktop/secauthn/authentication-portal">https://docs.microsoft.com/en-us/windows/desktop/secauthn/authentication-portal</a></li>
 <li><a href="https://docs.microsoft.com/en-us/windows/desktop/secauthn/microsoft-kerberos">https://docs.microsoft.com/en-us/windows/desktop/secauthn/microsoft-kerberos</a></li>
 <li><a href="https://drive.google.com/open?id=1eaQki6QuqfbHqMfkaKH66z2OAnI0lV0H">https://drive.google.com/open?id=1eaQki6QuqfbHqMfkaKH66z2OAnI0lV0H</a></li>
-<li>
-<p><a href="https://www.tarlogic.com/en/blog/how-kerberos-works/">https://www.tarlogic.com/en/blog/how-kerberos-works/</a></p>
-</li>
-<li>
-<p><a href="https://www.youtube.com/watch?v=HHJWfG9b0-E">Tim Medin - Attacking Kerberos: Kicking the Guard Dog of Hades</a></p>
-</li>
+<li><a href="https://www.tarlogic.com/en/blog/how-kerberos-works/">https://www.tarlogic.com/en/blog/how-kerberos-works/</a></li>
+</ul>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=HHJWfG9b0-E">Tim Medin - Attacking Kerberos: Kicking the Guard Dog of Hades</a></li>
 </ul>
 </blockquote>
 <ul>

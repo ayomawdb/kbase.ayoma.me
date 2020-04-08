@@ -8197,20 +8197,16 @@
 <ul>
 <li>KDC did not validate PAC checksum correctly</li>
 <li>Can rewrite ticket to be domain admin</li>
-<li>Internals<ul>
-<li>Request TGT with no PAC</li>
-<li>Create a forged PAC signed with user's password hash</li>
-<li>TGT is sent with forged PAC as the authenticator</li>
-<li>KDS does validation<ul>
-<li>Request is for a Service Tickect with no PAC</li>
-<li>Sees that TGT is with no PAC</li>
-<li>Takes the forged PAC in the authenticator</li>
-<li>Include that in a new TGT and use it for issueing Service Ticket  </li>
-</ul>
-</li>
-<li>Request a deligation ticket to get it woking across DCs</li>
-</ul>
-</li>
+<li>Internals
+    - Request TGT with no PAC
+    - Create a forged PAC signed with user's password hash
+    - TGT is sent with forged PAC as the authenticator
+    - KDS does validation
+        - Request is for a Service Tickect with no PAC
+        - Sees that TGT is with no PAC
+        - Takes the forged PAC in the authenticator
+        - Include that in a new TGT and use it for issueing Service Ticket<br />
+    - Request a deligation ticket to get it woking across DCs</li>
 </ul>
 <p>Detect by:
 - AS-REQ and TGS-REQ both containing "Include PAC:false"</p>
@@ -8244,8 +8240,10 @@ Exploit:
 <li>Making DCE RPC request to the StartDocPrinter procedure (notifies the spooler that a new job arrived)</li>
 <li>Impersonate the Printer Spooler service (spoolsv.exe) to create a file (from working dir: <code class="codehilite"><span class="c">%SystemRoot%\system32</span></code>)</li>
 <li>Sending <code class="codehilite"><span class="n">WritePrinter</span></code> requests, an attacker can fully control the content of the created file</li>
-<li>Gain code execution by writing to a directory used by WMI to deploy applications</li>
+<li>Gain code execution by writing to a directory used by WMI to deploy applications<ul>
 <li><code class="codehilite"><span class="n">Wbem</span><span class="err">\</span><span class="n">Mof</span></code> is periodically scanned and any new <code class="codehilite"><span class="na">.mof</span></code> files</li>
+</ul>
+</li>
 </ul>
 <p>References:
 - <a href="http://poppopret.blogspot.com/2011/09/playing-with-mof-files-on-windows-for.html">http://poppopret.blogspot.com/2011/09/playing-with-mof-files-on-windows-for.html</a>

@@ -9156,8 +9156,10 @@
 </ul>
 <h3 id="access-control">Access control<a class="headerlink" href="#access-control" title="Permanent link">&para;</a></h3>
 <ul>
-<li><code class="codehilite"><span class="k">access</span></code> - Check permissions for the UID and GID of the process (executable file owner / group)</li>
+<li><code class="codehilite"><span class="k">access</span></code> - Check permissions for the UID and GID of the process (executable file owner / group)<ul>
 <li>Check is done using the calling process's real UID and GID, rather than the effective IDs as is done when actually attempting an operation (e.g., open(2)) on the file.</li>
+</ul>
+</li>
 </ul>
 <h3 id="other">Other<a class="headerlink" href="#other" title="Permanent link">&para;</a></h3>
 <div class="codehilite"><pre><span></span><span class="n">killall</span> <span class="o">&lt;</span><span class="n">name</span><span class="o">&gt;</span>
@@ -9393,9 +9395,11 @@ Script to start necessary processes in the background when the system boots up</
 <li>Basic disk Information: <code class="codehilite"><span class="n">df</span> <span class="o">-</span><span class="n">h</span></code></li>
 <li>Partitions on disk: <code class="codehilite"><span class="n">fdsisk</span> <span class="o">-</span><span class="n">l</span></code></li>
 <li>Block device information: <code class="codehilite"><span class="n">lsblk</span></code></li>
-<li>Editing and displaying partitions: <code class="codehilite"><span class="n">parted</span></code> / <code class="codehilite"><span class="n">cfdisk</span></code></li>
+<li>Editing and displaying partitions: <code class="codehilite"><span class="n">parted</span></code> / <code class="codehilite"><span class="n">cfdisk</span></code><ul>
 <li><code class="codehilite"><span class="p">(</span><span class="n">parted</span><span class="p">)</span> <span class="n">print</span></code></li>
 <li><code class="codehilite"><span class="p">(</span><span class="n">parted</span><span class="p">)</span> <span class="k">select</span> <span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">sdb</span></code></li>
+</ul>
+</li>
 <li>Change HDD parameters: <code class="codehilite"><span class="n">hdparm</span></code></li>
 </ul>
 <h3 id="debugfs">Debugfs<a class="headerlink" href="#debugfs" title="Permanent link">&para;</a></h3>
@@ -9547,10 +9551,12 @@ Script to start necessary processes in the background when the system boots up</
 <li>Copy files into $PATH</li>
 <li>Copy file into HOME (scp/ftp)</li>
 <li>Some restricted shells will start by running some files in an unrestricted mode (If your .bash_profile is executed in an unrestricted mode and it's editable)</li>
-<li>If HISTFILE and HISTSIZE are writable:</li>
+<li>If HISTFILE and HISTSIZE are writable:<ul>
 <li>Set HISTFILE to the file you want to overwrite (preferably an executable)</li>
 <li>Set HISTSIZE to 0 and then back to 100,</li>
 <li>Then execute the lines you want in your shell script</li>
+</ul>
+</li>
 </ul>
 <p>References</p>
 <ul>

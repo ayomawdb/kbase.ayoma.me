@@ -8296,18 +8296,18 @@
 <li><strong>Schema</strong> - Defines objects and attributes</li>
 <li><strong>Query and index mechanism</strong> - Ability to search and publish objects and properties</li>
 <li><strong>Global Catalog</strong> - Contains info about every object in directory</li>
-<li>
-<p><strong>Replication Service</strong> - Distributes information across domain controller</p>
-</li>
-<li>
-<p>Kerberos v5 used from Windows Server 2000+</p>
-</li>
-<li>Naming conventions</li>
+<li><strong>Replication Service</strong> - Distributes information across domain controller</li>
+</ul>
+<ul>
+<li>Kerberos v5 used from Windows Server 2000+</li>
+<li>Naming conventions<ul>
 <li>User Principal name: <em><a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#119;&#105;&#110;&#115;&#97;&#97;&#102;&#109;&#97;&#110;&#64;&#115;&#99;&#114;&#105;&#112;&#116;&#100;&#111;&#116;&#115;&#104;&#46;&#108;&#111;&#99;&#97;&#108;">&#119;&#105;&#110;&#115;&#97;&#97;&#102;&#109;&#97;&#110;&#64;&#115;&#99;&#114;&#105;&#112;&#116;&#100;&#111;&#116;&#115;&#104;&#46;&#108;&#111;&#99;&#97;&#108;</a></em></li>
 <li>DN (Distinguished Names) LDAP names: <em>CN=winsaafman,DC=corp,DC=scriptdotsh,DC=local</em><ul>
 <li>CN = Common name</li>
 <li>OU = Organisational Unit</li>
 <li>DC = Domain</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -8369,8 +8369,10 @@
 <ol>
 <li>A client from Domain1 requests a TGT from the DC1.</li>
 <li>DC1 responds back with the TGT (encrypted with krbtgt hash)</li>
-<li>Client shows the TGT and requests a TGS for accessing the server in Domain2.</li>
+<li>Client shows the TGT and requests a TGS for accessing the server in Domain2.<ul>
 <li>As DC1 doesn’t find the server in current domain and realizes that the TGS needs to be issued by the DC2 (of Domain2) because the server is located in the Domain2. So it responds back to client with the Inter-realm TGT.</li>
+</ul>
+</li>
 <li>Client shows the TGT encrypted with Inter-Realm trust key to DC2 in the Domain2 and requests TGS to access the server.</li>
 <li>DC2 sends back the TGS for Server encrypted with server’s account hash.</li>
 <li>Client presents the TGS (encrypted with server’s account hash) to the server for access.</li>
@@ -8391,15 +8393,19 @@
 <ul>
 <li>Download VMs: <a href="https://developer.microsoft.com/en-us/microsoft-edge/tools/vms/">https://developer.microsoft.com/en-us/microsoft-edge/tools/vms/</a></li>
 <li>SysPrep When and How: <a href="https://thesolving.com/server-room/when-and-how-to-use-sysprep/">https://thesolving.com/server-room/when-and-how-to-use-sysprep/</a></li>
-<li>Add user</li>
+<li>Add user<ul>
 <li><code class="codehilite"><span class="n">net</span> <span class="k">user</span> <span class="n">user1</span> <span class="n">Passw0rd</span><span class="o">!</span> <span class="o">/</span><span class="k">ADD</span> <span class="o">/</span><span class="k">DOMAIN</span></code></li>
 <li><code class="codehilite"><span class="k">New</span><span class="o">-</span><span class="n">ADUser</span><span class="w"> </span><span class="o">-</span><span class="n">Name</span><span class="w"> </span><span class="ss">&quot;Winsaaf Man&quot;</span><span class="w"> </span><span class="o">-</span><span class="n">DisplayName</span><span class="w"> </span><span class="ss">&quot;Winsaaf Man&quot;</span><span class="w"> </span><span class="o">-</span><span class="n">SamAccountName</span><span class="w"> </span><span class="err">“</span><span class="n">winsaaf</span><span class="p">.</span><span class="n">man</span><span class="err">”</span><span class="w"> </span><span class="o">-</span><span class="n">UserPrincipalName</span><span class="w"> </span><span class="err">“</span><span class="n">winsaaf</span><span class="p">.</span><span class="n">man</span><span class="nv">@scriptdotsh</span><span class="p">.</span><span class="k">local</span><span class="err">”</span><span class="w"> </span><span class="o">-</span><span class="n">GivenName</span><span class="w"> </span><span class="err">“</span><span class="n">winsaaf</span><span class="err">”</span><span class="w"> </span><span class="o">-</span><span class="n">Surname</span><span class="w"> </span><span class="ss">&quot;man&quot;</span><span class="w"> </span><span class="o">-</span><span class="n">AccountPassword</span><span class="w"> </span><span class="p">(</span><span class="k">Read</span><span class="o">-</span><span class="k">host</span><span class="w"> </span><span class="o">-</span><span class="n">AsSecureString</span><span class="w"> </span><span class="err">“</span><span class="n">Enter</span><span class="w"> </span><span class="n">Password</span><span class="err">”</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="n">Enabled</span><span class="w"> </span><span class="err">$</span><span class="k">true</span><span class="w"> </span><span class="o">-</span><span class="n">server</span><span class="w"> </span><span class="n">scriptdotsh</span><span class="p">.</span><span class="k">local</span><span class="w"></span></code><ul>
-<li>More options:</li>
+<li>More options:<ul>
 <li><code class="codehilite"><span class="o">-</span><span class="n">ChangePasswordAtLogon</span> <span class="err">$</span><span class="k">false</span></code></li>
 <li><code class="codehilite"><span class="o">-</span><span class="n">PasswordNeverExpires</span> <span class="err">$</span><span class="k">true</span></code></li>
 </ul>
 </li>
+</ul>
+</li>
 <li>Bulk addition: <a href="https://gallery.technet.microsoft.com/office/Create-Contoso-Users-in-3e2f38f2/view/Discussions">https://gallery.technet.microsoft.com/office/Create-Contoso-Users-in-3e2f38f2/view/Discussions</a></li>
+</ul>
+</li>
 <li>View users: <code class="codehilite"><span class="n">net</span> <span class="n">users</span> <span class="o">/</span><span class="k">domain</span></code></li>
 <li>View group: <code class="codehilite"><span class="n">net</span> <span class="k">group</span> <span class="o">/</span><span class="k">domain</span> <span class="ss">&quot;Domain Admins&quot;</span></code></li>
 </ul>
@@ -8443,9 +8449,11 @@
 </pre></div></p>
 <h3 id="ldapsearch">ldapsearch<a class="headerlink" href="#ldapsearch" title="Permanent link">&para;</a></h3>
 <ul>
-<li>Query the Domain Controller for Active Directory</li>
+<li>Query the Domain Controller for Active Directory<ul>
 <li>UserAccountControl attributes of active accounts</li>
 <li>Other specific configurations</li>
+</ul>
+</li>
 <li>Possible UserAccountControl values: <a href="https://support.microsoft.com/en-gb/help/305144/how-to-use-the-useraccountcontrol-flags-to-manipulate-user-account-pro">https://support.microsoft.com/en-gb/help/305144/how-to-use-the-useraccountcontrol-flags-to-manipulate-user-account-pro</a></li>
 </ul>
 <p>Active users (2 == disabled account status)
@@ -8511,17 +8519,21 @@
 <li>Folder which resides on each and every <a href="http://social.technet.microsoft.com/wiki/contents/articles/16757.active-directory-glossary.aspx#Domain_Controller">domain controller</a> within the <a href="http://social.technet.microsoft.com/wiki/contents/articles/16757.active-directory-glossary.aspx#Domain">domain</a>.</li>
 <li>Contains the domains public files that need to be accessed by clients and kept synchronised between domain controllers.</li>
 <li>Default location is <code class="codehilite"><span class="k">C</span><span class="p">:</span><span class="err">\</span><span class="n">Windows</span><span class="err">\</span><span class="n">SYSVOL</span></code></li>
-<li>The SYSVOL folder can be accessed through:</li>
+<li>The SYSVOL folder can be accessed through:<ul>
 <li>share <code class="codehilite"><span class="err">\\</span><span class="n">domainname</span><span class="p">.</span><span class="n">com</span><span class="err">\</span><span class="n">sysvol</span></code></li>
 <li>or the local share name on the server <code class="codehilite"><span class="err">\\</span><span class="n">servername</span><span class="err">\</span><span class="n">sysvol</span></code>.</li>
+</ul>
+</li>
 <li>Uses <a href="http://social.technet.microsoft.com/wiki/contents/articles/16757.active-directory-glossary.aspx#DFS">DFS</a> to share the relevant folders to users and clients. - Distributed File System. Client and server services that allow servers to organize distributed file shares into a distributed file system.</li>
-<li><a href="http://social.technet.microsoft.com/wiki/contents/articles/16757.active-directory-glossary.aspx#FRS">File Replication Service - FRS</a> is a multi-master, multi-threaded replication technology.</li>
+<li><a href="http://social.technet.microsoft.com/wiki/contents/articles/16757.active-directory-glossary.aspx#FRS">File Replication Service - FRS</a> is a multi-master, multi-threaded replication technology.<ul>
 <li>Introduced in Windows 2000 to replace the previous LMREPL technology used in NT3.x and 4 days</li>
 <li>Ageing Cache - Detects the change by monitoring the NTFS USN journal (stored in NTFRS database) (every 3 seconds)</li>
 <li>Replaced by DFSR (Distributed File System Replication) in Windows 2008 or higher<ul>
 <li>Auto-healing functions in place to remedy some of the issues that FRS</li>
 <li>Instead of replicating entire files we only replicate the chunks of data that have changed</li>
 <li>Based on <a href="http://social.technet.microsoft.com/wiki/contents/articles/20580.wiki-glossary-of-technology-acronyms.aspx#MD4">MD4</a> hash of the file</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -8544,21 +8556,27 @@
 </pre></div></p>
 <h4 id="ntdsdit">NTDS.dit<a class="headerlink" href="#ntdsdit" title="Permanent link">&para;</a></h4>
 <ul>
-<li>AD data stored in: <code class="codehilite"><span class="c">%SYSTEMROOT%\NTDS\ntds.dit</span></code></li>
+<li>AD data stored in: <code class="codehilite"><span class="c">%SYSTEMROOT%\NTDS\ntds.dit</span></code><ul>
 <li>Cannot be copied directly to another location</li>
 <li>Can be extracted using<ul>
 <li>Domain Controller Replication Services</li>
 <li>Native Windows Binaries</li>
 <li>WMI</li>
 <li>Backups / External Storage for DC</li>
-<li>VMWare / HyperV for virtual DCs</li>
+<li>VMWare / HyperV for virtual DCs<ul>
 <li>VMWare admin can call virtual DC within VMWare</li>
 <li>Clone a DC and copy the storage file</li>
 <li>No events triggered</li>
-<li>NTDSUtil</li>
+</ul>
+</li>
+<li>NTDSUtil<ul>
 <li>DC Promo has to copy from another DC</li>
 <li>But if NTDSUtil was used to create an IMF (Install From Media), it makes a copy of NTDS.dit<ul>
 <li>Can use NTDSUtil to create an IMF or look for IMF in network</li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -8599,36 +8617,48 @@
 <p>Ref: <a href="https://www.blackhat.com/docs/us-14/materials/us-14-Duckwall-Abusing-Microsoft-Kerberos-Sorry-You-Guys-Don't-Get-It.pdf">https://www.blackhat.com/docs/us-14/materials/us-14-Duckwall-Abusing-Microsoft-Kerberos-Sorry-You-Guys-Don't-Get-It.pdf</a></p>
 </blockquote>
 <ul>
-<li>In typical scenario:</li>
+<li>In typical scenario:<ul>
 <li>User type the password</li>
 <li>LSASS hash the password (LM, NTLM) and send it to service for authentication</li>
-<li>In attack scenario:</li>
+</ul>
+</li>
+<li>In attack scenario:<ul>
 <li>Attacker pass the hash (LM, NTML) itself to LSASS which is sent to service</li>
-<li>Preventions</li>
+</ul>
+</li>
+<li>Preventions<ul>
 <li>Disable NTML hashes</li>
 <li>"Protected Users" group</li>
 <li>Do not leave lot of NTLM authentication footprint in eventless</li>
+</ul>
+</li>
 </ul>
 <h3 id="over-pass-the-hash-pass-the-key">Over Pass the Hash / Pass the Key<a class="headerlink" href="#over-pass-the-hash-pass-the-key" title="Permanent link">&para;</a></h3>
 <p><img alt="image-20190603075915450" src="../_assets/image-20190603075915450.png" />&gt; Ref: <a href="https://www.blackhat.com/docs/us-14/materials/us-14-Duckwall-Abusing-Microsoft-Kerberos-Sorry-You-Guys-Don't-Get-It.pdf">https://www.blackhat.com/docs/us-14/materials/us-14-Duckwall-Abusing-Microsoft-Kerberos-Sorry-You-Guys-Don't-Get-It.pdf</a></p>
 <ul>
 <li>If NTLM hash is available, encrypt timestamp with hash and sent it to <strong>KDC</strong> in <strong>AS-REQ</strong> to get a <strong>TGT</strong></li>
-<li>Keys are in:</li>
+<li>Keys are in:<ul>
 <li>Client LSASS memory<ul>
 <li>Prevented by "Protected Users" group</li>
 </ul>
 </li>
 <li>Active Directory<ul>
 <li>NTDS.dit and SYSTEM hive</li>
-<li>Offline</li>
+<li>Offline<ul>
 <li>[Tool] NTDSXtract</li>
 <li><code class="codehilite"><span class="n">python</span> <span class="n">DSUser</span><span class="p">.</span><span class="n">py</span> <span class="n">ntds</span><span class="p">.</span><span class="n">dit</span><span class="p">.</span><span class="n">export</span><span class="o">/</span><span class="n">datatable</span><span class="p">.</span><span class="mi">4</span> <span class="n">ntds</span><span class="p">.</span><span class="n">dit</span><span class="p">.</span><span class="n">export</span><span class="o">/</span><span class="n">link_table</span><span class="p">.</span><span class="mi">7</span> <span class="p">.</span><span class="o">/</span><span class="k">work</span> <span class="o">-</span><span class="n">name</span> <span class="n">Administrator</span> <span class="c1">--syshive SYSTEM --supplcreds --passwordhashes --lmoutfile ./lm --ntoutfile ./nt --pwdformat john</span></code></li>
 <li><code class="codehilite"><span class="n">privilege</span><span class="p">::</span><span class="n">debug</span>    <span class="n">sekurlsa</span><span class="p">::</span><span class="n">ekeys</span></code></li>
-<li>Online</li>
+</ul>
+</li>
+<li>Online<ul>
 <li><code class="codehilite"><span class="n">privilege</span><span class="p">::</span><span class="n">debug</span>    <span class="n">lsadump</span><span class="p">::</span><span class="n">lsa</span> <span class="o">/</span><span class="n">inject</span> <span class="o">/</span><span class="n">name</span><span class="p">:</span><span class="n">Administrator</span></code></li>
 </ul>
 </li>
-<li>Keys are in:</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Keys are in:<ul>
 <li>DES</li>
 <li>RC4 - Non domain salted NTML hash</li>
 <li>AES128 AES256 keys (NT6+)<ul>
@@ -8638,10 +8668,16 @@
 <li>Cracking is difficult</li>
 </ul>
 </li>
-<li>Over pass the hash</li>
+</ul>
+</li>
+<li>Over pass the hash<ul>
 <li><code class="codehilite"><span class="n">privilege</span><span class="p">::</span><span class="n">debug</span>    <span class="n">sekurlsa</span><span class="p">::</span><span class="n">pth</span> <span class="o">/</span><span class="k">user</span><span class="p">:</span><span class="n">Administrator</span> <span class="o">/</span><span class="k">domain</span><span class="p">:</span><span class="o">&lt;</span><span class="n">DomainName</span><span class="o">&gt;</span> <span class="o">/</span><span class="n">ntlm</span><span class="p">:</span><span class="o">&lt;</span><span class="n">Hash</span><span class="o">&gt;</span></code></li>
-<li>References</li>
+</ul>
+</li>
+<li>References<ul>
 <li><a href="http://www.janua.fr/active-directory-vulnerability-disclosure-weak-encryption-enables-attacker-to-change-victims-password-without-being-logged/">http://www.janua.fr/active-directory-vulnerability-disclosure-weak-encryption-enables-attacker-to-change-victims-password-without-being-logged/</a></li>
+</ul>
+</li>
 </ul>
 <h3 id="pass-the-ticket">Pass the Ticket<a class="headerlink" href="#pass-the-ticket" title="Permanent link">&para;</a></h3>
 <p><img alt="image-20190603080021618" src="../_assets/image-20190603080021618.png" /></p>
@@ -8650,13 +8686,17 @@
 <p>Ref: <a href="https://www.blackhat.com/docs/us-14/materials/us-14-Duckwall-Abusing-Microsoft-Kerberos-Sorry-You-Guys-Don't-Get-It.pdf">https://www.blackhat.com/docs/us-14/materials/us-14-Duckwall-Abusing-Microsoft-Kerberos-Sorry-You-Guys-Don't-Get-It.pdf</a></p>
 </blockquote>
 <ul>
-<li><strong>Inject the TGT</strong> in to the LSASS Kerberos Provider</li>
+<li><strong>Inject the TGT</strong> in to the LSASS Kerberos Provider<ul>
 <li>Do not ask the KDC for the TGT, instead ask the KDC to give us a TGS</li>
+</ul>
+</li>
 <li>Can also <strong>inject TGS</strong> in to the LSASS Kerberos Provider</li>
-<li>Exporting from memory:</li>
+<li>Exporting from memory:<ul>
 <li>API only allow exporting current user's tickets (your tickets)</li>
 <li>TGT: AllowTgtSessionKey reg-key must be set</li>
 <li>TGS: No restrictions</li>
+</ul>
+</li>
 <li><a href="http://msdn.microsoft.com/library/windows/desktop/aa378099.aspx">http://msdn.microsoft.com/library/windows/desktop/aa378099.aspx</a></li>
 </ul>
 <div class="codehilite"><pre><span></span><span class="n">LsaCallAuthenticationPackage</span><span class="o">/</span><span class="n">KerbRetrieveEncodedTicketMessage</span>
@@ -8678,8 +8718,10 @@
 <h3 id="dcsyc">DCSyc<a class="headerlink" href="#dcsyc" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Used to sync AD to Azure</li>
-<li>Can be used to get credentials from AD</li>
+<li>Can be used to get credentials from AD<ul>
 <li>If <code class="codehilite"><span class="n">reverse</span> <span class="n">encryption</span></code> is enabled for an account, clear text password can be obtained.</li>
+</ul>
+</li>
 <li>Needs Administrator or Domain Controller rights</li>
 <li>By default, no logs since this is done through official RPC (remotely)</li>
 <li>Implemented by: Mimikatz (lsadump:dcsync), Impacket, DSInternals</li>
@@ -8697,63 +8739,49 @@
 <h3 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Wagging the Dog: Abusing Resource-Based Constrained Delegation to Attack Active Directory: <a href="https://shenaniganslabs.io/2019/01/28/Wagging-the-Dog.html">https://shenaniganslabs.io/2019/01/28/Wagging-the-Dog.html</a></li>
-<li>
-<p>Escalating privileges with ACLs in Active Directory: <a href="https://blog.fox-it.com/2018/04/26/escalating-privileges-with-acls-in-active-directory/">https://blog.fox-it.com/2018/04/26/escalating-privileges-with-acls-in-active-directory/</a></p>
-</li>
-<li>
-<p><a href="https://blog.stealthbits.com/discovering-service-accounts-without-using-privileges">https://blog.stealthbits.com/discovering-service-accounts-without-using-privileges</a></p>
-</li>
+<li>Escalating privileges with ACLs in Active Directory: <a href="https://blog.fox-it.com/2018/04/26/escalating-privileges-with-acls-in-active-directory/">https://blog.fox-it.com/2018/04/26/escalating-privileges-with-acls-in-active-directory/</a></li>
+</ul>
+<ul>
+<li><a href="https://blog.stealthbits.com/discovering-service-accounts-without-using-privileges">https://blog.stealthbits.com/discovering-service-accounts-without-using-privileges</a></li>
 <li><a href="https://blog.stealthbits.com/extracting-service-account-passwords-with-kerberoasting">https://blog.stealthbits.com/extracting-service-account-passwords-with-kerberoasting</a></li>
 <li><a href="https://blog.stealthbits.com/impersonating-service-accounts-with-silver-tickets">https://blog.stealthbits.com/impersonating-service-accounts-with-silver-tickets</a></li>
 <li><a href="https://blog.stealthbits.com/complete-domain-compromise-with-golden-tickets/">https://blog.stealthbits.com/complete-domain-compromise-with-golden-tickets/</a></li>
-<li>
-<p><a href="https://medium.com/@t0pazg3m/pass-the-ticket-ptt-attack-in-mimikatz-and-a-gotcha-96a5805e257a">https://medium.com/@t0pazg3m/pass-the-ticket-ptt-attack-in-mimikatz-and-a-gotcha-96a5805e257a</a></p>
-</li>
-<li>
-<p><a href="https://blog.stealthbits.com/performing-domain-reconnaissance-using-powershell">https://blog.stealthbits.com/performing-domain-reconnaissance-using-powershell</a></p>
-</li>
+<li><a href="https://medium.com/@t0pazg3m/pass-the-ticket-ptt-attack-in-mimikatz-and-a-gotcha-96a5805e257a">https://medium.com/@t0pazg3m/pass-the-ticket-ptt-attack-in-mimikatz-and-a-gotcha-96a5805e257a</a></li>
+</ul>
+<ul>
+<li><a href="https://blog.stealthbits.com/performing-domain-reconnaissance-using-powershell">https://blog.stealthbits.com/performing-domain-reconnaissance-using-powershell</a></li>
 <li><a href="https://blog.stealthbits.com/local-admin-mapping-bloodhound">https://blog.stealthbits.com/local-admin-mapping-bloodhound</a></li>
 <li><a href="https://blog.stealthbits.com/extracting-password-hashes-from-the-ntds-dit-file/">https://blog.stealthbits.com/extracting-password-hashes-from-the-ntds-dit-file/</a></li>
 <li><a href="https://blog.stealthbits.com/passing-the-hash-with-mimikatz">https://blog.stealthbits.com/passing-the-hash-with-mimikatz</a></li>
-<li>
-<p><a href="https://blog.stealthbits.com/what-is-dcsync-an-introduction/">https://blog.stealthbits.com/what-is-dcsync-an-introduction/</a></p>
-</li>
-<li>
-<p><a href="https://hausec.com/2019/03/05/penetration-testing-active-directory-part-i/">https://hausec.com/2019/03/05/penetration-testing-active-directory-part-i/</a></p>
-</li>
-<li>
-<p><a href="https://hausec.com/2019/03/12/penetration-testing-active-directory-part-ii/">https://hausec.com/2019/03/12/penetration-testing-active-directory-part-ii/</a></p>
-</li>
-<li>
-<p><a href="https://blog.ropnop.com/practical-usage-of-ntlm-hashes/">https://blog.ropnop.com/practical-usage-of-ntlm-hashes/</a></p>
-</li>
+<li><a href="https://blog.stealthbits.com/what-is-dcsync-an-introduction/">https://blog.stealthbits.com/what-is-dcsync-an-introduction/</a></li>
+</ul>
+<ul>
+<li><a href="https://hausec.com/2019/03/05/penetration-testing-active-directory-part-i/">https://hausec.com/2019/03/05/penetration-testing-active-directory-part-i/</a></li>
+<li><a href="https://hausec.com/2019/03/12/penetration-testing-active-directory-part-ii/">https://hausec.com/2019/03/12/penetration-testing-active-directory-part-ii/</a></li>
+</ul>
+<ul>
+<li><a href="https://blog.ropnop.com/practical-usage-of-ntlm-hashes/">https://blog.ropnop.com/practical-usage-of-ntlm-hashes/</a></li>
 <li><a href="https://blog.ropnop.com/extracting-hashes-and-domain-info-from-ntds-dit/">https://blog.ropnop.com/extracting-hashes-and-domain-info-from-ntds-dit/</a></li>
 <li><a href="https://blog.ropnop.com/using-credentials-to-own-windows-boxes/">https://blog.ropnop.com/using-credentials-to-own-windows-boxes/</a></li>
-<li>
-<p><a href="https://blog.ropnop.com/using-credentials-to-own-windows-boxes-part-2-psexec-and-services/">https://blog.ropnop.com/using-credentials-to-own-windows-boxes-part-2-psexec-and-services/</a></p>
-</li>
-<li>
-<p><a href="https://0xdarkvortex.dev/index.php/2019/01/01/active-directory-penetration-dojo-ad-environment-enumeration-1/">https://0xdarkvortex.dev/index.php/2019/01/01/active-directory-penetration-dojo-ad-environment-enumeration-1/</a></p>
-</li>
+<li><a href="https://blog.ropnop.com/using-credentials-to-own-windows-boxes-part-2-psexec-and-services/">https://blog.ropnop.com/using-credentials-to-own-windows-boxes-part-2-psexec-and-services/</a></li>
+</ul>
+<ul>
+<li><a href="https://0xdarkvortex.dev/index.php/2019/01/01/active-directory-penetration-dojo-ad-environment-enumeration-1/">https://0xdarkvortex.dev/index.php/2019/01/01/active-directory-penetration-dojo-ad-environment-enumeration-1/</a></li>
 <li><a href="https://0xdarkvortex.dev/index.php/2018/08/26/active-directory-penetration-dojo-setup-of-ad-penetration-labpart-2/">https://0xdarkvortex.dev/index.php/2018/08/26/active-directory-penetration-dojo-setup-of-ad-penetration-labpart-2/</a></li>
-<li>
-<p><a href="https://0xdarkvortex.dev/index.php/2018/10/29/active-directory-penetration-dojo-creation-of-forest-trustpart-3/">https://0xdarkvortex.dev/index.php/2018/10/29/active-directory-penetration-dojo-creation-of-forest-trustpart-3/</a></p>
-</li>
-<li>
-<p><a href="https://www.attackdebris.com/?p=470">https://www.attackdebris.com/?p=470</a></p>
-</li>
-<li>
-<p><a href="https://blog.didierstevens.com/2016/08/12/mimikatz-golden-ticket-dcsync/">https://blog.didierstevens.com/2016/08/12/mimikatz-golden-ticket-dcsync/</a></p>
-</li>
-<li>
-<p><a href="https://adsecurity.org/?p=2362">https://adsecurity.org/?p=2362</a></p>
-</li>
-<li>
-<p><a href="https://pentestlab.blog/tag/ntds-dit/">https://pentestlab.blog/tag/ntds-dit/</a></p>
-</li>
-<li>
-<p><a href="http://www.harmj0y.net/blog/penetesting/pass-the-hash-is-dead-long-live-pass-the-hash/">http://www.harmj0y.net/blog/penetesting/pass-the-hash-is-dead-long-live-pass-the-hash/</a></p>
-</li>
+<li><a href="https://0xdarkvortex.dev/index.php/2018/10/29/active-directory-penetration-dojo-creation-of-forest-trustpart-3/">https://0xdarkvortex.dev/index.php/2018/10/29/active-directory-penetration-dojo-creation-of-forest-trustpart-3/</a></li>
+</ul>
+<ul>
+<li><a href="https://www.attackdebris.com/?p=470">https://www.attackdebris.com/?p=470</a></li>
+<li><a href="https://blog.didierstevens.com/2016/08/12/mimikatz-golden-ticket-dcsync/">https://blog.didierstevens.com/2016/08/12/mimikatz-golden-ticket-dcsync/</a></li>
+</ul>
+<ul>
+<li><a href="https://adsecurity.org/?p=2362">https://adsecurity.org/?p=2362</a></li>
+</ul>
+<ul>
+<li><a href="https://pentestlab.blog/tag/ntds-dit/">https://pentestlab.blog/tag/ntds-dit/</a></li>
+</ul>
+<ul>
+<li><a href="http://www.harmj0y.net/blog/penetesting/pass-the-hash-is-dead-long-live-pass-the-hash/">http://www.harmj0y.net/blog/penetesting/pass-the-hash-is-dead-long-live-pass-the-hash/</a></li>
 <li><a href="http://passing-the-hash.blogspot.com/">http://passing-the-hash.blogspot.com/</a></li>
 </ul>
 <p><a href="http://blog.liatsisfotis.com/knock-and-pass-kerberos-exploitation.html">http://blog.liatsisfotis.com/knock-and-pass-kerberos-exploitation.html</a> 
@@ -8773,8 +8801,10 @@
 <ul>
 <li>Active Directory Core Security Principles &amp; Best Practices:  <a href="https://ernw.de/download/AD_Summit_2018/01_AD_Summit_CoreSecPrinciples_fk_hw_v.1.2_signed.pdf">https://ernw.de/download/AD_Summit_2018/01_AD_Summit_CoreSecPrinciples_fk_hw_v.1.2_signed.pdf</a></li>
 <li>Active Directory Kill Chain Attack &amp; Defense: <a href="https://github.com/infosecn1nja/AD-Attack-Defense">https://github.com/infosecn1nja/AD-Attack-Defense</a></li>
-<li>Microsoft-Blue-Forest: <a href="https://github.com/rootsecdev/Microsoft-Blue-Forest">https://github.com/rootsecdev/Microsoft-Blue-Forest</a></li>
+<li>Microsoft-Blue-Forest: <a href="https://github.com/rootsecdev/Microsoft-Blue-Forest">https://github.com/rootsecdev/Microsoft-Blue-Forest</a><ul>
 <li>Welcome to building your first domain controller!: <a href="https://github.com/rootsecdev/Microsoft-Blue-Forest/blob/master/FirstDomainControllerInstall.md">https://github.com/rootsecdev/Microsoft-Blue-Forest/blob/master/FirstDomainControllerInstall.md</a></li>
+</ul>
+</li>
 <li>Pwn and Defend - Active Directory Domain Enumeration: <a href="https://www.youtube.com/watch?v=YxeXfHkHAUI&amp;feature=youtu.be">https://www.youtube.com/watch?v=YxeXfHkHAUI&amp;feature=youtu.be</a></li>
 </ul>
 <h2 id="kb2871997">KB2871997<a class="headerlink" href="#kb2871997" title="Permanent link">&para;</a></h2>

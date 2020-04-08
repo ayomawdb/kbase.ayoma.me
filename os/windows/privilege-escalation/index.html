@@ -8494,10 +8494,8 @@
 <h3 id="folder-service-executable-privileges">Folder &amp; Service Executable Privileges<a class="headerlink" href="#folder-service-executable-privileges" title="Permanent link">&para;</a></h3>
 <ul>
 <li>When new folders are created in the root it is writeable for all authenticated users by default. (NT AUTHORITY\Authenticated Users:(I)(M))</li>
-<li>So any application that gets installed on the root can be tampered with by a non-admin user.<ul>
-<li>If binaries load with SYSTEM privileges from this folder it might just be a matter of replacing the binary with your own one.</li>
-</ul>
-</li>
+<li>So any application that gets installed on the root can be tampered with by a non-admin user.
+    - If binaries load with SYSTEM privileges from this folder it might just be a matter of replacing the binary with your own one.</li>
 <li><a href="https://msdn.microsoft.com/en-us/library/bb727008.aspx">https://msdn.microsoft.com/en-us/library/bb727008.aspx</a></li>
 </ul>
 <p>If folder is writable, drop a exe and use "Service Unquoted Path" to execute:
@@ -8745,9 +8743,11 @@ If service is editable, change the <code class="codehilite"><span class="n">Imag
 </ul>
 <h4 id="group-policy-preferences-gpp">Group Policy Preferences (GPP)<a class="headerlink" href="#group-policy-preferences-gpp" title="Permanent link">&para;</a></h4>
 <ul>
-<li>Introduced from Windows Server 2008</li>
+<li>Introduced from Windows Server 2008<ul>
 <li><a href="https://support.microsoft.com/en-us/help/2962486/ms14-025-vulnerability-in-group-policy-preferences-could-allow-elevati">https://support.microsoft.com/en-us/help/2962486/ms14-025-vulnerability-in-group-policy-preferences-could-allow-elevati</a></li>
-<li><code class="codehilite"><span class="n">GPP</span></code> allows for configuration of Domain-attached machines via <code class="codehilite"><span class="k">group</span> <span class="n">policy</span></code>.</li>
+</ul>
+</li>
+<li><code class="codehilite"><span class="n">GPP</span></code> allows for configuration of Domain-attached machines via <code class="codehilite"><span class="k">group</span> <span class="n">policy</span></code>.<ul>
 <li>Map drives (Drives.xml)</li>
 <li>Create Local Users</li>
 <li>Data Sources (DataSources.xml)</li>
@@ -8755,17 +8755,23 @@ If service is editable, change the <code class="codehilite"><span class="n">Imag
 <li>Create/Update Services (Services.xml)</li>
 <li>Scheduled Tasks (ScheduledTasks.xml)</li>
 <li>Change local Administrator passwords</li>
-<li>GPPs are stored in the <code class="codehilite"><span class="n">SYSVOL</span></code> share, which is world-readable to authenticated users.</li>
+</ul>
+</li>
+<li>GPPs are stored in the <code class="codehilite"><span class="n">SYSVOL</span></code> share, which is world-readable to authenticated users.<ul>
 <li><code class="codehilite"><span class="err">\\</span><span class="o">&lt;</span><span class="k">DOMAIN</span><span class="o">&gt;</span><span class="err">\</span><span class="n">SYSVOL</span><span class="err">\</span><span class="o">&lt;</span><span class="k">DOMAIN</span><span class="o">&gt;</span><span class="err">\</span><span class="n">Policies</span><span class="err">\</span></code></li>
 <li><code class="codehilite"><span class="n">findstr</span> <span class="o">/</span><span class="n">S</span> <span class="o">/</span><span class="n">I</span> <span class="n">cpassword</span> <span class="err">\\</span><span class="o">&lt;</span><span class="n">FQDN</span><span class="o">&gt;</span><span class="err">\</span><span class="n">sysvol</span><span class="err">\</span><span class="o">&lt;</span><span class="n">FQDN</span><span class="o">&gt;</span><span class="err">\</span><span class="n">policies</span><span class="err">\</span><span class="o">*</span><span class="p">.</span><span class="n">xml</span></code></li>
+</ul>
+</li>
 <li>Domain machines periodically reach out and authenticate to the Domain Controller utilizing the Domain credentials of the <code class="codehilite"><span class="n">logged</span><span class="o">-</span><span class="k">in</span> <span class="k">user</span></code> and pull down policies.</li>
 <li>Group Policies for account management are stored on the Domain Controller in <code class="codehilite"><span class="n">Groups</span><span class="p">.</span><span class="n">xml</span></code> files buried in the <code class="codehilite"><span class="n">SYSVOL</span></code> folder (<code class="codehilite"><span class="err">\\</span><span class="k">Domain</span><span class="err">\</span><span class="n">SYSVOL</span><span class="err">\</span><span class="o">&lt;</span><span class="k">DOMAIN</span><span class="o">&gt;</span><span class="err">\</span><span class="n">Policies</span></code>)</li>
 <li><code class="codehilite"><span class="n">cpassword</span></code> is used to set passwords for the Local Administrator account.</li>
 <li>Password is AES-256 encrypted using a published key: <a href="https://msdn.microsoft.com/en-us/library/Cc422924.aspx">https://msdn.microsoft.com/en-us/library/Cc422924.aspx</a></li>
 <li>Metasploit: <code class="codehilite"><span class="n">post</span><span class="o">/</span><span class="n">windows</span><span class="o">/</span><span class="n">gather</span><span class="o">/</span><span class="n">credentials</span><span class="o">/</span><span class="n">gpp</span></code></li>
-<li>PowerSploit: <a href="https://github.com/PowerShellMafia/PowerSploit/blob/master/Exfiltration/Get-GPPPassword.ps1">https://github.com/PowerShellMafia/PowerSploit/blob/master/Exfiltration/Get-GPPPassword.ps1</a></li>
+<li>PowerSploit: <a href="https://github.com/PowerShellMafia/PowerSploit/blob/master/Exfiltration/Get-GPPPassword.ps1">https://github.com/PowerShellMafia/PowerSploit/blob/master/Exfiltration/Get-GPPPassword.ps1</a><ul>
 <li>Get-CachedGPPPassword //For locally stored GP Files</li>
 <li>Get-GPPPassword //For GP Files stored in the DC</li>
+</ul>
+</li>
 <li><code class="codehilite"><span class="k">Get</span><span class="o">-</span><span class="n">DecryptedPassword</span></code> to decrypt the AES encryption</li>
 <li><a href="http://www.sec-1.com/blog/wp-content/uploads/2015/05/gp3finder_v4.0.zip">http://www.sec-1.com/blog/wp-content/uploads/2015/05/gp3finder_v4.0.zip</a></li>
 </ul>

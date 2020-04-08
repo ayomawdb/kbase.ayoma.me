@@ -7858,23 +7858,17 @@ usage <span class="o">()</span> <span class="o">{</span>
 
 <h2 id="evade-firewall">Evade Firewall<a class="headerlink" href="#evade-firewall" title="Permanent link">&para;</a></h2>
 <ul>
-<li><code class="codehilite"><span class="o">-</span><span class="n">sA</span></code> - TCP ACK Scan<ul>
-<li>Because of the ACK packets the firewall cannot create the log</li>
-<li>Firewalls treat ACK packet as the response of the SYN packet<ul>
-<li>Open port (few ports in the case of the firewall)</li>
-</ul>
-</li>
-<li>Closed port (most ports are closed because of the firewall)</li>
-<li>Filtered (Nmap is not sure whether the port is open or not)</li>
-<li>Unfiltered (Nmap can access the port but is still confused about the open status of the port)</li>
-</ul>
-</li>
-<li><code class="codehilite"><span class="o">-</span><span class="n">sW</span></code> - TCP Window Scan<ul>
-<li>Designed to differentiate between open and closed ports instead of showing unfiltered</li>
-<li>Does not open any active session with the target computer</li>
-<li>Send ACK packets and receive a single RST packet in response</li>
-</ul>
-</li>
+<li><code class="codehilite"><span class="o">-</span><span class="n">sA</span></code> - TCP ACK Scan
+    - Because of the ACK packets the firewall cannot create the log
+    - Firewalls treat ACK packet as the response of the SYN packet
+        - Open port (few ports in the case of the firewall)
+    - Closed port (most ports are closed because of the firewall)
+    - Filtered (Nmap is not sure whether the port is open or not)
+    - Unfiltered (Nmap can access the port but is still confused about the open status of the port)</li>
+<li><code class="codehilite"><span class="o">-</span><span class="n">sW</span></code> - TCP Window Scan
+    - Designed to differentiate between open and closed ports instead of showing unfiltered
+    - Does not open any active session with the target computer
+    - Send ACK packets and receive a single RST packet in response</li>
 <li><code class="codehilite"><span class="o">-</span><span class="n">f</span></code>, <code class="codehilite"><span class="o">-</span><span class="n">ff</span></code> - Fragment Packets</li>
 <li><code class="codehilite"><span class="o">-</span><span class="n">spoof</span><span class="o">-</span><span class="n">mac</span> <span class="n">Cisco</span></code> - Spoof MAC</li>
 <li><code class="codehilite"><span class="o">-</span><span class="n">scan_delay</span></code> - control the delay between each and every request</li>

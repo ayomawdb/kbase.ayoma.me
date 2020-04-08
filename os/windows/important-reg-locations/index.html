@@ -7723,35 +7723,33 @@
 <li>Installed programs: <code class="codehilite"><span class="n">HKLM</span><span class="err">\</span><span class="n">SOFTWARE</span><span class="err">\</span><span class="n">Microsoft</span><span class="err">\</span><span class="n">Windows</span><span class="err">\</span><span class="n">CurrentVersion</span><span class="err">\</span><span class="n">Uninstall</span></code></li>
 <li>
 <p>Gain system shell at login using 5x[shift]:</p>
-</li>
-<li>
-<p><code class="codehilite"><span class="n">HKLM</span><span class="p">:</span><span class="err">\</span><span class="n">SOFTWARE</span><span class="err">\</span><span class="n">Microsoft</span><span class="err">\</span><span class="n">Windows</span> <span class="n">NT</span><span class="err">\</span><span class="n">CurrentVersion</span><span class="err">\</span><span class="n">Image</span> <span class="n">File</span> <span class="n">Execution</span> <span class="k">Options</span><span class="err">\</span><span class="n">sethc</span><span class="p">.</span><span class="n">exe</span></code> with property <code class="codehilite"><span class="n">Debugger</span></code> set to <code class="codehilite"><span class="n">cmd</span><span class="p">.</span><span class="n">exe</span></code></p>
-</li>
+<ul>
+<li><code class="codehilite"><span class="n">HKLM</span><span class="p">:</span><span class="err">\</span><span class="n">SOFTWARE</span><span class="err">\</span><span class="n">Microsoft</span><span class="err">\</span><span class="n">Windows</span> <span class="n">NT</span><span class="err">\</span><span class="n">CurrentVersion</span><span class="err">\</span><span class="n">Image</span> <span class="n">File</span> <span class="n">Execution</span> <span class="k">Options</span><span class="err">\</span><span class="n">sethc</span><span class="p">.</span><span class="n">exe</span></code> with property <code class="codehilite"><span class="n">Debugger</span></code> set to <code class="codehilite"><span class="n">cmd</span><span class="p">.</span><span class="n">exe</span></code></li>
 <li><code class="codehilite"><span class="n">HKLM</span><span class="p">:</span><span class="err">\</span><span class="n">SOFTWARE</span><span class="err">\</span><span class="n">Microsoft</span><span class="err">\</span><span class="n">Windows</span> <span class="n">NT</span><span class="err">\</span><span class="n">CurrentVersion</span><span class="err">\</span><span class="n">Image</span> <span class="n">File</span> <span class="n">Execution</span> <span class="k">Options</span><span class="err">\</span><span class="n">utilman</span><span class="p">.</span><span class="n">exe</span></code> with property <code class="codehilite"><span class="n">Debugger</span></code> set to <code class="codehilite"><span class="n">cmd</span><span class="p">.</span><span class="n">exe</span></code></li>
-<li>
-<p>Disable macro security:</p>
+<li>Disable macro security:</li>
+</ul>
 </li>
-<li>
-<p>Enable EDP: <code class="codehilite"><span class="n">reg</span> <span class="k">add</span> <span class="ss">&quot;HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal Server&quot;</span> <span class="o">/</span><span class="n">v</span> <span class="n">fDenyTSConnections</span> <span class="o">/</span><span class="n">t</span> <span class="n">REG_DWORD</span> <span class="o">/</span><span class="n">d</span> <span class="mi">0</span> <span class="o">/</span><span class="n">f</span></code></p>
-</li>
+</ul>
+<ul>
+<li>Enable EDP: <code class="codehilite"><span class="n">reg</span> <span class="k">add</span> <span class="ss">&quot;HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal Server&quot;</span> <span class="o">/</span><span class="n">v</span> <span class="n">fDenyTSConnections</span> <span class="o">/</span><span class="n">t</span> <span class="n">REG_DWORD</span> <span class="o">/</span><span class="n">d</span> <span class="mi">0</span> <span class="o">/</span><span class="n">f</span></code></li>
 </ul>
 <h2 id="ways-to-access-registry">Ways to access registry<a class="headerlink" href="#ways-to-access-registry" title="Permanent link">&para;</a></h2>
 <ul>
-<li>
-<p>cmd: <code class="codehilite"><span class="n">cmd</span> <span class="o">/</span><span class="k">c</span> <span class="n">REG</span> <span class="n">QUERY</span></code></p>
-</li>
+<li>cmd: <code class="codehilite"><span class="n">cmd</span> <span class="o">/</span><span class="k">c</span> <span class="n">REG</span> <span class="n">QUERY</span></code></li>
+</ul>
+<ul>
 <li>
 <p>Powershell:</p>
+<ul>
+<li><code class="codehilite"><span class="k">Get</span><span class="o">-</span><span class="n">Item</span> <span class="o">&lt;</span><span class="n">path</span><span class="o">&gt;</span></code></li>
+<li>For remote use: <code class="codehilite"><span class="n">Enter</span><span class="o">-</span><span class="n">PSSession</span></code> and inside the session use <code class="codehilite"><span class="k">Get</span><span class="o">-</span><span class="n">Item</span></code></li>
+</ul>
 </li>
-<li>
-<p><code class="codehilite"><span class="k">Get</span><span class="o">-</span><span class="n">Item</span> <span class="o">&lt;</span><span class="n">path</span><span class="o">&gt;</span></code></p>
-</li>
-<li>
-<p>For remote use: <code class="codehilite"><span class="n">Enter</span><span class="o">-</span><span class="n">PSSession</span></code> and inside the session use <code class="codehilite"><span class="k">Get</span><span class="o">-</span><span class="n">Item</span></code></p>
-</li>
+</ul>
+<ul>
 <li>
 <p>WMI (StdRegProv)</p>
-</li>
+<ul>
 <li>
 <p>To find IDs use: <a href="https://github.com/darkoperator/Posh-SecMod/blob/master/Registry/Registry.ps1">https://github.com/darkoperator/Posh-SecMod/blob/master/Registry/Registry.ps1</a></p>
 <div class="codehilite"><pre><span></span><span class="err">$</span><span class="n">RemoteReg</span> <span class="o">=</span> <span class="k">Get</span><span class="o">-</span><span class="n">WmiObject</span> <span class="o">-</span><span class="n">List</span> <span class="ss">&quot;StdRegProv&quot;</span> <span class="o">-</span><span class="n">ComputerName</span> <span class="o">&lt;</span><span class="n">name</span><span class="o">&gt;</span> <span class="o">-</span><span class="n">Credential</span> <span class="o">&lt;</span><span class="n">cred</span><span class="o">&gt;</span>
@@ -7760,13 +7758,17 @@
 </pre></div>
 
 </li>
-<li>
-<p>.Net</p>
+</ul>
 </li>
 </ul>
+<ul>
+<li>
+<p>.Net</p>
 <div class="codehilite"><pre><span></span><span class="p">[</span><span class="n">Microsoft</span><span class="p">.</span><span class="n">Win32</span><span class="p">.</span><span class="n">RegistryKey</span><span class="p">].</span><span class="n">getMethods</span><span class="p">()</span>
 </pre></div>
 
+</li>
+</ul>
 <ul>
 <li><a href="https://archive.codeplex.com/?p=psremoteregistry">https://archive.codeplex.com/?p=psremoteregistry</a></li>
 </ul>

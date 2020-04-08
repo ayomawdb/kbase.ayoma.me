@@ -7685,22 +7685,24 @@
 
 <h3 id="explanation">Explanation<a class="headerlink" href="#explanation" title="Permanent link">&para;</a></h3>
 <ul>
-<li>To run a command in a new shell</li>
-</ul>
+<li>
+<p>To run a command in a new shell</p>
 <div class="codehilite"><pre><span></span><span class="n">bash</span> <span class="o">-</span><span class="k">c</span> <span class="n">ls</span>
 </pre></div>
 
+</li>
+</ul>
+<ul>
+<li>New shell inherits environment</li>
+</ul>
 <ul>
 <li>
-<p>New shell inherits environment</p>
-</li>
-<li>
 <p>If new shell finds what seems to be a function in an environment variable:</p>
-</li>
-<li>
-<p>New shell executes the function to get the actual value</p>
-</li>
+<ul>
+<li>New shell executes the function to get the actual value</li>
 <li>When function is executed, evaluation didn't stop when the end of the function definition is reached.</li>
+</ul>
+</li>
 </ul>
 <p>Hence, when new shell sees <code class="codehilite"><span class="p">()</span> <span class="err">{</span> <span class="p">:;</span><span class="err">}</span><span class="p">;</span></code>, bash will start executing the function and proceed to also execute the <code class="codehilite"><span class="n">echo</span></code>.</p>
 <h3 id="samples">Samples<a class="headerlink" href="#samples" title="Permanent link">&para;</a></h3>
@@ -7882,18 +7884,18 @@
 <ul>
 <li>RHEL &#8538;/7 / Ubuntu</li>
 <li>Sudo &lt;= 1.8.14</li>
-<li>When /etc/sudoers reads:</li>
-</ul>
+<li>
+<p>When /etc/sudoers reads:</p>
 <div class="codehilite"><pre><span></span><span class="o">&lt;</span><span class="n">user_to_grant_priv</span><span class="o">&gt;</span> <span class="k">ALL</span><span class="o">=</span><span class="p">(</span><span class="n">root</span><span class="p">)</span> <span class="n">NOPASSWD</span><span class="p">:</span> <span class="n">sudoedit</span> <span class="o">/</span><span class="n">home</span><span class="cm">/*/*/test.txt</span>
 </pre></div>
 
+</li>
+</ul>
 <ul>
-<li>
-<p>Sudoedit does not check the full path if a wildcard is used <strong>twice</strong> (e.g. /home/<em>/</em>/file.txt),</p>
-</li>
-<li>
-<p>Allowing a malicious user to replace the file.txt real file with a symbolic link to a different location (e.g. /etc/shadow).</p>
-</li>
+<li>Sudoedit does not check the full path if a wildcard is used <strong>twice</strong> (e.g. /home/<em>/</em>/file.txt),</li>
+</ul>
+<ul>
+<li>Allowing a malicious user to replace the file.txt real file with a symbolic link to a different location (e.g. /etc/shadow).</li>
 </ul>
 <p>Example:</p>
 <ul>
@@ -7906,12 +7908,14 @@
 <p>Usages:</p>
 <ul>
 <li>Expose /etc/shadow</li>
-<li>Expose ​authorized_keys over HTTP</li>
-</ul>
+<li>
+<p>Expose ​authorized_keys over HTTP</p>
 <div class="codehilite"><pre><span></span><span class="n">cd</span> <span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">www</span><span class="o">/</span><span class="n">testing</span><span class="o">/</span><span class="n">writeup</span>
 <span class="n">ln</span> <span class="o">-</span><span class="n">s</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">alekos</span><span class="o">/</span><span class="p">.</span><span class="n">ssh</span><span class="o">/</span><span class="n">authorized_keys</span> <span class="n">layout</span><span class="p">.</span><span class="n">html</span>
 </pre></div>
 
+</li>
+</ul>
 <p>References:</p>
 <ul>
 <li><a href="https://www.exploit-db.com/exploits/37710">https://www.exploit-db.com/exploits/37710</a></li>

@@ -8198,13 +8198,15 @@
 <li>v2: Windows 7 and Windows Server 2008 R2 (Standalone for: Windows XP SP3, Windows Server 2003 SP2, and Windows Vista SP1)</li>
 <li>v3: Windows 8 (Can be installed on: Windows 7 SP1, for Windows Server 2008 SP1, and for Windows Server 2008 R2 SP1) (no XP support)</li>
 <li>v4: Windows 8.1 (Can be installed on:  Windows 7 SP1, for Windows Server 2008 SP1, and for Windows Server 2008 R2 SP1)</li>
-<li>v5:</li>
+<li>v5:<ul>
 <li>Part of Windows Management Framework (WMF) 5.0.</li>
 <li>February 24, 2016.</li>
 <li>Features OneGet PowerShell cmdlets to support Chocolatey's repository-based apps.</li>
 <li>Ability to manage layer 2 network switches</li>
 <li>Windows 10 Anniversary Update</li>
 <li>Available for Windows 7, Windows Server 2008, Windows Server 2008 R2, Windows Server 2012, and Windows Server 2012 R2</li>
+</ul>
+</li>
 <li>v6: PowerShell Core on 18 August 2016</li>
 </ul>
 <div class="codehilite"><pre><span></span><span class="k">Get</span><span class="o">-</span><span class="k">Host</span> <span class="o">|</span> <span class="k">Select</span><span class="o">-</span><span class="k">Object</span> <span class="k">Version</span>
@@ -8219,19 +8221,15 @@
 </ul>
 <h2 id="help-system">Help System<a class="headerlink" href="#help-system" title="Permanent link">&para;</a></h2>
 <ul>
-<li>
-<p>Versin information: <code class="codehilite"><span class="err">$</span><span class="n">PSVersionTable</span></code></p>
-</li>
-<li>
-<p><code class="codehilite"><span class="k">Get</span><span class="o">-</span><span class="n">Help</span> <span class="k">Get</span><span class="o">-</span><span class="n">Process</span></code></p>
-</li>
+<li>Versin information: <code class="codehilite"><span class="err">$</span><span class="n">PSVersionTable</span></code></li>
+</ul>
+<ul>
+<li><code class="codehilite"><span class="k">Get</span><span class="o">-</span><span class="n">Help</span> <span class="k">Get</span><span class="o">-</span><span class="n">Process</span></code></li>
 <li><code class="codehilite"><span class="n">help</span> <span class="k">Get</span><span class="o">-</span><span class="n">Process</span></code></li>
-<li>
-<p><code class="codehilite"><span class="k">Update</span><span class="o">-</span><span class="n">Help</span></code></p>
-</li>
-<li>
-<p><code class="codehilite"><span class="k">Get</span><span class="o">-</span><span class="n">Help</span> <span class="n">remoting</span></code></p>
-</li>
+<li><code class="codehilite"><span class="k">Update</span><span class="o">-</span><span class="n">Help</span></code></li>
+</ul>
+<ul>
+<li><code class="codehilite"><span class="k">Get</span><span class="o">-</span><span class="n">Help</span> <span class="n">remoting</span></code></li>
 <li><code class="codehilite"><span class="k">Get</span><span class="o">-</span><span class="n">Help</span> <span class="n">about_</span><span class="o">*</span><span class="n">remot</span><span class="o">*</span></code></li>
 </ul>
 <p>64 bit
@@ -8252,8 +8250,10 @@
 <code class="codehilite"><span class="k">Get</span><span class="o">-</span><span class="k">Alias</span> <span class="o">-</span><span class="n">Definition</span> <span class="k">Get</span><span class="o">-</span><span class="n">Process</span></code></p>
 <h2 id="check-environment">Check Environment<a class="headerlink" href="#check-environment" title="Permanent link">&para;</a></h2>
 <ul>
-<li><code class="codehilite"><span class="k">C</span><span class="p">:</span><span class="err">\</span><span class="n">WIndows</span><span class="err">\</span><span class="n">Syswow64</span><span class="err">\</span><span class="n">Windowspowershell</span><span class="err">\</span><span class="n">v1</span><span class="p">.</span><span class="mi">0</span><span class="err">\</span><span class="n">powershell</span><span class="p">.</span><span class="n">exe</span></code></li>
+<li><code class="codehilite"><span class="k">C</span><span class="p">:</span><span class="err">\</span><span class="n">WIndows</span><span class="err">\</span><span class="n">Syswow64</span><span class="err">\</span><span class="n">Windowspowershell</span><span class="err">\</span><span class="n">v1</span><span class="p">.</span><span class="mi">0</span><span class="err">\</span><span class="n">powershell</span><span class="p">.</span><span class="n">exe</span></code><ul>
 <li><code class="codehilite"><span class="n">PSModulePath</span></code></li>
+</ul>
+</li>
 <li>Version info: <code class="codehilite"><span class="n">powershell</span> <span class="o">-</span><span class="n">v</span> <span class="mi">2</span><span class="p">.</span><span class="mi">0</span> <span class="o">-</span><span class="k">c</span> <span class="err">$</span><span class="n">psversiontable</span></code></li>
 <li>Language mode: <code class="codehilite"><span class="err">$</span><span class="k">host</span><span class="p">.</span><span class="n">runspace</span><span class="p">.</span><span class="n">languagemode</span></code></li>
 <li>Check if AppLocker is enabled: <code class="codehilite"><span class="k">Get</span><span class="o">-</span><span class="n">AppLockerPolicy</span> <span class="o">-</span><span class="k">Local</span></code></li>
@@ -8289,21 +8289,21 @@
 <ul>
 <li>Not a security feature</li>
 <li>Used to avoid accidental script execution</li>
-<li>Can be bypass with:</li>
+<li>Can be bypass with:<ul>
 <li><code class="codehilite"><span class="n">powershell</span> <span class="o">-</span><span class="n">ExecutionPolicy</span> <span class="n">bypass</span> <span class="p">.</span><span class="err">\</span><span class="n">example</span><span class="p">.</span><span class="n">ps1</span></code></li>
 <li><code class="codehilite"><span class="n">powershell</span> <span class="o">-</span><span class="k">c</span> <span class="o">&lt;</span><span class="n">cmd</span><span class="o">&gt;</span></code></li>
 <li><code class="codehilite"><span class="n">powershell</span> <span class="o">-</span><span class="n">EncodedCommand</span> <span class="o">&lt;</span><span class="n">cmd</span><span class="o">&gt;</span></code></li>
 <li><code class="codehilite"><span class="n">powershell</span> <span class="o">-</span><span class="n">enc</span> <span class="o">&lt;</span><span class="n">cmd</span><span class="o">&gt;</span></code></li>
 <li><code class="codehilite"><span class="err">$</span><span class="n">env</span><span class="p">:</span><span class="n">PSExecutionPolicyPreference</span><span class="o">=</span><span class="ss">&quot;bypass&quot;</span></code></li>
 </ul>
+</li>
+</ul>
 <blockquote>
 <ul>
-<li>
-<p>Ref <a href="https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-6">https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-6</a></p>
-</li>
-<li>
-<p>15 ways to bypass PowerShell execution policy: <a href="https://www.netspi.com/blog/entryid/238/15-ways-to-bypass-the-powershell-execution-policy">https://www.netspi.com/blog/entryid/238/15-ways-to-bypass-the-powershell-execution-policy</a></p>
-</li>
+<li>Ref <a href="https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-6">https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-6</a></li>
+</ul>
+<ul>
+<li>15 ways to bypass PowerShell execution policy: <a href="https://www.netspi.com/blog/entryid/238/15-ways-to-bypass-the-powershell-execution-policy">https://www.netspi.com/blog/entryid/238/15-ways-to-bypass-the-powershell-execution-policy</a></li>
 </ul>
 </blockquote>
 <h2 id="revserse-shell">Revserse Shell<a class="headerlink" href="#revserse-shell" title="Permanent link">&para;</a></h2>
@@ -8318,8 +8318,10 @@
 <h2 id="modules">Modules<a class="headerlink" href="#modules" title="Permanent link">&para;</a></h2>
 <p><code class="codehilite"><span class="n">Import</span><span class="o">-</span><span class="n">Module</span> <span class="o">&lt;</span><span class="n">path_to_module</span><span class="o">&gt;</span> <span class="o">-</span><span class="k">verbose</span></code></p>
 <ul>
-<li>List all available modules: <code class="codehilite"><span class="k">Get</span><span class="o">-</span><span class="n">Module</span> <span class="o">-</span><span class="n">ListAvailable</span> <span class="o">-</span><span class="k">All</span></code></li>
+<li>List all available modules: <code class="codehilite"><span class="k">Get</span><span class="o">-</span><span class="n">Module</span> <span class="o">-</span><span class="n">ListAvailable</span> <span class="o">-</span><span class="k">All</span></code><ul>
 <li>List all modules available in: <code class="codehilite"><span class="err">$</span><span class="n">env</span><span class="p">:</span><span class="n">PSModulePath</span></code></li>
+</ul>
+</li>
 <li>All functions exposed by a module: <code class="codehilite"><span class="k">Get</span><span class="o">-</span><span class="n">Command</span> <span class="o">-</span><span class="n">Module</span> <span class="o">&lt;</span><span class="n">module_name</span><span class="o">&gt;</span></code></li>
 </ul>
 <h2 id="remote-script-execution">Remote Script execution<a class="headerlink" href="#remote-script-execution" title="Permanent link">&para;</a></h2>
@@ -8353,8 +8355,10 @@ By default, the path is:
 </pre></div></p>
 <h2 id="powershell-remoting">Powershell Remoting<a class="headerlink" href="#powershell-remoting" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Enabled by default from Windows Server 2012</li>
+<li>Enabled by default from Windows Server 2012<ul>
 <li><code class="codehilite"><span class="n">Enable</span><span class="o">-</span><span class="n">PSRemoting</span> <span class="o">-</span><span class="k">Force</span></code></li>
+</ul>
+</li>
 <li>Admin privileges are required to connect</li>
 <li><code class="codehilite"><span class="k">Get</span><span class="o">-</span><span class="n">Command</span> <span class="o">-</span><span class="n">CommandType</span> <span class="n">cmdlet</span> <span class="o">-</span><span class="n">ParameterName</span> <span class="n">computername</span></code></li>
 <li><code class="codehilite"><span class="x">Get-Command -CommandType cmdlet | Where-Object </span><span class="cp">{</span><span class="nv">$_Parameters.Keys</span> <span class="o">--</span><span class="na">contains</span> <span class="s1">&#39;ComputerName&#39;</span> <span class="o">-</span><span class="na">and</span> <span class="nv">$_Parameters.Keys</span> <span class="o">--</span><span class="na">contains</span> <span class="s1">&#39;Credential&#39;</span> <span class="o">-</span><span class="na">and</span> <span class="nv">$_Parameters.Keys</span> <span class="o">--</span><span class="na">notcontains</span> <span class="s1">&#39;Session&#39;</span><span class="cp">}</span><span class="x"></span></code></li>
@@ -8363,10 +8367,14 @@ By default, the path is:
 <ul>
 <li>WinRM is Microsoft’s implementation of WSMAN</li>
 <li>Port 5985, 5986</li>
-<li>If target is in a workgroup, attacker's machine should trust target machine to send out credentials:</li>
+<li>If target is in a workgroup, attacker's machine should trust target machine to send out credentials:<ul>
 <li>Set-Item  WSMan:\localhost\client\trustedhosts -Value *</li>
-<li><code class="codehilite"><span class="x">Invoke-Command -ScriptBlock </span><span class="cp">{</span><span class="nv">$env</span><span class="o">:</span><span class="na">ComputerName</span><span class="cp">}</span><span class="x"> -ComputerName example -Credential dominName/userName</span></code></li>
+</ul>
+</li>
+<li><code class="codehilite"><span class="x">Invoke-Command -ScriptBlock </span><span class="cp">{</span><span class="nv">$env</span><span class="o">:</span><span class="na">ComputerName</span><span class="cp">}</span><span class="x"> -ComputerName example -Credential dominName/userName</span></code><ul>
 <li><code class="codehilite"><span class="o">-</span><span class="n">FilePath</span></code></li>
+</ul>
+</li>
 </ul>
 <div class="codehilite"><pre><span></span><span class="n">Invoke</span><span class="o">-</span><span class="n">WSManAction</span> <span class="o">-</span><span class="n">Action</span> <span class="k">Create</span> <span class="o">-</span><span class="n">ResourceURI</span> <span class="n">wmicimv2</span><span class="o">/</span><span class="n">win32_process</span> <span class="o">-</span><span class="n">ValueSet</span> <span class="o">@</span><span class="err">{</span><span class="n">commandline</span><span class="o">=</span><span class="ss">&quot;powershell.exe -c Get-Process&quot;</span><span class="err">}</span> <span class="o">-</span> <span class="n">ComputerName</span> <span class="n">domainpc</span> <span class="err">–</span><span class="n">Credential</span>
 </pre></div>
@@ -8398,13 +8406,17 @@ By default, the path is:
 </ul>
 <h3 id="one-to-one">One to One<a class="headerlink" href="#one-to-one" title="Permanent link">&para;</a></h3>
 <ul>
-<li><code class="codehilite"><span class="n">Invoke</span><span class="o">-</span><span class="n">Command</span></code> is stateless for stageful operations use <code class="codehilite"><span class="n">PSSession</span></code></li>
+<li><code class="codehilite"><span class="n">Invoke</span><span class="o">-</span><span class="n">Command</span></code> is stateless for stageful operations use <code class="codehilite"><span class="n">PSSession</span></code><ul>
 <li>Interactive, stateful session</li>
 <li>Run in a new process <code class="codehilite"><span class="n">wsmprovhost</span></code></li>
-<li>New-PSSession</li>
+</ul>
+</li>
+<li>New-PSSession<ul>
 <li><code class="codehilite"><span class="err">$</span><span class="n">ses</span> <span class="o">=</span> <span class="k">New</span><span class="o">-</span><span class="n">PSSession</span> <span class="o">-</span><span class="n">ComputerName</span> <span class="o">&lt;</span><span class="n">name</span><span class="o">&gt;</span> <span class="o">-</span><span class="n">Credential</span> <span class="o">&lt;</span><span class="n">cred</span><span class="o">&gt;</span></code></li>
 <li><code class="codehilite"><span class="k">Get</span><span class="o">-</span><span class="n">PSSession</span></code></li>
 <li><code class="codehilite"><span class="n">Enter</span><span class="o">-</span><span class="n">PSSession</span></code></li>
+</ul>
+</li>
 </ul>
 <p>Define a function in a remote machine and call it:</p>
 <div class="codehilite"><pre><span></span><span class="n">Invoke</span><span class="o">-</span><span class="n">Command</span> <span class="o">-</span><span class="n">ScriptBlock</span> <span class="err">{</span><span class="k">function</span> <span class="n">Example1</span> <span class="err">{</span><span class="n">whoami</span><span class="p">;</span><span class="err">}}</span> <span class="o">-</span><span class="k">Session</span> <span class="err">$</span><span class="n">ses</span>
@@ -8480,28 +8492,32 @@ Enter-PSSession</p>
 <ul>
 <li>
 <p>[ADSI]</p>
-</li>
+<ul>
 <li>
 <p>Get member of the domain admin group</p>
 <div class="codehilite"><pre><span></span><span class="p">(</span><span class="o">[</span><span class="n">ADSI</span><span class="o">]</span><span class="ss">&quot;LDAP://cn=Domain Admin,cn=Users,dc=Example,dc=com&quot;</span><span class="p">).</span><span class="n">Members</span><span class="w"></span>
 </pre></div>
 
 </li>
+</ul>
+<ul>
 <li>
 <p>Get memberships of a user</p>
 <div class="codehilite"><pre><span></span><span class="p">(</span><span class="o">[</span><span class="n">ADSI</span><span class="o">]</span><span class="ss">&quot;LDAP://cn=Administrator,cn=Users,dc=Example,dc=com&quot;</span><span class="p">).</span><span class="n">MemberOf</span><span class="w"></span>
 </pre></div>
 
 </li>
-<li>
-<p>.NET Class: <code class="codehilite"><span class="k">System</span><span class="p">.</span><span class="n">DirectoryServices</span><span class="p">.</span><span class="n">ActiveDirectory</span></code></p>
+</ul>
 </li>
-<li>
-<p>Native Executable</p>
-</li>
-<li>
-<p>WMI</p>
-</li>
+</ul>
+<ul>
+<li>.NET Class: <code class="codehilite"><span class="k">System</span><span class="p">.</span><span class="n">DirectoryServices</span><span class="p">.</span><span class="n">ActiveDirectory</span></code></li>
+</ul>
+<ul>
+<li>Native Executable</li>
+</ul>
+<ul>
+<li>WMI</li>
 </ul>
 <h2 id="system-information">System Information<a class="headerlink" href="#system-information" title="Permanent link">&para;</a></h2>
 <ul>

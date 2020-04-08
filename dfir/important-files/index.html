@@ -7832,16 +7832,20 @@
 <ul>
 <li>Kind of index of all files on the hard drive</li>
 <li><a href="https://jmharkness.wordpress.com/2011/01/27/mft-file-reference-number/">https://jmharkness.wordpress.com/2011/01/27/mft-file-reference-number/</a></li>
-<li>All the entries of the MFT have a reference number, composed of the number of the MFT entry (6 bytes) and the sequence number (2 bytes) in hexadecimal.</li>
+<li>All the entries of the MFT have a reference number, composed of the number of the MFT entry (6 bytes) and the sequence number (2 bytes) in hexadecimal.<ul>
 <li>Ref: 0x002E00000000F1AB -&gt; MFT entry: 00000000F1AB, Sequence number: 0x002E</li>
+</ul>
+</li>
 <li>Can be dumped with: <a href="http://malware-hunters.net/all-downloads/">http://malware-hunters.net/all-downloads/</a></li>
 </ul>
 <h3 id="mru-most-recently-used"><code class="codehilite"><span class="n">MRU</span></code> Most Recently Used<a class="headerlink" href="#mru-most-recently-used" title="Permanent link">&para;</a></h3>
 <ul>
 <li>NTUSER.dat</li>
-<li>Can be read with <code class="codehilite"><span class="n">RegRipper</span></code> with the plugin <code class="codehilite"><span class="n">runmru</span></code>.</li>
+<li>Can be read with <code class="codehilite"><span class="n">RegRipper</span></code> with the plugin <code class="codehilite"><span class="n">runmru</span></code>.<ul>
 <li>Pulling the UserAssist, which stores the latest applications, shortcuts and documents opened by the user<ul>
 <li>rip.exe -p userassist -r ../NTUSER.DAT</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>

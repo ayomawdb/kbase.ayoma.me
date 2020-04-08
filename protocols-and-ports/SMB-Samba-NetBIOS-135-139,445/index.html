@@ -8610,11 +8610,13 @@ netbios-ssn <code class="codehilite"><span class="mi">139</span><span class="o">
 <h3 id="smbmap-enumerate-samba-share-drives-across-an-entire-domain">SMBMap - enumerate samba share drives across an entire domain<a class="headerlink" href="#smbmap-enumerate-samba-share-drives-across-an-entire-domain" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Allows users to enumerate samba share drives across an entire domain</li>
-<li>Usage</li>
+<li>Usage<ul>
 <li>List share drives, drive permissions, share contents</li>
 <li>Upload/download functionality</li>
 <li>File name auto-download pattern matching</li>
 <li>Execute remote commands</li>
+</ul>
+</li>
 </ul>
 <div class="codehilite"><pre><span></span><span class="n">smbmap</span> <span class="o">-</span><span class="n">H</span> <span class="err">$</span><span class="n">ip</span>
 </pre></div>
@@ -8656,9 +8658,11 @@ netbios-ssn <code class="codehilite"><span class="mi">139</span><span class="o">
 <ul>
 <li><a href="https://www.samba.org/samba/docs/current/man-html/smbclient.1.html">https://www.samba.org/samba/docs/current/man-html/smbclient.1.html</a></li>
 <li>Client that can "talk" to an SMB/CIFS server</li>
-<li>Operations</li>
+<li>Operations<ul>
 <li>Upload/download functionality</li>
 <li>Retrieving directory information</li>
+</ul>
+</li>
 </ul>
 <p>Null session: <code class="codehilite"><span class="n">smbclient</span> <span class="o">-</span><span class="n">N</span> <span class="o">-</span><span class="n">L</span> <span class="p">(</span><span class="n">TARGET</span> <span class="n">IP</span><span class="p">)</span> <span class="o">-</span><span class="n">m</span> <span class="n">SMB2</span></code>
 Null session mount: <code class="codehilite"><span class="n">smbclient</span> <span class="ss">&quot;\\\\(TARGET IP)\\IPC\$\\&quot;</span> <span class="o">-</span><span class="n">N</span> <span class="o">-</span><span class="n">m</span> <span class="n">SMB2</span></code>
@@ -8979,19 +8983,23 @@ tcpdump -s0 -n -i tap0 src <span class="nv">$rhost</span> and port <span class="
 </ul>
 <h2 id="vulnerabilities">Vulnerabilities<a class="headerlink" href="#vulnerabilities" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Linux</li>
+<li>Linux<ul>
 <li>CVE-2007-2447 - Samba versions 3.0.20 through 3.0.25rc3<ul>
 <li>When the "username map script" smb.conf option is enabled</li>
 <li><a href="https://github.com/amriunix/cve-2007-2447">https://github.com/amriunix/cve-2007-2447</a></li>
 <li><code class="codehilite"><span class="n">exploit</span><span class="o">/</span><span class="n">windows</span><span class="o">/</span><span class="n">smb</span><span class="o">/</span><span class="n">ms08_067_netapi</span></code></li>
 </ul>
 </li>
-<li>Windows</li>
+</ul>
+</li>
+<li>Windows<ul>
 <li>CVE-2008-4250 MS08-067 - Microsoft Server Service Relative Path Stack Corruption<ul>
 <li>Microsoft Windows 2000 SP4, XP SP2 and SP3, Server 2003 SP1 and SP2, Vista Gold and SP1, Server 2008, and 7 Pre-Beta</li>
 <li><a href="https://github.com/jivoi/pentest/blob/master/exploit_win/ms08-067.py">https://github.com/jivoi/pentest/blob/master/exploit_win/ms08-067.py</a></li>
 <li><a href="https://vulners.com/exploitdb/EDB-ID:6824">https://vulners.com/exploitdb/EDB-ID:6824</a></li>
 <li><code class="codehilite"><span class="n">exploit</span><span class="o">/</span><span class="n">windows</span><span class="o">/</span><span class="n">smb</span><span class="o">/</span><span class="n">ms08_067_netapi</span></code></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>

@@ -7739,18 +7739,20 @@
 <ul>
 <li>
 <p><code class="codehilite"><span class="o">&lt;</span><span class="n">mailbox</span> <span class="n">path</span><span class="o">&gt;</span></code></p>
+<ul>
+<li>if empty list shows all content from root</li>
+</ul>
 </li>
-<li>
-<p>if empty list shows all content from root</p>
-</li>
+</ul>
+<ul>
 <li>
 <p><code class="codehilite"><span class="o">&lt;</span><span class="k">search</span> <span class="n">argument</span><span class="o">&gt;</span></code></p>
-</li>
-<li>
-<p>case-sensitive mailbox name with possible wildcards</p>
-</li>
+<ul>
+<li>case-sensitive mailbox name with possible wildcards</li>
 <li><code class="codehilite"><span class="o">-</span></code> is a wildcard, and matches zero or more characters at this position.</li>
 <li><code class="codehilite"><span class="c">%</span></code> is similar to <code class="codehilite"><span class="o">*</span></code> but it does not match a hierarchy delimiter</li>
+</ul>
+</li>
 </ul>
 <p>Fetch Messages</p>
 <div class="codehilite"><pre><span></span><span class="n">f1</span> <span class="k">FETCH</span> <span class="mi">1</span> <span class="n">BODY</span><span class="p">[]</span>
