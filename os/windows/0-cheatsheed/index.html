@@ -5636,6 +5636,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#user-accounts" class="md-nav__link">
+    User accounts
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#mimikatz" class="md-nav__link">
     Mimikatz
   </a>
@@ -7894,6 +7901,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#user-accounts" class="md-nav__link">
+    User accounts
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#mimikatz" class="md-nav__link">
     Mimikatz
   </a>
@@ -8140,6 +8154,96 @@ VMs: <a href="https://developer.microsoft.com/en-us/microsoft-edge/tools/vms/">h
 <span class="nv">Windows</span> <span class="mi">10</span>                     <span class="mi">10</span>.<span class="mi">0</span>.<span class="mi">10240</span>
 </pre></div>
 
+<h2 id="user-accounts">User accounts<a class="headerlink" href="#user-accounts" title="Permanent link">&para;</a></h2>
+<ul>
+<li>LocalSystem account is a predefined local account used by the service control manager. <ul>
+<li><a href="https://msdn.microsoft.com/en-us/library/windows/desktop/ms684190(v=vs.85).aspx">https://msdn.microsoft.com/en-us/library/windows/desktop/ms684190(v=vs.85).aspx</a></li>
+<li>Not recognized by the security subsystem, so you cannot specify its name in a call to the <code class="codehilite"><span class="n">LookupAccountName</span></code> function. </li>
+<li>Has extensive privileges on the local computer, and acts as the computer on the network. </li>
+<li>Its token includes the <code class="codehilite"><span class="n">NT</span> <span class="n">AUTHORITY</span><span class="err">\</span><span class="k">SYSTEM</span></code> and <code class="codehilite"><span class="n">BUILTIN</span><span class="err">\</span><span class="n">Administrators</span></code> SIDs; these accounts have access to most system objects. </li>
+<li>The name of the account in all locales is <code class="codehilite"><span class="p">.</span><span class="err">\</span><span class="n">LocalSystem</span></code>. </li>
+<li>The name, <code class="codehilite"><span class="n">LocalSystem</span></code> or <code class="codehilite"><span class="n">ComputerName</span><span class="err">\</span><span class="n">LocalSystem</span></code> can also be used. </li>
+<li>This account does not have a password. </li>
+<li>If you specify the <code class="codehilite"><span class="n">LocalSystem</span></code> account in a call to the <code class="codehilite"><span class="n">CreateService</span></code> or <code class="codehilite"><span class="n">ChangeServiceConfig</span></code> function, any password information you provide is ignored.</li>
+<li>The service can open the registry key HKEY_LOCAL_MACHINE\SECURITY.</li>
+<li>The service presents the computer's credentials to remote servers.</li>
+<li>If the service opens a command window and runs a batch file, the user could hit CTRL+C to terminate the batch file and gain access to a command window with LocalSystem permissions.</li>
+<li>A service that runs in the context of the <code class="codehilite"><span class="n">LocalSystem</span></code> account inherits the security context of the SCM. The user SID is created from the <code class="codehilite"><span class="n">SECURITY_LOCAL_SYSTEM_RID</span></code> value. </li>
+<li>Has:<ul>
+<li>E_ASSIGNPRIMARYTOKEN_NAME (disabled)</li>
+<li>SE_AUDIT_NAME (enabled)</li>
+<li>SE_BACKUP_NAME (disabled)</li>
+<li>SE_CHANGE_NOTIFY_NAME (enabled)</li>
+<li>SE_CREATE_GLOBAL_NAME (enabled)</li>
+<li>SE_CREATE_PAGEFILE_NAME (enabled)</li>
+<li>SE_CREATE_PERMANENT_NAME (enabled)</li>
+<li>SE_CREATE_TOKEN_NAME (disabled)</li>
+<li>SE_DEBUG_NAME (enabled)</li>
+<li>SE_IMPERSONATE_NAME (enabled)</li>
+<li>SE_INC_BASE_PRIORITY_NAME (enabled)</li>
+<li>SE_INCREASE_QUOTA_NAME (disabled)</li>
+<li>SE_LOAD_DRIVER_NAME (disabled)</li>
+<li>SE_LOCK_MEMORY_NAME (enabled)</li>
+<li>SE_MANAGE_VOLUME_NAME (disabled)</li>
+<li>SE_PROF_SINGLE_PROCESS_NAME (enabled)</li>
+<li>SE_RESTORE_NAME (disabled)</li>
+<li>SE_SECURITY_NAME (disabled)</li>
+<li>SE_SHUTDOWN_NAME (disabled)</li>
+<li>SE_SYSTEM_ENVIRONMENT_NAME (disabled)</li>
+<li>SE_SYSTEMTIME_NAME (disabled)</li>
+<li>SE_TAKE_OWNERSHIP_NAME (disabled)</li>
+<li>SE_TCB_NAME (enabled)</li>
+<li>SE_UNDOCK_NAME (disabled)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>LocalService account is a predefined local account used by the service control manager.<ul>
+<li><a href="https://msdn.microsoft.com/en-us/library/windows/desktop/ms684188(v=vs.85).aspx">https://msdn.microsoft.com/en-us/library/windows/desktop/ms684188(v=vs.85).aspx</a></li>
+<li>Not recognized by the security subsystem, so you cannot specify its name in a call to the <code class="codehilite"><span class="n">LookupAccountName</span></code> function. </li>
+<li>Has minimum privileges on the local computer and presents anonymous credentials on the network.</li>
+<li>Can be specified in a call to the <code class="codehilite"><span class="n">CreateService</span></code> and <code class="codehilite"><span class="n">ChangeServiceConfig</span></code> functions. </li>
+<li>This account does not have a password, so any password information that you provide in this call is ignored. </li>
+<li>While the security subsystem localizes this account name, the SCM does not support localized names. Therefore, you will receive a localized name for this account from the <code class="codehilite"><span class="n">LookupAccountSid</span></code> function, but the name of the account must be <code class="codehilite"><span class="n">NT</span> <span class="n">AUTHORITY</span><span class="err">\</span><span class="n">LocalService</span></code> when you call <code class="codehilite"><span class="n">CreateService</span></code> or <code class="codehilite"><span class="n">ChangeServiceConfig</span></code>, regardless of the locale, or unexpected results can occur.</li>
+<li>The LocalService account has its own subkey under the HKEY_USERS registry key. Therefore, the <code class="codehilite"><span class="n">HKEY_CURRENT_USER</span></code> registry key is associated with the LocalService account.</li>
+<li>Has:<ul>
+<li>SE_ASSIGNPRIMARYTOKEN_NAME (disabled)</li>
+<li>SE_AUDIT_NAME (disabled)</li>
+<li>SE_CHANGE_NOTIFY_NAME (enabled)</li>
+<li>SE_CREATE_GLOBAL_NAME (enabled)</li>
+<li>SE_IMPERSONATE_NAME (enabled)</li>
+<li>SE_INCREASE_QUOTA_NAME (disabled)</li>
+<li>SE_SHUTDOWN_NAME (disabled)</li>
+<li>SE_UNDOCK_NAME (disabled)</li>
+<li>Any privileges assigned to users and authenticated users</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>NetworkService account is a predefined local account used by the service control manager. <ul>
+<li><a href="https://msdn.microsoft.com/en-us/library/windows/desktop/ms684272(v=vs.85).aspx">https://msdn.microsoft.com/en-us/library/windows/desktop/ms684272(v=vs.85).aspx</a></li>
+<li>Not recognized by the security subsystem, so you cannot specify its name in a call to the <code class="codehilite"><span class="n">LookupAccountName</span></code> function. </li>
+<li>Has minimum privileges on the local computer and acts as the computer on the network.</li>
+<li>This account can be specified in a call to the <code class="codehilite"><span class="n">CreateService</span></code> and <code class="codehilite"><span class="n">ChangeServiceConfig</span></code> functions. </li>
+<li>This account does not have a password, so any password information that you provide in this call is ignored. </li>
+<li>While the security subsystem localizes this account name, the SCM does not support localized names. Therefore, you will receive a localized name for this account from the <code class="codehilite"><span class="n">LookupAccountSid</span></code> function, but the name of the account must be <code class="codehilite"><span class="n">NT</span> <span class="n">AUTHORITY</span><span class="err">\</span><span class="n">NetworkService</span></code> when you call <code class="codehilite"><span class="n">CreateService</span></code> or <code class="codehilite"><span class="n">ChangeServiceConfig</span></code>, regardless of the locale, or unexpected results can occur.</li>
+<li>A service that runs in the context of the <code class="codehilite"><span class="n">NetworkService</span></code> account presents the computer's credentials to remote servers. By default, the remote token contains SIDs for the Everyone and Authenticated Users groups. The user SID is created from the <code class="codehilite"><span class="n">SECURITY_NETWORK_SERVICE_RID</span></code> value.</li>
+<li>Has its own subkey under the <code class="codehilite"><span class="n">HKEY_USERS</span></code> registry key. Therefore, the <code class="codehilite"><span class="n">HKEY_CURRENT_USER</span></code> registry key is associated with the NetworkService account.</li>
+<li>Has:<ul>
+<li>SE_ASSIGNPRIMARYTOKEN_NAME (disabled)</li>
+<li>SE_AUDIT_NAME (disabled)</li>
+<li>SE_CHANGE_NOTIFY_NAME (enabled)</li>
+<li>SE_CREATE_GLOBAL_NAME (enabled)</li>
+<li>SE_IMPERSONATE_NAME (enabled)</li>
+<li>SE_INCREASE_QUOTA_NAME (disabled)</li>
+<li>SE_SHUTDOWN_NAME (disabled)</li>
+<li>SE_UNDOCK_NAME (disabled)</li>
+<li>Any privileges assigned to users and authenticated users</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 <h2 id="mimikatz">Mimikatz<a class="headerlink" href="#mimikatz" title="Permanent link">&para;</a></h2>
 <div class="codehilite"><pre><span></span><span class="n">privilege</span><span class="o">::</span><span class="n">debug</span>
 

