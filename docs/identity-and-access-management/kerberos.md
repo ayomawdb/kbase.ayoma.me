@@ -756,3 +756,5 @@ DCShadow attack: a new attack where attackers gain enough access inside a networ
 
 - [Attacking Microsoft Kerberos Kicking the Guard Dog of Hades Tim Medin](https://www.youtube.com/watch?v=PUyhlN-E5MU ) 
 - https://blog.redforce.io/oh-my-kerberos-do-not-get-kerberoasted/
+- https://www.tarlogic.com/en/blog/how-kerberos-works/
+- https://www.tarlogic.com/en/blog/how-to-attack-kerberos/

@@ -28,3 +28,4 @@ Cutdown version of starshipraider: https://github.com/azonenberg/starshipraider
 ## Other
 - FACT - The Firmware Analysis and Comparison Tool: https://fkie-cad.github.io/FACT_core/
 - Platform Firmware Auditing Tool: https://github.com/PreOS-Security/fwaudit
+- BIOS - https://github.com/chipsec/chipsec

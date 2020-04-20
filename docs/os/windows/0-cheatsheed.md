@@ -25,6 +25,87 @@ Windows 7                      6.1.7600
 Windows 8.1                    6.3.9600
 Windows 10                     10.0.10240
 ```
+
+## User accounts 
+
+- LocalSystem account is a predefined local account used by the service control manager. 
+  - <https://msdn.microsoft.com/en-us/library/windows/desktop/ms684190(v=vs.85).aspx>
+  - Not recognized by the security subsystem, so you cannot specify its name in a call to the `LookupAccountName` function. 
+  - Has extensive privileges on the local computer, and acts as the computer on the network. 
+  - Its token includes the `NT AUTHORITY\SYSTEM` and `BUILTIN\Administrators` SIDs; these accounts have access to most system objects. 
+  - The name of the account in all locales is `.\LocalSystem`. 
+  - The name, `LocalSystem` or `ComputerName\LocalSystem` can also be used. 
+  - This account does not have a password. 
+  - If you specify the `LocalSystem` account in a call to the `CreateService` or `ChangeServiceConfig` function, any password information you provide is ignored.
+  - The service can open the registry key HKEY_LOCAL_MACHINE\SECURITY.
+  - The service presents the computer's credentials to remote servers.
+  - If the service opens a command window and runs a batch file, the user could hit CTRL+C to terminate the batch file and gain access to a command window with LocalSystem permissions.
+  - A service that runs in the context of the `LocalSystem` account inherits the security context of the SCM. The user SID is created from the `SECURITY_LOCAL_SYSTEM_RID` value. 
+  - Has:
+    - E_ASSIGNPRIMARYTOKEN_NAME (disabled)
+    - SE_AUDIT_NAME (enabled)
+    - SE_BACKUP_NAME (disabled)
+    - SE_CHANGE_NOTIFY_NAME (enabled)
+    - SE_CREATE_GLOBAL_NAME (enabled)
+    - SE_CREATE_PAGEFILE_NAME (enabled)
+    - SE_CREATE_PERMANENT_NAME (enabled)
+    - SE_CREATE_TOKEN_NAME (disabled)
+    - SE_DEBUG_NAME (enabled)
+    - SE_IMPERSONATE_NAME (enabled)
+    - SE_INC_BASE_PRIORITY_NAME (enabled)
+    - SE_INCREASE_QUOTA_NAME (disabled)
+    - SE_LOAD_DRIVER_NAME (disabled)
+    - SE_LOCK_MEMORY_NAME (enabled)
+    - SE_MANAGE_VOLUME_NAME (disabled)
+    - SE_PROF_SINGLE_PROCESS_NAME (enabled)
+    - SE_RESTORE_NAME (disabled)
+    - SE_SECURITY_NAME (disabled)
+    - SE_SHUTDOWN_NAME (disabled)
+    - SE_SYSTEM_ENVIRONMENT_NAME (disabled)
+    - SE_SYSTEMTIME_NAME (disabled)
+    - SE_TAKE_OWNERSHIP_NAME (disabled)
+    - SE_TCB_NAME (enabled)
+    - SE_UNDOCK_NAME (disabled)
+- LocalService account is a predefined local account used by the service control manager.
+  - <https://msdn.microsoft.com/en-us/library/windows/desktop/ms684188(v=vs.85).aspx>
+  - Not recognized by the security subsystem, so you cannot specify its name in a call to the `LookupAccountName` function. 
+  - Has minimum privileges on the local computer and presents anonymous credentials on the network.
+  - Can be specified in a call to the `CreateService` and `ChangeServiceConfig` functions. 
+  - This account does not have a password, so any password information that you provide in this call is ignored. 
+  - While the security subsystem localizes this account name, the SCM does not support localized names. Therefore, you will receive a localized name for this account from the `LookupAccountSid` function, but the name of the account must be `NT AUTHORITY\LocalService` when you call `CreateService` or `ChangeServiceConfig`, regardless of the locale, or unexpected results can occur.
+  - The LocalService account has its own subkey under the HKEY_USERS registry key. Therefore, the `HKEY_CURRENT_USER` registry key is associated with the LocalService account.
+  - Has:
+    - SE_ASSIGNPRIMARYTOKEN_NAME (disabled)
+    - SE_AUDIT_NAME (disabled)
+    - SE_CHANGE_NOTIFY_NAME (enabled)
+    - SE_CREATE_GLOBAL_NAME (enabled)
+    - SE_IMPERSONATE_NAME (enabled)
+    - SE_INCREASE_QUOTA_NAME (disabled)
+    - SE_SHUTDOWN_NAME (disabled)
+    - SE_UNDOCK_NAME (disabled)
+    - Any privileges assigned to users and authenticated users
+- NetworkService account is a predefined local account used by the service control manager. 
+  - <https://msdn.microsoft.com/en-us/library/windows/desktop/ms684272(v=vs.85).aspx>
+  - Not recognized by the security subsystem, so you cannot specify its name in a call to the `LookupAccountName` function. 
+  - Has minimum privileges on the local computer and acts as the computer on the network.
+  - This account can be specified in a call to the `CreateService` and `ChangeServiceConfig` functions. 
+  - This account does not have a password, so any password information that you provide in this call is ignored. 
+  - While the security subsystem localizes this account name, the SCM does not support localized names. Therefore, you will receive a localized name for this account from the `LookupAccountSid` function, but the name of the account must be `NT AUTHORITY\NetworkService` when you call `CreateService` or `ChangeServiceConfig`, regardless of the locale, or unexpected results can occur.
+  - A service that runs in the context of the `NetworkService` account presents the computer's credentials to remote servers. By default, the remote token contains SIDs for the Everyone and Authenticated Users groups. The user SID is created from the `SECURITY_NETWORK_SERVICE_RID` value.
+  - Has its own subkey under the `HKEY_USERS` registry key. Therefore, the `HKEY_CURRENT_USER` registry key is associated with the NetworkService account.
+  - Has:
+    - SE_ASSIGNPRIMARYTOKEN_NAME (disabled)
+    - SE_AUDIT_NAME (disabled)
+    - SE_CHANGE_NOTIFY_NAME (enabled)
+    - SE_CREATE_GLOBAL_NAME (enabled)
+    - SE_IMPERSONATE_NAME (enabled)
+    - SE_INCREASE_QUOTA_NAME (disabled)
+    - SE_SHUTDOWN_NAME (disabled)
+    - SE_UNDOCK_NAME (disabled)
+    - Any privileges assigned to users and authenticated users
+
+
+
 ## Mimikatz
 
 ```

