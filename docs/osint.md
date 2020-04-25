@@ -1,38 +1,41 @@
-# Tools
+## Tools
+
 - Craal (GitHub, Pastebin, S3 Buckets, Protoxin, CertStream): https://github.com/jaylagorio/craal
 - Semi-automatic OSINT framework and package manager: https://github.com/kpcyrd/sn0int
 - Discover and extract hostnames providing a large set of target IP addresses: -https://github.com/SpiderLabs/HostHunter
 - [sslyze - Fast and powerful SSL/TLS server scanning library.](https://github.com/nabla-c0d3/sslyze)
 - https://github.com/BishopFox/GitGot
+- OSINT-SPY - Performs OSINT scan on email/domain/ip_address/organization - <https://github.com/SharadKumar97/OSINT-SPY>
 
 ## Email
-### TheHarvester
-```
-theharvester -­‐d cisco.com -­‐b google
-theharvester -­‐d cisco.com -­‐b bing
-```
+
+- TheHarvester
+    ```
+    theharvester -­‐d cisco.com -­‐b google
+    theharvester -­‐d cisco.com -­‐b bing
+    ```
+- Test
 
 ## Domain Related Tools
+
 - Dmain Registrations
-  - https://domainbigdata.com
-  - https://viewdns.info/
-  - https://pulsedive.com/
-  - https://www.apnic.net/static/whowas-ui/
+  - <https://domainbigdata.com>
+  - <https://viewdns.info/>
+  - <https://pulsedive.com/>
+  - <https://www.apnic.net/static/whowas-ui/>
 - Archive
-  - https://archive.org/
+  - <https://archive.org/>
 - Similar websites
-  - https://similarsites.com/
+  - <https://similarsites.com/>
+  - AltDNS - Generates permutations, alterations and mutations of subdomains and then resolves them: <https://github.com/infosec-au/altdns>
 - Subdomains
   - Finds subdomains in google, bing, etc: `python theHarvester.py  -l 500 -b all -d $ip`
-  - Generates permutations, alterations and mutations of subdomains and then resolves them: https://github.com/infosec-au/altdns
-  - https://github.com/aboul3la/Sublist3r
-    - Sublist3r enumerates subdomains using many search engines such as Google, Yahoo, Bing, Baidu, and Ask. Sublist3r also enumerates subdomains using Netcraft, Virustotal, ThreatCrowd, DNSdumpster, and ReverseDNS.
-  - SubFinder is a subdomain discovery tool that discovers valid subdomains for websites: https://github.com/subfinder/subfinder
-  - Knockpy is a python tool designed to enumerate subdomains on a target domain through a wordlist: https://github.com/guelfoweb/knock
-  - https://findsubdomains.com/
-  - https://pentest-tools.com/information-gathering/find-subdomains-of-domain
-  - Abusing Certificate Transparency logs for getting HTTPS websites subdomains: https://github.com/UnaPibaGeek/ctfr
-  - https://github.com/subfinder/subfinder
+  - Sublist3r enumerates subdomains using many search engines and tools: <https://github.com/aboul3la/Sublist3r>
+  - SubFinder is a subdomain discovery tool that discovers valid subdomains for websites: <https://github.com/subfinder/subfinder>
+  - Knockpy - Enumerate subdomains on a target domain through a wordlist: <https://github.com/guelfoweb/knock>
+  - <https://findsubdomains.com/>
+  - <https://pentest-tools.com/information-gathering/find-subdomains-of-domain>
+  - Abusing Certificate Transparency logs for getting HTTPS websites subdomains: <https://github.com/UnaPibaGeek/ctfr>
 - Source Code Analysis
   - https://publicwww.com/
   - https://nerdydata.com/
@@ -45,8 +48,6 @@ theharvester -­‐d cisco.com -­‐b bing
   - https://www.whoisxmlapi.com/
   - https://www.whoxy.com/
 
-
-- OSINT tool for visualizing relationships between domains, IPs and email addresses: https://hackernoon.com/osint-tool-for-visualizing-relationships-between-domains-ips-and-email-addresses-94377aa1f20a
 ## Subdomain to IP
 
 - Bouncing through an old expired domain. Trusted in all lists.
@@ -54,11 +55,7 @@ theharvester -­‐d cisco.com -­‐b bing
 - Subdomains > IP Addresses > ARIN crawl for more CIDRs.
 > https://twitter.com/TinkerSec/status/1097912618663243783
 
-## OSINT-SPY
-Performs OSINT scan on email/domain/ip_address/organization.
 
-- https://www.kitploit.com/2019/02/osint-spy-search-using-osint-open.html
-- https://github.com/SharadKumar97/OSINT-SPY
 
 ## Services
 - https://www.shodan.io
@@ -225,6 +222,10 @@ A powerful target reconnaissance framework powered by graph theory.
 - GitHub: https://github.com/pownjs/pown-recon
 
 
+## Visualizing 
+
+- Visualizing relationships between domains, IPs and email addresses: <https://hackernoon.com/osint-tool-for-visualizing-relationships-between-domains-ips-and-email-addresses-94377aa1f20a>
+
 ## Other
 - EyeWitness - take screenshots of websites, provide some server header info, and identify default credentials if possible: https://github.com/FortyNorthSecurity/EyeWitness
 
@@ -233,3 +234,12 @@ A powerful target reconnaissance framework powered by graph theory.
 ### New References
 - Exploiting Vulnerabilities Through Proper Reconnaissance: https://docs.google.com/presentation/d/1xgvEScGZ_ukNY0rmfKz1JN0sn-CgZY_rTp2B_SZvijk/edit#slide=id.g4052c4692d_0_0
 - Recon My Way: https://github.com/ehsahil/recon-my-way
+
+### References
+- List of s3 leaks: https://github.com/nagwww/s3-leaks
+- OSINT Framework: https://osintframework.com/
+- RiskIQ Community Edition: digital threat hunters and defenders free access to our comprehensive internet data to hunt digital threats: https://www.riskiq.com/products/community-edition/
+- Deleted content: https://osintcurio.us/2019/02/12/osint-on-deleted-content/
+- Week in OSINT #2019–06: https://medium.com/week-in-osint/week-in-osint-2019-06-8a13feb018a8
+- SANS Webcast: OSINT for Pentesters Finding Targets and Enumerating Systems: https://www.youtube.com/watch?v=eHOMGUTi9yo&feature=youtu.be
+- https://ahrefs.com/blog/google-advanced-search-operators/

@@ -1,4 +1,5 @@
 ## References
+
 - We Need to Kill the ‘Security Analyst’: [https://medium.com/@LargeCardinal/we-need-to-kill-the-security-analyst-79ec205651f5](https://medium.com/@LargeCardinal/we-need-to-kill-the-security-analyst-79ec205651f5)
 - Preparing for a Tech Talk, Part 1: Motivation: [https://overreacted.io/preparing-for-tech-talk-part-1-motivation/](https://overreacted.io/preparing-for-tech-talk-part-1-motivation/)
 - Preparing for a Tech Talk, Part 2: What, Why, and How: [https://overreacted.io/preparing-for-tech-talk-part-2-what-why-and-how/](https://overreacted.io/preparing-for-tech-talk-part-2-what-why-and-how/)
@@ -6,6 +7,7 @@
 - 10 Personal Finance Lessons for Technology Professionals: [https://www.troyhunt.com/10-personal-finance-lessons-for-technology-professionals/](https://www.troyhunt.com/10-personal-finance-lessons-for-technology-professionals/)
 
 ## Quotes
+
 ```
 The real pros ask the real questions:
 1)If

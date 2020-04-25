@@ -404,6 +404,23 @@ https://github.com/SecureAuthCorp/impacket/blob/master/examples/wmiexec.py
  ./wmiexec.py -hashes <ntlmhash> Administrator@10.10.0.1
 ```
 
+## Download all
+
+```
+#Download all
+smbclient //<IP>/<share>
+> recurse ON
+> prompt OFF
+> mget *
+```
+
+## Kerberos Auth
+
+```
+smbclient --kerberos //ws01win10.domain.com/C$
+rpcclient -k ws01win10.domain.com
+```
+
 ## Mount SMB share
 
 ```
