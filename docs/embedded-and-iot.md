@@ -174,17 +174,17 @@ master unit to the slave units
 
 ### ATMs
 
-References:
+**References:**
 
 - ATM LOGIC ATTACKS: SCENARIOS: <https://www.ptsecurity.com/upload/corporate/ww-en/analytics/ATM-Vulnerabilities-2018-eng.pdf>
 
 ### Automobile 
 
-Tools:
+**Tools:**
 
 - canalyzat0r: <https://amp.kitploit.com/2019/02/canalyzat0r-security-analysis-toolkit.html?amp=1&m=1>
 
-References:
+**References:**
 
 - Automobile Hacking, Part 1: The CAN Protocol: <https://www.hackers-arise.com/single-post/2017/08/04/Automobile-Hacking-Part-1-The-CAN-Protocol>
 - Automobile Hacking, Part 2: The can-utils or SocketCAN: <https://www.hackers-arise.com/single-post/2017/08/08/Automobile-Hacking-Part-2-The-can-utils-or-SocketCAN>
@@ -195,14 +195,14 @@ References:
 
 ### Bluetooth 
 
-References:
+**References:**
 
 - A Bluetooth low energy capture the flag: <https://github.com/hackgnar/ble_ctf>
 - My notes on Hacking BLE – list of resources: <https://www.davidsopas.com/my-notes-on-hacking-ble-list-of-resources/>
 
 ### Cameras 
 
-Tools:
+**Tools:**
 
 - Pentax Hacker Development Kit: <https://github.com/i-am-shodan/PHDK>
   - <https://www.dropbox.com/s/ogez7sb4b0cw92g/hacking_pentax_k30.pdf>
@@ -210,13 +210,13 @@ Tools:
 
 ### Locks 
 
-References: 
+**References: **
 
 - How to open a Tapplock over BLE in under two seconds: https://www.pentestpartners.com/security-blog/totally-pwning-the-tapplock-smart-lock/
 
 ### Printers 
 
-Discovery:
+**Discovery:**
 
 - Windows
   - SharpPrinter - Discover Printers: <https://github.com/rvrsh3ll/SharpPrinter>
@@ -224,12 +224,12 @@ Discovery:
 - Linux
   - Praeda - Automated printer data harvesting tool: <http://h.foofus.net/?page_id=218>
 
-Exploitation:
+**Exploitation:**
 
 - PRET - Printer Exploitation Toolkit: <https://github.com/RUB-NDS/PRET>
 - praedasploit - <https://github.com/MooseDojo/praedasploit>
 
-Attack Patterns:
+**Attack Patterns:**
 
 - Plunder Pillage & Print: <https://hackinparis.com/data/slides/2014/DeralHeilandandPeterArzamendi.pdf>
 - LDAP/SMB/SMTP Pass-Back-Attack: <http://foofus.net/goons/percx/praeda/pass-back-attack.pdf>
@@ -239,13 +239,13 @@ Attack Patterns:
 - Export configuration and look for credentials
 - LDAP traffic is unencrypted (usually), can MITM
 
-Guides:
+**Guides:**
 
 - An Introduction to Printer Exploitation: <https://0x00sec.org/t/an-introduction-to-printer-exploitation/3565>
 
 ### Ships 
 
-Shodan Searches:
+**Shodan Searches:**
 
 - org:"Inmarsat Solutions US"
   - Login for Globe wireless
@@ -258,11 +258,11 @@ Shodan Searches:
   - Vessel name / network structure leaked
   - "Show Users" link (or can request the content by appending /rest.php?action=QCgetActiveUsers)
 
-Tools: 
+**Tools: **
 
 - Vuln Ship Tracker: <https://ptp-shiptracker.herokuapp.com/>
 
-Terms:
+**Terms:**
 
 - `ECDIS` are the electronic chart systems that are needed to navigate.
 - `AIS transceiver` - system that ships use to avoid colliding with each other.
@@ -272,26 +272,27 @@ Terms:
   - They communicate using  NMEA 0183 messages.
   - No message authentication, encryption or validation (only 2 byte XOR checksum)
 
-Attack Patterns:
+**Attack Patterns:**
 
 - Spoof the `ECDIS` using the vulnerable config interface, 'grow' the ship and 'jump' it in to the shipping lanes.
   - Other ships AIS will alert the ships captain to a collision scenario
 - MitM and change NMEA 0183 messages to read differently
   - Ex: change the rudder command by modifying a GPS autopilot command
 
-References:
+**References:**
 
-Summarized References:
+**Summarized References:**
+
 - <https://www.pentestpartners.com/security-blog/osint-from-ship-satcoms/>
 - <https://www.pentestpartners.com/security-blog/hacking-tracking-stealing-and-sinking-ships/>
 
 ### UEFI
 
-References:
+**References:**
 
 - UEFI_EXPLOITATION_MASSES_FINAL: <https://github.com/eclypsium/Publications/blob/master/2018/DEFCON26/DC26_UEFI_EXPLOITATION_MASSES_FINAL.pdf>
 
-Tools: 
+**Tools:**
 
 - EDK II Project - A modern, feature-rich, cross-platform firmware development environment for the UEFI and PI specifications from www.uefi.org: <https://github.com/tianocore/edk2>
 - RaspberryPiPkg - 64-bit Tiano Core UEFI for the Raspberry Pi 3 (with devices, Linux, NetBSD, FreeBSD and Windows on Arm!): <https://github.com/andreiw/RaspberryPiPkg>

@@ -64,7 +64,7 @@ C: \ Windows \ system32 \ config
 
 ### Important Files
 
-#### `$MFT` Master File Table
+**`$MFT` Master File Table**
 
 - Kind of index of all files on the hard drive
 - <https://jmharkness.wordpress.com/2011/01/27/mft-file-reference-number/>
@@ -72,14 +72,14 @@ C: \ Windows \ system32 \ config
   - Ref: 0x002E00000000F1AB -> MFT entry: 00000000F1AB, Sequence number: 0x002E
 - Can be dumped with: <http://malware-hunters.net/all-downloads/>
 
-#### `MRU` Most Recently Used
+**`MRU` Most Recently Used**
 
 - NTUSER.dat
 - Can be read with `RegRipper` with the plugin `runmru`.
   - Pulling the UserAssist, which stores the latest applications, shortcuts and documents opened by the user
     - `rip.exe -p userassist -r ../NTUSER.DAT`
 
-#### `USN` Journal (Update Sequence Number Journal)
+**`USN` Journal (Update Sequence Number Journal)**
 
 - Keeps a log of the changes that are made in an NTFS volume
 - <http://forensicinsight.org/wp-content/uploads/2013/07/F-INSIGHT-Advanced-UsnJrnl-Forensics-English.pdf>
@@ -90,19 +90,19 @@ C: \ Windows \ system32 \ config
 C: \ $ Extend \ $ UsrJrnl,
 ```
 
-#### Logs
+**Logs:**
 
 ```
 C: \ Windows \ system32 \ winevt \ logs
 ```
 
-#### User logins
+**User logins:**
 
 Each time a session is started the user profile is loaded. This action leaves a record in the `Microsoft-Windows-User Profile Service log/Operational.evtx`
 
-#### Prefetch
+**Prefetch:**
 
-#### File extensions of interest
+**File extensions of interest:**
 
 - <http://www.hexacorn.com/blog/2019/02/11/file-extensions-of-interest/>
 

@@ -149,8 +149,6 @@ mysql> \! bash
 
 ### MySQL root to system root
 
-# MySQL-Root to System-Root
-
 - [MySQL Root to System Root with lib_mysqludf_sys for Windows and Linux](https://www.adampalmer.me/iodigitalsec/2013/08/13/mysql-root-to-system-root-with-udf-for-windows-and-linux/)
 
 Take lib from SQLMap and dump it into the server:
