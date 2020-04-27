@@ -201,3 +201,16 @@ VPN Services:
 tr -s ' ' | tr '\t' ' ' | sed 's/:/ |/' | sed 's/- /| /' | sed -e 's/$/ |/'
 ```
 
+
+
+
+
+
+
+# Tools
+
+- Unicode steganography: https://www.irongeek.com/i.php?page=security/unicode-steganography-homoglyph-encoder
+
+# Incidence Response
+
+- CIRTKit - Tools For The Computer Incident Response Team: https://github.com/opensourcesec/CIRTKit

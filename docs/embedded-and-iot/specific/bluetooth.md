@@ -1,5 +1,0 @@
-# Bluetooth
-
-## References
-- A Bluetooth low energy capture the flag: https://github.com/hackgnar/ble_ctf
-- My notes on Hacking BLE – list of resources: https://www.davidsopas.com/my-notes-on-hacking-ble-list-of-resources/

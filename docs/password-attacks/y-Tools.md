@@ -6,6 +6,8 @@
 - fgdump
 - windows credential editor (WCE) - Steal NTLM hashes from memory and auth modules
 
+- Text sumarizer: <https://www.splitbrain.org/services/ots>
+
 ### CeWL 
 - Custom Word List Generator: <https://github.com/digininja/CeWL>
 

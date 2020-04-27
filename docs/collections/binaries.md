@@ -1,1 +1,0 @@
-- Nmap: [https://github.com/andrew-d/static-binaries/blob/master/binaries/linux/x86_64/](https://github.com/andrew-d/static-binaries/blob/master/binaries/linux/x86_64/)
