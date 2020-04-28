@@ -1,9 +1,9 @@
-# Kerberos
+## Protocol Summary
 
 - Designed to lessening authentication related packets transmitted in the network  
 - Not designed for today's network security
 - Loosing KDC means, security is at total loss 
-- Kerberos uses either UDP/88 or TCP/88 as transport protocol. Hence Kerberos itself is responsible of encrypting data.
+- Kerberos uses either `UDP/88` or `TCP/88` as transport protocol. Hence Kerberos itself is responsible of encrypting data.
 - Several agents working together:
   - `Client` or user: who wants to access to the service.
   - `AP (Application Server)`: offers the service required by the user.
@@ -18,26 +18,16 @@
   - `TGS (Ticket Granting Service)`: Ticket which user can use to authenticate against a service. It is encrypted with the service key.
   - `TGT (Ticket Granting Ticket)`: Ticket presented to the KDC to request for TGSs. It is encrypted with the KDC key.
 - `PAC (Privilege Attribute Certificate)` is an structure included in almost every ticket.
-  - It is possible to services to verify the PAC by comunicating with the KDC
+  - It is possible to services to verify the PAC by communicating with the KDC
 - Messages:
-  - KRB_AS_REQ: Used to request the TGT to KDC.
-  - KRB_AS_REP: Used to deliver the TGT by KDC.
-  - KRB_TGS_REQ: Used to request the TGS to KDC, using the TGT.
-  - KRB_TGS_REP: Used to deliver the TGS by KDC.
-  - KRB_AP_REQ: Used to authenticate a user against a service, using the TGS.
-  - KRB_AP_REP: (Optional) Used by service to identify itself against the user.
-  - KRB_ERROR: Message to comunicate error conditions.
-  - KERB_VERIFY_PAC_REQUEST: AP send message to KDC including the signature of PAC, and verify if it is correct. (not part of Kerberos, but NRPC)
-
-## Attacks 
-
-- Kerberos brute-force
-- ASREPRoast
-- Kerberoasting
-- Pass the key
-- Pass the ticket
-- Silver ticket
-- Golden ticket
+  - `KRB_AS_REQ`: Used to request the TGT to KDC.
+  - `KRB_AS_REP`: Used to deliver the TGT by KDC.
+  - `KRB_TGS_REQ`: Used to request the TGS to KDC, using the TGT.
+  - `KRB_TGS_REP`: Used to deliver the TGS by KDC.
+  - `KRB_AP_REQ`: Used to authenticate a user against a service, using the TGS.
+  - `KRB_AP_REP`: (Optional) Used by service to identify itself against the user.
+  - `KRB_ERROR`: Message to communicate error conditions.
+  - `KERB_VERIFY_PAC_REQUEST`: AP send message to KDC including the signature of PAC, and verify if it is correct. (not part of Kerberos, but NRPC)
 
 ## Protocol Flow
 
@@ -55,59 +45,53 @@
 
 > Ref: [https://www.blackhat.com/docs/us-14/materials/us-14-Duckwall-Abusing-Microsoft-Kerberos-Sorry-You-Guys-Don't-Get-It.pdf](https://www.blackhat.com/docs/us-14/materials/us-14-Duckwall-Abusing-Microsoft-Kerberos-Sorry-You-Guys-Don't-Get-It.pdf)
 
-
-
 ### Client - KDC (Pre-Auth) (Kerberos 5+)
-
-
 
 ![image-20190603075326610](_assets/image-20190603075326610.png)
 
 > Ref: [https://www.blackhat.com/docs/us-14/materials/us-14-Duckwall-Abusing-Microsoft-Kerberos-Sorry-You-Guys-Don't-Get-It.pdf](https://www.blackhat.com/docs/us-14/materials/us-14-Duckwall-Abusing-Microsoft-Kerberos-Sorry-You-Guys-Don't-Get-It.pdf)
 
-
-
-* Client constructs an authenticator (request for TGT) containing:
-  * Identify information - unencrypted.
-  * Timestamp - **encrypted using user's password** (hash). User's password (hash) is used as symmetric key. 
-* When a client sends a request (**AS-REQ**) for a ticket to the **Key Distribution Center (KDC)**. 
-  * A timestamp is sent encrypted with user's password hash (also called **user's long term key**).
-    * [When using SmartCard] 
-      * [non-DH] Timestamp is signed using public-key and public-key is sent to DC
-      * [DH] Timestamp is signed using public-key and public-key and DH parameters are sent to DC
-  * If request can be decrypted with user's password hash,
-  * And If request's time is within 5 minutes:
-    * The KDC creates a **Ticket-Granting Ticket (TGT)** for the client
-      * Special ticket that permits the client to obtain additional Kerberos tickets within the same Kerberos realm.
-      * Usually good for 10 hours.
-      * Containing: 
-        * client name
-        * IP address
-        * timestamp
-        * validity period - 10 hours max by default
+- Client constructs an authenticator (request for TGT) containing:
+  - Identify information - unencrypted.
+  - Timestamp - **encrypted using user's password** (hash). User's password (hash) is used as symmetric key. 
+- When a client sends a request (**AS-REQ**) for a ticket to the **Key Distribution Center (KDC)**. 
+  - A timestamp is sent encrypted with user's password hash (also called **user's long term key**).
+    - [When using SmartCard] 
+      - [non-DH] Timestamp is signed using public-key and public-key is sent to DC
+      - [DH] Timestamp is signed using public-key and public-key and DH parameters are sent to DC
+  - If request can be decrypted with user's password hash,
+  - And If request's time is within 5 minutes:
+    - The KDC creates a **Ticket-Granting Ticket (TGT)** for the client
+      - Special ticket that permits the client to obtain additional Kerberos tickets within the same Kerberos realm.
+      - Usually good for 10 hours.
+      - Containing: 
+        - client name
+        - IP address
+        - timestamp
+        - validity period - 10 hours max by default
       
-    * Sends (**AS-REP**) the encrypted **TGT** + **TGS Session Key** back to the client
+    - Sends (**AS-REP**) the encrypted **TGT** + **TGS Session Key** back to the client
       
-      * User portion (client can decrypt) - Encrypted with **user's password** (hash), contains:
-        * **TGS Session Key** - Usable to encrypt communication between client and TGS
-      * [When using SmartCard] 
-          * [non-DH] Encrypted with public-key
-          * [DH] Encrypted with DH info (?) not public-key
+      - User portion (client can decrypt) - Encrypted with **user's password** (hash), contains:
+        - **TGS Session Key** - Usable to encrypt communication between client and TGS
+      - [When using SmartCard] 
+          - [non-DH] Encrypted with public-key
+          - [DH] Encrypted with DH info (?) not public-key
         
-      * Server portion (client cannot decrypt) - Encrypted with **KDC's secret key** (**Domain key** / **krbtgt account**), contains:
-        * **TGT** - Permits the client to obtain additional tickets (like TGS) which gives permission for specific services. Contains:
-          * [Microsoft]  **Privilege Attribute Certificate (PAC)** containing:
+      - Server portion (client cannot decrypt) - Encrypted with **KDC's secret key** (**Domain key** / **krbtgt account**), contains:
+        - **TGT** - Permits the client to obtain additional tickets (like TGS) which gives permission for specific services. Contains:
+          - [Microsoft]  **Privilege Attribute Certificate (PAC)** containing:
             - Username
             - User's RID
             - Group membership
-          * PAC is signed with:
-            * Target key (for TGT target key is also KDC key)
-            * KDC key
-* If TGS Session Key can be decrypted using user's password (hash):
-  * Client stores **encrypted** TGT and **decrypted (?)** TGS Session Key in **Kerberos Tray** 
-    * Always lives in memory
-    * Never saved into disk
-    * Kerberos Tray can be explored with `kerbtray`
+          - PAC is signed with:
+            - Target key (for TGT target key is also KDC key)
+            - KDC key
+- If TGS Session Key can be decrypted using user's password (hash):
+  - Client stores **encrypted** TGT and **decrypted (?)** TGS Session Key in **Kerberos Tray** 
+    - Always lives in memory
+    - Never saved into disk
+    - Kerberos Tray can be explored with `kerbtray`
 
 ![image-20190603075723053](_assets/image-20190603075723053.png)
 
@@ -115,40 +99,38 @@
 
 > Ref: [https://www.blackhat.com/docs/us-14/materials/us-14-Duckwall-Abusing-Microsoft-Kerberos-Sorry-You-Guys-Don't-Get-It.pdf](https://www.blackhat.com/docs/us-14/materials/us-14-Duckwall-Abusing-Microsoft-Kerberos-Sorry-You-Guys-Don't-Get-It.pdf)
 
-
-
 ### Client - Service Authentication
 
-* **TGS - Ticket granting service** is a KDC component that issues a service ticket when a client requests connection to a Kerberos service.
-* Client sends following to TGS (**TGS-REQ**)
-  * Copy of **TGT** 
-    * TGS can decrypt this using KDC's secret key
-  * Name of the service
-  * Time stamped client ID encrypted with **TGS Session Key**
-    * TGS can decrypt this using user's password (hash)
-* TGS will return (**TGS-REP**):
-  * User Portion (User can decrypt) - Encrypted with **TGS Session Key**
-    * **Service Session Key**
-    * Validity time
-  * Server Portion / Service Ticket (User cannot decrypt) - Encrypted with **service secret key**
-    * **Privilege Attribute Certificate (PAC)**
-    * 2 HMAC signatures:
-      * Target key - Service account's hash (might be crackable)
-      * KDC Key - Krbtgt account's hash (not easily crackable)
-  * **Service Session Key**
-    * User details
-  * TGS will not do a permission validation. 
-    * If user has a valid TGT that is all it takes to obtain a TGS. 
-    * Validating if the user has access to the service is up to the service.
-* Service Session Key and Service Ticket is stored in **Kerberos Tray** (?)
-* Client send the following to service when necessary:
-  * Encrypted **Service Ticket**
-  * Time stamped authenticator encrypted with the **Service Session Key**
-* Service will:
-  * Decrypt the **Service Ticket** with its secret and validate both HMAC
-  * Validate timestamped authenticator.
-  * If both are fine, decrypted **Service Ticket** and check **Privilege Attribute Certificate (PAC)** to decide if access should be granted. 
-  * 2 HMAC signatures during **PAC Validation**:
+- **TGS - Ticket granting service** is a KDC component that issues a service ticket when a client requests connection to a Kerberos service.
+- Client sends following to TGS (**TGS-REQ**)
+  - Copy of **TGT**
+    - TGS can decrypt this using KDC's secret key
+  - Name of the service
+  - Time stamped client ID encrypted with **TGS Session Key**
+    - TGS can decrypt this using user's password (hash)
+- TGS will return (**TGS-REP**):
+  - User Portion (User can decrypt) - Encrypted with **TGS Session Key**
+    - **Service Session Key**
+    - Validity time
+  - Server Portion / Service Ticket (User cannot decrypt) - Encrypted with **service secret key**
+    - **Privilege Attribute Certificate (PAC)**
+    - 2 HMAC signatures:
+      - Target key - Service account's hash (might be crackable)
+      - KDC Key - Krbtgt account's hash (not easily crackable)
+  - **Service Session Key**
+    - User details
+  - TGS will not do a permission validation. 
+    - If user has a valid TGT that is all it takes to obtain a TGS. 
+    - Validating if the user has access to the service is up to the service.
+- Service Session Key and Service Ticket is stored in **Kerberos Tray** (?)
+- Client send the following to service when necessary:
+  - Encrypted **Service Ticket**
+  - Time stamped authenticator encrypted with the **Service Session Key**
+- Service will:
+  - Decrypt the **Service Ticket** with its secret and validate both HMAC
+  - Validate timestamped authenticator.
+  - If both are fine, decrypted **Service Ticket** and check **Privilege Attribute Certificate (PAC)** to decide if access should be granted. 
+  - 2 HMAC signatures during **PAC Validation**:
     - Target key - Service account's hash (might be crackable)
       - Always verified
     - KDC key - Krbtgt account's hash (not easily crackable)
@@ -159,14 +141,14 @@
           - SQL Server, Exchange server: Generally does not check
           - App pools in web servers: Always check 
         - Can be asked to check always using regkey "ValidateKdcPacSignature"
-* Service may:
-  * Send a response with timestamp encrypted with the Service Session Key
-  * Client decrypt and verify to prevent MitM
+- Service may:
+  - Send a response with timestamp encrypted with the Service Session Key
+  - Client decrypt and verify to prevent MitM
 
 ### Inter-forest Authentication
 
-* Instead of encrypting with Domain1’s **krbtgt** account, a ticket is encrypted/signed with the inter-realm trust key that the domains previously exchanged, which is called as an “**Inter-realm ticket-granting-ticket/TGT.**” 
-* Then Domain2 verifies the TGT included in the referral, decrypts it with the previously negotiated inter-realm trust key and proceeds further. An inter-realm TGT can be forged. 
+- Instead of encrypting with Domain1’s **krbtgt** account, a ticket is encrypted/signed with the inter-realm trust key that the domains previously exchanged, which is called as an “**Inter-realm ticket-granting-ticket/TGT.**” 
+- Then Domain2 verifies the TGT included in the referral, decrypts it with the previously negotiated inter-realm trust key and proceeds further. An inter-realm TGT can be forged. 
 
 ### Services (Microsoft Implementation)
 
@@ -186,6 +168,14 @@
 
 ## Attack Patterns 
 
+- Kerberos brute-force
+- ASREPRoast
+- Kerberoasting
+- Pass the key
+- Pass the ticket
+- Silver ticket
+- Golden ticket
+ 
 ### Kerberoast
 
 > Ref: [https://pentestlab.blog/2018/06/12/kerberoast/](https://pentestlab.blog/2018/06/12/kerberoast/)
@@ -393,7 +383,7 @@ Mass request tickets (ticket for each account)
 
 ```
 Add-Type -AssemblyName System.IdentityModel
-setspn.exe -T lab.local -Q */* | Select-String '^CN' -Content 0,1 | % { New-Object System.IdentityModel.Tokens.KerberosRequestorSecurityToken -ArgumentList $_.Context.PostContext[0].Trim() }
+setspn.exe -T lab.local -Q */- | Select-String '^CN' -Content 0,1 | % { New-Object System.IdentityModel.Tokens.KerberosRequestorSecurityToken -ArgumentList $_.Context.PostContext[0].Trim() }
 ./GetUserSPNs.ps1 | % { New-Object System.IdentityModel.Tokens.KerberosRequestorSecurityToken -ArgumentList $_.ServicePrincipalName }
 
 ```
@@ -758,3 +748,4 @@ DCShadow attack: a new attack where attackers gain enough access inside a networ
 - https://blog.redforce.io/oh-my-kerberos-do-not-get-kerberoasted/
 - https://www.tarlogic.com/en/blog/how-kerberos-works/
 - https://www.tarlogic.com/en/blog/how-to-attack-kerberos/
+
