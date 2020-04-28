@@ -4,7 +4,7 @@
 - <https://systemoverlord.com/static/attachments/iot_toolkit.pdf>
 - OSH Stencils: <https://www.oshstencils.com>
 
-## Cheatsheet
+## Quick Reference
 
 - Cross Compiling - Compile for MIPS:
     ```
