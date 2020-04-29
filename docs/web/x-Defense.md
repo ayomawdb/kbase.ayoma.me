@@ -1,4 +1,0 @@
-# Defense
-
-## References 
-- Awesome-WAF - A curated list of awesome web-app firewall (WAF) stuff: https://github.com/0xInfection/Awesome-WAF

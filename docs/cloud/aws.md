@@ -1,5 +1,7 @@
 ## References
 
+- <https://github.com/toniblyx/my-arsenal-of-aws-security-tools>
+- <https://anir0y.live/class/blog/securityaudit-aws/>
 - Unauthenticated AWS Role Enumeration (IAM Revisited): <https://rhinosecuritylabs.com/aws/aws-role-enumeration-iam-p2/>
 
 ## S3
