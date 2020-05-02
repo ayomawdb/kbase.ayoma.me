@@ -1,50 +1,9 @@
-# Traffic Analysis
 
-## Accounting Traffic 
 
-```bash
-#!/bin/bash
 
-# Reset counters and iptables rules
-iptables -Z && iptables -F
 
-# Measure incoming traffic from lab machine
-iptables -I INPUT 1 -s 192.168.1.23 -j ACCEPT
-
-# Measure outgoing traffic to lab machine
-iptables -I OUTPUT 1 -d 192.168.1.23 -j ACCEPT
-```
-```
-watch -n 1 iptables -nvL
-```
-
-## Using a Capture
-```
-aircrack-ng captured.cap​
-```
-
-## Tools
-
-- Netcap - A framework for secure and scalable network traffic analysis: https://github.com/dreadl0ck/netcap
-
-## PCAP Samples:
-
-- Netresec: https://www.netresec.com/?page=pcapfiles
-- Malware Traffic Analysis: https://www.malware-traffic-analysis.net/
-- Packettotal (Just like virustotal but for PCAP Analysis): https://packettotal.com/
-
-## PA Toolkit (Pentester Academy Wireshark Toolkit)
-
-PA Toolkit is a collection of traffic analysis plugins to extend the functionality of Wireshark from a micro-analysis tool and protocol dissector to the macro analyzer and threat hunter.
-
-- GitHub: https://github.com/pentesteracademy/patoolkit
-
-## Sample Captures:
-- https://wiki.wireshark.org/SampleCaptures
-
-## TShark
-
-### General
+- TShark
+  - General
 
 Supported network interfaces
 ```
@@ -279,49 +238,4 @@ tshark -r VoIP_traffic.pcap -Y "sip.Method == MESSAGE" -V             (Read the 
 Extensions completed a call successfully
 ```
 tshark -r VoIP_traffic.pcap -Y "sip.Method==BYE" -Tfields -e sip.from.user -e sip.to.user
-```
-
-### CapAnalysis
-
-> https://drive.google.com/uc?authuser=0&id=1Lf8yU7alFZdRlT6WstKjngN2RAp-1jG8&export=download
-
-## Netsh (Windows)
-
-```
-netsh trace show capturefilterhelp
-netsh trace show scenarios
-netsh trace show globalkeywordsandlevel
-```
-
-```
-netsh trace start capture=yes IPv4.Address=192.168.122.2
-netsh trace start scenario=InternetClient,InternetServer,NetConnection globalLevel=win:Verbose capture=yes report=yes traceFile=C:\temp\trace\trace001.etl
-netsh trace stop
-```
-- Use Microsoft Network Monitor 3.4 to view: https://www.microsoft.com/en-us/download/details.aspx?id=4865
-- Convert to PAC from: https://github.com/microsoft/etl2pcapng
-
-Use powershell to convert:
-```
-$s = New-PefTraceSession -Path “C:\output\path\spec\OutFile.Cap” -SaveOnStop
-$s | Add-PefMessageProvider -Provider “C:\input\path\spec\Input.etl”
-$s | Start-PefTraceSession
-```  
-
-## tcpdump to show HTTP request/response headers
-> https://serverfault.com/questions/504431/human-readable-format-for-http-headers-with-tcpdump
-
-```
-sudo tcpdump -A -s 10240 'tcp port 4080 and (((ip[2:2] - ((ip[0]&0xf)<<2)) - ((tcp[12]&0xf0)>>2)) != 0)' | egrep --line-buffered "^........(GET |HTTP\/|POST |HEAD )|^[A-Za-z0-9-]+: " | sed -r 's/^........(GET |HTTP\/|POST |HEAD )/\n\1/g'
-```
-```
-sudo stdbuf -oL -eL /usr/sbin/tcpdump -A -s 10240 "tcp port 4080 and (((ip[2:2] - ((ip[0]&0xf)<<2)) - ((tcp[12]&0xf0)>>2)) != 0)" | egrep -a --line-buffered ".+(GET |HTTP\/|POST )|^[A-Za-z0-9-]+: " | perl -nle 'BEGIN{$|=1} { s/.*?(GET |HTTP\/[0-9.]* |POST )/\n$1/g; print }'
-```
-
-## tcpdump
-
-```
-tcpdump -i eth1  -s 0 port not 22
-tcpdump -i eth1  -s 0 port not 22 and port not 53
-tcpdump -i eth1 port not 22 and host 1.2.3.4
 ```

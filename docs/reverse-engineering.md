@@ -16,6 +16,66 @@
 
 ## Language/OS Specific 
 
+### Linux
+
+**Setup**
+
+- Disable ASLR: `sudo sysctl -w kernel.randomize_va_space=0`
+- Allow ptrace processes: `sudo sysctl -w kernel.yama.ptrace_scope=0`
+- Installing 32bit Libraries
+    ```bash
+    dpkg --add-architecture i386
+    apt-get install libc6:i386
+    ```
+**GDB**
+
+- PEDA: <http://ropshell.com/peda/Linux_Interactive_Exploit_Development_with_GDB_and_PEDA_Slides.pdf>
+
+- Run GBD with env variables: `env - gdb /bin/lcars`
+- Display Information
+    ```
+    info registers
+    info all-registers
+    ```
+- Display memory map: `vmmap`
+- Display Registers / Memory: `display /x $eax` `x/50c $eax` `x/s $eax`
+- Disassemble-flavor: `set disassembly-flavor intel`
+- Disassemble: `disassemble $eip`
+- Print Type Information: `ptype Student`
+- Check security information: `checksec`
+
+**References**
+
+- ELF Binary Mangling Part 1 — Concepts: <https://medium.com/@dmxinajeansuit/elf-binary-mangling-part-1-concepts-e00cb1352301>
+- Elf Binary Mangling Pt. 2: Golfin’: <https://medium.com/@dmxinajeansuit/elf-binary-mangling-pt-2-golfin-7e5c82bb482c>
+- Elf Binary Mangling Part 3 — Weaponization: <https://medium.com/@dmxinajeansuit/elf-binary-mangling-part-3-weaponization-6e11971108b3>
+- <http://romainthomas.fr/slides/18-06-Recon18-Formats-Instrumentation.pdf>
+- Dissecting and exploiting ELF files: <https://0x00sec.org/t/dissecting-and-exploiting-elf-files/7267>
+
+### Windows
+
+**Tools**
+
+- Collections
+  - A list of static analysis tools for Portable Executable (PE) files: <https://www.peerlyst.com/posts/a-list-of-static-analysis-tools-for-portable-executable-pe-files-susan-parker?utm_source=twitter&utm_medium=social&utm_content=peerlyst_post&utm_campaign=peerlyst_shared_post>
+- Generate call graphs from VBA code -  <https://github.com/MalwareCantFly/Vba2Graph>
+- libpeconv - A library to load, manipulate, dump PE files <https://github.com/hasherezade/libpeconv>
+- filealyzer - Helps you explore alternate data streams, #PE/#ELF data and anomalies, file signatures, EXIF data, MZ header, #OpenSBI, #PEiD, #VirusTotal, Android and iOS app (file) info, all in one neat UI: <https://www.safer-networking.org/products/filealyzer/>
+- WinDbg - Toy scripts for playing with WinDbg JS API: <https://github.com/hugsy/windbg_js_scripts>
+- HXD - Hex Editor: <https://mh-nexus.de/en/hxd/>
+
+**Defense**
+
+- Control Flow Guard - Protects the execution flow from redirection - for example, from exploits that overwrite an address in the stack <https://86hh.github.io/cfg.html>
+
+**References**
+
+- Rich Header - <http://bytepointer.com/articles/the_microsoft_rich_header.htm>
+- Learning binary file formats: 
+  - <https://board.flatassembler.net/topic.php?t=20690>
+  - <https://twitter.com/grysztar/status/1088901193747845120>
+
+
 ### .NET
 
 - File Format

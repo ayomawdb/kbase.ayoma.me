@@ -1,20 +1,3 @@
-# Tools
-
-- [Beginner's Guide to Impacket Tool kit (Part 1)](https://www.hackingarticles.in/beginners-guide-to-impacket-tool-kit-part-1/)
-- Inject code and spy on wifi users: <https://github.com/DanMcInerney/LANs.py>
-- Collection of PowerShell network security scripts for system administrators: <https://github.com/thom-s/netsec-ps-scripts>
-- [CyberScan: Network's Forensics ToolKit](https://github.com/medbenali/CyberScan)
-
-# Sparta
-
-https://github.com/SECFORCE/sparta
-
-# BetterCap
-
-Swiss army knife for network attacks and monitoring: <https://www.bettercap.org/>
-
-> Pwning WPA/WPA2 Networks With Bettercap and the PMKID Client-Less Attack: <https://www.evilsocket.net/2019/02/13/Pwning-WiFi-networks-with-bettercap-and-the-PMKID-client-less-attack/#.XGRV3mo06jA.twitter>
-
 ## 4 way handshake capture:
 
 ```
