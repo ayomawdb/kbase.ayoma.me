@@ -1,15 +1,27 @@
-## Summary
+## SMB-Samba-NetBIOS - (137/udp 138/udp), (137/tcp 139/tcp), 445/tcp
 
-In computer networking, Server Message Block (SMB), one version of which was also known as Common Internet File System (CIFS, /ˈsɪfs/), operates as an application-layer network protocol[3] mainly used for providing shared access to files, printers, and serial ports and miscellaneous communications between nodes on a network. It also provides an authenticated inter-process communication mechanism. Most usage of SMB involves computers running Microsoft Windows, where it was known as "Microsoft Windows Network" before the subsequent introduction of Active Directory. Corresponding Windows services are LAN Manager Server (for the server component) and LAN Manager Workstation (for the client component).
+**Quick Reference**
+**Tools**
+**Hardening**
+**References**
 
-SMB can run on top of the session (and lower) network layers in several ways:
-Directly over TCP, port 445 via the NetBIOS API, which in turn can run on several transports:[6]
-On UDP ports 137, 138 & TCP ports 137, 139 (NetBIOS over TCP/IP);
-On several legacy protocols such as NBF, IPX/SPX.
-The SMB "Inter-Process Communication" (IPC) system provides named pipes and was one of the first inter-process mechanisms commonly available to programmers that provides a means for services to inherit the authentication carried out when a client[clarification needed] first connects to an SMB server.[citation needed]
+- Summary
+  - In computer networking, `Server Message Block (SMB)`, one version of which was also known as `Common Internet File System (CIFS)`, operates as an `application-layer network protocol`. 
+  - Mainly used for providing shared access to `files`, `printers`, and `serial ports` and `miscellaneous communications between nodes` on a network. 
+  - It also provides an `authenticated inter-process communication` mechanism. 
+  - Most usage of SMB involves computers running Microsoft Windows, where it was known as "`Microsoft Windows Network`" before the subsequent introduction of `Active Directory`. 
+  - Corresponding Windows services are `LAN Manager Server` (for the server component) and `LAN Manager Workstation` (for the client component).
+- SMB can run on top of the session (and lower) network layers in several ways:
+  - Directly over `TCP, port 445` via the `NetBIOS API`, which in turn can run on several transports.
+  - On `UDP ports 137, 138` & `TCP ports 137, 139` (`NetBIOS over TCP/IP`);
+  - On several legacy protocols such as `NBF`, `IPX/SPX`.
+- The SMB `"Inter-Process Communication" (IPC)` system provides `named pipes` and was one of the first inter-process mechanisms commonly available to programmers that provides a means for services to `inherit the authentication` carried out when a client first connects to an SMB server.
 
-
-## Server Message Block (SMB) Versions
+- Version enumeration
+    ```
+    auxiliary/scanner/smb/smb_version
+    ```
+- Server Message Block (SMB) Versions
 
 | SMB Version     | Windows version     |
 | :-------------- | :------------------ |
@@ -21,45 +33,35 @@ The SMB "Inter-Process Communication" (IPC) system provides named pipes and was 
 | SMB 3.0.2 | Windows 8.1 and Windows Server 2012 R2 |
 | SMB 3.1.1 | Windows 10 and Windows Server 2016 |
 
+-  Ports
+   - netbios-ns `137/tcp` # (NBT over IP) NETBIOS Name Service
+   - netbios-ns `137/udp`
+   - .
+   - netbios-dgm `138/tcp` # (NBT over IP) NETBIOS Datagram Service
+   - netbios-dgm `138/udp`
+   - .
+   - netbios-ssn `139/tcp` # (NBT over IP) NETBIOS session service
+   - netbios-ssn `139/udp`
+   - .
+   - microsoft-ds `445/tcp` # (SMB over IP) If you are using Active Directory (used when SMB is used directly on TCP stack, without using NetBIOS)
+- NetBIOS suffixes
+  - For unique names:
+    ```
+    00: Workstation Service (workstation name)
+    03: Windows Messenger service
+    06: Remote Access Service
+    20: File Service (also called Host Record)
+    21: Remote Access Service client
+    1B: Domain Master Browser – Primary Domain Controller for a domain
+    1D: Master Browser
+    ```
+  - For group names:
+    ```
+    00: Workstation Service (workgroup/domain name)
+    1C: Domain Controllers for a domain
+    1E: Browser Service Elections
+    ```
 
-## Ports
-
-netbios-ns `137/tcp` # (NBT over IP) NETBIOS Name Service
-netbios-ns `137/udp`
-
-netbios-dgm `138/tcp` # (NBT over IP) NETBIOS Datagram Service
-netbios-dgm `138/udp`
-
-netbios-ssn `139/tcp` # (NBT over IP) NETBIOS session service
-netbios-ssn `139/udp`
-
-microsoft-ds `445/tcp` # (SMB over IP) If you are using Active Directory (used when SMB is used directly on TCP stack, without using NetBIOS)
-
-
-## NetBIOS suffixes
-
-For unique names:
-```
-00: Workstation Service (workstation name)
-03: Windows Messenger service
-06: Remote Access Service
-20: File Service (also called Host Record)
-21: Remote Access Service client
-1B: Domain Master Browser – Primary Domain Controller for a domain
-1D: Master Browser
-```
-
-For group names:
-```
-00: Workstation Service (workgroup/domain name)
-1C: Domain Controllers for a domain
-1E: Browser Service Elections
-```
-
-## Version
-```
-auxiliary/scanner/smb/smb_version
-```
 
 ## Brute force
 ```
