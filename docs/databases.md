@@ -3,6 +3,10 @@
 - NoSQLMap - <https://github.com/codingo/NoSQLMap>
 - SQLMap - <http://sqlmap.org/>
 
+## SqlServer 
+
+Moved to dedicated section at <https://kbase.ayoma.me/databases-sqlserver/>
+
 ## MongoDB
 
 - Connect: `mongo -p -u $USER $DB_NAME`
