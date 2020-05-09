@@ -627,6 +627,11 @@ kerberos::golden /domain:<domain>
   - Delegation occurs not only for the specific service but for any service running under the same account. No validation for the SPN specified.
   - <https://labs.mwrinfosecurity.com/blog/trust-years-to-earn-seconds-to-break/>
 
+## Tools 
+
+- A little toolbox to play with Microsoft Kerberos in C: [https://github.com/gentilkiwi/kekeo/](https://github.com/gentilkiwi/kekeo/)
+- C# toolset for raw Kerberos interaction and abuses: [https://github.com/GhostPack/Rubeus](https://github.com/GhostPack/Rubeus)
+
 ## References
 
 - <https://docs.microsoft.com/en-us/windows/desktop/secauthn/authentication-portal>

