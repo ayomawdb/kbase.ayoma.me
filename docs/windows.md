@@ -272,6 +272,8 @@
     neo4j start
     bloodhound
     ```
+- LDIFDE: Import/Export information from AD
+
 - Sys Internals: <https://technet.microsoft.com/en-in/sysinternals/bb545021.aspx>
   - `PsExec` - Execute processes on remote machine
   - `PsFile` - Displays list of files opened remotely.

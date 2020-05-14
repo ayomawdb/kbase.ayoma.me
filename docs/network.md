@@ -485,6 +485,88 @@ ssh -D 9001 home
 
 - Phishing Blacklist: <https://www.phishing.army/>
 
+### IDS/IPS - Suricata
+- Installation:
+    ```
+    sudo add-apt-repository ppa:oisf/suricata-stable 
+    sudo apt-get update
+    sudo apt-get install suricata
+    ```
+- Update: `suricata-update`
+  - With cron: `0 0 * * * /usr/bin/suricata-update && kill -USR2 $(pidof suricata) > /dev/null 2>&1`
+    ```
+    suricata-update update-sources
+    suricata-update list-sources
+    suricata-update enable-source <name>
+    suricata-update add-source <name> <url>
+    suricata-update remove-source <name>
+    suricata-update list-enabled-sources
+    ```
+- Reload: `kill -USR2 $(pidof suricata)`
+- Config: `/etc/suricata/suricata.yaml`
+  - `HOME_NET` – Internal network which is to be protected
+  - `EXTERNAL_NET` – External network;
+  - `af-packet interface` – Network interface which Suricata should use for monitoring.
+- Logs: `/var/log/suricata`
+  - `eve.json`: Network events and alerts in Extensible Event Format
+  - `suricata.log`: Service messages 
+  - `fast.log`: Network events and alerts in single line formatted.
+- Rules: `/var/lib/suricata/rules` (OOTB rules are at `/etc/suricata/rules`)
+  - Referenced from config file at `rule-files section`.
+- Rule Types:
+  - `Pass` – let the packet through without generating an alert
+  - `Drop` – if matched, drop and logd
+  - `Reject` – similarly `drop`, and both the sender and receiver will receive a reject packet
+  - `Alert` – the packet is allowed through but an alert will be generated
+- Supported porotocals: <https://suricata.readthedocs.io/en/suricata-4.1.4/rules/intro.html#protocol>
+- Rule format:
+  - `"Source IP" "Source port" -> "Destination IP" "Destination port"`
+  - `"Source IP" "Source port" <> "Destination IP" "Destination port"`
+  - Example: `$EXTERNAL_NET any -> $HOME_NET 22`
+- Options:
+  - `msg` – information
+  - `sid` – unique ID number of the rule
+  - `rev` – version of the rule (incremented by 1 when the rule is updated)
+  - `(msg:"Suspicious connection @ 1111"; sid:1111; rev:1;)`
+- Example Rule:
+    ```
+    alert tcp $EXTERNAL_NET any -> $HOME_NET 3306 (msg:"ET SCAN Suspicious inbound to mySQL port 3306"; flow:to_server; flags:S; threshold: type limit, count 5, seconds 60, track by_src; metadata: former_category POLICY; reference:url,doc.emergingthreats.net/2010937; classtype:bad-unknown; sid:2010937; rev:3; metadata:created_at 2010_07_30, updated_at 2018_03_27;) 
+    drop tcp any any -> 10.33.33.1 any (msg: "TCP packet to malicious host, Drop"; sid:10001;)
+    drop tcp 10.33.33.1 any -> any any (msg: "TCP packet from malicious host, Drop"; sid:10002;)
+    drop udp any any -> 10.33.33.1 any (msg: "UDP packet to malicious host, Drop"; sid:10003;)
+    drop udp 10.33.33.1 any -> any any (msg: "UDP packet from malicious host, Drop"; sid:10004;)
+    ```
+- `NFQUEUE`: iptables and ip6tables target which delegates the decision on packets to a userspace software. 
+  - When sudicata is installed in gateway:
+    ```
+    sudo iptables -I FORWARD -j NFQUEUE
+    ```
+  - When installed on the host that should be protected:
+    ```
+    sudo iptables -I INPUT -j NFQUEUE
+    sudo iptables -I OUTPUT -j NFQUEUE
+    ```
+  - Example:
+    ```
+    iptables -t mangle -I PREROUTING -p tcp -m tcp --dport 80 -j NFQUEUE --queue-num 0
+    iptables -t mangle -I PREROUTING -p tcp -m tcp --sport 80 -j NFQUEUE --queue-num 0
+    iptables -t mangle -I PREROUTING -p udp -m udp --dport 53 -j NFQUEUE --queue-num 0
+    iptables -t mangle -I PREROUTING -p udp -m udp --sport 53 -j NFQUEUE --queue-num 0
+    ``` 
+- Modes:
+    ```
+    nfq:
+    mode: accept/repeat/route
+    repeat_mark: 1             # repeat mode option
+    repeat_mask: 1             # repeat mode option
+    route_queue: 2             # route mode option
+    ```
+  - `accept`: the packet will not be inspected by the rest of the iptables rules 
+  - `repeat`: the packets will be marked by Suricata and re-injected to the first rule of iptables. Looping is avoided by:
+    - `iptables -I FORWARD -m mark ! --mark $MARK/$MASK -j NFQUEUE`
+  - `route`: make sure the packet will be sent to another tool after being processed by Suricata
+- Reload rules: `suricatasc -c reload-rules`
+
 ## References
 
 - [Beginner's Guide to Impacket Tool kit (Part 1)](https://www.hackingarticles.in/beginners-guide-to-impacket-tool-kit-part-1/)

