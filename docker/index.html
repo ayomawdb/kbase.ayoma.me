@@ -1465,70 +1465,148 @@
                 <h2 id="quick-reference">Quick Reference<a class="headerlink" href="#quick-reference" title="Permanent link">&para;</a></h2>
 <h3 id="manage-images">Manage images<a class="headerlink" href="#manage-images" title="Permanent link">&para;</a></h3>
 <ul>
-<li>download an image from DockerHub: <code class="codehilite"><span class="n">docker</span> <span class="n">image</span> <span class="n">pull</span> <span class="o">&lt;</span><span class="n">image</span> <span class="n">name</span><span class="o">&gt;</span></code></li>
-<li>list all local images: <code class="codehilite"><span class="n">docker</span> <span class="n">image</span> <span class="n">ls</span> <span class="n">Chapter</span> <span class="mi">5</span></code></li>
-<li>build an image with a tag (note the dot!): <code class="codehilite"><span class="n">docker</span> <span class="n">image</span> <span class="n">build</span> <span class="o">-</span><span class="n">t</span> <span class="o">&lt;</span><span class="n">image</span> <span class="n">name</span><span class="o">&gt;</span></code></li>
-<li>publish an image to dockerhub: <code class="codehilite"><span class="n">docker</span> <span class="n">image</span> <span class="n">push</span> <span class="o">&lt;</span><span class="n">image</span> <span class="n">name</span><span class="o">&gt;</span></code></li>
-<li>tag an image - either alias an exisiting image or apply a :tag to one: <code class="codehilite"><span class="n">docker</span> <span class="n">image</span> <span class="n">tag</span> <span class="o">&lt;</span><span class="n">image</span> <span class="n">id</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">tag</span> <span class="n">name</span><span class="o">&gt;</span></code></li>
+<li>download an image from DockerHub: 
+    <div class="codehilite"><pre><span></span>docker image pull &lt;image name&gt;
+</pre></div></li>
+<li>list all local images: 
+    <div class="codehilite"><pre><span></span><span class="n">docker</span> <span class="n">image</span> <span class="n">ls</span> <span class="n">Chapter</span> <span class="mi">5</span>
+</pre></div></li>
+<li>build an image with a tag (note the dot!): 
+    <div class="codehilite"><pre><span></span><span class="n">docker</span> <span class="n">image</span> <span class="n">build</span> <span class="o">-</span><span class="n">t</span> <span class="o">&lt;</span><span class="n">image</span> <span class="n">name</span><span class="o">&gt;</span>
+</pre></div></li>
+<li>publish an image to dockerhub: 
+    <div class="codehilite"><pre><span></span><span class="n">docker</span> <span class="n">image</span> <span class="n">push</span> <span class="o">&lt;</span><span class="n">image</span> <span class="n">name</span><span class="o">&gt;</span>
+</pre></div></li>
+<li>tag an image - either alias an exisiting image or apply a :tag to one: 
+    <div class="codehilite"><pre><span></span><span class="n">docker</span> <span class="n">image</span> <span class="n">tag</span> <span class="o">&lt;</span><span class="n">image</span> <span class="n">id</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">tag</span> <span class="n">name</span><span class="o">&gt;</span>
+</pre></div></li>
 </ul>
 <h3 id="manage-containers">Manage Containers<a class="headerlink" href="#manage-containers" title="Permanent link">&para;</a></h3>
 <ul>
-<li>run a container from an image, publishing the specified ports: <code class="codehilite"><span class="n">docker</span> <span class="n">container</span> <span class="n">run</span> <span class="o">-</span><span class="n">p</span> <span class="o">&lt;</span><span class="k">public</span> <span class="n">port</span><span class="o">&gt;</span><span class="p">:</span><span class="o">&lt;</span><span class="n">container</span> <span class="n">port</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">image</span> <span class="n">name</span><span class="o">&gt;</span></code></li>
-<li>list all containers, even the stopped ones: <code class="codehilite"><span class="n">docker</span> <span class="n">container</span> <span class="n">ls</span> <span class="o">-</span><span class="n">a</span></code></li>
-<li>stop a running container: <code class="codehilite"><span class="n">docker</span> <span class="n">container</span> <span class="n">stop</span> <span class="o">&lt;</span><span class="n">container</span> <span class="n">id</span><span class="o">&gt;</span></code></li>
-<li>restart a stopped container: <code class="codehilite"><span class="n">docker</span> <span class="n">container</span> <span class="k">start</span> <span class="o">&lt;</span><span class="n">container</span> <span class="n">id</span><span class="o">&gt;</span></code></li>
-<li>remove a stopped container: <code class="codehilite"><span class="n">docker</span> <span class="n">container</span> <span class="n">rm</span> <span class="o">&lt;</span><span class="n">container</span> <span class="n">id</span><span class="o">&gt;</span></code></li>
-<li>remove all stopped containers: <code class="codehilite"><span class="n">docker</span> <span class="n">container</span> <span class="n">prune</span></code></li>
-<li>run a container with interactive terminal: <code class="codehilite"><span class="n">docker</span> <span class="n">container</span> <span class="n">run</span> <span class="o">-</span><span class="n">it</span>  <span class="o">&lt;</span><span class="n">image</span> <span class="n">name</span><span class="o">&gt;</span></code></li>
-<li>run a container detached (or in a daemon like way): <code class="codehilite"><span class="n">docker</span> <span class="n">container</span> <span class="n">run</span> <span class="o">-</span><span class="n">d</span>  <span class="o">&lt;</span><span class="n">image</span> <span class="n">name</span><span class="o">&gt;</span></code></li>
-<li>run a command in a container: <code class="codehilite"><span class="nv">docker</span> <span class="nv">container</span> <span class="k">exec</span> <span class="o">-</span><span class="nv">it</span> <span class="o">&lt;</span><span class="nv">container</span> <span class="nv">id</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="nv">command</span><span class="o">&gt;</span></code></li>
-<li>special form of the above, runs a bash shell, connected to your local terminal (your distro needs to have bash, alpine will require /bin/sh): <code class="codehilite"><span class="nv">docker</span> <span class="nv">container</span> <span class="k">exec</span> <span class="o">-</span><span class="nv">it</span> <span class="o">&lt;</span><span class="nv">container</span> <span class="nv">id</span><span class="o">&gt;</span> <span class="nv">bash</span></code></li>
-<li>Follow the log (STDIN/System.out) of the container: <code class="codehilite"><span class="n">docker</span> <span class="n">container</span> <span class="n">logs</span> <span class="o">-</span><span class="n">f</span> <span class="o">&lt;</span><span class="n">container</span> <span class="n">id</span><span class="o">&gt;</span></code></li>
-<li>Take a snapshot image of a container: <code class="codehilite"><span class="n">docker</span> <span class="n">container</span> <span class="k">commit</span> <span class="o">-</span><span class="n">a</span> <span class="ss">&quot;author&quot;</span> <span class="o">&lt;</span><span class="n">container</span> <span class="n">id</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">image</span> <span class="n">name</span><span class="o">&gt;</span></code></li>
+<li>run a container from an image, publishing the specified ports: 
+    <div class="codehilite"><pre><span></span><span class="n">docker</span> <span class="n">container</span> <span class="n">run</span> <span class="o">-</span><span class="n">p</span> <span class="o">&lt;</span><span class="k">public</span> <span class="n">port</span><span class="o">&gt;</span><span class="p">:</span><span class="o">&lt;</span><span class="n">container</span> <span class="n">port</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">image</span> <span class="n">name</span><span class="o">&gt;</span>
+</pre></div></li>
+<li>list all containers, even the stopped ones: 
+    <div class="codehilite"><pre><span></span><span class="n">docker</span> <span class="n">container</span> <span class="n">ls</span> <span class="o">-</span><span class="n">a</span>
+</pre></div></li>
+<li>stop a running container: 
+    <div class="codehilite"><pre><span></span><span class="n">docker</span> <span class="n">container</span> <span class="n">stop</span> <span class="o">&lt;</span><span class="n">container</span> <span class="n">id</span><span class="o">&gt;</span>
+</pre></div></li>
+<li>restart a stopped container: 
+    <div class="codehilite"><pre><span></span><span class="n">docker</span> <span class="n">container</span> <span class="k">start</span> <span class="o">&lt;</span><span class="n">container</span> <span class="n">id</span><span class="o">&gt;</span> 
+</pre></div></li>
+<li>remove a stopped container: 
+    <div class="codehilite"><pre><span></span><span class="n">docker</span> <span class="n">container</span> <span class="n">rm</span> <span class="o">&lt;</span><span class="n">container</span> <span class="n">id</span><span class="o">&gt;</span> 
+</pre></div></li>
+<li>remove all stopped containers: 
+    <div class="codehilite"><pre><span></span><span class="n">docker</span> <span class="n">container</span> <span class="n">prune</span>
+</pre></div></li>
+<li>run a container with interactive terminal: 
+    <div class="codehilite"><pre><span></span><span class="n">docker</span> <span class="n">container</span> <span class="n">run</span> <span class="o">-</span><span class="n">it</span>  <span class="o">&lt;</span><span class="n">image</span> <span class="n">name</span><span class="o">&gt;</span> 
+</pre></div></li>
+<li>run a container detached (or in a daemon like way): 
+    <div class="codehilite"><pre><span></span><span class="n">docker</span> <span class="n">container</span> <span class="n">run</span> <span class="o">-</span><span class="n">d</span>  <span class="o">&lt;</span><span class="n">image</span> <span class="n">name</span><span class="o">&gt;</span>
+</pre></div></li>
+<li>run a command in a container: 
+    <div class="codehilite"><pre><span></span><span class="nv">docker</span> <span class="nv">container</span> <span class="k">exec</span> <span class="o">-</span><span class="nv">it</span> <span class="o">&lt;</span><span class="nv">container</span> <span class="nv">id</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="nv">command</span><span class="o">&gt;</span>
+</pre></div></li>
+<li>special form of the above, runs a bash shell, connected to your local terminal (your distro needs to have bash, alpine will require /bin/sh): 
+    <div class="codehilite"><pre><span></span><span class="nv">docker</span> <span class="nv">container</span> <span class="k">exec</span> <span class="o">-</span><span class="nv">it</span> <span class="o">&lt;</span><span class="nv">container</span> <span class="nv">id</span><span class="o">&gt;</span> <span class="nv">bash</span>
+</pre></div></li>
+<li>Follow the log (STDIN/System.out) of the container: 
+    <div class="codehilite"><pre><span></span><span class="n">docker</span> <span class="n">container</span> <span class="n">logs</span> <span class="o">-</span><span class="n">f</span> <span class="o">&lt;</span><span class="n">container</span> <span class="n">id</span><span class="o">&gt;</span>
+</pre></div></li>
+<li>Take a snapshot image of a container: 
+    <div class="codehilite"><pre><span></span><span class="n">docker</span> <span class="n">container</span> <span class="k">commit</span> <span class="o">-</span><span class="n">a</span> <span class="ss">&quot;author&quot;</span> <span class="o">&lt;</span><span class="n">container</span> <span class="n">id</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">image</span> <span class="n">name</span><span class="o">&gt;</span>
+</pre></div></li>
 <li></li>
 </ul>
 <h3 id="manage-your-local-virtual-machine">Manage your (local) Virtual Machine<a class="headerlink" href="#manage-your-local-virtual-machine" title="Permanent link">&para;</a></h3>
 <ul>
-<li>Find the IP address of your VirtualMachine, required for Docker Toolbox users only: <code class="codehilite"><span class="n">docker</span><span class="o">-</span><span class="n">machine</span> <span class="n">ip</span></code>
+<li>Find the IP address of your VirtualMachine, required for Docker Toolbox users only: 
+    <div class="codehilite"><pre><span></span><span class="n">docker</span><span class="o">-</span><span class="n">machine</span> <span class="n">ip</span>
+</pre></div>
 </li>
 </ul>
 <h3 id="manage-networks">Manage Networks<a class="headerlink" href="#manage-networks" title="Permanent link">&para;</a></h3>
 <ul>
-<li>list all networks: <code class="codehilite"><span class="n">docker</span> <span class="n">network</span> <span class="n">ls</span></code></li>
-<li>create a network using the bridge driver: <code class="codehilite"><span class="n">docker</span> <span class="n">network</span> <span class="k">create</span> <span class="o">&lt;</span><span class="n">network</span> <span class="n">name</span><span class="o">&gt;</span></code></li>
+<li>list all networks: 
+    <div class="codehilite"><pre><span></span><span class="n">docker</span> <span class="n">network</span> <span class="n">ls</span>
+</pre></div></li>
+<li>create a network using the bridge driver: 
+    <div class="codehilite"><pre><span></span><span class="n">docker</span> <span class="n">network</span> <span class="k">create</span> <span class="o">&lt;</span><span class="n">network</span> <span class="n">name</span><span class="o">&gt;</span>
+</pre></div></li>
 </ul>
 <h3 id="manage-volumes">Manage Volumes<a class="headerlink" href="#manage-volumes" title="Permanent link">&para;</a></h3>
 <ul>
-<li>list all volumes: <code class="codehilite"><span class="n">docker</span> <span class="n">volume</span> <span class="n">ls</span></code></li>
+<li>list all volumes: 
+    <div class="codehilite"><pre><span></span><span class="n">docker</span> <span class="n">volume</span> <span class="n">ls</span>
+</pre></div></li>
 </ul>
 <ul>
-<li>delete all volumes that are not currently mounted to a container: <code class="codehilite"><span class="n">docker</span> <span class="n">volume</span> <span class="n">prune</span></code></li>
-<li>inspect a volume (can find out the mount point, the location of the volume on the host system) <code class="codehilite"><span class="n">docker</span> <span class="n">volume</span> <span class="n">inspect</span> <span class="o">&lt;</span><span class="n">volume</span> <span class="n">name</span><span class="o">&gt;</span></code></li>
-<li>remove a volume: <code class="codehilite"><span class="n">docker</span> <span class="n">volume</span> <span class="n">rm</span> <span class="o">&lt;</span><span class="n">volume</span> <span class="n">name</span><span class="o">&gt;</span></code></li>
+<li>delete all volumes that are not currently mounted to a container: 
+    <div class="codehilite"><pre><span></span><span class="n">docker</span> <span class="n">volume</span> <span class="n">prune</span>
+</pre></div></li>
+<li>inspect a volume (can find out the mount point, the location of the volume on the host system) 
+    <div class="codehilite"><pre><span></span><span class="n">docker</span> <span class="n">volume</span> <span class="n">inspect</span> <span class="o">&lt;</span><span class="n">volume</span> <span class="n">name</span><span class="o">&gt;</span>
+</pre></div></li>
+<li>remove a volume: 
+    <div class="codehilite"><pre><span></span><span class="n">docker</span> <span class="n">volume</span> <span class="n">rm</span> <span class="o">&lt;</span><span class="n">volume</span> <span class="n">name</span><span class="o">&gt;</span>
+</pre></div></li>
 </ul>
 <h3 id="docker-compose">Docker Compose<a class="headerlink" href="#docker-compose" title="Permanent link">&para;</a></h3>
 <ul>
-<li>process the default docker-compose.yaml file, starting any containers as required. If containers are already running they are ignored, meaning this command also serves as a "redeploy": <code class="codehilite"><span class="n">docker</span><span class="o">-</span><span class="n">compose</span> <span class="n">up</span></code></li>
-<li>run containers in the detached state. Note the order of the command line arguments!: <code class="codehilite"><span class="n">docker</span><span class="o">-</span><span class="n">compose</span> <span class="n">up</span> <span class="o">-</span><span class="n">d</span></code></li>
-<li>follow the log for the specified service. Omit the -f to tail the log: <code class="codehilite"><span class="n">docker</span><span class="o">-</span><span class="n">compose</span> <span class="n">logs</span> <span class="o">-</span><span class="n">f</span> <span class="o">&lt;</span><span class="n">service</span> <span class="n">name</span><span class="o">&gt;</span></code></li>
-<li>stop all the containers (services) listed in the default compose file: <code class="codehilite"><span class="n">docker</span><span class="o">-</span><span class="n">compose</span> <span class="n">down</span></code></li>
+<li>process the default docker-compose.yaml file, starting any containers as required. If containers are already running they are ignored, meaning this command also serves as a "redeploy": 
+    <div class="codehilite"><pre><span></span><span class="n">docker</span><span class="o">-</span><span class="n">compose</span> <span class="n">up</span>
+</pre></div></li>
+<li>run containers in the detached state. Note the order of the command line arguments!: 
+    <div class="codehilite"><pre><span></span><span class="n">docker</span><span class="o">-</span><span class="n">compose</span> <span class="n">up</span> <span class="o">-</span><span class="n">d</span>
+</pre></div></li>
+<li>follow the log for the specified service. Omit the -f to tail the log: 
+    <div class="codehilite"><pre><span></span><span class="n">docker</span><span class="o">-</span><span class="n">compose</span> <span class="n">logs</span> <span class="o">-</span><span class="n">f</span> <span class="o">&lt;</span><span class="n">service</span> <span class="n">name</span><span class="o">&gt;</span>
+</pre></div></li>
+<li>stop all the containers (services) listed in the default compose file: 
+    <div class="codehilite"><pre><span></span><span class="n">docker</span><span class="o">-</span><span class="n">compose</span> <span class="n">down</span>
+</pre></div></li>
 </ul>
 <h3 id="manage-a-swarm">Manage a Swarm<a class="headerlink" href="#manage-a-swarm" title="Permanent link">&para;</a></h3>
 <ul>
-<li>Switch the machine into Swarm mode. We didn't cover how to stop swarm mode: docker swarm leave --force: <code class="codehilite"><span class="n">docker</span> <span class="n">swarm</span> <span class="n">init</span> <span class="p">(</span><span class="c1">--advertise-addr &lt;ip address&gt;)</span></code></li>
-<li>Start a service in the swarm. The args are largely the same as those you will have used in docker container run: <code class="codehilite"><span class="n">docker</span> <span class="n">service</span> <span class="k">create</span> <span class="o">&lt;</span><span class="n">args</span><span class="o">&gt;</span></code></li>
-<li>Create a network suitable for using in a swarm: <code class="codehilite"><span class="n">docker</span> <span class="n">network</span> <span class="k">create</span> <span class="c1">--driver overlay &lt;name&gt;</span></code></li>
-<li>List all services: <code class="codehilite"><span class="n">docker</span> <span class="n">service</span> <span class="n">ls</span></code> </li>
-<li>List all nodes in the swarm: <code class="codehilite"><span class="n">docker</span> <span class="n">node</span> <span class="n">ls</span></code></li>
-<li>Follow the log for the service. This feature is a new feature in Docker and may not be available on your version (especially if using Linux Repository Packages): <code class="codehilite"><span class="n">docker</span> <span class="n">service</span> <span class="n">logs</span> <span class="o">-</span><span class="n">f</span> <span class="o">&lt;</span><span class="n">service</span> <span class="n">name</span><span class="o">&gt;</span></code></li>
-<li>List full details of the service - in particular the node on which it is running and any previous failed containers from the service: <code class="codehilite"><span class="n">docker</span> <span class="n">service</span> <span class="n">ps</span> <span class="o">&lt;</span><span class="n">service</span> <span class="n">name</span><span class="o">&gt;</span></code></li>
-<li>Get a join token to enable a new node to connect to the swarm, either as a worker or manager: <code class="codehilite"><span class="n">docker</span> <span class="n">swarm</span> <span class="k">join</span><span class="o">-</span><span class="n">token</span> <span class="o">&lt;</span><span class="n">worker</span><span class="o">|</span><span class="n">manager</span><span class="o">&gt;</span></code></li>
+<li>Switch the machine into Swarm mode. We didn't cover how to stop swarm mode: docker swarm leave --force: 
+    <div class="codehilite"><pre><span></span><span class="n">docker</span> <span class="n">swarm</span> <span class="n">init</span> <span class="p">(</span><span class="c1">--advertise-addr &lt;ip address&gt;)</span>
+</pre></div></li>
+<li>Start a service in the swarm. The args are largely the same as those you will have used in docker container run: 
+    <div class="codehilite"><pre><span></span><span class="n">docker</span> <span class="n">service</span> <span class="k">create</span> <span class="o">&lt;</span><span class="n">args</span><span class="o">&gt;</span>
+</pre></div></li>
+<li>Create a network suitable for using in a swarm: 
+    <div class="codehilite"><pre><span></span><span class="n">docker</span> <span class="n">network</span> <span class="k">create</span> <span class="c1">--driver overlay &lt;name&gt;</span>
+</pre></div></li>
+<li>List all services: 
+    <div class="codehilite"><pre><span></span><span class="n">docker</span> <span class="n">service</span> <span class="n">ls</span>
+</pre></div></li>
+<li>List all nodes in the swarm: 
+    <div class="codehilite"><pre><span></span><span class="n">docker</span> <span class="n">node</span> <span class="n">ls</span> 
+</pre></div></li>
+<li>Follow the log for the service. This feature is a new feature in Docker and may not be available on your version (especially if using Linux Repository Packages): 
+    <div class="codehilite"><pre><span></span><span class="n">docker</span> <span class="n">service</span> <span class="n">logs</span> <span class="o">-</span><span class="n">f</span> <span class="o">&lt;</span><span class="n">service</span> <span class="n">name</span><span class="o">&gt;</span>
+</pre></div></li>
+<li>List full details of the service - in particular the node on which it is running and any previous failed containers from the service: 
+    <div class="codehilite"><pre><span></span><span class="n">docker</span> <span class="n">service</span> <span class="n">ps</span> <span class="o">&lt;</span><span class="n">service</span> <span class="n">name</span><span class="o">&gt;</span>
+</pre></div></li>
+<li>Get a join token to enable a new node to connect to the swarm, either as a worker or manager: 
+    <div class="codehilite"><pre><span></span><span class="n">docker</span> <span class="n">swarm</span> <span class="k">join</span><span class="o">-</span><span class="n">token</span> <span class="o">&lt;</span><span class="n">worker</span><span class="o">|</span><span class="n">manager</span><span class="o">&gt;</span>
+</pre></div></li>
 </ul>
 <h3 id="manage-stacks">Manage Stacks<a class="headerlink" href="#manage-stacks" title="Permanent link">&para;</a></h3>
 <ul>
-<li>list all stacks on this swarm: <code class="codehilite"><span class="n">docker</span> <span class="n">stack</span> <span class="n">ls</span></code></li>
-<li>deploy (or re-deploy) a stack based on a standard compose file: <code class="codehilite"><span class="n">docker</span> <span class="n">stack</span> <span class="n">deploy</span> <span class="o">-</span><span class="k">c</span> <span class="o">&lt;</span><span class="n">compose</span> <span class="n">file</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">stack</span> <span class="n">name</span><span class="o">&gt;</span></code></li>
-<li>delete a stack and its corresponding services/networks/etc: <code class="codehilite"><span class="n">docker</span> <span class="n">stack</span> <span class="n">rm</span> <span class="o">&lt;</span><span class="n">stack</span> <span class="n">name</span><span class="o">&gt;</span></code></li>
+<li>list all stacks on this swarm: 
+    <div class="codehilite"><pre><span></span><span class="n">docker</span> <span class="n">stack</span> <span class="n">ls</span>
+</pre></div></li>
+<li>deploy (or re-deploy) a stack based on a standard compose file: 
+    <div class="codehilite"><pre><span></span><span class="n">docker</span> <span class="n">stack</span> <span class="n">deploy</span> <span class="o">-</span><span class="k">c</span> <span class="o">&lt;</span><span class="n">compose</span> <span class="n">file</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">stack</span> <span class="n">name</span><span class="o">&gt;</span>
+</pre></div></li>
+<li>delete a stack and its corresponding services/networks/etc: 
+    <div class="codehilite"><pre><span></span><span class="n">docker</span> <span class="n">stack</span> <span class="n">rm</span> <span class="o">&lt;</span><span class="n">stack</span> <span class="n">name</span><span class="o">&gt;</span>
+</pre></div></li>
 </ul>
 <h2 id="vnotes">VNotes<a class="headerlink" href="#vnotes" title="Permanent link">&para;</a></h2>
 <ul>
@@ -1546,20 +1624,13 @@
 <li>Docker outside of linux using VM</li>
 </ul>
 </li>
-<li>Deploying a web application (pre-built)<ul>
-<li><code class="codehilite"><span class="n">docker</span> <span class="n">image</span> <span class="n">pull</span> <span class="o">&lt;</span><span class="n">image</span><span class="o">&gt;</span></code></li>
-</ul>
-</li>
+<li>Deploying a web application (pre-built)</li>
 <li>Show Dockerfile and walk through <ul>
 <li>EXPOSE </li>
 <li>Deploy to tomcat </li>
 </ul>
 </li>
-<li>Run <code class="codehilite"><span class="n">docker</span> <span class="n">container</span> <span class="n">run</span> <span class="o">-</span><span class="n">p</span> <span class="o">&lt;</span><span class="n">ex</span><span class="o">-</span><span class="n">port</span><span class="o">&gt;</span><span class="p">:</span><span class="o">&lt;</span><span class="k">in</span><span class="o">-</span><span class="n">port</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">image</span><span class="o">&gt;</span></code><ul>
-<li>Mac/Windows have to use the Ip address instead of <code class="codehilite"><span class="n">localhost</span></code>.  <code class="codehilite"><span class="n">docker</span> <span class="n">container</span> <span class="n">ls</span></code>, <code class="codehilite"><span class="n">docker</span><span class="o">-</span><span class="n">machine</span> <span class="n">ip</span></code></li>
-</ul>
-</li>
-<li>Stop <code class="codehilite"><span class="n">docker</span> <span class="n">container</span> <span class="n">stop</span> <span class="o">&lt;</span><span class="n">id</span><span class="o">&gt;</span></code></li>
+<li>Run / Stop</li>
 </ul>
                 
                   
@@ -1634,8 +1705,6 @@
       <script src="../assets/javascripts/application.808e90bb.js"></script>
       
       <script>app.initialize({version:"1.0.4",url:{base:".."}})</script>
-      
-        <script src="../_site/copy.js"></script>
       
     
   </body>
