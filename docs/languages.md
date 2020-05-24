@@ -143,6 +143,7 @@ print('POST {} {}'.format(r.status_code, r.url))
 
 ### References
 
+- dangerous-php-functions: <https://alionder.net/dangerous-php-functions/>
 - [Understanding PHP Object Injection](https://securitycafe.ro/2015/01/05/understanding-php-object-injection/)
 - <https://eev.ee/blog/2012/04/09/php-a-fractal-of-bad-design/>
 - <https://www.acunetix.com/blog/articles/web-shells-101-using-php-introduction-web-shells-part-2/>

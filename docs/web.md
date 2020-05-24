@@ -496,3 +496,8 @@ wfuzz -z \
 - <http://www.itsecgames.com/>
 - Damn Vulnerable Serverless Application: <https://www.owasp.org/index.php/OWASP_DVSA>
   - <https://serverlessrepo.aws.amazon.com/applications/arn:aws:serverlessrepo:us-east-1:889485553959:applications~DVSA>
+
+## Pending References
+
+- Breaking Parser Logic!: <https://i.blackhat.com/us-18/Wed-August-8/us-18-Orange-Tsai-Breaking-Parser-Logic-Take-Your-Path-Normalization-Off-And-Pop-0days-Out-2.pdf>
+- A Fresh Look On Reverse Proxy Related Attacks: <https://www.acunetix.com/blog/articles/a-fresh-look-on-reverse-proxy-related-attacks/>

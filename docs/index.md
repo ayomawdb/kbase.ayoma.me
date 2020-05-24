@@ -88,6 +88,7 @@ echo 'fpath=(~/.zsh.d/ $fpath)' >> ~/.zshrc
 
 ## Blogs
 
+- https://medium.com/@int0x33
 - https://github.com/sectalks/sectalks
 - Practical use of JavaScript and COM Scriptlets for Penetration Testing: http://www.labofapenetrationtester.com/2016/05/
 - [https://blog.0patch.com](https://blog.0patch.com)

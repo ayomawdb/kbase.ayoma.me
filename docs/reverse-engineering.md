@@ -107,6 +107,12 @@
 
 - Reverse Engineering .NET Applications For Beginners: <https://www.youtube.com/watch?v=KOVXWRrd_qg>
 
+## Techniques
+
+**Stack Based BOF**
+
+- Day 71: Essential Immunity Commands for OSCP and CTFs: <https://medium.com/@int0x33/day-71-essential-immunity-commands-for-oscp-and-ctfs-cebfe06d935a>
+
 ## Practice
 
 - <https://www.malwaretech.com/beginner-malware-reversing-challenges>
@@ -117,6 +123,8 @@
 
 ## References
 
+- Basic Reverse Engineering
+with Immunity Debugger: <https://www.sans.org/reading-room/whitepapers/malicious/basic-reverse-engineering-immunity-debugger-36982>
 - 101 - <https://www.youtube.com/watch?v=Min6DWTHDBw&feature=em-uploademail>
 - Reverse Engineering for Beginners: <https://www.begin.re/>
 - Learning Radare2 by Reversing a UMPC Bios: <https://stragedevices.blogspot.com/2019/02/finding-verified-intel-atom-msrs-in.html>

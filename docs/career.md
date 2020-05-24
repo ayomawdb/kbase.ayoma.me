@@ -21,3 +21,41 @@ The real pros ask the real questions:
 9)Which do you choose, a hard or soft option
 10)How much do you need?
 ```
+
+## C-Level
+
+- Position security as `sales enablement`
+- Security needed to reduce sales cycle (align with business requirements)
+- Evaluate security risks in context of business risk (holistic)
+- Process vs problem
+
+## Jobs Hunting
+
+- <https://www.linkedin.com/posts/jasonsblanchard_job-hunting-slides-from-webcast-521-activity-6669260088525508608-zvRe>
+- Identify the code that you do and build an elevated statement about you. Example: <https://www.linkedin.com/in/jasonsblanchard/>
+- Think about what people pay you to do. (I break things to improve them... I protect companies from cyber attacks...)
+- Have dream job requirements. Your list of things required from an employer. and rank those. 
+  - Management style / Leave policy
+- Budget and determine what is the enough salary
+- Top 10 companies that you need to work in
+- Hunt types:
+  - Top 10
+  - Discovery
+  - Internal: Within current company
+- Document as you go 
+- Creating resume while hunting
+  - Extract things from job listings, etc. into resume
+- Resume
+  - Catch-all
+  - Tailored 
+- Take 10 minutes of time from an manager and get more info about company structure / values, etc. 
+  - Look at who is working in company
+  - Pivot and escalate to different ppl. Look for internal advocates.
+- Network with community
+- Find mentors 
+  - Lean how they got to where they got to. 
+  - Ask questions about them without trying to shine at first.
+    - Hook -
+    - ... [complete this from slides]
+    - ...
+- The Dip (book)

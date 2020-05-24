@@ -1,5 +1,14 @@
 ## Docker
 
+- Docker Production Best Practices from Bret Fisher at DockerCon: <https://www.youtube.com/watch?v=V4f_sHTzvCI>
+- Docker Security Best Practices: <https://blog.sqreen.com/docker-security/>
+- 29 Docker security tools compared: <https://sysdig.com/blog/20-docker-security-tools/>
+- Docker Security Cheat Sheet: <https://security.stackrox.com/rs/219-UEH-533/images/Docker-security-cheatsheet_final.pdf>
+- Docker Internals: 
+  - <https://docker-saigon.github.io/post/Docker-Internals/>
+  - <https://www.netmanias.com/en/post/blog/13392/sdn-nfv/docker-internals>
+  - <https://medium.com/@BeNitinAgarwal/understanding-the-docker-internals-7ccb052ce9fe>
+  - <https://medium.com/@cwgem/docker-internals-through-docker-run-d1935356ced>
 - bretfisher Courses - Docker Mastery: <https://www.bretfisher.com/courses/>
   - petclinic example: https://github.com/BretFisher/petclinic
   - https://github.com/BretFisher/dockercon19
@@ -44,8 +53,16 @@ Check presence of docker:
 - bretfisher Courses - Kubernetes Mastery: Hands-On Lessons From A Docker Captain: <https://www.bretfisher.com/courses/>
 - Threat matrix for Kubernetes - <https://www.microsoft.com/security/blog/2020/04/02/attack-matrix-kubernetes/>
 - Pod Security Policies: <https://kubernetes.io/docs/concepts/policy/pod-security-policy/>
+- <https://www.jaegertracing.io/docs/1.18/>
 
 ![](_assets/2020-05-13-21-52-12.png)
+
+- Stay current in k8s
+- Harden nodes
+- Restrict network via RBAC
+- Use namespaces and network policies
+- Slim down images
+- Logs - k8s audit / k8s rbac audit logs / 
 
 ## Tools 
 

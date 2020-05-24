@@ -298,6 +298,10 @@ master unit to the slave units
 - RaspberryPiPkg - 64-bit Tiano Core UEFI for the Raspberry Pi 3 (with devices, Linux, NetBSD, FreeBSD and Windows on Arm!): <https://github.com/andreiw/RaspberryPiPkg>
 - uefi-firmware-parser - Parse BIOS/Intel ME/UEFI firmware related structures: Volumes, FileSystems, Files, etc: <https://github.com/theopolis/uefi-firmware-parser>
 
+## CTFs and Practice 
+
+- Capture the Signal! <https://www.trendmicro.com/cts/>
+
 ## References
 
 ### New References
@@ -309,6 +313,10 @@ master unit to the slave units
 - Rooting the FireTV Cube and Pendant with FireFU: <https://blog.exploitee.rs/2018/rooting-the-firetv-cube-and-pendant-with-firefu/>
 - Thunderclap
   - <https://twitter.com/marcan42/status/1100655030711939072>
+- The ESP8266-Powered Masterkey Wi-Fi USB Keylogger Offers Plug-and-Play Capture, Remote Access: <https://www.hackster.io/news/the-esp8266-powered-masterkey-wi-fi-usb-keylogger-offers-plug-and-play-capture-remote-access-1ebfc61d5b8c>
+
+**Defense**
+- Copy Protection in Modern Microcontrollers: <https://www.cl.cam.ac.uk/~sps32/mcu_lock.html>
 
 ### Summarized References
 - <https://limitedresults.com/2019/01/pwn-the-lifx-mini-white/>
