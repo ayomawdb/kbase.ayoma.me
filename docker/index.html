@@ -407,13 +407,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#vnotes" class="md-nav__link">
-    VNotes
-  </a>
-  
-</li>
-      
       
       
       
@@ -1436,13 +1429,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#vnotes" class="md-nav__link">
-    VNotes
-  </a>
-  
-</li>
-      
       
       
       
@@ -1463,6 +1449,12 @@
                   <h1>Docker</h1>
                 
                 <h2 id="quick-reference">Quick Reference<a class="headerlink" href="#quick-reference" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Open Container Spec - Labels: <a href="https://github.com/opencontainers/runtime-spec">https://github.com/opencontainers/runtime-spec</a><ul>
+<li>Add labels at end - so that full image build is not required to change</li>
+</ul>
+</li>
+</ul>
 <h3 id="manage-images">Manage images<a class="headerlink" href="#manage-images" title="Permanent link">&para;</a></h3>
 <ul>
 <li>download an image from DockerHub: 
@@ -1607,30 +1599,6 @@
 <li>delete a stack and its corresponding services/networks/etc: 
     <div class="codehilite"><pre><span></span><span class="n">docker</span> <span class="n">stack</span> <span class="n">rm</span> <span class="o">&lt;</span><span class="n">stack</span> <span class="n">name</span><span class="o">&gt;</span>
 </pre></div></li>
-</ul>
-<h2 id="vnotes">VNotes<a class="headerlink" href="#vnotes" title="Permanent link">&para;</a></h2>
-<ul>
-<li>Why based on: The works-on-my-machine problem (env-variable missing, server not configured correctly, jdk version, db)</li>
-<li>Container: Fully self contained environment (servers + apps + configuration + env variables, ...)</li>
-<li>Image: Definition of container (environment). Unit of deployment. Can be run multiple times.</li>
-<li>Explain ability to have different OS-es inside containers. <ul>
-<li>Sharing of Kernel.</li>
-</ul>
-</li>
-<li>Originally based on LXC feature of Kernel. </li>
-<li>Installation.<ul>
-<li>Enable VT-X / AMD-V in Bios</li>
-<li>Requirement of having installed on dev-machines</li>
-<li>Docker outside of linux using VM</li>
-</ul>
-</li>
-<li>Deploying a web application (pre-built)</li>
-<li>Show Dockerfile and walk through <ul>
-<li>EXPOSE </li>
-<li>Deploy to tomcat </li>
-</ul>
-</li>
-<li>Run / Stop</li>
 </ul>
                 
                   
