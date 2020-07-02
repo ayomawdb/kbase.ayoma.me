@@ -10,6 +10,9 @@
 - Windows API Monitoring Tools
 
 - Diaphora - is a program diffing plugin for IDA / Ghidra: <https://github.com/joxeankoret/diaphora>
+- YaDiff - is a program diffing 
+- BinDiff: Patch analysis 
+
 - radare2
 - Frida - Dynamic instrumentation toolkit for developers, reverse-engineers, and security researchers: <https://www.frida.re/>
 - angr - Python framework for analyzing binaries. It combines both static and dynamic symbolic ("concolic") analysis, making it applicable to a variety of tasks: <https://angr.io/>
@@ -22,6 +25,11 @@
 ## Collections
 
 - Vagrant box with binary analysis tools: <https://github.com/Hamz-a/binanalysisbox>
+- microsoft-pdb: <https://github.com/Microsoft/microsoft-pdb>
+  - `cvdump Whatever.pdb` <https://github.com/Microsoft/microsoft-pdb/blob/master/cvdump/cvdump.exe>
+  - How to Inspect the Content of a Program Database (PDB) File: <https://www.codeproject.com/Articles/37456/How-To-Inspect-the-Content-of-a-Program-Database-P>
+  - <https://docs.microsoft.com/en-us/windows-hardware/drivers/debugger/debugger-download-symbols>
+  - <https://techcommunity.microsoft.com/t5/iis-support-blog/pdb-downloader/ba-p/342969>
 
 ## Language/OS Specific 
 
@@ -135,6 +143,7 @@ with Immunity Debugger: <https://www.sans.org/reading-room/whitepapers/malicious
 - OALabs - WinDbg Basics for Malware Analysis: <https://www.youtube.com/watch?v=QuFJpH3My7A&list=PLGf_j68jNtWG_6ZwFN4kx7jfKTQXoG_BN>
 - The 101 of ELF files on Linux: Understanding and Analysis: <https://linux-audit.com/elf-binaries-on-linux-understanding-and-analysis/>
 - Ground Zero: Reverse Engineering: <https://scriptdotsh.com/index.php/category/reverse-engineering/>
+- DEF CON 26 - Alexei Bulazel - Reverse Engineering Windows Defenders Emulator: <https://www.youtube.com/watch?v=2NawGCUOYT4>
 
 **ARM**
 

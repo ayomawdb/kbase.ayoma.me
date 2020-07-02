@@ -215,3 +215,7 @@ tr -s ' ' | tr '\t' ' ' | sed 's/:/ |/' | sed 's/- /| /' | sed -e 's/$/ |/'
 # Incidence Response
 
 - CIRTKit - Tools For The Computer Incident Response Team: https://github.com/opensourcesec/CIRTKit
+
+## Webinars 
+
+- Wild West Hackin Casts: <https://wildwesthackinfest.com/wild-west-hackin-casts/>

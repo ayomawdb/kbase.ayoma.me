@@ -1,14 +1,29 @@
+## Tools 
+
+- Amazon Web Services In Plain English: <https://expeditedsecurity.com/aws-in-plain-english/>
+- The AWS exploitation framework, designed for testing the security of Amazon Web Services environments: <https://github.com/RhinoSecurityLabs/pacu>
+- Security tool to perform AWS security best practices assessments: <https://github.com/toniblyx/prowler>
+- AWS IAM Security Assessment tool that identifies violations of least privilege and generates a risk-prioritized HTML report: <https://github.com/salesforce/cloudsplaining>
+- WeirdAAL (AWS Attack Library): <https://github.com/carnal0wnage/weirdAAL>
+- barq: The AWS Cloud Post Exploitation framework!: <https://github.com/Voulnet/barq>
+
 ## References
 
 - <https://github.com/toniblyx/my-arsenal-of-aws-security-tools>
 - <https://anir0y.live/class/blog/securityaudit-aws/>
 - Unauthenticated AWS Role Enumeration (IAM Revisited): <https://rhinosecuritylabs.com/aws/aws-role-enumeration-iam-p2/>
 
+## EBS 
+
+- Search exposed EBS volumes for secrets: <https://github.com/BishopFox/dufflebag>
+- `You can identify EBS volumes/snapshots owned bya  specific company if you know their AWS account IDs.  Which you may be able to find from other data seepage tecniques, eg. if they leak it in source code, or if you are able to do any recon of any of their other AWS resources that would include the account ID in any ARNs`
+
 ## S3
 
 ###  New References
 
 - S3 Book: <https://github.com/nagwww/aws-s3-book>
+- <https://github.com/mxm0z/awesome-sec-s3>
 
 ### Collections
 

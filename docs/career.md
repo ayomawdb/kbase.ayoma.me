@@ -59,3 +59,30 @@ The real pros ask the real questions:
     - ... [complete this from slides]
     - ...
 - The Dip (book)
+
+## Technical Recall
+
+- Within 24 hours review material again for 30 mins (to increase retention to 100% again)
+- 48 hours later, review again for 25 minutes (back to 100%)
+- Each subsequent review takes less time and increase the retention
+
+- A longer review interval leads to stronger recall skills
+- Review intervals need to be short enough to recall concepts with minimal review time 
+
+- **Anki** - Free flash card app (spaced repetition training)
+  - Can judge and rate yourself.
+  - Questions that are hard will be displayed more. 
+  - When creating card, change `Basic` type to `Closed` type.
+  - `Tools` `Managed Node Types` `Fields`. `Add` new field called `Visual`. 
+  - ???? (webinar disconnected)
+
+- Motivation:
+  - Enjoyment: finding enjoyment in your topic to motivate.
+  - Methods: a method (spaced repetition/anki) gives you a task and a clear completion target. 
+  - System: Habit development is necessary. 
+  - Patience: Frustration is a normal and valuable part of learning. 
+- Problem of Time:
+  - Revisit goals and see if it's worth investing time. 
+  - Changes that can be made to life.
+- <https://sansurl.com/504-lab-ankicards>
+- pptxindex.py

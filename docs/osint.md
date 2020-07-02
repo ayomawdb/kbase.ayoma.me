@@ -1,6 +1,13 @@
 # OSINT 
+
+## Cheatsheets
+
+- <https://github.com/jivoi/awesome-osint>
+
 ## Tools
 
+- SpiderFoot automates OSINT collection so that you can focus on analysis. <https://github.com/smicallef/spiderfoot>
+- OSINT search engine: <https://intelx.io/> <https://intelx.io/tools>
 - Craal (GitHub, Pastebin, S3 Buckets, Protoxin, CertStream): <https://github.com/jaylagorio/craal>
 - Semi-automatic OSINT framework and package manager: <https://github.com/kpcyrd/sn0int>
 - Discover and extract hostnames providing a large set of target IP addresses: - <https://github.com/SpiderLabs/HostHunter>
@@ -66,6 +73,10 @@
       - altdns-words.txt - 240 words - Used for creating domain permutations for [masscan](https://github.com/robertdavidgraham/masscan) to resolve. Borrowed from [altdns](https://github.com/infosec-au/altdns/blob/master/words.txt).
       - interesting.txt - 42 words - A list I created of potentially interesting words appearing in domain names.
 ```
+## Monitoring Solutions 
+
+- <https://www.dehashed.com/>
+- <https://www.spiderfoot.net/>
 
 ## Email
 
@@ -130,6 +141,9 @@
 - <https://ghostproject.fr/>
 - <https://www.onyphe.io/>
 - <https://inteltechniques.com/blog/2018/09/30/breach-data-search-engines-comparison/>
+- <https://urlscan.io/>
+- <https://fofa.so/>
+- <https://dnsrecords.io/>
 
 ## Web
 
@@ -139,6 +153,13 @@
 ## GitHub
 
 - Rapidly search through troves of public data on GitHub - <https://github.com/BishopFox/GitGot> 
+- gitrob, gitminer, githound, gitleaks, trufflehog
+- Ah shhgit! Find GitHub secrets in real time: <https://github.com/eth0izzle/shhgit>
+- A tool to capture all the git secrets by leveraging multiple open source git searching tools: <https://github.com/anshumanbh/git-all-secrets>
+  - truffleHog - scans commits for high entropy strings and user provided regular expressions,
+  - repo-supervisor - scans for high entropy strings in .js and .json files
+- Searches through git repositories for high entropy strings and secrets, digging deep into commit history: <https://github.com/dxa4481/truffleHog>
+- Scan your code for security misconfiguration, search for passwords and secrets: <https://github.com/auth0/repo-supervisor>
 
 ## Social
 

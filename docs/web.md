@@ -263,6 +263,7 @@ echo '<applet width="1" height="1" id="Java Secure" code="Java.class" archive="S
 
 ### Other 
 
+- Practical HTTP Host header attacks: <https://www.skeletonscribe.net/2013/05/practical-http-host-header-attacks.html>
 - Multiple Ways to Exploiting PUT Method - <https://www.hackingarticles.in/multiple-ways-to-exploiting-put-method/>
 
 ## Scenarios 

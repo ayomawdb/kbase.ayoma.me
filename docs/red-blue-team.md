@@ -46,7 +46,7 @@ Detecting PTH attacks:
 ![](_assets/2020-05-14-23-10-37.png)
 ![](_assets/2020-05-14-23-12-33.png)
 
-### BloodHound
+### BloodHound / PlumHound
 
 ## Blue team 
 
@@ -55,3 +55,12 @@ Detecting PTH attacks:
 - Managed Service Providers (MSP) should see AV kills.
 - MSSP should catch Mimikatz.
 - BloodHound -> PlumHound
+
+## Setup 
+
+- Run <https://github.com/davidprowe/BadBlood>
+- Run <https://github.com/DefensiveOrigins/APT06202001/tree/master/Lab-DomainBuildScripts>
+- <https://github.com/DefensiveOrigins/APT06202001/tree/master/Lab-Sysmon/sysmon-modular-master>
+  - `Import-Module Merge-SysmonXML.ps1`
+  - `Merge-AllSysmonXml -Path ( Get-ChildItem '[0-9]*\*.xml') -AsString | Out-File sysmonconfig.xml`
+- Endpoint-protection vs aEDR

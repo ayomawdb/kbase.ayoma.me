@@ -485,6 +485,50 @@ ssh -D 9001 home
 
 - Phishing Blacklist: <https://www.phishing.army/>
 
+### IPV6
+
+- Disallow traffic from unallocated IP address spaces
+- Implement Anti-Spoofing perimeter ACL:
+  - No packet with a source address of your network allocation can ENTER your network.
+  - No packet with a destination address of your network allocation can LEAVE your network.
+- Two categories of traffic
+  - Traffic initiated from perimeter security device
+  - Traffic that is in-transit across perimeter
+- Transit Traffic
+  - Transit Traffic Category Recommendations
+    - Start with a DENY ALL approach, and then allow selectively. Ensures that all unassigned/experimental types are DROPPED.
+    - Allow Type 1: Destination Unreachable. Filter selectively allowing only specific codes such as code 4 - port unreachable.
+    - Allow Type 2: Packet too large. (Do not break path MTU discovery)
+    - Allow Type 3, Code 0 only. (TTL/Hop limit expired)
+    - Allow Type 4, Codes 0 and 1 only related to header errors.
+  - Transit traffic filtering continued…
+    - Optionally allow ICMP types 128/129 (echo request/reply) based on local ICMP security policy.
+    - Allow ICMP types 144 through 147 ONLY if your IPv6 network is “mobility enabled”. Many may choose to leave this in default drop state.
+    - Optionally allow ICMP Multicast related messages (types 151 - 153). 
+      - ONLY applicable if you participate in global multicast sourcing.
+  - ICMP type 137 (Redirect) represents a direct security threat and should always be dropped at the perimeter.
+- Non-transit 
+  - Traffic initiated from perimeter security devices
+  - Again start with a DENY ALL policy
+  - Use the same recommendations as transit above with the exception of the mobility enabled class
+  - Additional messages to ALLOW should be:
+    - Types 133/134: Router solicitation / advertisement
+    - Types 135/136: Neighbor solicitation / advertisement
+    - Types 141/142: Inverse neighbor solicitation / advertisement
+- Multicast Filtering
+  - Likely assumption for most is to not participate in global/inter-domain multicast
+    - Any packet with a multicast source address should be dropped
+    - Reserved and unused multicast destinations should be dropped.
+    - Probably most other multicast destinations will be blocked in a perimeter context.
+      - You don’t want any site or organization local traffic crossing the perimeter
+      - Realm-local scoped traffic will be confined to specific technologies.
+      - The decision to drop realm-local will have to be policy based.
+    - Global multicast should be dropped if not participating inter-domain.
+- Protocol Normalization
+  - IPv6 has a protocol header field labeled “Next Header”.
+  - Normal OSI Layer 4 headers are called an “Upper Layer Header”
+  - There can be chained “Extension Headers” in the frame before UL Header.
+
 ### IDS/IPS - Suricata
 - Installation:
     ```

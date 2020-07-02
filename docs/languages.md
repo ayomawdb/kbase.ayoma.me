@@ -15,6 +15,8 @@
 - <https://github.com/parsiya/Hacking-with-Go>
 - <https://www.blackhat.com/docs/asia-17/materials/asia-17-Clapis-Go-Get-My-Vulnerabilities-An-In-Depth-Analysis-Of-Go-Language-Runtime-And-The-New-Class-Of-Vulnerabilities-It-Introduces.pdf>
 
+
+
 ## Java
 
 **References**
@@ -26,6 +28,11 @@
   - <https://nickbloor.co.uk/2017/08/13/attacking-java-deserialization/>
   - <https://github.com/NickstaDB/DeserLab>
   - <https://github.com/NickstaDB/BaRMIe>
+
+**New Technologies**
+
+- Feign is a Java to HTTP client binder inspired by Retrofit, JAXRS-2.0, and WebSocket: <https://github.com/OpenFeign/feign>
+- resilience4j: https://resilience4j.readme.io/docs/getting-started
 
 ## JavaScript
 

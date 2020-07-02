@@ -172,6 +172,14 @@ master unit to the slave units
 
 ## Specific 
 
+### Jammers 
+
+- Open Source ESP8266 Based Laser Jammer: <https://github.com/hevnsnt/NOTCHACOTCHA>
+
+### WiFI / Wireless 
+
+- SecKC ESP8266 Captive Portal and Hacking Challenge: <https://github.com/hevnsnt/cotcha>
+
 ### ATMs
 
 **References:**
