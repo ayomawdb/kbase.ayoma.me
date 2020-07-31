@@ -263,6 +263,31 @@ Non-security related content here!
       - Write consequences clearly. 
     - Sleep is important. Create rules around that. 
     - Language center mature at 13 years. After that we cannot pickup anything as a 2nd nature.  
+- Screentime
+  - Limit to less than 1-2 hours per day
+  - Less than 3 years non at all
+  - Due to: 
+    - Gray matter atrophy
+    - Loss of white matter integrity 
+    - Reduced cortical thickness 
+    - Impaired cognitive function
+  - `Dopamine` instant gratification
+    - A rush with each game win, or video you watch
+    - Kids never get this type of `dopamine` rush in non-screen environment
+    - Therefore everything else becomes dull, and make you unable to focus
+  - Humans are social animal by nature. Screen reduce social skills.
+  - Sleep deprivation. Blue light LED, which disrupt `melatonin`.
+  - Keep it controlled from the start.
+- Grit
+  - Delayed gratifications (instant gratification was our nature because everyday could be the last)
+  - Growth mindset
+    - Love the process
+  - Be demanding.But not too much, which could lead to `Learned helplessness`.
+  - Be `Demanding yet Supportive`.
+  - Our brain evolved for
+    - instant gratification 
+    - energy efficiency 
+  - `Try Harder`. Put them in control. It's in your hand. `Perception of Control`. 
 
 #### Common 
 
@@ -289,23 +314,39 @@ Non-security related content here!
   - When they want something make them earn it
     - Action means reaction
     - There are consequences to actions
-- Screentime
-  - Limit to less than 1-2 hours per day
-  - Less than 3 years non at all
-  - Due to: 
-    - Gray matter atrophy
-    - Loss of white matter integrity 
-    - Reduced cortical thickness 
-    - Impaired cognitive function
-  - `Dopamine` instant gratification
-    - A rush with each game win, or video you watch
-    - Kids never get this type of `dopamine` rush in non-screen environment
-    - Therefore everything else becomes dull, and make you unable to focus
-  - Humans are social animal by nature. Screen reduce social skills.
-  - Sleep deprivation. Blue light LED, which disrupt `melatonin`.
-  - Keep it controlled from the start.
-
-
+- Birth Order
+  - First Child - Parents have strong urge to do everything perfectly. More attention given by parents.
+    - Reliable
+    - Conscientious
+    - Structured Cautious
+    - Controlling
+    - Achievers
+    - Competitive mindset
+  - Second Child - Parents are bit relaxed. Have sense of having control. If different gender than the first, second child may have first child  characteristics. 
+    - People pleaser
+    - Somewhat rebellious
+    - Thrive on friendship
+    - Large social circle
+    - Peacemakers
+  - Last Child - Grab whole family attention. Hence 2nd child is left out. 
+    - Fun loving
+    - Uncomplicated
+    - Manipulative
+    - Outgoing
+    - Attention seeker
+    - Self centered 
+  - Only child becomes extreme `First Child`. And also, mature to his age, perfectionists, conscientious, diligent, leaders.
+- Main pillars for healthy brain
+  - Sleep
+  - Movement
+  - Diet
+  - Grit
+- Three golden rules
+  - Setup a framework (set of rules)
+  - Let them experiment without too much adult interventions 
+  - Avoid public humiliations 
+- You are on their side. Take away the perceived danger. 
+- Communication on the level of emotions. Offer guidance. 
 
 ### Family Meetings
 
@@ -367,3 +408,122 @@ Non-security related content here!
   - Fun Activity - playing a game, watching a movie, or making pizza together
 
 ![](https://www.rootsofaction.com/wp-content/uploads/2019/02/Family-Meetings-The-Whys-and-Hows.jpg)
+
+### Power Struggle 
+
+- Misbehave to:
+  - Belong
+  - Feel loved
+  - feel powerful
+  - Feel valuable
+  - Feel like they have a place
+  - Experiment and explore
+- Adlerian Psychology
+- Misbehaving = Discouraged (from getting one of these needs met). 
+- Identify child's mistaken goals and provide a better way of getting to those. 
+
+- Mistaken Goals
+  - Attention 
+    - Feel special and feel loved by keeping parent busy
+    - Parent Feel: Irritated, annoyed, frustrated, distracted, manipulated
+  - Power
+    - Parent Feel: Provoked, anger, challenged
+  - Revenge
+    - I feel hurt, hence I'm going to make you hurt 
+    - Parent Feel: Hurt, mad, want to get even
+  - Avoidance
+    - Parent Feel: Feel sorry for child, despair, helpless coaxes or shows pity
+
+- Side Stepping the Power Struggle
+  - `Joy of Opposing` when `Power Struggle` with someone
+  - Drop parent's end of tug of war by `stopping talking`
+    - Without disrespecting or doing something mean.
+- Preventing Joy of Opposing
+  - Do not escalate your emotional response. (Example: Loud "no"s with each attempt)
+  - Respond like a broken record (repetition)
+  - `To play in garden, you are going to learn not to do X. And drop child in a different place, until child stop doing X`
+  - `Repetition` and `Redirection`. Cannot learn when in a power struggle - in stress (reptilian brain). Repetition help keeping prefrontal brain active and learn. 
+- Kind and Firm
+  - Find middle ground between kindness and firmness 
+  - Better to be more firm than kind
+  - Given-in from time to time, but don't let them completely win power struggle. 
+  - `Dance of Corporation`
+- How to Get Out of A Power Struggle
+  - Use loving guidance
+    - Words fuel power struggle. Use less words (no is better).
+    - Approach calmly. Use eye contact / non-verbal signals to give the message.
+  - Find useful ways for the child to feel valuable and powerful
+    - Example: Give his own drawer in kitchen for his stuff
+  - Teach them to say "no" respectfully
+    - If saying "no" was not an option, kids will find alternatives like arguing
+  - Offer choices
+    - Choices should be aged appropriately to let the kid feel empowered
+    - 1. Concrete choices
+      - "Do you want to wear the red pants or the blue pants?"
+    - 2. Choices with incentives
+      - "Do you want to go to bed now and I'll read you 3 stories or go to bed in 5 minutes and I'll read you one story?"
+    - 3. Playful choices
+      - "Do you want to walk to bed or run to bed?"
+    - 4. Immediate choices
+      - "Do you want to go to bed now or now?"
+    - 5. Choices with consequences
+      - "You may play with the truck on the floor or choose a soft toy to play with on the table. If you run the truck on the table again, I will take the truck away."
+  - Do the unexpected
+    - Do something unexpected / fun to break the attention to power struggle 
+    - Then get back to the original task. Don't let the kids get away
+    - Example: Dance before bed (when power struggling about bed time)
+  - Win/Win negotiate
+    - Flexible
+    - Usable with a child who does what he say he will
+    - Negotiate what happens if task is not done
+      - If child is not accountable with the negotiation, don't use this technique
+    - "I see that's a win for you and I want you to win. But I want to win too......"
+  - Let go of your position
+    - Listening to child
+  - Use a signal
+    - Let child make a signal (word of a sign) to start a task
+    - Example: "Broccoli" is the sign to "stop fighting"
+- Preventing Power Struggles
+  - Talk Less (use actions)
+  - Use One Word (in sing sung voice)
+  - Be firm and kind - and follow through
+    - Do what you say. Show that you mean the consequences. 
+  - Say no in a friendly way
+    - That’s not an option
+    - I am unwilling...
+    - Say it in a funny way, i.e. "Never in a million trillion years!"
+    - Sing, no, no, no!
+    - That’s not appropriate.
+    - I am not ready for you to do that yet. (Great for teens)
+    - For a younger child, use distraction
+    - Ask, "What do you think you would need to do before I would be willing to say yes to that?"
+    - Ask, "What do you think? Is this a good choice for you?" (If you choose this, make sure you are willing to abide by her answer)
+    - For a youngster that has something you don’t want him to have say, "That’s not a toy."
+    - Ask, "What are your other options?"
+    - No, but I would be willing to...
+    - I appreciate your asking, however...
+    - Walls are not for coloring. Here is a piece of paper.
+    - Tell them what to do instead i.e., "Water needs to stay in the tub."
+    - This is not negotiable 
+  - Let them have the last word
+    - Don't give in (and show that if forced enough you are ready to do something)
+    - Be patience and just wait until kid give up
+  - Catch them doing well and acknowledge them
+    - Little reward (ex: join and play with them) when doing well
+  - Let them know how valuable they are to you
+    - Ex: Appreciate a hug
+  - Make it fun
+  - Seek first to understand
+  - Don’t major in the minors
+    - Pick on the battles you can win
+    - If most things are flexible, kids tend to be more likely to comply with your major requests
+  - Use GEMS (Genuine Encounter Moments)
+    - See world through the child's eyes and be with him 
+    - Take 3 minutes to 30 seconds to handle a GEM
+    - Let them feel: "What is important to me, is important to my parent"
+    - Cannot handle all GEMS. Hence, depending on importance of your work handle some. 
+    - Options:
+      - Do a GEM
+      - Set temporary limit: It's OK to tell him to give 10 minutes. But make sure you'll be there by 10 minutes (Trust).
+      - Redirect the attention. 
+    - 

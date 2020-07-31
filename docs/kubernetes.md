@@ -25,6 +25,10 @@
 
 ### Kubectl
 
+- get help
+    ```
+    kubectl explain pods
+    ```
 - list all namespaces
     ```
     kubectl get ns
@@ -53,6 +57,10 @@
     ```
     kubectl logs {pod-name}
     ```
+- Events
+    ```
+    kubectl get events --sort-by=.metadata.creationTimestamp
+    ```
 - execute the specified command in the pod’s container. Doesn’t work well in Cygwin.
     ```
     kubectl exec –it <pod name> <command>
@@ -77,9 +85,15 @@
     ```
     kubectl delete po --all
     ```
+- Monitor changes: `--watch`
+- Diff: `kubectl diff -f example.yaml`
+- CPU/Memory usage: `kubectl top pods`
 
 ### Deployment Management
 
+- create: `kubectl create deployment example --image=<image-name>`
+- expose: `kubectl expose deployment example --type=LoadBalancer`
+- scale: `kubectl scale deployment example --replicas=3`
 - get the status of the named deployment
     ```
     kubectl rollout status deploy <name of deployment>
@@ -91,6 +105,12 @@
 - go back one version in the deployment. Also optionally --to-revision=\<revision_number\> We recommend this is used only in stressful emergency situations! Your YAML will now be out of date with the live deployment! 
     ```
     kubectl rollout undo deploy <name of deployment>
+    ```
+- Manual rollouts:
+    ```
+    kubectl rollout history deployment hello-world-rest-api
+    kubectl set image deployment hello-world-rest-api hello-world-rest-api=in28min/hello-world-rest-api:0.0.3.RELEASE --record=true
+    kubectl rollout undo deployment hello-world-rest-api --to-revision=1
     ```
 
 ### Volumes 
@@ -123,6 +143,110 @@
     kops delete cluster --name ${NAME} --yes
     ```
 
+```
+    kubectl create deployment hello-world-rest-api --image=in28min/hello-world-rest-api:0.0.1.RELEASE
+    kubectl expose deployment hello-world-rest-api --type=LoadBalancer --port=8080
+    kubectl scale deployment hello-world-rest-api --replicas=3
+    kubectl delete pod hello-world-rest-api-58ff5dd898-62l9d
+    kubectl autoscale deployment hello-world-rest-api --max=10 --cpu-percent=70
+    kubectl edit deployment hello-world-rest-api #minReadySeconds: 15
+    kubectl set image deployment hello-world-rest-api hello-world-rest-api=in28min/hello-world-rest-api:0.0.2.RELEASE
+     
+    gcloud container clusters get-credentials in28minutes-cluster --zone us-central1-a --project solid-course-258105
+    kubectl create deployment hello-world-rest-api --image=in28min/hello-world-rest-api:0.0.1.RELEASE
+    kubectl expose deployment hello-world-rest-api --type=LoadBalancer --port=8080
+    kubectl set image deployment hello-world-rest-api hello-world-rest-api=DUMMY_IMAGE:TEST
+    kubectl get events --sort-by=.metadata.creationTimestamp
+    kubectl set image deployment hello-world-rest-api hello-world-rest-api=in28min/hello-world-rest-api:0.0.2.RELEASE
+    kubectl get events --sort-by=.metadata.creationTimestamp
+    kubectl get componentstatuses
+    kubectl get pods --all-namespaces
+     
+    kubectl get events
+    kubectl get pods
+    kubectl get replicaset
+    kubectl get deployment
+    kubectl get service
+     
+    kubectl get pods -o wide
+     
+    kubectl explain pods
+    kubectl get pods -o wide
+     
+    kubectl describe pod hello-world-rest-api-58ff5dd898-9trh2
+     
+    kubectl get replicasets
+    kubectl get replicaset
+     
+    kubectl scale deployment hello-world-rest-api --replicas=3
+    kubectl get pods
+    kubectl get replicaset
+    kubectl get events
+    kubectl get events --sort.by=.metadata.creationTimestamp
+     
+    kubectl get rs
+    kubectl get rs -o wide
+    kubectl set image deployment hello-world-rest-api hello-world-rest-api=DUMMY_IMAGE:TEST
+    kubectl get rs -o wide
+    kubectl get pods
+    kubectl describe pod hello-world-rest-api-85995ddd5c-msjsm
+    kubectl get events --sort-by=.metadata.creationTimestamp
+     
+    kubectl set image deployment hello-world-rest-api hello-world-rest-api=in28min/hello-world-rest-api:0.0.2.RELEASE
+    kubectl get events --sort-by=.metadata.creationTimestamp
+    kubectl get pods -o wide
+    kubectl delete pod hello-world-rest-api-67c79fd44f-n6c7l
+    kubectl get pods -o wide
+    kubectl delete pod hello-world-rest-api-67c79fd44f-8bhdt
+     
+    kubectl get componentstatuses
+    kubectl get pods --all-namespaces
+     
+    gcloud auth login
+    kubectl version
+    gcloud container clusters get-credentials in28minutes-cluster --zone us-central1-a --project solid-course-258105
+     
+    kubectl logs hello-world-rest-api-58ff5dd898-6ctr2
+    kubectl logs -f hello-world-rest-api-58ff5dd898-6ctr2
+     
+    kubectl get deployment hello-world-rest-api -o yaml
+    kubectl get deployment hello-world-rest-api -o yaml > deployment.yaml
+    kubectl get service hello-world-rest-api -o yaml > service.yaml
+    kubectl apply -f deployment.yaml
+    kubectl get all -o wide
+    kubectl delete all -l app=hello-world-rest-api
+     
+    kubectl get svc --watch
+    kubectl diff -f deployment.yaml
+    kubectl delete deployment hello-world-rest-api
+    kubectl get all -o wide
+    kubectl delete replicaset.apps/hello-world-rest-api-797dd4b5dc
+     
+    kubectl get pods --all-namespaces
+    kubectl get pods --all-namespaces -l app=hello-world-rest-api
+    kubectl get services --all-namespaces
+    kubectl get services --all-namespaces --sort-by=.spec.type
+    kubectl get services --all-namespaces --sort-by=.metadata.name
+    kubectl cluster-info
+    kubectl cluster-info dump
+    kubectl top node
+    kubectl top pod
+    kubectl get services
+    kubectl get svc
+    kubectl get ev
+    kubectl get rs
+    kubectl get ns
+    kubectl get nodes
+    kubectl get no
+    kubectl get pods
+    kubectl get po
+     
+    kubectl delete all -l app=hello-world-rest-api
+    kubectl get all
+     
+    kubectl apply -f deployment.yaml 
+    kubectl apply -f ../currency-conversion/deployment.yaml 
+```
 ## Yamls
 
 ### Pod
@@ -431,6 +555,126 @@ roleRef:
   apiGroup: rbac.authorization.k8s.io
 ```
 
+### ConfigMap 
+
+```yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  creationTimestamp: 2016-02-18T18:52:05Z
+  name: game-config
+  namespace: default
+  resourceVersion: "516"
+  uid: b4952dc3-d670-11e5-8cd0-68f728db1985
+data:
+  game.properties: |
+    enemies=aliens
+    lives=3
+    enemies.cheat=true
+    enemies.cheat.level=noGoodRotten
+    secret.code.passphrase=UUDDLRLRBABAS
+    secret.code.allowed=true
+    secret.code.lives=30
+  ui.properties: |
+    color.good=purple
+    color.bad=yellow
+    allow.textmode=true
+    how.nice.to.look=fairlyNice
+```
+```
+kubectl create configmap game-config-2 --from-file=configure-pod-container/configmap/game.properties
+```
+
+### Secret
+
+```yaml
+apiVersion: v1
+kind: Secret
+metadata:
+  name: mysecret
+type: Opaque
+data:
+  username: YWRtaW4=
+  password: MWYyZDFlMmU2N2Rm
+```
+
+```yaml
+apiVersion: v1
+kind: Secret
+metadata:
+  name: mysecret
+type: Opaque
+stringData:
+  config.yaml: |-
+    apiUrl: "https://my.api.com/api/v1"
+    username: {{username}}
+    password: {{password}}
+```
+
+### Ingress 
+
+```yaml
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: test-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+  - host: domain1.com
+    http:
+      paths:
+      - path: /testpath
+        pathType: Prefix
+        backend:
+          serviceName: test
+          servicePort: 80
+  - host: domain2.com
+
+```
+
+### Job 
+
+```yaml
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: pi
+spec:
+  template:
+    spec:
+      containers:
+      - name: pi
+        image: perl
+        command: ["perl",  "-Mbignum=bpi", "-wle", "print bpi(2000)"]
+      restartPolicy: Never
+  backoffLimit: 4
+```
+
+### CronJob
+
+```yaml
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: hello
+spec:
+  schedule: "*/1 * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: hello
+            image: busybox
+            args:
+            - /bin/sh
+            - -c
+            - date; echo Hello from the Kubernetes cluster
+          restartPolicy: OnFailure
+```
+
 ## Cloud Deployments 
  
 **Kops**
@@ -440,6 +684,18 @@ roleRef:
 
 ## Notes 
 
+- Follows single responsibility concept
+- Cluster
+  - Master Node - Manage Cluster
+    - API Server (kube-apiserver)
+    - Distributed Database (etcd)
+    - Scheduler  (kube-scheduler)
+    - Controller Manager (kube-controller-manager)
+  - Worker Nodes - Run Applications 
+    - Node Agent (kubelet)
+    - Networking Component (kube-proxy)
+    - Container Runtime (CRI - OCI/docker/rkt)
+    - PODS
 - Service
   - Pods are not visible outside k8s cluster
   - K8s service is a long running object with IP address and stable fixed port usable to expose Pods out of k8s cluster
@@ -648,11 +904,50 @@ roleRef:
   - If all-namespaces should be visible use `ClusterRole` and `ClusterRoleBinding`.
     - Grant limited permission across cluster. Then use `Role` section to grant wider permissions on own-cluster. 
   - `ServiceAccount` in `RoleBinding` is used to grant access to one pod from another. 
+- ConfigMap 
+  - Env variables are unmanageable and may get duplicated, leaving multiple places to change
+  - `kubectl get cm`
+  - `kubectl describe cm` 
+  - Using config  map
+    - `valueFrom` -> `configMapKeyRef`
+      - Still duplicates
+      - When updating:
+        - Create a new version of the config-map
+        - Change the name referenced
+    - `envFrom` -> `configMapKeyRef`
+      - all key value paired copied
+    - `volumeMount` and `volume` -> `configMap`
+      - Each value of map becomes the file name
 - Secrets 
+  - Just prevents you from accidentals printing secret when doing `kubectl get secrets` 
+  - No encryption
+  - RBAC can be used to deny access to `secrets` while giving access to `configMaps`
   - `kubectl get secrets` 
+  - `kubectl get secret -n monitoring example -o yaml` 
   - `kubectl get secret -n monitoring example -o json`
   - `kubectl delete secret -n monitoring example -o json`
   - `kubectl create secret -n monitoring example --from-file=example.yaml`
+  - Hot Reloading of ConfigMaps Spring Cloud Kubernetes Demo: <https://www.youtube.com/watch?v=DiJ0Na8rWvc&t=563s>
+- Ingress Controllers
+  - Accessing Service 
+    - NodePort - Alow defining port and exposing. Port 30,000 and above only. 
+    - ClusterIP - Internal access only
+    - LoadBalancer - Provided by the cloud provider
+      - will require separate LB for each service
+    - LB talk to Ingress Controller (ex Nginx) and IC talk to services
+  - `kubectl get ingress` `kubectl describe ingress` 
+  - `minikube addons list` `minikube addons enable ingress`
+  - <https://kubernetes.github.io/ingress-nginx/>
+- Batch Jobs 
+  - Pod by default `always` restarts (restart policy)
+  - Designed to run to completion
+- DaemonSet
+  - All nodes run a copy of these pods
+- StatefulSet 
+  - Pods have predictable names
+  - Startup in sequence
+  - Client can address by name
+  - Example: Primary secondary situation
 
 ```
 - OpenFaaS Kubeless OpenWisk
@@ -700,3 +995,41 @@ roleRef:
 - Understanding Kubernetes limits and requests by example: <https://sysdig.com/blog/kubernetes-limits-requests/>
 - Understanding Kubernetes pod evicted and scheduling problems: <https://sysdig.com/blog/kubernetes-pod-evicted/>
 - How to troubleshoot Kubernetes OOM and CPU Throttle: <https://sysdig.com/blog/troubleshoot-kubernetes-oom/>
+
+## Teraform 
+
+- Server provisioning 
+- Two steps:
+  - Plan: `terraform plan`
+  - Execute: `teraform apply`
+
+```
+    brew install terraform
+    terraform --version
+    terraform version
+    terraform init
+    export AWS_ACCESS_KEY_ID=*******
+    export AWS_SECRET_ACCESS_KEY=*********
+    terraform plan
+    terraform console
+    terraform apply -refresh=false
+    terraform plan -out iam.tfplan
+    terraform apply "iam.tfplan"
+    terraform apply -target=aws_iam_user.my_iam_user
+    terraform destroy
+    terraform validate
+    terraform fmt
+    terraform show
+    export TF_VAR_iam_user_name_prefix = FROM_ENV_VARIABLE_IAM_PREFIX
+    export TF_VAR_iam_user_name_prefix=FROM_ENV_VARIABLE_IAM_PREFIX
+    terraform plan -refresh=false -var="iam_user_name_prefix=VALUE_FROM_COMMAND_LINE"
+    terraform apply -target=aws_default_vpc.default
+    terraform apply -target=data.aws_subnet_ids.default_subnets
+    terraform apply -target=data.aws_ami_ids.aws_linux_2_latest_ids
+    terraform apply -target=data.aws_ami.aws_linux_2_latest
+    terraform workspace show
+    terraform workspace new prod-env
+    terraform workspace select default
+    terraform workspace list
+    terraform workspace select prod-env
+```

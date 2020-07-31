@@ -76,7 +76,9 @@
     ```
     docker container commit -a "author" <container id> <image name>
     ```
-- 
+- Pause: `docker pause`
+- Unpause: `docker unpause`
+
 ### Manage your (local) Virtual Machine
 
 - Find the IP address of your VirtualMachine, required for Docker Toolbox users only: 
@@ -86,13 +88,26 @@
 
 ### Manage Networks
 
-- list all networks: 
+- list all networks (bridge/host/none/etc.): 
     ```
     docker network ls
     ```
 - create a network using the bridge driver: 
     ```
     docker network create <network name>
+    ```
+- Inspect the complete network:
+    ```
+    docket network inspect <network name>
+    ```
+- Link two containers (this is legacy):   
+    ```
+    docker container run ... --link <container-name-to-link-with> <image-name>
+    ```
+- New way of linking two containers (using Docker Compose is easier):
+    ```
+    sudo docker network create mynetwork
+    sudo docker container run ... --network mynetwork <image-name>
     ```
 
 ### Manage Volumes
@@ -133,6 +148,11 @@
     ```
     docker-compose down
     ```
+- Validation: `docker-compose config`
+- Images: `docker-compose images`
+- Processes: `docker-compose top`
+- Pause: `docker-compose pause`
+- Unpause: `docker-compose unpause`
 
 ### Manage a Swarm
 
@@ -183,3 +203,33 @@
     ```
     docker stack rm <stack name>
     ```
+
+### System
+
+- Disk usage
+    ```
+    docker system df
+    ```
+- Events
+    ```
+    docker system events
+    ```
+- System wide information
+    ```
+    docker system info
+    ```
+- Remove unused ata
+    ```
+    docker system prune
+    ```
+
+### Statistics 
+
+- Container statistics 
+    ```
+    docker stats <id>
+    ```
+
+## Tips 
+
+- Move dynamic steps to down to max utilization of cache
