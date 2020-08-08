@@ -1773,7 +1773,7 @@ powershell.exe -ExecutionPolicy Bypass -NoLogo -NonInterative -NoProfile -File w
   <div class="codehilite"><pre><span></span><span class="n">Export</span><span class="o">-</span><span class="n">PSSession</span> <span class="o">-</span><span class="n">Module</span> <span class="o">&lt;</span><span class="n">name</span><span class="o">&gt;</span> <span class="o">-</span><span class="n">CommandName</span> <span class="n">Example1</span> <span class="o">-</span><span class="k">Session</span> <span class="err">$</span><span class="n">ses</span>
 </pre></div></li>
 <li>Double Hop Problem (Attacker delegate sending token to target-2 from target-1)
-  <img alt="image-20190615074509591" src="_assets/image-20190615074509591.png" />
+  <img alt="image-20190615074509591" src="../_assets/image-20190615074509591.png" />
   <div class="codehilite"><pre><span></span><span class="n">Enable</span><span class="o">-</span><span class="n">WSManCredSSP</span> <span class="o">-</span><span class="k">Role</span> <span class="n">Client</span> <span class="o">-</span><span class="n">DelegateComputer</span>
 <span class="n">Enable</span><span class="o">-</span><span class="n">WSManCredSSP</span> <span class="o">-</span><span class="k">Role</span> <span class="n">Server</span>
 <span class="k">Get</span><span class="o">-</span><span class="n">WSManCredSSP</span>
