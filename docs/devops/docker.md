@@ -233,3 +233,7 @@
 ## Tips 
 
 - Move dynamic steps to down to max utilization of cache
+
+## Security References
+
+- Docker vs. containerd vs. Nabla vs. Kata vs. Firecracker: <https://www.inovex.de/blog/containers-docker-containerd-nabla-kata-firecracker/>

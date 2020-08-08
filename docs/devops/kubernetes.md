@@ -684,6 +684,22 @@ spec:
 
 ## Notes 
 
+- bretfisher Courses - Kubernetes Mastery: Hands-On Lessons From A Docker Captain: <https://www.bretfisher.com/courses/>
+- Threat matrix for Kubernetes - <https://www.microsoft.com/security/blog/2020/04/02/attack-matrix-kubernetes/>
+- Pod Security Policies: <https://kubernetes.io/docs/concepts/policy/pod-security-policy/>
+- <https://www.jaegertracing.io/docs/1.18/>
+
+![](_assets/2020-05-13-21-52-12.png)
+
+- Stay current in k8s
+- Harden nodes
+- Restrict network via RBAC
+- Use namespaces and network policies
+- Slim down images
+- Logs - k8s audit / k8s rbac audit logs / 
+
+
+
 - Follows single responsibility concept
 - Cluster
   - Master Node - Manage Cluster
@@ -1000,8 +1016,42 @@ spec:
 
 - Server provisioning 
 - Two steps:
+  - Initialize: `terraform init`
+  - Validate: `terraform validate`
   - Plan: `terraform plan`
   - Execute: `teraform apply`
+- `terraform console`
+  - Resources are referenced as <type>.<name>: Example: `aws_s3_bucket.my_s3_bucket`
+- Types: `resource` `output` `variable` `lists` `maps` `provisioner` `connection`
+- `terfaform.tfstate` `terfaform.tfstate.backup` and `.teraform` must not be commited. Contains secrets in plain text. 
+- When state needs to be shared, store the state inside a `Remote Backend`.
+- Create multiple resources: `count  = 2 \n name="my_user_${count.index}"`
+- `teraform show` `teraform fmt`
+- Assign to variable from environment variables: `TF_VAR_<variable_name>="<value>"`
+- Best Practice: Create separate projects for resources that might have similar lifecycle. One application would have multiple projects. 
+- Best Practice: Use immutable servers - Once you provision a server and a change is required, just remove the old server and prosition a new one. Do not do tweeks.
+- Make things dynamic:
+  - `aws_default_vpc` special resources that is not created / destroyed by Teraform. 
+  - `data_provider` `aws_subnet_ids` to get list of subnets  within the VPC
+  - `aws_security_group`
+  - `data_provider` `aws_ami` `aws_ami_ids` (most_recent: true)
+- `teraform graph` -> Graphwiz  
+- Storing state into S3
+  - Create S3 bucket: lifecycle, versioning, server_side_encryption_configuration
+  - Create aws_dynamodb_table for locks: Attribute(LockID/S)
+  - terraform -> backend "s3" -> point to s3 and dynamodb.. name  should be unique:  application/project/type/envitronment
+    - application_name, project_name, environment can be variables
+- Workspaces
+  - Track multiple environments
+  - `teraform workspace show`
+  - `teraform workspace list`
+  - `teraform workspace new prod-env`
+  - `teraform workspace select prod-env`
+  - Use `${teraform.workspace}` to add the workspace name to resources
+- Modules
+  - Create `teraform-modules` dir and in it create modules for different resources
+  - Create `dev` \ `prod` folders. In these folders in main.tf add variable for environment. 
+    - `module "user_module" { source = "../../teraform-modules/users" environment = "dev"}`
 
 ```
     brew install terraform

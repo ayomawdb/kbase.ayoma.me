@@ -48,22 +48,6 @@ Check presence of docker:
 /.dockerenv
 ```
 
-## K8S
-
-- bretfisher Courses - Kubernetes Mastery: Hands-On Lessons From A Docker Captain: <https://www.bretfisher.com/courses/>
-- Threat matrix for Kubernetes - <https://www.microsoft.com/security/blog/2020/04/02/attack-matrix-kubernetes/>
-- Pod Security Policies: <https://kubernetes.io/docs/concepts/policy/pod-security-policy/>
-- <https://www.jaegertracing.io/docs/1.18/>
-
-![](_assets/2020-05-13-21-52-12.png)
-
-- Stay current in k8s
-- Harden nodes
-- Restrict network via RBAC
-- Use namespaces and network policies
-- Slim down images
-- Logs - k8s audit / k8s rbac audit logs / 
-
 ## Tools 
 
 ### binctr

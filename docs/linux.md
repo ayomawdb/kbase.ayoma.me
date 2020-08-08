@@ -39,28 +39,6 @@
     cat /etc/lsb-release  ### Debian based
     cat /etc/redhat-release   ### Redhat based
     ```
-- Kernel
-    ```
-    cat /proc/version
-    uname -a
-    uname -mrs
-    rpm -q kernel
-    dmesg | grep Linux
-    ls /boot | grep vmlinuz-
-    ```
-  - Kernel tuning
-    - Temporary: `sysctl`
-    - Permanent: `/etc/sysctl.conf`
-    - View configuration: `sysctl -a | less`
-    - View  configuration files for the installed modprobe modules:
-      ```
-      ls -l /etc/modprobe.d/
-      ls -R /lib/modules/$( uname -r )/kernel
-      ```
-  - Kernel Modules
-    - Insert module: `insmod`
-    - Remove module: `modprobe -r` `rmmod`
-    - List modules: `modprobe -l` `lsmod`
 - Environment
     ```
     cat /etc/profile
@@ -90,6 +68,113 @@
   - `$HOSTNAME` - The hostname of the machine
   - `$RANDOM` - A random number
   - `$LINENO` - The current line number in the script
+
+### Kernel 
+
+- To communicate with the kernel, different UNIX systems use different interfaces
+  - Before procfs
+    - 
+  - <https://opensource.com/article/19/3/virtual-filesystems-linux>
+  - Source of VFS: <https://www.tldp.org/LDP/khg/HyperNews/get/fs/vfstour.html>
+    - filesystem, must implement the open(), read(), and write() methods
+    - kernel treats the generic filesystem as an abstract interface, and these big-three functions are "virtual," with no default definition
+    - filesystems like ext4, NFS, and /proc all provide definitions of the big-three functions in a C-language data structure called [file_operations](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/include/linux/fs.h)
+    - filesystems extend and override the VFS functions in the familiar object-oriented way
+    - The function definitions that belong to the VFS base type itself are found in the fs/*.c files in kernel source, while the subdirectories of fs/ contain the specific filesystems. <https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/fs>
+    - ![](_assets/2020-08-02-09-13-56.png)
+    - Listing VFSs: `mount | grep -v sd | grep -v :/`
+  - tempfs (/tmp)
+    - <https://wiki.archlinux.org/index.php/Tmpfs>
+    - By default, a tmpfs partition has its maximum size set to half of the available RAM
+    - Under systemd, /tmp is automatically mounted as a tmpfs even though no entry is specified in /etc/fstab. 
+    - `tmp.mount` systemd unit. 
+  - procfs (/proc)
+    - <https://man7.org/linux/man-pages/man5/procfs.5.html>
+    - a snapshot into the instantaneous state of the kernel and the processes that it controls for userspace
+    - special in-memory filesystem
+    - used to present process information, kernel processes and other system information in a hierarchical file-like structure
+    - This layer is expected to provide convenient access to the said information, acting as an interface to internal data structures in the kernel
+    - `/proc/sys` is where the settings that are configurable via the `sysctl` command are accessible to userspace
+    - File sizes are zero (/proc/meminfo). The truth is that the kernel gathers statistics about memory when a process requests them from /proc
+    - Structure:
+      - <https://www.thegeekdiary.com/understanding-the-proc-file-system/>
+      - <https://en.wikipedia.org/wiki/Procfs#Linux>
+      - <http://www.noah.org/wiki//proc>
+    - Implementation details:
+      - <https://www.kernel.org/doc/Documentation/filesystems/proc.txt>
+      - <https://elixir.bootlin.com/linux/v5.8-rc4/source/fs/proc>
+      - <https://github.com/torvalds/linux/tree/master/fs/proc>
+    - Important items:
+      - `/proc/PID/cmdline`:  which contains the command which originally started the process
+        - Read confidential information passed in as arguments
+      - `/proc/PID/environ`: a file containing the names and contents of the environment variables that affect the process
+        - Read confidential information passed in as environment variables (specially useful in containerized environments, since this is a common practice)
+      - `/proc/PID/mem`: a binary image representing the process's virtual memory, can only be accessed by a ptrace'ing process 
+        - Useful in  [dumping process memory](https://shafiqvinales.wordpress.com/2017/09/14/dump-a-linux-processs-memory-to-file/), but with [limitations](https://stackoverflow.com/a/12980874)
+      - `/proc/PID/maps`: the memory map showing which addresses currently visible to that process are mapped to which regions in RAM or to files
+        - Useful in binary exploitation (offset calculations, etc.)
+      - `/proc/cpuinfo`: containing information about the CPU
+        - Identifying CPU architecture. Useful in binary exploitations to create matching payloads.
+      - `/proc/version`: containing the Linux kernel version, distribution number, gcc version number used to build the kernel and any other pertinent information relating to the version of the kernel currently running
+        - Identifying operating system related information architecture. Useful in binary exploitations to create matching payloads.
+      - `/proc/net/`: a directory containing useful information about the network stack, in particular /proc/net/nf_conntrack, which lists existing network connections
+        - Get information about network stack and connections.
+      - `/proc/modules`: containing a list of the kernel modules currently loaded . It gives some indication (not always entirely correct) of dependencies. 
+        - Useful in binary exploitations to create matching payloads.
+      - `/proc/mounts`: a symlink to self/mounts which contains a list of the currently mounted devices and their mount points 
+        - Get information about the mounted devices (for example: through LFI)
+      - `/proc/kcore`: represents the physical memory of the system (kernel virtual address space region of memory) and is stored in the ELF core file format. (examined by gdb, objdump)
+        - `/dev/kmem`: gives access to the kernel's virtual memory space
+        - `/dev/mem`: gives access to physical memory.
+      - `/proc/kmsg`: used to hold messages generated by the kernel (picked by /bin/dmesg).
+  - Sysfs
+    - Structured approach to clean-up procfs
+    - expose the readable and writable properties of what the kernel calls "kobjects" to userspace
+    - purpose of kobjects is reference-counting: when the last reference to a kobject is deleted, the system will reclaim the resources associated with it
+      - <https://www.kernel.org/doc/Documentation/kobject.txt>
+    - constitutes most of the kernel's famous "[stable ABI to userspace](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Documentation/ABI/stable)" which no one may ever, [under any circumstances, "break."](https://lkml.org/lkml/2012/12/23/75) 
+    - eBPF (extended Berkeley Packet Filter) consists of a virtual machine running inside the kernel that privileged users can query from the command line
+    - running eBPF tools on a booted system shows instead what the kernel actually does
+    - <https://github.com/iovisor/bcc/tree/master/tools>
+    - [vfscount](https://github.com/iovisor/bcc/blob/master/tools/vfscount_example.txt) or [vfsstat](https://github.com/iovisor/bcc/blob/master/tools/vfsstat.py)
+    - Used by udev to access device and device driver information
+    - Sysfs helped clean up the proc file system because much of the hardware information has been moved from proc to sysfs
+    - Important items:
+      - /sys/bloc: information about block devices
+      - /sys/bus: physical bus type supported in the kernel
+      - /sys/class: devices classes registered
+      - /sys/devices: global device hierarchy of all devices on the system
+      - /sys/firmware: firmware objects and attributes
+      - /sys/module: subdirectories for each module that is loaded into the kernel
+      - /sys/power: system power state can be controlled from this directory.
+  - sysctl
+    - Usable to change values in `/proc/sys` directory
+    - View current kernel configuration: `sysctl -a`
+    - `echo 1 > /proc/sys/net/ipv4/ip_forward`
+    - `sysctl -w net.ipv4.ip_forward=1`
+    - To make permanent changes, add to `/etc/sysctl.conf`
+- General information:
+  ```
+  cat /proc/version
+  uname -a
+  uname -mrs
+  rpm -q kernel
+  dmesg | grep Linux
+  ls /boot | grep vmlinuz-
+  ```
+- Kernel tuning:
+  - Temporary: `sysctl`
+  - Permanent: `/etc/sysctl.conf`
+  - View configuration: `sysctl -a | less`
+  - View  configuration files for the installed modprobe modules:
+    ```
+    ls -l /etc/modprobe.d/
+    ls -R /lib/modules/$( uname -r )/kernel
+    ```
+- Kernel Modules:
+  - Insert module: `insmod`
+  - Remove module: `modprobe -r` `rmmod`
+  - List modules: `modprobe -l` `lsmod`
 
 ### Startup Process
 
