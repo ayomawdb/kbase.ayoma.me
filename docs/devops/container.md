@@ -1,9 +1,5 @@
 ## Docker
 
-- Docker Production Best Practices from Bret Fisher at DockerCon: <https://www.youtube.com/watch?v=V4f_sHTzvCI>
-- Docker Security Best Practices: <https://blog.sqreen.com/docker-security/>
-- 29 Docker security tools compared: <https://sysdig.com/blog/20-docker-security-tools/>
-- Docker Security Cheat Sheet: <https://security.stackrox.com/rs/219-UEH-533/images/Docker-security-cheatsheet_final.pdf>
 - Docker Internals: 
   - <https://docker-saigon.github.io/post/Docker-Internals/>
   - <https://www.netmanias.com/en/post/blog/13392/sdn-nfv/docker-internals>
@@ -12,11 +8,6 @@
 - bretfisher Courses - Docker Mastery: <https://www.bretfisher.com/courses/>
   - petclinic example: https://github.com/BretFisher/petclinic
   - https://github.com/BretFisher/dockercon19
-- Docker security: <https://docs.docker.com/engine/security/security/>
-- BretFisher: What security concerns should I have with Docker? How should I go about locking it down? <https://github.com/BretFisher/ama/issues/17>
-- Shifting Docker security left: <https://snyk.io/blog/shifting-docker-security-left/>
-- At DockerCon: "Building a Docker Image Packaging Pipeline Using GitHub Actions": https://docker.events.cube365.net/docker/dockercon/content/Videos/SPWM3BdnCZWPN4fN9
-- At DockerCon: "Your Container Has Vulnerabilities. Now What?" https://docker.events.cube365.net/docker/dockercon/content/Videos/GZpzJAapdrSXohzNz
 - At DockerCon: "Captains on Deck” hosted by Bret Fisher: https://docker.events.cube365.net/docker/dockercon/content/Videos/jFNDwpTbHotrtbt5x
 
 - Reduced linux capabilities 

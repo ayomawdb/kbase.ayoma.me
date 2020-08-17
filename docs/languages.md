@@ -4,6 +4,12 @@
 - Brainfuck Interpreter: https://sange.fi/esoteric/brainfuck/impl/interp/i.html
 - Piet Interpreter: https://www.bertnase.de/npiet/npiet-execute.php
 
+## C / C++
+
+- Unsafe functions 
+  - `strcpy` 
+  - `strcat`
+
 ## GO
 
 **Environment Setup**
@@ -82,6 +88,13 @@
 **Challenges**
 
 - <https://www.hackingnote.com/en/python-challenge-solutions/level-5>
+
+**Tools**
+
+- ZipApps - similar to JAR 
+- pipX - pip with virtual env
+- Shiv - Modified ZipApp to work with C extensions
+- Packaging: The bible of packaging python apps in docker
 
 **Attack Vectors**
 - Exploiting Imports - It is possible to create a `.py` file named with the name of the import. This will load the local file (same dir as the file importing the library) instead of the actual library.

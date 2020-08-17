@@ -219,3 +219,10 @@ tr -s ' ' | tr '\t' ' ' | sed 's/:/ |/' | sed 's/- /| /' | sed -e 's/$/ |/'
 ## Webinars 
 
 - Wild West Hackin Casts: <https://wildwesthackinfest.com/wild-west-hackin-casts/>
+
+## Completed Courses 
+
+- Pentester Academy
+  - Microsoft and/or Windows Related
+    - [Windows Red Team Lab](https://www.pentesteracademy.com/course?id=44)
+    - [Attacking and Defending Active Directory](https://www.pentesteracademy.com/course?id=47)

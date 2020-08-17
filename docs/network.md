@@ -51,6 +51,67 @@
     arp -a
     ```
 
+## Network Security Monitoring
+
+- Prevention eventually fails. One version of this philosophy is that security breaches are inevitable
+- Prevention mechanisms can block some malicious activity, but it’s increasingly difficult for organizations to defend themselves as adversaries adopt more sophisticated tactics. 
+- NSM is threat-centric, meaning adversaries are the focus of the NSM operation. Continuous Monitoring (CM) is vulnerability-centric, focusing on configuration and software weaknesses.
+- NMS is a strategy backed by tactics that focus on visibility, not control.
+- <http://nsmwiki.org/>
+- Placed outside of NAT/NPAT, so that the NSM sees actual source IP of traffic
+  -  configure switch to send copies of the traffic they see to an otherwise unused switch port. Cisco calls this technique the `Switched Port Analyzer`. Juniper and Dell use the term `port mirroring`. 
+     - intruders could disable a SPAN port in order to hide some of their activities
+  - or use network taps that provide separate ports with copies of network traffic. (Net Optics iTap Port Aggregator)
+
+- Network address translation (NAT)
+- Network port address translation (NPAT or PAT).
+  - Each translation device rewrites the wireless or internal source IP address to be a single IP value, and uses changing source ports to differentiate among sending computers. 
+  - As with NAT, each translation device maintains a table to track any changes.
+  - Computers use the combination of source IP address, source port, destination IP address, destination port, and IP protocol to identify unique connections.
+  - Ports are the key in the translation process, as they permit several private IP addresses to be hidden behind a single public IP address.
+
+- Recommendations 
+  - Limit command shell access to the system to only those administrators who truly need it. Analysts should log in to the sensor directly only in an emergency. Instead, they should access it through tools that allow them to issue commands or retrieve data from the sensor.
+  - Administrators should never share the root account, and should never log in to sensors as the root account. If possible, access the sensor using shared keys, or use a two-factor or two-step authentication system like Google Authenticator.
+  - Always administer the sensor over a secure communications channel like OpenSSH.
+  - Do not centrally administer the sensor’s accounts using the same system that manages normal IT or user assets.
+  - Always equip production sensors with remote-access cards.
+  - Assume the sensor is responsible for defending itself. Limit the expo- sure of services on the sensor, and keep all services up-to-date.
+  - Export logs from the sensor to another platform so that its status can be remotely monitored and assessed.
+  - If possible, put the sensor’s management interface on a private network reserved for management only.
+  - If possible, use full disk encryption to protect data on the sensor when it is shut down.
+  - Create and implement a plan to keep the sensor software up-to-date. Treat the system like an appliance, but maintain it as a defensible platform.
+- Tools 
+  - Xplico (http://www.xplico.org/) can rebuild a web page whose content was captured in network form
+  - Session Data / Transaction Data
+    - Bro (http://www.bro.org/) can generate many types of logs based on its inspection of network traffic
+    - Argus (http://www.qosient.com/argus/) can also generate records for this traffic
+    - Sguil (http://www.sguil.net/) can also be used to view session data
+      - SANCP tool (http://nsmwiki .org/SANCP) to collect session data and render
+  - Statistical Data
+    - Capinfos of Wireshark
+  - Metadata
+    - RobTex (http://www.robtex.com) offers a free resource to show routing data
+  - Alert Data
+    - Snort (http:// www.snort.org/)
+    - Suricata (http://suricata-ids.org/)  
+    - Consoles: Sguil or Snorby (http:// www.snorby.org/) - Snorby is a web-based tool, whereas Sguil is a “thick client” that users install on their desktops
+
+- Security Onion (SO) NSM suite
+  - Linux distro for IDS and NSM
+    - Snort
+    - Suricata
+    - Sguil
+    - Squert: View NIDS/HIDS  alerts and HTTP logs
+    - Snorby: View and annotate IDS logs
+    - ELSA: Seach logs (IDS, Bro, syslog)
+    - Xplico: Carve PCAP files
+  - `sudo service nsm status`
+  - `curl www.testmyids.com`
+  - Create separate user for each sensor (SSH)
+
+![](_assets/2020-08-13-00-15-54.png)
+
 ## Port Scanning
 
 - FPing: `for ip in $(seq 1 254);do fping 10.11.1.$ip >> fping.txt;done;grep alive ./fping.txt`

