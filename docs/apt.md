@@ -56,4 +56,24 @@ INS_RewriteMemmoryOperand: Change memory address by the program
 PIN_AddSyscallEntryFunction: Intercept syscalls at the entry point 
 PIN_AddSyscallExitFunction: Execute after syscall (usable to alter the result)
 
+## Adversary Emulation
+
+- Don't wait for maturity to start doing AE
+- Find the gap and then find the tool for that
+- <https://github.com/center-for-threat-informed-defense/adversary_emulation_library>
+  - Start: <https://github.com/center-for-threat-informed-defense/adversary_emulation_library/blob/master/fin6/Emulation_Plan/Phase1.md#step-2---fin6-discovery>
+  - No need to have full plan in place
+- Detect / Block / Alert
+- Platforms:
+  - <https://plextrac.com/>
+  - FOSS: <https://vectr.io/>
+- Thoughts
+  - Know the enemy - Frameworks 
+  - Will drive investment
+  - Take as much time as needed
+  - Iterate!
+- Fin6
+  - 
+
+![](_assets/2020-10-22-22-07-03.png)
 

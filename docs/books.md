@@ -228,6 +228,24 @@
       - Add icon to hta
     - Part VII: USB Shotgun Attack
       - Starting with Windows 7, the OS no longer supports the AutoRun functionality for non-optical removable media. AutoPlay will still work on CDs and DVDs (the user will be given the option to execute the code, but it won’t happen automatically); however, it will no longer work at all for USB drives
+    - Part VIII: Miscellaneous Rich Web Content
+      - Java Web Start 
+      - Adobe Air
+      - InDesign plugin
+        - Create a document and package all dependencies with the document
+    - Democratic People’s Republic of Korea (DPRK) 
+      - Democratic People’s Republic of Korea (DPRK) - Red Star OS
+        - No root. Discretionary Access Control (DAC) provided by SE Linux
+        - Grant root by: `rootsetting`
+        - Stop SE Linux: `setenforce 0` `killall -9 securityd`
+        - Kill monitoring apps: `killall scnprc` `killall opprc` 
+      - Phone system
+        - Needs entry through operator at +850 2 18111 (850 is the country code for DPRK and 2 is Pyongyang)
+        - Numbers that can dial internationally cannot dial locally
+        - War-dialing. VoIP calling to reduce cost.
+        - Record samples. Any tones that fall within a certain frequency we log as modems. Modem responses will contain the following tone DTMFs: 2250hz + 1625hz, 1850hz, 2000hz...
+        - WarVOX: <https://github.com/rapid7/warvox>
+        - Grab audio/video from android. If SSL site, permissions are requested only once.
   - Command and Control 
     - Part 1: Basics and Essentials
       - Essentials
@@ -388,7 +406,6 @@
             Bridge fte 128.105.214.161:8080 1E326AAFB3FCB515015250D8FCCC8E37F91A153B
             UseBridges 1
             ```
-
     - Part VI: The Creeper Box
       - Using Raspberry Pi
       - PoE (forensic analysis become hard)
@@ -404,7 +421,54 @@
       - Using a Pi as a Wireless AP to Provision Access by Remote Keyloggers
       - Label that says "Do not tamper"with company logo.
     - Part VII: Advanced Autonomous Data Exfiltration
-      - cd
+      - Physical Media
+        - Detect removable media 
+        - Target data to exfiltrate packaged on to the drive
+        - Embedded into some pseudo-executable format (HTA)
+        - "Hail Mary"
+        - BlackHat: <https://www.youtube.com/watch?v=nuruzFqMgIw>
+          - USB act like a regular drive. 
+          - When plugged in during boot, it act as a keyboard and a linux drive.
+          - Replace the bootloader with its own.
+      - Dropbox to bypass restrictions (Dropbox doesn't do malware checks)
+      - Email
+        - Use API when possible: example: Outlook API
+        - check if a domain has SPF protection (before spoofing)
+      - Wifi
+        - Connect the laptop via wireless to an AP that you control
+        - hidden feature in Windows that allows you to host your own AP while being simultaneously connected to another one with the same adapter (Internet Connection Sharing)
+          - `netsh wlan set hostednetwork mode ="allow" ssid="C2backdoor" key = "password"`
+          - `net start SharedAccess`
+      - Mobile data / Bluetooth / SMS
+      - Dongle 
+        - stealth installs the 3G/4G drivers
+          - silent install: `setup_vmb.exe s /L2057 /v"OPCO_PROP=23415 /qn /norestart"`
+        - establishes C2
+        - (talk about adding a label that says: SIPDIS means it’s for SIPRNet distribution and NOFORN means No Foreign Nationals )
+          - Reciever will plug it to SIPRNet workstation to know what's inside
+    - Part VIII: Experimental Concepts in Command and Control
+      - C2 Server Guided Agent Management
+        - allow the C2 server to assign roles to the C2 agents
+        - one becomes master, others send data to master (master repaly to C2)
+          - have timeout and failover mechanisum
+        - HTTPS is not recommended for carrying C2 data outside the network
+          - Due to border level security
+        - May use ICMP, SNMP, fake RIP and OSPF messages
+      - Semi-Autonomous C2 Agent Management
+        - broadcast packet or a fake ARP packet can be used to enable nodes that are not aware of each other’s presence
+        - elect a master
+          - The host with the most points becomes the new master
+          - points:
+            - Relative importance of the node (DC)
+            - Previous reliability of the node as noted by uptime
+            - Communication reliability in general (score decrease with every failure)
+            - Random jitter to avoid stagnation
+        - master responsible of
+          - monitoring slaves
+          - motify c2 if slave goes  offline
+          - central conduit between the C2 server and the C2 slave nodes
+          - Correctly routing C2 messages to C2 slave nodes (c2 only say slave ID)
+          - should not be used for initiating a new election (that is reponsibility of all)
   - The Attack
     - Bypassing Authentication
       - browser pivoting - transparently exploit his or her permissions
@@ -602,7 +666,24 @@
         ``` 
       - In agent code don't use  words like `Base64Decode` (book uses `monkey` instead)
       - Veil Evasion
-        - 
+- Social Engineering 
+  - Fuzzy Fact (hand writing of name is not clesr, hence ask for help)
+  - Psychic Credit 
+    - credit them with knowledge or experience they don’t have
+    - treating the target as an equal and according them the respect of a peer
+    - "I’m normally not used to dealing with people who know what they’re talking about—this is a nice change!"
+    - "You’re the expert so I was wondering if you could tell me...."
+  - The Rainbow Ruse
+    - statement that credits the client with both a personality trait and its opposite
+    - irrefutable statement and that’s social engineering gold
+  - Flattery / praising the concern / 
+    - similar to the psychic credit, but is broader in its approach (“You’re warm and loving.”)
+    - “I have to say I think your adherence to the essence of what security really is is spot on. Getting the balance right between functional process and security is never easy, but I think you’ve really judged it well—probably a bit better than most companies in your sector. At least in my experience.”
+  - The Jacques Statement
+  - The Barnum Statement
+    - “something to please everybody.”
+    - Statement is one that is designed to ring true to everyone
+
 ### Threat Modeling Designing for Security
 
 - Threat modeling is the use of abstractions to aid in thinking about risks.

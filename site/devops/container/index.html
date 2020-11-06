@@ -1,0 +1,1479 @@
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.0">
+    
+    
+      
+        <title>Container - Security Knowledge Base</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.1b62728e.css">
+      
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.268332fc.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
+    
+      <link rel="stylesheet" href="../../_site/extra.css">
+    
+    
+      
+    
+    
+  </head>
+  
+    <body dir="ltr">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#docker" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../.." title="Security Knowledge Base" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              Security Knowledge Base
+            </span>
+            <span class="md-header-nav__topic">
+              
+                Container
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../.." title="Security Knowledge Base" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    Security Knowledge Base
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../apt/" title="APT" class="md-nav__link">
+      APT
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../books/" title="Books" class="md-nav__link">
+      Books
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../bug-hunting/" title="Bug hunting" class="md-nav__link">
+      Bug hunting
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../career/" title="Career" class="md-nav__link">
+      Career
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../collections/" title="Collections" class="md-nav__link">
+      Collections
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../crypto/" title="Crypto" class="md-nav__link">
+      Crypto
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../databases-sqlserver/" title="Databases - SqlServer" class="md-nav__link">
+      Databases - SqlServer
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../databases/" title="Databases" class="md-nav__link">
+      Databases
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../defense/" title="Defense" class="md-nav__link">
+      Defense
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../dfir/" title="DFIR" class="md-nav__link">
+      DFIR
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../embedded-and-iot/" title="Embedded and iot" class="md-nav__link">
+      Embedded and iot
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../exploits_and_shellcoding/" title="Exploits and shellcoding" class="md-nav__link">
+      Exploits and shellcoding
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../iam-kerberos/" title="IAM - Kerberos" class="md-nav__link">
+      IAM - Kerberos
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../iam/" title="IAM" class="md-nav__link">
+      IAM
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../languages/" title="Languages" class="md-nav__link">
+      Languages
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../linux-issues/" title="Linux issues" class="md-nav__link">
+      Linux issues
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../linux/" title="Linux" class="md-nav__link">
+      Linux
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../malware/" title="Malware" class="md-nav__link">
+      Malware
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../network/" title="Network" class="md-nav__link">
+      Network
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../non-security/" title="Z Non Security" class="md-nav__link">
+      Z Non Security
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../operating-systems/" title="Operating systems" class="md-nav__link">
+      Operating systems
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../osint/" title="OSINT" class="md-nav__link">
+      OSINT
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../password-attacks/" title="Password attacks" class="md-nav__link">
+      Password attacks
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../ports-and-protocols/" title="Ports and protocols" class="md-nav__link">
+      Ports and protocols
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../red-blue-team/" title="Red blue team" class="md-nav__link">
+      Red blue team
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../reverse-engineering/" title="Reverse engineering" class="md-nav__link">
+      Reverse engineering
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../rf-and-sdr/" title="RF and SDR" class="md-nav__link">
+      RF and SDR
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../social-engineering/" title="Social engineering" class="md-nav__link">
+      Social engineering
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../steganography/" title="Steganography" class="md-nav__link">
+      Steganography
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../vulnerable/" title="Vulnerable" class="md-nav__link">
+      Vulnerable
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../web/" title="Web" class="md-nav__link">
+      Web
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../wifi/" title="WiFi" class="md-nav__link">
+      WiFi
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-34" type="checkbox" id="nav-34">
+    
+    <label class="md-nav__link" for="nav-34">
+      Certifications
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-34">
+        Certifications
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../certifications/cissp/" title="CISSP" class="md-nav__link">
+      CISSP
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../certifications/osce/" title="OSCE" class="md-nav__link">
+      OSCE
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-34-3" type="checkbox" id="nav-34-3">
+    
+    <label class="md-nav__link" for="nav-34-3">
+      Oscp
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-34-3">
+        Oscp
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../certifications/oscp/0-cheatsheet/" title="Enumeration" class="md-nav__link">
+      Enumeration
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../certifications/oscp/_collections/" title="collections" class="md-nav__link">
+       collections
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../certifications/oscp/_preparation/" title="Was checking" class="md-nav__link">
+      Was checking
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../certifications/oscp/lab-setup/" title="Lab Setup" class="md-nav__link">
+      Lab Setup
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../certifications/oscp/notes/" title="Notes" class="md-nav__link">
+      Notes
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../certifications/oscp/practice-vulnhub/" title="Practice" class="md-nav__link">
+      Practice
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../certifications/oscp/setup/" title="Setup" class="md-nav__link">
+      Setup
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../certifications/oscp/y-Tools/" title="Tools" class="md-nav__link">
+      Tools
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-34-3-9" type="checkbox" id="nav-34-3-9">
+    
+    <label class="md-nav__link" for="nav-34-3-9">
+      Cheatsheet
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-34-3-9">
+        Cheatsheet
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../certifications/oscp/cheatsheet/0-cheatsheet/" title="Cheatsheets" class="md-nav__link">
+      Cheatsheets
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../certifications/oscp/cheatsheet/download/" title="Download" class="md-nav__link">
+      Download
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../certifications/oscp/cheatsheet/exploits/" title="Exploits" class="md-nav__link">
+      Exploits
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../certifications/oscp/cheatsheet/post-exploitation/" title="Post exploitation" class="md-nav__link">
+      Post exploitation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../certifications/oscp/cheatsheet/share-files/" title="Share files" class="md-nav__link">
+      Share files
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../certifications/oscp/cheatsheet/shell/" title="Bash" class="md-nav__link">
+      Bash
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../certifications/oscp/cheatsheet/tty/" title="TTY" class="md-nav__link">
+      TTY
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../certifications/oscp/cheatsheet/web/" title="Web" class="md-nav__link">
+      Web
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../certifications/oscp/cheatsheet/windows/" title="Windows" class="md-nav__link">
+      Windows
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-34-3-9-10" type="checkbox" id="nav-34-3-9-10">
+    
+    <label class="md-nav__link" for="nav-34-3-9-10">
+      Enumeration
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="4">
+      <label class="md-nav__title" for="nav-34-3-9-10">
+        Enumeration
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../certifications/oscp/cheatsheet/enumeration/network/" title="Network" class="md-nav__link">
+      Network
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../certifications/oscp/cheatsheet/enumeration/vulnerability/" title="Vulnerability" class="md-nav__link">
+      Vulnerability
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../certifications/oscp/cheatsheet/enumeration/windows-local/" title="Windows local" class="md-nav__link">
+      Windows local
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-35" type="checkbox" id="nav-35">
+    
+    <label class="md-nav__link" for="nav-35">
+      Cloud
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-35">
+        Cloud
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../cloud/aws/" title="Aws" class="md-nav__link">
+      Aws
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../cloud/azuer-o360/" title="Azuer o360" class="md-nav__link">
+      Azuer o360
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../cloud/general/" title="General" class="md-nav__link">
+      General
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-36" type="checkbox" id="nav-36" checked>
+    
+    <label class="md-nav__link" for="nav-36">
+      Devops
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-36">
+        Devops
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Container
+      </label>
+    
+    <a href="./" title="Container" class="md-nav__link md-nav__link--active">
+      Container
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#docker" class="md-nav__link">
+    Docker
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#general-commands" class="md-nav__link">
+    General Commands
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enumeration" class="md-nav__link">
+    Enumeration
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tools" class="md-nav__link">
+    Tools
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#binctr" class="md-nav__link">
+    binctr
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cve-2019-5736" class="md-nav__link">
+    CVE-2019-5736
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#new-references" class="md-nav__link">
+    New References
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../docker/" title="Docker" class="md-nav__link">
+      Docker
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../istio/" title="Istio" class="md-nav__link">
+      Istio
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../kubernetes/" title="Kubernetes" class="md-nav__link">
+      Kubernetes
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-37" type="checkbox" id="nav-37">
+    
+    <label class="md-nav__link" for="nav-37">
+      Windows
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-37">
+        Windows
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../windows/active-directory/" title="Active Directory" class="md-nav__link">
+      Active Directory
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../windows/powershell/" title="Powershell" class="md-nav__link">
+      Powershell
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../windows/windows-issues/" title="Windows issues" class="md-nav__link">
+      Windows issues
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../windows/windows-privilege-escalation/" title="Windows Privilege Escalation" class="md-nav__link">
+      Windows Privilege Escalation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../windows/windows/" title="Windows" class="md-nav__link">
+      Windows
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#docker" class="md-nav__link">
+    Docker
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#general-commands" class="md-nav__link">
+    General Commands
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enumeration" class="md-nav__link">
+    Enumeration
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tools" class="md-nav__link">
+    Tools
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#binctr" class="md-nav__link">
+    binctr
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cve-2019-5736" class="md-nav__link">
+    CVE-2019-5736
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#new-references" class="md-nav__link">
+    New References
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  <h1>Container</h1>
+                
+                <h2 id="docker">Docker<a class="headerlink" href="#docker" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Docker Production Best Practices from Bret Fisher at DockerCon: <a href="https://www.youtube.com/watch?v=V4f_sHTzvCI">https://www.youtube.com/watch?v=V4f_sHTzvCI</a></li>
+<li>Docker Security Best Practices: <a href="https://blog.sqreen.com/docker-security/">https://blog.sqreen.com/docker-security/</a></li>
+<li>29 Docker security tools compared: <a href="https://sysdig.com/blog/20-docker-security-tools/">https://sysdig.com/blog/20-docker-security-tools/</a></li>
+<li>Docker Security Cheat Sheet: <a href="https://security.stackrox.com/rs/219-UEH-533/images/Docker-security-cheatsheet_final.pdf">https://security.stackrox.com/rs/219-UEH-533/images/Docker-security-cheatsheet_final.pdf</a></li>
+<li>Docker Internals: <ul>
+<li><a href="https://docker-saigon.github.io/post/Docker-Internals/">https://docker-saigon.github.io/post/Docker-Internals/</a></li>
+<li><a href="https://www.netmanias.com/en/post/blog/13392/sdn-nfv/docker-internals">https://www.netmanias.com/en/post/blog/13392/sdn-nfv/docker-internals</a></li>
+<li><a href="https://medium.com/@BeNitinAgarwal/understanding-the-docker-internals-7ccb052ce9fe">https://medium.com/@BeNitinAgarwal/understanding-the-docker-internals-7ccb052ce9fe</a></li>
+<li><a href="https://medium.com/@cwgem/docker-internals-through-docker-run-d1935356ced">https://medium.com/@cwgem/docker-internals-through-docker-run-d1935356ced</a></li>
+</ul>
+</li>
+<li>bretfisher Courses - Docker Mastery: <a href="https://www.bretfisher.com/courses/">https://www.bretfisher.com/courses/</a><ul>
+<li>petclinic example: <a href="https://github.com/BretFisher/petclinic">https://github.com/BretFisher/petclinic</a></li>
+<li><a href="https://github.com/BretFisher/dockercon19">https://github.com/BretFisher/dockercon19</a></li>
+</ul>
+</li>
+<li>Docker security: <a href="https://docs.docker.com/engine/security/security/">https://docs.docker.com/engine/security/security/</a></li>
+<li>BretFisher: What security concerns should I have with Docker? How should I go about locking it down? <a href="https://github.com/BretFisher/ama/issues/17">https://github.com/BretFisher/ama/issues/17</a></li>
+<li>Shifting Docker security left: <a href="https://snyk.io/blog/shifting-docker-security-left/">https://snyk.io/blog/shifting-docker-security-left/</a></li>
+<li>At DockerCon: "Building a Docker Image Packaging Pipeline Using GitHub Actions": <a href="https://docker.events.cube365.net/docker/dockercon/content/Videos/SPWM3BdnCZWPN4fN9">https://docker.events.cube365.net/docker/dockercon/content/Videos/SPWM3BdnCZWPN4fN9</a></li>
+<li>At DockerCon: "Your Container Has Vulnerabilities. Now What?" <a href="https://docker.events.cube365.net/docker/dockercon/content/Videos/GZpzJAapdrSXohzNz">https://docker.events.cube365.net/docker/dockercon/content/Videos/GZpzJAapdrSXohzNz</a></li>
+<li>At DockerCon: "Captains on Deck” hosted by Bret Fisher: <a href="https://docker.events.cube365.net/docker/dockercon/content/Videos/jFNDwpTbHotrtbt5x">https://docker.events.cube365.net/docker/dockercon/content/Videos/jFNDwpTbHotrtbt5x</a></li>
+</ul>
+<ul>
+<li>Reduced linux capabilities </li>
+<li>Security Options (<code class="codehilite"><span class="n">docker</span> <span class="n">info</span></code> -&gt; <code class="codehilite"><span class="k">security</span> <span class="k">options</span></code>)<ul>
+<li>AppArmor profile enabled by default (Ubuntu) (<code class="codehilite"><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">apparmor</span><span class="p">.</span><span class="n">d</span><span class="o">/</span><span class="n">docker</span></code>) if you have AppArmor running</li>
+<li>SELinux easily enabled (CentOS) by <code class="codehilite"><span class="c1">--selinux-enabled</span></code></li>
+<li>Seccomp profile enabled by default.</li>
+</ul>
+</li>
+<li>Docker -&gt; ContainterD / (cri-o only in k8s) </li>
+<li>DO not expose Docker TCP socket, without securing using certificates. It's possible to use SSH (ssh://user@host)<ul>
+<li><code class="codehilite"><span class="n">DOCKER_HOST</span><span class="o">=</span><span class="nl">ssh</span><span class="p">:</span><span class="o">//</span><span class="k">user</span><span class="nv">@host</span><span class="w"> </span><span class="n">docker</span><span class="w"> </span><span class="n">version</span><span class="w"></span></code></li>
+</ul>
+</li>
+<li>Build with one base image, copy it to next base image after the initial work is done (within single Dockerfile): <a href="https://github.com/BretFisher/petclinic/blob/master/pet-clinic-app/Dockerfile">https://github.com/BretFisher/petclinic/blob/master/pet-clinic-app/Dockerfile</a></li>
+</ul>
+<p><strong>Tools</strong></p>
+<ul>
+<li>script that checks for dozens of common best-practices around deploying Docker containers in production: <a href="https://github.com/docker/docker-bench-security">https://github.com/docker/docker-bench-security</a></li>
+</ul>
+<h3 id="general-commands">General Commands<a class="headerlink" href="#general-commands" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Mount host file system into a container and run: <code class="codehilite"><span class="n">docker</span> <span class="n">run</span> <span class="c1">--rm -ti -v /:/hostOs &lt;image&gt; sh</span></code></li>
+<li>Auto remove container when exit: <code class="codehilite"><span class="n">docker</span> <span class="n">run</span> <span class="c1">--rm</span></code></li>
+<li>List all images: <code class="codehilite"><span class="n">docker</span> <span class="n">images</span> <span class="c1">--all</span></code></li>
+<li>Version info: <code class="codehilite"><span class="n">docker</span> <span class="k">version</span></code></li>
+<li>Connect with remote: <code class="codehilite"><span class="n">docker</span> <span class="n">context</span></code></li>
+</ul>
+<h3 id="enumeration">Enumeration<a class="headerlink" href="#enumeration" title="Permanent link">&para;</a></h3>
+<p>Check presence of docker:
+<div class="codehilite"><pre><span></span><span class="o">/</span><span class="p">.</span><span class="n">dockerenv</span>
+</pre></div></p>
+<h2 id="tools">Tools<a class="headerlink" href="#tools" title="Permanent link">&para;</a></h2>
+<h3 id="binctr">binctr<a class="headerlink" href="#binctr" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Create fully static, including rootfs embedded, binaries that pop you directly into a container.</li>
+<li>Can be run by an unprivileged user.</li>
+<li><a href="https://github.com/genuinetools/binctr">https://github.com/genuinetools/binctr</a></li>
+<li><a href="https://blog.ropnop.com/docker-for-pentesters/">https://blog.ropnop.com/docker-for-pentesters/</a></li>
+</ul>
+<h2 id="cve-2019-5736">CVE-2019-5736<a class="headerlink" href="#cve-2019-5736" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://kubernetes.io/blog/2019/02/11/runc-and-cve-2019-5736/">https://kubernetes.io/blog/2019/02/11/runc-and-cve-2019-5736/</a></li>
+<li><a href="https://gist.github.com/singe/0ad4078848d85dc0d03f9f9013796e45">https://gist.github.com/singe/0ad4078848d85dc0d03f9f9013796e45</a></li>
+</ul>
+<h2 id="new-references">New References<a class="headerlink" href="#new-references" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://brage.bibsys.no/xmlui/bitstream/handle/11250/2451326/17303_FULLTEXT.pdf">Security analysis of Docker containers in a production environment</a></li>
+<li><a href="https://kromtech.com/blog/security-center/cryptojacking-invades-cloud-how-modern-containerization-trend-is-exploited-by-attackers">Cryptojacking invades cloud. How modern containerization trend is exploited by attackers</a></li>
+</ul>
+                
+                  
+                
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../../cloud/general/" title="General" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                General
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../docker/" title="Docker" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Docker
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.808e90bb.js"></script>
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      
+    
+  </body>
+</html>

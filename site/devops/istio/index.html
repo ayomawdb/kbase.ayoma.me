@@ -1,0 +1,1470 @@
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.0">
+    
+    
+      
+        <title>Istio - Security Knowledge Base</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.1b62728e.css">
+      
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.268332fc.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
+    
+      <link rel="stylesheet" href="../../_site/extra.css">
+    
+    
+      
+    
+    
+  </head>
+  
+    <body dir="ltr">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#istio" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../.." title="Security Knowledge Base" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              Security Knowledge Base
+            </span>
+            <span class="md-header-nav__topic">
+              
+                Istio
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../.." title="Security Knowledge Base" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    Security Knowledge Base
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../apt/" title="APT" class="md-nav__link">
+      APT
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../books/" title="Books" class="md-nav__link">
+      Books
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../bug-hunting/" title="Bug hunting" class="md-nav__link">
+      Bug hunting
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../career/" title="Career" class="md-nav__link">
+      Career
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../collections/" title="Collections" class="md-nav__link">
+      Collections
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../crypto/" title="Crypto" class="md-nav__link">
+      Crypto
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../databases-sqlserver/" title="Databases - SqlServer" class="md-nav__link">
+      Databases - SqlServer
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../databases/" title="Databases" class="md-nav__link">
+      Databases
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../defense/" title="Defense" class="md-nav__link">
+      Defense
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../dfir/" title="DFIR" class="md-nav__link">
+      DFIR
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../embedded-and-iot/" title="Embedded and iot" class="md-nav__link">
+      Embedded and iot
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../exploits_and_shellcoding/" title="Exploits and shellcoding" class="md-nav__link">
+      Exploits and shellcoding
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../iam-kerberos/" title="IAM - Kerberos" class="md-nav__link">
+      IAM - Kerberos
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../iam/" title="IAM" class="md-nav__link">
+      IAM
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../languages/" title="Languages" class="md-nav__link">
+      Languages
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../linux-issues/" title="Linux issues" class="md-nav__link">
+      Linux issues
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../linux/" title="Linux" class="md-nav__link">
+      Linux
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../malware/" title="Malware" class="md-nav__link">
+      Malware
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../network/" title="Network" class="md-nav__link">
+      Network
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../non-security/" title="Z Non Security" class="md-nav__link">
+      Z Non Security
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../operating-systems/" title="Operating systems" class="md-nav__link">
+      Operating systems
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../osint/" title="OSINT" class="md-nav__link">
+      OSINT
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../password-attacks/" title="Password attacks" class="md-nav__link">
+      Password attacks
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../ports-and-protocols/" title="Ports and protocols" class="md-nav__link">
+      Ports and protocols
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../red-blue-team/" title="Red blue team" class="md-nav__link">
+      Red blue team
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../reverse-engineering/" title="Reverse engineering" class="md-nav__link">
+      Reverse engineering
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../rf-and-sdr/" title="RF and SDR" class="md-nav__link">
+      RF and SDR
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../social-engineering/" title="Social engineering" class="md-nav__link">
+      Social engineering
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../steganography/" title="Steganography" class="md-nav__link">
+      Steganography
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../vulnerable/" title="Vulnerable" class="md-nav__link">
+      Vulnerable
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../web/" title="Web" class="md-nav__link">
+      Web
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../wifi/" title="WiFi" class="md-nav__link">
+      WiFi
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-34" type="checkbox" id="nav-34">
+    
+    <label class="md-nav__link" for="nav-34">
+      Certifications
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-34">
+        Certifications
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../certifications/cissp/" title="CISSP" class="md-nav__link">
+      CISSP
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../certifications/osce/" title="OSCE" class="md-nav__link">
+      OSCE
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-34-3" type="checkbox" id="nav-34-3">
+    
+    <label class="md-nav__link" for="nav-34-3">
+      Oscp
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-34-3">
+        Oscp
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../certifications/oscp/0-cheatsheet/" title="Enumeration" class="md-nav__link">
+      Enumeration
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../certifications/oscp/_collections/" title="collections" class="md-nav__link">
+       collections
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../certifications/oscp/_preparation/" title="Was checking" class="md-nav__link">
+      Was checking
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../certifications/oscp/lab-setup/" title="Lab Setup" class="md-nav__link">
+      Lab Setup
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../certifications/oscp/notes/" title="Notes" class="md-nav__link">
+      Notes
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../certifications/oscp/practice-vulnhub/" title="Practice" class="md-nav__link">
+      Practice
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../certifications/oscp/setup/" title="Setup" class="md-nav__link">
+      Setup
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../certifications/oscp/y-Tools/" title="Tools" class="md-nav__link">
+      Tools
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-34-3-9" type="checkbox" id="nav-34-3-9">
+    
+    <label class="md-nav__link" for="nav-34-3-9">
+      Cheatsheet
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-34-3-9">
+        Cheatsheet
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../certifications/oscp/cheatsheet/0-cheatsheet/" title="Cheatsheets" class="md-nav__link">
+      Cheatsheets
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../certifications/oscp/cheatsheet/download/" title="Download" class="md-nav__link">
+      Download
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../certifications/oscp/cheatsheet/exploits/" title="Exploits" class="md-nav__link">
+      Exploits
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../certifications/oscp/cheatsheet/post-exploitation/" title="Post exploitation" class="md-nav__link">
+      Post exploitation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../certifications/oscp/cheatsheet/share-files/" title="Share files" class="md-nav__link">
+      Share files
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../certifications/oscp/cheatsheet/shell/" title="Bash" class="md-nav__link">
+      Bash
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../certifications/oscp/cheatsheet/tty/" title="TTY" class="md-nav__link">
+      TTY
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../certifications/oscp/cheatsheet/web/" title="Web" class="md-nav__link">
+      Web
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../certifications/oscp/cheatsheet/windows/" title="Windows" class="md-nav__link">
+      Windows
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-34-3-9-10" type="checkbox" id="nav-34-3-9-10">
+    
+    <label class="md-nav__link" for="nav-34-3-9-10">
+      Enumeration
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="4">
+      <label class="md-nav__title" for="nav-34-3-9-10">
+        Enumeration
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../certifications/oscp/cheatsheet/enumeration/network/" title="Network" class="md-nav__link">
+      Network
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../certifications/oscp/cheatsheet/enumeration/vulnerability/" title="Vulnerability" class="md-nav__link">
+      Vulnerability
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../certifications/oscp/cheatsheet/enumeration/windows-local/" title="Windows local" class="md-nav__link">
+      Windows local
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-35" type="checkbox" id="nav-35">
+    
+    <label class="md-nav__link" for="nav-35">
+      Cloud
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-35">
+        Cloud
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../cloud/aws/" title="Aws" class="md-nav__link">
+      Aws
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../cloud/azuer-o360/" title="Azuer o360" class="md-nav__link">
+      Azuer o360
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../cloud/general/" title="General" class="md-nav__link">
+      General
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-36" type="checkbox" id="nav-36" checked>
+    
+    <label class="md-nav__link" for="nav-36">
+      Devops
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-36">
+        Devops
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../container/" title="Container" class="md-nav__link">
+      Container
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../docker/" title="Docker" class="md-nav__link">
+      Docker
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+    <a href="./" title="Istio" class="md-nav__link md-nav__link--active">
+      Istio
+    </a>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../kubernetes/" title="Kubernetes" class="md-nav__link">
+      Kubernetes
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-37" type="checkbox" id="nav-37">
+    
+    <label class="md-nav__link" for="nav-37">
+      Windows
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-37">
+        Windows
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../windows/active-directory/" title="Active Directory" class="md-nav__link">
+      Active Directory
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../windows/powershell/" title="Powershell" class="md-nav__link">
+      Powershell
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../windows/windows-issues/" title="Windows issues" class="md-nav__link">
+      Windows issues
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../windows/windows-privilege-escalation/" title="Windows Privilege Escalation" class="md-nav__link">
+      Windows Privilege Escalation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../windows/windows/" title="Windows" class="md-nav__link">
+      Windows
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="istio">Istio<a class="headerlink" href="#istio" title="Permanent link">&para;</a></h1>
+<ul>
+<li><a href="https://istio.io/latest/docs/concepts/what-is-istio/">https://istio.io/latest/docs/concepts/what-is-istio/</a></li>
+<li>Enable sidecar injection<ul>
+<li>Add label using kubectl<ul>
+<li><code class="codehilite"><span class="n">kubectl</span> <span class="k">describe</span> <span class="n">ns</span> <span class="k">default</span></code></li>
+<li><code class="codehilite"><span class="n">kubectl</span> <span class="n">label</span> <span class="n">ns</span> <span class="k">default</span> <span class="n">istio</span><span class="o">-</span><span class="n">injection</span><span class="o">=</span><span class="n">enabled</span></code></li>
+</ul>
+</li>
+<li>Add same label using Yamls(<code class="codehilite"><span class="n">metadata</span></code> -&gt; <code class="codehilite"><span class="n">label</span></code>)</li>
+</ul>
+</li>
+<li>Kiali - visualization</li>
+<li>Architecture<ul>
+<li>Proxies (sidecar)<ul>
+<li>Example: <code class="codehilite"><span class="n">isUserLoggedIn</span></code> micro service security check</li>
+<li>Envoy is the proxy <ul>
+<li>L7 proxy and communication bus designed for large modern service oriented architectures</li>
+<li>Self contained process that is designed to run alongside every application server</li>
+<li>Primarily designed as a service to service communication system</li>
+<li>A single Envoy deployment can form a mesh between Java, C++, Go, PHP, Python, etc. </li>
+<li>Envoy can be <strong>deployed and upgraded quickly</strong> across an entire infrastructure transparently. (where as library update is painful)</li>
+<li>Envoy is an L3/L4 network proxy. A pluggable <strong>filter chain mechanism</strong> allows filters to be written to perform different TCP proxy tasks and inserted into the main server. Filters have already been written to support various tasks such as raw TCP proxy, HTTP proxy, TLS client certificate authentication, etc.</li>
+<li>Envoy supports an <strong>additional HTTP L7 filter layer</strong>. HTTP filters can be plugged into the HTTP connection management subsystem that perform different tasks such as buffering, rate limiting, routing/forwarding, sniffing Amazon’s DynamoDB, etc.</li>
+<li>First class <strong>HTTP/2 support</strong>: supports both HTTP/1.1 and HTTP/2
+-** HTTP L7 routing**: When operating in HTTP mode, Envoy supports a routing subsystem that is capable of routing and redirecting requests based on path, authority, content type, runtime values, etc. </li>
+<li><strong>gRPC support</strong>: gRPC is an RPC framework from Google that uses HTTP/2 as the underlying multiplexed transport</li>
+<li>MongoDB L7 support / DynamoDB L7 support</li>
+<li>Service discovery and dynamic configuration: Envoy optionally consumes a layered set of dynamic configuration APIs for centralized management. </li>
+<li>Envoy includes a <strong>health checking</strong> subsystem which can optionally perform active health checking of upstream service clusters.</li>
+<li>Envoy includes support for automatic retries, circuit breaking, global rate limiting via an external rate limiting service, request shadowing, and outlier detection. </li>
+<li>Envoy includes enough features to make it usable as an <strong>edge proxy</strong> for most modern web application use cases. This includes TLS termination, HTTP/1.1 and HTTP/2 support, as well as HTTP L7 routing.</li>
+<li>Envoy includes robust <strong>statistics</strong> support for all subsystems</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Control Plane <ul>
+<li>Galley: Read k8s yaml and transform it to internal structure that istio understands</li>
+<li>Pilot: Take istio's internal representation and broadcast that to envoy </li>
+<li>Citadel: Managing TLS certificates</li>
+<li>Mixer: Got replaced. Responsible for impl. policy checks and telemetry (Mixer get telemetry from Envoy)<ul>
+<li>Galley provide input to Mixer. Mixer communicate with Envoy. </li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Data Plane</li>
+</ul>
+</li>
+<li>Telemetry<ul>
+<li>Sidecar running in each pod to monitor</li>
+<li>Control must be running (Mixer/Telemetry)</li>
+<li>Kiali <code class="codehilite"><span class="n">Port</span> <span class="mi">31000</span></code><ul>
+<li>High-level</li>
+<li>Doesn't give view of individual requests</li>
+</ul>
+</li>
+<li>OpenTracing - Jaeger / Zipkin<ul>
+<li>Applications must propagate x-request-id and x-b3-*  headers<ul>
+<li>Or will end up creating several traces</li>
+</ul>
+</li>
+<li><img alt="" src="../_assets/2020-07-24-22-46-38.png" /></li>
+</ul>
+</li>
+<li>Grafana - for specific problems </li>
+</ul>
+</li>
+<li>Traffic Management<ul>
+<li>Canary Releases - Release to live for small % of incoming requests</li>
+<li>K8s Native way is to use <code class="codehilite"><span class="n">Deployments</span></code> where version is incremented </li>
+<li>In istio use <code class="codehilite"><span class="k">Version</span> <span class="k">Grouping</span></code><ul>
+<li>In Kiali: <code class="codehilite"><span class="n">Versioned</span> <span class="n">app</span> <span class="n">Graph</span></code></li>
+<li>Label: <code class="codehilite"><span class="n">app</span><span class="p">:</span></code> to show Application in Kiali</li>
+<li>Label: <code class="codehilite"><span class="k">version</span><span class="p">:</span></code> to show Version information in Kiali</li>
+<li>Kiali: Service -&gt; <code class="codehilite"><span class="k">Create</span> <span class="n">Weighted</span> <span class="n">Routing</span></code></li>
+</ul>
+</li>
+<li><code class="codehilite"><span class="n">Virtual</span> <span class="n">Service</span></code>: Enable configuring custom routing rules (custom routing)<ul>
+<li>When applying <code class="codehilite"><span class="n">Virtual</span> <span class="n">Service</span></code>, <code class="codehilite"><span class="n">Galley</span></code> read the YAML and then send to <code class="codehilite"><span class="n">Pilot</span></code> which  make config changes to <code class="codehilite"><span class="n">Proxies</span></code></li>
+<li>Envoy is doing the traffic management </li>
+<li>Istio is facilitating the update of all proxies in one go easily</li>
+<li><code class="codehilite"><span class="n">subset</span></code> defined in <code class="codehilite"><span class="n">Destination</span> <span class="k">Rule</span></code></li>
+</ul>
+</li>
+<li><code class="codehilite"><span class="n">Destination</span> <span class="k">Rule</span></code>: Define which pods (versions) should be part of <code class="codehilite"><span class="n">subset</span></code></li>
+</ul>
+</li>
+<li>Load Balancing a Virtual Service<ul>
+<li>Hash - Odd Even splitting - <code class="codehilite"><span class="n">consistentHash</span></code><ul>
+<li>Hash based on, header, cookie or source IP</li>
+<li>Doesn't work with weighted subsets. Weighting apply first. LB will have only one instance. </li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Istio Ingress Gateway<ul>
+<li>Edge proxy<ul>
+<li>Create Gateway (kind)</li>
+<li>Configure <code class="codehilite"><span class="n">gateway</span></code> of <code class="codehilite"><span class="n">VirtualService</span></code> to point to new Gateway</li>
+<li>NodePort ingress gateways, access from browsers only supported with host is * in VirtualService (LoadBalancer is expected)</li>
+</ul>
+</li>
+<li>Prefix based routing / Header based routing<ul>
+<li>Match in VirtualService </li>
+<li>Dark Releases based on headers</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Fault Injection<ul>
+<li>VirtualService -&gt; fault -&gt; delay</li>
+<li>Chaoses Engineering</li>
+</ul>
+</li>
+<li>Circuit Breaker - Mentioned in "Release It! Second Edition"<ul>
+<li>Cascading failure. One failure leading to another, and ultimately result in a bigger issue. </li>
+<li>If too many requests are failing, stop relaying requests and fail fast without delaying (check back later). </li>
+<li>Hystrix to build such logic into the application</li>
+<li>Correct way would be to build it out side of the micro service (istio proxy) </li>
+<li>Outlier Detection<ul>
+<li><code class="codehilite"><span class="n">Destination</span> <span class="k">Rule</span></code> -&gt; <code class="codehilite"><span class="n">trafficPolicy</span></code> -&gt; <code class="codehilite"><span class="n">outlierDetection</span></code></li>
+<li><a href="https://istio.io/latest/docs/reference/config/networking/destination-rule/#OutlierDetection">https://istio.io/latest/docs/reference/config/networking/destination-rule/#OutlierDetection</a></li>
+<li><a href="https://www.envoyproxy.io/docs/envoy/latest/intro/arch_overview/upstream/outlier">https://www.envoyproxy.io/docs/envoy/latest/intro/arch_overview/upstream/outlier</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Mutual TLS <ul>
+<li>Fallacies of distributed computing<ul>
+<li>The network is homogeneous</li>
+<li>K8s cluster is actually a multi node (mult zone also) deployment <a href="https://en.wikipedia.org/wiki/Fallacies_of_distributed_computing">https://en.wikipedia.org/wiki/Fallacies_of_distributed_computing</a></li>
+<li>Difficult to manually do this: Reveal, synchronization<ul>
+<li>CAs</li>
+<li>App should be using HTTPS</li>
+<li>No enforcement </li>
+</ul>
+</li>
+<li>Citadel is responsible of configuring proxies with required certificates</li>
+<li>What to do:<ul>
+<li>Block all non TLS traffic using policy</li>
+<li>Auto update all proxy to proxy communication to mTLS</li>
+</ul>
+</li>
+<li>Kiali -&gt; Display -&gt; Security</li>
+<li>Types:<ul>
+<li>Promiscuous mTLS - Default behavior<ul>
+<li>if istio cannot upgrade connection to mTLS (sending side doesn't have proxy), leave it as HTTP and serve (insecure)</li>
+<li>Can be blocked by AUthentication Proxy</li>
+<li><a href="https://istio.io/latest/docs/concepts/security/#authentication-policies">https://istio.io/latest/docs/concepts/security/#authentication-policies</a></li>
+</ul>
+</li>
+<li>Strict - </li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>IstioCTL<ul>
+<li><code class="codehilite"><span class="n">istioctl</span> <span class="n">manifest</span> <span class="n">apply</span></code>: Installing <code class="codehilite"><span class="k">default</span></code> profile of istio to cluster</li>
+<li>Profiles: <a href="https://istio.io/latest/docs/setup/additional-setup/config-profiles/">https://istio.io/latest/docs/setup/additional-setup/config-profiles/</a></li>
+<li><a href="https://istio.io/latest/docs/setup/install/istioctl/#customizing-the-configuration">https://istio.io/latest/docs/setup/install/istioctl/#customizing-the-configuration</a></li>
+<li><code class="codehilite"><span class="n">istioctl</span> <span class="n">manifest</span> <span class="n">apply</span> <span class="c1">--set profile=default --set addonComponents.kiali.enabled=true</span></code><ul>
+<li><a href="https://istio.io/latest/docs/setup/install/istioctl/#display-the-configuration-of-a-profile">https://istio.io/latest/docs/setup/install/istioctl/#display-the-configuration-of-a-profile</a></li>
+</ul>
+</li>
+<li>IstioOperator Options has options related to configurations: <a href="https://istio.io/latest/docs/reference/config/istio.operator.v1alpha1/">https://istio.io/latest/docs/reference/config/istio.operator.v1alpha1/</a></li>
+<li><code class="codehilite"><span class="n">istio</span> <span class="n">profile</span> <span class="n">dump</span></code> - Dump default profile YAML </li>
+<li><code class="codehilite"><span class="n">istio</span> <span class="n">profile</span> <span class="n">dump</span> <span class="n">demo</span></code> - Dump demo profile YAML (UTF-16)</li>
+<li>Modify the profile to:<ul>
+<li>Change the resource requirements based on periodical analysis of usage</li>
+<li><code class="codehilite"><span class="n">Demo</span></code> profile have certain  debugging enabled (GODEBUG)</li>
+<li><code class="codehilite"><span class="n">Demo</span></code> profile only capture ~1% of tracing inputs (PILOT_TRACING_SAMPLING)</li>
+<li>.:. Start with <code class="codehilite"><span class="k">Default</span></code> profile and alter the file based on requirement</li>
+</ul>
+</li>
+<li>Apply modified file by: <code class="codehilite"><span class="n">istioctl</span> <span class="n">manifest</span> <span class="n">apply</span> <span class="o">-</span><span class="n">f</span> <span class="n">settings</span><span class="p">.</span><span class="n">yaml</span></code><ul>
+<li>Will fail back to <code class="codehilite"><span class="k">First</span> <span class="n">party</span> <span class="n">JWT</span> <span class="n">tokens</span></code> from <code class="codehilite"><span class="n">Third</span> <span class="n">party</span> <span class="n">JWT</span></code> (which is less secure). Minikube doesn't support Third Party JWT. Hence use <code class="codehilite"><span class="c1">--set values.global.jwtPolicy=third-party-jwt</span></code> or <code class="codehilite"><span class="c1">--set values.global.jwtPolicy=first-party-jwt</span></code> to select the desired. In minikube select 1<sup>st</sup>.<ul>
+<li><a href="https://istio.io/latest/docs/ops/best-practices/security/">https://istio.io/latest/docs/ops/best-practices/security/</a></li>
+<li>Third Party JWT use: <a href="https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/#service-account-token-volume-projection">https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/#service-account-token-volume-projection</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Verify with: <code class="codehilite"><span class="n">kubectl</span> <span class="k">get</span> <span class="n">po</span> <span class="o">-</span><span class="n">n</span> <span class="n">istio</span><span class="o">-</span><span class="k">system</span></code></li>
+<li>In a KOPS cluster, enable 1<sup>st</sup> party JWT by: Use <code class="codehilite"><span class="c1">--set values.global.jwtPolicy=first-party-jwt</span></code>  or <code class="codehilite"><span class="n">kops</span> <span class="n">edit</span> <span class="k">cluster</span></code> and then: <ul>
+<li>Add defined items into spec section: <a href="https://kops.sigs.k8s.io/operations/service_account_token_volumes/">https://kops.sigs.k8s.io/operations/service_account_token_volumes/</a></li>
+</ul>
+</li>
+<li>Creating standard K8S Yamls<ul>
+<li><code class="codehilite"><span class="n">istioctl</span> <span class="n">manifest</span> <span class="n">generate</span> <span class="o">-</span><span class="n">f</span> <span class="n">raw_yaml_file</span><span class="p">.</span><span class="n">yaml</span></code></li>
+<li>Had to change the order of <code class="codehilite"><span class="n">istio</span><span class="o">-</span><span class="k">system</span></code> namespace and move it to top</li>
+</ul>
+</li>
+<li>If you want to access the add on components - Kiali, Grafana and Jaeger - through a browser, you should be able to configure NodePorts using the IstioOperator API.
+  <div class="codehilite"><pre><span></span>        <span class="nt">kiali</span><span class="p">:</span>
+        <span class="nt">enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+        <span class="nt">k8s</span><span class="p">:</span>
+            <span class="nt">replicaCount</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
+            <span class="nt">service</span><span class="p">:</span>
+            <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">NodePort</span>
+            <span class="nt">ports</span><span class="p">:</span>
+            <span class="p p-Indicator">-</span> <span class="nt">port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">20001</span>
+                <span class="l l-Scalar l-Scalar-Plain">nodePort</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">31000</span>
+</pre></div></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>Non root</li>
+<li>se-linux</li>
+</ul>
+                
+                  
+                
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../docker/" title="Docker" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Docker
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../kubernetes/" title="Kubernetes" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Kubernetes
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.808e90bb.js"></script>
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      
+    
+  </body>
+</html>

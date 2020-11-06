@@ -403,6 +403,7 @@
   - Docker Bench Security: <https://github.com/docker/docker-bench-security>
     - CIS Docker 1.13 Benchmark checks: <https://benchmarks.cisecurity.org/tools2/docker/CIS_Docker_1.13.0_Benchmark_v1.0.0.pdf>
 - Excess Privileges
+  - `capsh` to view capabilities
   - Do not run with `--privileged` (Don’t use privileged containers unless you treat them the same way you treat any other process running as root. <http://obrown.io/2016/02/15/privileged-containers.html>)
   - Drop Unnecessary Privileges and Capabilities <https://docs.docker.com/engine/security/security/>
     - <https://docs.docker.com/engine/reference/run/#runtime-privilege-and-linux-capabilities>

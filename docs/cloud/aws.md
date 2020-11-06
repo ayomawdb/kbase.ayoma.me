@@ -132,3 +132,39 @@ Hack : Upload a file to S3 bucket using method initiate_multipart_upload. Note s
 Hack : Upload a file to S3 bucket using method set_contents_from_filename
 Hack : Upload a file to s3 bucket using the method send_file
 ```
+
+List all regions:
+```bash
+for region in `aws ec2 describe-regions --output text | cut -f4`
+do
+     echo -e "\nListing Instances in region:'$region'..."
+     aws ec2 describe-instances --region $region
+done
+```
+
+```
+for region in `aws ec2 describe-regions --output text | cut -f4`
+do
+     echo -e "\nListing Instances in region:'$region'..."
+     aws apigateway get-rest-apis  --region $region
+done
+```
+
+```
+aws s3 sync s3://developers-secret-bucket ./developers-secret-bucket
+aws s3 ls s3://developers-secret-bucket
+aws s3api list-objects --bucket developers-secret-bucket
+aws s3api list-objects-v2 --bucket developers-secret-bucket
+aws s3 cp s3://developers-secret-bucket ./developers-secret-bucket1 --recursive
+```
+
+```
+aws apigateway get-rest-apis
+aws apigateway get-resources --rest-api-id wjpu20uslg
+aws apigateway get-stages --rest-api-id wjpu20uslg
+aws dynamodb scan --table-name CardDetails
+
+awslogs groups
+awslogs streams /aws/lambda/DataExtractor
+awslogs get /aws/lambda/DataExtractor
+```

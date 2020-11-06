@@ -1,0 +1,1674 @@
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.0">
+    
+    
+      
+        <title>Docker - Security Knowledge Base</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.1b62728e.css">
+      
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.268332fc.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
+    
+      <link rel="stylesheet" href="../../_site/extra.css">
+    
+    
+      
+    
+    
+  </head>
+  
+    <body dir="ltr">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#quick-reference" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../.." title="Security Knowledge Base" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              Security Knowledge Base
+            </span>
+            <span class="md-header-nav__topic">
+              
+                Docker
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../.." title="Security Knowledge Base" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    Security Knowledge Base
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../apt/" title="APT" class="md-nav__link">
+      APT
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../books/" title="Books" class="md-nav__link">
+      Books
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../bug-hunting/" title="Bug hunting" class="md-nav__link">
+      Bug hunting
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../career/" title="Career" class="md-nav__link">
+      Career
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../collections/" title="Collections" class="md-nav__link">
+      Collections
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../crypto/" title="Crypto" class="md-nav__link">
+      Crypto
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../databases-sqlserver/" title="Databases - SqlServer" class="md-nav__link">
+      Databases - SqlServer
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../databases/" title="Databases" class="md-nav__link">
+      Databases
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../defense/" title="Defense" class="md-nav__link">
+      Defense
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../dfir/" title="DFIR" class="md-nav__link">
+      DFIR
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../embedded-and-iot/" title="Embedded and iot" class="md-nav__link">
+      Embedded and iot
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../exploits_and_shellcoding/" title="Exploits and shellcoding" class="md-nav__link">
+      Exploits and shellcoding
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../iam-kerberos/" title="IAM - Kerberos" class="md-nav__link">
+      IAM - Kerberos
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../iam/" title="IAM" class="md-nav__link">
+      IAM
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../languages/" title="Languages" class="md-nav__link">
+      Languages
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../linux-issues/" title="Linux issues" class="md-nav__link">
+      Linux issues
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../linux/" title="Linux" class="md-nav__link">
+      Linux
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../malware/" title="Malware" class="md-nav__link">
+      Malware
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../network/" title="Network" class="md-nav__link">
+      Network
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../non-security/" title="Z Non Security" class="md-nav__link">
+      Z Non Security
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../operating-systems/" title="Operating systems" class="md-nav__link">
+      Operating systems
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../osint/" title="OSINT" class="md-nav__link">
+      OSINT
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../password-attacks/" title="Password attacks" class="md-nav__link">
+      Password attacks
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../ports-and-protocols/" title="Ports and protocols" class="md-nav__link">
+      Ports and protocols
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../red-blue-team/" title="Red blue team" class="md-nav__link">
+      Red blue team
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../reverse-engineering/" title="Reverse engineering" class="md-nav__link">
+      Reverse engineering
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../rf-and-sdr/" title="RF and SDR" class="md-nav__link">
+      RF and SDR
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../social-engineering/" title="Social engineering" class="md-nav__link">
+      Social engineering
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../steganography/" title="Steganography" class="md-nav__link">
+      Steganography
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../vulnerable/" title="Vulnerable" class="md-nav__link">
+      Vulnerable
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../web/" title="Web" class="md-nav__link">
+      Web
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../wifi/" title="WiFi" class="md-nav__link">
+      WiFi
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-34" type="checkbox" id="nav-34">
+    
+    <label class="md-nav__link" for="nav-34">
+      Certifications
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-34">
+        Certifications
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../certifications/cissp/" title="CISSP" class="md-nav__link">
+      CISSP
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../certifications/osce/" title="OSCE" class="md-nav__link">
+      OSCE
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-34-3" type="checkbox" id="nav-34-3">
+    
+    <label class="md-nav__link" for="nav-34-3">
+      Oscp
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-34-3">
+        Oscp
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../certifications/oscp/0-cheatsheet/" title="Enumeration" class="md-nav__link">
+      Enumeration
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../certifications/oscp/_collections/" title="collections" class="md-nav__link">
+       collections
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../certifications/oscp/_preparation/" title="Was checking" class="md-nav__link">
+      Was checking
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../certifications/oscp/lab-setup/" title="Lab Setup" class="md-nav__link">
+      Lab Setup
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../certifications/oscp/notes/" title="Notes" class="md-nav__link">
+      Notes
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../certifications/oscp/practice-vulnhub/" title="Practice" class="md-nav__link">
+      Practice
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../certifications/oscp/setup/" title="Setup" class="md-nav__link">
+      Setup
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../certifications/oscp/y-Tools/" title="Tools" class="md-nav__link">
+      Tools
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-34-3-9" type="checkbox" id="nav-34-3-9">
+    
+    <label class="md-nav__link" for="nav-34-3-9">
+      Cheatsheet
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-34-3-9">
+        Cheatsheet
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../certifications/oscp/cheatsheet/0-cheatsheet/" title="Cheatsheets" class="md-nav__link">
+      Cheatsheets
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../certifications/oscp/cheatsheet/download/" title="Download" class="md-nav__link">
+      Download
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../certifications/oscp/cheatsheet/exploits/" title="Exploits" class="md-nav__link">
+      Exploits
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../certifications/oscp/cheatsheet/post-exploitation/" title="Post exploitation" class="md-nav__link">
+      Post exploitation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../certifications/oscp/cheatsheet/share-files/" title="Share files" class="md-nav__link">
+      Share files
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../certifications/oscp/cheatsheet/shell/" title="Bash" class="md-nav__link">
+      Bash
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../certifications/oscp/cheatsheet/tty/" title="TTY" class="md-nav__link">
+      TTY
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../certifications/oscp/cheatsheet/web/" title="Web" class="md-nav__link">
+      Web
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../certifications/oscp/cheatsheet/windows/" title="Windows" class="md-nav__link">
+      Windows
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-34-3-9-10" type="checkbox" id="nav-34-3-9-10">
+    
+    <label class="md-nav__link" for="nav-34-3-9-10">
+      Enumeration
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="4">
+      <label class="md-nav__title" for="nav-34-3-9-10">
+        Enumeration
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../certifications/oscp/cheatsheet/enumeration/network/" title="Network" class="md-nav__link">
+      Network
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../certifications/oscp/cheatsheet/enumeration/vulnerability/" title="Vulnerability" class="md-nav__link">
+      Vulnerability
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../certifications/oscp/cheatsheet/enumeration/windows-local/" title="Windows local" class="md-nav__link">
+      Windows local
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-35" type="checkbox" id="nav-35">
+    
+    <label class="md-nav__link" for="nav-35">
+      Cloud
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-35">
+        Cloud
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../cloud/aws/" title="Aws" class="md-nav__link">
+      Aws
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../cloud/azuer-o360/" title="Azuer o360" class="md-nav__link">
+      Azuer o360
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../cloud/general/" title="General" class="md-nav__link">
+      General
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-36" type="checkbox" id="nav-36" checked>
+    
+    <label class="md-nav__link" for="nav-36">
+      Devops
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-36">
+        Devops
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../container/" title="Container" class="md-nav__link">
+      Container
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Docker
+      </label>
+    
+    <a href="./" title="Docker" class="md-nav__link md-nav__link--active">
+      Docker
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#quick-reference" class="md-nav__link">
+    Quick Reference
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#manage-images" class="md-nav__link">
+    Manage images
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#manage-containers" class="md-nav__link">
+    Manage Containers
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#manage-your-local-virtual-machine" class="md-nav__link">
+    Manage your (local) Virtual Machine
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#manage-networks" class="md-nav__link">
+    Manage Networks
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#manage-volumes" class="md-nav__link">
+    Manage Volumes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#docker-compose" class="md-nav__link">
+    Docker Compose
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#manage-a-swarm" class="md-nav__link">
+    Manage a Swarm
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#manage-stacks" class="md-nav__link">
+    Manage Stacks
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#system" class="md-nav__link">
+    System
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#statistics" class="md-nav__link">
+    Statistics
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tips" class="md-nav__link">
+    Tips
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#security-references" class="md-nav__link">
+    Security References
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../istio/" title="Istio" class="md-nav__link">
+      Istio
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../kubernetes/" title="Kubernetes" class="md-nav__link">
+      Kubernetes
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-37" type="checkbox" id="nav-37">
+    
+    <label class="md-nav__link" for="nav-37">
+      Windows
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-37">
+        Windows
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../windows/active-directory/" title="Active Directory" class="md-nav__link">
+      Active Directory
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../windows/powershell/" title="Powershell" class="md-nav__link">
+      Powershell
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../windows/windows-issues/" title="Windows issues" class="md-nav__link">
+      Windows issues
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../windows/windows-privilege-escalation/" title="Windows Privilege Escalation" class="md-nav__link">
+      Windows Privilege Escalation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../windows/windows/" title="Windows" class="md-nav__link">
+      Windows
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#quick-reference" class="md-nav__link">
+    Quick Reference
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#manage-images" class="md-nav__link">
+    Manage images
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#manage-containers" class="md-nav__link">
+    Manage Containers
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#manage-your-local-virtual-machine" class="md-nav__link">
+    Manage your (local) Virtual Machine
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#manage-networks" class="md-nav__link">
+    Manage Networks
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#manage-volumes" class="md-nav__link">
+    Manage Volumes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#docker-compose" class="md-nav__link">
+    Docker Compose
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#manage-a-swarm" class="md-nav__link">
+    Manage a Swarm
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#manage-stacks" class="md-nav__link">
+    Manage Stacks
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#system" class="md-nav__link">
+    System
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#statistics" class="md-nav__link">
+    Statistics
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tips" class="md-nav__link">
+    Tips
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#security-references" class="md-nav__link">
+    Security References
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  <h1>Docker</h1>
+                
+                <h2 id="quick-reference">Quick Reference<a class="headerlink" href="#quick-reference" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Open Container Spec - Labels: <a href="https://github.com/opencontainers/runtime-spec">https://github.com/opencontainers/runtime-spec</a><ul>
+<li>Add labels at end - so that full image build is not required to change</li>
+</ul>
+</li>
+</ul>
+<h3 id="manage-images">Manage images<a class="headerlink" href="#manage-images" title="Permanent link">&para;</a></h3>
+<ul>
+<li>download an image from DockerHub: 
+    <div class="codehilite"><pre><span></span>docker image pull &lt;image name&gt;
+</pre></div></li>
+<li>list all local images: 
+    <div class="codehilite"><pre><span></span><span class="n">docker</span> <span class="n">image</span> <span class="n">ls</span> <span class="n">Chapter</span> <span class="mi">5</span>
+</pre></div></li>
+<li>build an image with a tag (note the dot!): 
+    <div class="codehilite"><pre><span></span><span class="n">docker</span> <span class="n">image</span> <span class="n">build</span> <span class="o">-</span><span class="n">t</span> <span class="o">&lt;</span><span class="n">image</span> <span class="n">name</span><span class="o">&gt;</span>
+</pre></div></li>
+<li>publish an image to dockerhub: 
+    <div class="codehilite"><pre><span></span><span class="n">docker</span> <span class="n">image</span> <span class="n">push</span> <span class="o">&lt;</span><span class="n">image</span> <span class="n">name</span><span class="o">&gt;</span>
+</pre></div></li>
+<li>tag an image - either alias an exisiting image or apply a :tag to one: 
+    <div class="codehilite"><pre><span></span><span class="n">docker</span> <span class="n">image</span> <span class="n">tag</span> <span class="o">&lt;</span><span class="n">image</span> <span class="n">id</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">tag</span> <span class="n">name</span><span class="o">&gt;</span>
+</pre></div></li>
+</ul>
+<h3 id="manage-containers">Manage Containers<a class="headerlink" href="#manage-containers" title="Permanent link">&para;</a></h3>
+<ul>
+<li>run a container from an image, publishing the specified ports: 
+    <div class="codehilite"><pre><span></span><span class="n">docker</span> <span class="n">container</span> <span class="n">run</span> <span class="o">-</span><span class="n">p</span> <span class="o">&lt;</span><span class="k">public</span> <span class="n">port</span><span class="o">&gt;</span><span class="p">:</span><span class="o">&lt;</span><span class="n">container</span> <span class="n">port</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">image</span> <span class="n">name</span><span class="o">&gt;</span>
+</pre></div></li>
+<li>list all containers, even the stopped ones: 
+    <div class="codehilite"><pre><span></span><span class="n">docker</span> <span class="n">container</span> <span class="n">ls</span> <span class="o">-</span><span class="n">a</span>
+</pre></div></li>
+<li>stop a running container: 
+    <div class="codehilite"><pre><span></span><span class="n">docker</span> <span class="n">container</span> <span class="n">stop</span> <span class="o">&lt;</span><span class="n">container</span> <span class="n">id</span><span class="o">&gt;</span>
+</pre></div></li>
+<li>restart a stopped container: 
+    <div class="codehilite"><pre><span></span><span class="n">docker</span> <span class="n">container</span> <span class="k">start</span> <span class="o">&lt;</span><span class="n">container</span> <span class="n">id</span><span class="o">&gt;</span> 
+</pre></div></li>
+<li>remove a stopped container: 
+    <div class="codehilite"><pre><span></span><span class="n">docker</span> <span class="n">container</span> <span class="n">rm</span> <span class="o">&lt;</span><span class="n">container</span> <span class="n">id</span><span class="o">&gt;</span> 
+</pre></div></li>
+<li>remove all stopped containers: 
+    <div class="codehilite"><pre><span></span><span class="n">docker</span> <span class="n">container</span> <span class="n">prune</span>
+</pre></div></li>
+<li>run a container with interactive terminal: 
+    <div class="codehilite"><pre><span></span><span class="n">docker</span> <span class="n">container</span> <span class="n">run</span> <span class="o">-</span><span class="n">it</span>  <span class="o">&lt;</span><span class="n">image</span> <span class="n">name</span><span class="o">&gt;</span> 
+</pre></div></li>
+<li>run a container detached (or in a daemon like way): 
+    <div class="codehilite"><pre><span></span><span class="n">docker</span> <span class="n">container</span> <span class="n">run</span> <span class="o">-</span><span class="n">d</span>  <span class="o">&lt;</span><span class="n">image</span> <span class="n">name</span><span class="o">&gt;</span>
+</pre></div></li>
+<li>run a command in a container: 
+    <div class="codehilite"><pre><span></span><span class="nv">docker</span> <span class="nv">container</span> <span class="k">exec</span> <span class="o">-</span><span class="nv">it</span> <span class="o">&lt;</span><span class="nv">container</span> <span class="nv">id</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="nv">command</span><span class="o">&gt;</span>
+</pre></div></li>
+<li>special form of the above, runs a bash shell, connected to your local terminal (your distro needs to have bash, alpine will require /bin/sh): 
+    <div class="codehilite"><pre><span></span><span class="nv">docker</span> <span class="nv">container</span> <span class="k">exec</span> <span class="o">-</span><span class="nv">it</span> <span class="o">&lt;</span><span class="nv">container</span> <span class="nv">id</span><span class="o">&gt;</span> <span class="nv">bash</span>
+</pre></div></li>
+<li>Follow the log (STDIN/System.out) of the container: 
+    <div class="codehilite"><pre><span></span><span class="n">docker</span> <span class="n">container</span> <span class="n">logs</span> <span class="o">-</span><span class="n">f</span> <span class="o">&lt;</span><span class="n">container</span> <span class="n">id</span><span class="o">&gt;</span>
+</pre></div></li>
+<li>Take a snapshot image of a container: 
+    <div class="codehilite"><pre><span></span><span class="n">docker</span> <span class="n">container</span> <span class="k">commit</span> <span class="o">-</span><span class="n">a</span> <span class="ss">&quot;author&quot;</span> <span class="o">&lt;</span><span class="n">container</span> <span class="n">id</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">image</span> <span class="n">name</span><span class="o">&gt;</span>
+</pre></div></li>
+<li>Pause: <code class="codehilite"><span class="nv">docker</span> <span class="k">pause</span></code></li>
+<li>Unpause: <code class="codehilite"><span class="n">docker</span> <span class="n">unpause</span></code></li>
+</ul>
+<h3 id="manage-your-local-virtual-machine">Manage your (local) Virtual Machine<a class="headerlink" href="#manage-your-local-virtual-machine" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Find the IP address of your VirtualMachine, required for Docker Toolbox users only: 
+    <div class="codehilite"><pre><span></span><span class="n">docker</span><span class="o">-</span><span class="n">machine</span> <span class="n">ip</span>
+</pre></div>
+</li>
+</ul>
+<h3 id="manage-networks">Manage Networks<a class="headerlink" href="#manage-networks" title="Permanent link">&para;</a></h3>
+<ul>
+<li>list all networks (bridge/host/none/etc.): 
+    <div class="codehilite"><pre><span></span><span class="n">docker</span> <span class="n">network</span> <span class="n">ls</span>
+</pre></div></li>
+<li>create a network using the bridge driver: 
+    <div class="codehilite"><pre><span></span><span class="n">docker</span> <span class="n">network</span> <span class="k">create</span> <span class="o">&lt;</span><span class="n">network</span> <span class="n">name</span><span class="o">&gt;</span>
+</pre></div></li>
+<li>Inspect the complete network:
+    <div class="codehilite"><pre><span></span><span class="n">docket</span> <span class="n">network</span> <span class="n">inspect</span> <span class="o">&lt;</span><span class="n">network</span> <span class="n">name</span><span class="o">&gt;</span>
+</pre></div></li>
+<li>Link two containers (this is legacy): <br />
+    <div class="codehilite"><pre><span></span><span class="n">docker</span> <span class="n">container</span> <span class="n">run</span> <span class="p">...</span> <span class="c1">--link &lt;container-name-to-link-with&gt; &lt;image-name&gt;</span>
+</pre></div></li>
+<li>New way of linking two containers (using Docker Compose is easier):
+    <div class="codehilite"><pre><span></span><span class="n">sudo</span> <span class="n">docker</span> <span class="n">network</span> <span class="k">create</span> <span class="n">mynetwork</span>
+<span class="n">sudo</span> <span class="n">docker</span> <span class="n">container</span> <span class="n">run</span> <span class="p">...</span> <span class="c1">--network mynetwork &lt;image-name&gt;</span>
+</pre></div></li>
+</ul>
+<h3 id="manage-volumes">Manage Volumes<a class="headerlink" href="#manage-volumes" title="Permanent link">&para;</a></h3>
+<ul>
+<li>list all volumes: 
+    <div class="codehilite"><pre><span></span><span class="n">docker</span> <span class="n">volume</span> <span class="n">ls</span>
+</pre></div></li>
+</ul>
+<ul>
+<li>delete all volumes that are not currently mounted to a container: 
+    <div class="codehilite"><pre><span></span><span class="n">docker</span> <span class="n">volume</span> <span class="n">prune</span>
+</pre></div></li>
+<li>inspect a volume (can find out the mount point, the location of the volume on the host system) 
+    <div class="codehilite"><pre><span></span><span class="n">docker</span> <span class="n">volume</span> <span class="n">inspect</span> <span class="o">&lt;</span><span class="n">volume</span> <span class="n">name</span><span class="o">&gt;</span>
+</pre></div></li>
+<li>remove a volume: 
+    <div class="codehilite"><pre><span></span><span class="n">docker</span> <span class="n">volume</span> <span class="n">rm</span> <span class="o">&lt;</span><span class="n">volume</span> <span class="n">name</span><span class="o">&gt;</span>
+</pre></div></li>
+</ul>
+<h3 id="docker-compose">Docker Compose<a class="headerlink" href="#docker-compose" title="Permanent link">&para;</a></h3>
+<ul>
+<li>process the default docker-compose.yaml file, starting any containers as required. If containers are already running they are ignored, meaning this command also serves as a "redeploy": 
+    <div class="codehilite"><pre><span></span><span class="n">docker</span><span class="o">-</span><span class="n">compose</span> <span class="n">up</span>
+</pre></div></li>
+<li>run containers in the detached state. Note the order of the command line arguments!: 
+    <div class="codehilite"><pre><span></span><span class="n">docker</span><span class="o">-</span><span class="n">compose</span> <span class="n">up</span> <span class="o">-</span><span class="n">d</span>
+</pre></div></li>
+<li>follow the log for the specified service. Omit the -f to tail the log: 
+    <div class="codehilite"><pre><span></span><span class="n">docker</span><span class="o">-</span><span class="n">compose</span> <span class="n">logs</span> <span class="o">-</span><span class="n">f</span> <span class="o">&lt;</span><span class="n">service</span> <span class="n">name</span><span class="o">&gt;</span>
+</pre></div></li>
+<li>stop all the containers (services) listed in the default compose file: 
+    <div class="codehilite"><pre><span></span><span class="n">docker</span><span class="o">-</span><span class="n">compose</span> <span class="n">down</span>
+</pre></div></li>
+<li>Validation: <code class="codehilite"><span class="n">docker</span><span class="o">-</span><span class="n">compose</span> <span class="n">config</span></code></li>
+<li>Images: <code class="codehilite"><span class="n">docker</span><span class="o">-</span><span class="n">compose</span> <span class="n">images</span></code></li>
+<li>Processes: <code class="codehilite"><span class="n">docker</span><span class="o">-</span><span class="n">compose</span> <span class="n">top</span></code></li>
+<li>Pause: <code class="codehilite"><span class="nv">docker</span><span class="o">-</span><span class="nv">compose</span> <span class="k">pause</span></code></li>
+<li>Unpause: <code class="codehilite"><span class="n">docker</span><span class="o">-</span><span class="n">compose</span> <span class="n">unpause</span></code></li>
+</ul>
+<h3 id="manage-a-swarm">Manage a Swarm<a class="headerlink" href="#manage-a-swarm" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Switch the machine into Swarm mode. We didn't cover how to stop swarm mode: docker swarm leave --force: 
+    <div class="codehilite"><pre><span></span><span class="n">docker</span> <span class="n">swarm</span> <span class="n">init</span> <span class="p">(</span><span class="c1">--advertise-addr &lt;ip address&gt;)</span>
+</pre></div></li>
+<li>Start a service in the swarm. The args are largely the same as those you will have used in docker container run: 
+    <div class="codehilite"><pre><span></span><span class="n">docker</span> <span class="n">service</span> <span class="k">create</span> <span class="o">&lt;</span><span class="n">args</span><span class="o">&gt;</span>
+</pre></div></li>
+<li>Create a network suitable for using in a swarm: 
+    <div class="codehilite"><pre><span></span><span class="n">docker</span> <span class="n">network</span> <span class="k">create</span> <span class="c1">--driver overlay &lt;name&gt;</span>
+</pre></div></li>
+<li>List all services: 
+    <div class="codehilite"><pre><span></span><span class="n">docker</span> <span class="n">service</span> <span class="n">ls</span>
+</pre></div></li>
+<li>List all nodes in the swarm: 
+    <div class="codehilite"><pre><span></span><span class="n">docker</span> <span class="n">node</span> <span class="n">ls</span> 
+</pre></div></li>
+<li>Follow the log for the service. This feature is a new feature in Docker and may not be available on your version (especially if using Linux Repository Packages): 
+    <div class="codehilite"><pre><span></span><span class="n">docker</span> <span class="n">service</span> <span class="n">logs</span> <span class="o">-</span><span class="n">f</span> <span class="o">&lt;</span><span class="n">service</span> <span class="n">name</span><span class="o">&gt;</span>
+</pre></div></li>
+<li>List full details of the service - in particular the node on which it is running and any previous failed containers from the service: 
+    <div class="codehilite"><pre><span></span><span class="n">docker</span> <span class="n">service</span> <span class="n">ps</span> <span class="o">&lt;</span><span class="n">service</span> <span class="n">name</span><span class="o">&gt;</span>
+</pre></div></li>
+<li>Get a join token to enable a new node to connect to the swarm, either as a worker or manager: 
+    <div class="codehilite"><pre><span></span><span class="n">docker</span> <span class="n">swarm</span> <span class="k">join</span><span class="o">-</span><span class="n">token</span> <span class="o">&lt;</span><span class="n">worker</span><span class="o">|</span><span class="n">manager</span><span class="o">&gt;</span>
+</pre></div></li>
+</ul>
+<h3 id="manage-stacks">Manage Stacks<a class="headerlink" href="#manage-stacks" title="Permanent link">&para;</a></h3>
+<ul>
+<li>list all stacks on this swarm: 
+    <div class="codehilite"><pre><span></span><span class="n">docker</span> <span class="n">stack</span> <span class="n">ls</span>
+</pre></div></li>
+<li>deploy (or re-deploy) a stack based on a standard compose file: 
+    <div class="codehilite"><pre><span></span><span class="n">docker</span> <span class="n">stack</span> <span class="n">deploy</span> <span class="o">-</span><span class="k">c</span> <span class="o">&lt;</span><span class="n">compose</span> <span class="n">file</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">stack</span> <span class="n">name</span><span class="o">&gt;</span>
+</pre></div></li>
+<li>delete a stack and its corresponding services/networks/etc: 
+    <div class="codehilite"><pre><span></span><span class="n">docker</span> <span class="n">stack</span> <span class="n">rm</span> <span class="o">&lt;</span><span class="n">stack</span> <span class="n">name</span><span class="o">&gt;</span>
+</pre></div></li>
+</ul>
+<h3 id="system">System<a class="headerlink" href="#system" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Disk usage
+    <div class="codehilite"><pre><span></span><span class="n">docker</span> <span class="k">system</span> <span class="n">df</span>
+</pre></div></li>
+<li>Events
+    <div class="codehilite"><pre><span></span><span class="n">docker</span> <span class="k">system</span> <span class="n">events</span>
+</pre></div></li>
+<li>System wide information
+    <div class="codehilite"><pre><span></span><span class="n">docker</span> <span class="k">system</span> <span class="n">info</span>
+</pre></div></li>
+<li>Remove unused ata
+    <div class="codehilite"><pre><span></span><span class="n">docker</span> <span class="k">system</span> <span class="n">prune</span>
+</pre></div></li>
+</ul>
+<h3 id="statistics">Statistics<a class="headerlink" href="#statistics" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Container statistics 
+    <div class="codehilite"><pre><span></span><span class="n">docker</span> <span class="n">stats</span> <span class="o">&lt;</span><span class="n">id</span><span class="o">&gt;</span>
+</pre></div></li>
+</ul>
+<h2 id="tips">Tips<a class="headerlink" href="#tips" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Move dynamic steps to down to max utilization of cache</li>
+</ul>
+<h2 id="security-references">Security References<a class="headerlink" href="#security-references" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Docker vs. containerd vs. Nabla vs. Kata vs. Firecracker: <a href="https://www.inovex.de/blog/containers-docker-containerd-nabla-kata-firecracker/">https://www.inovex.de/blog/containers-docker-containerd-nabla-kata-firecracker/</a></li>
+</ul>
+                
+                  
+                
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../container/" title="Container" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Container
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../istio/" title="Istio" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Istio
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.808e90bb.js"></script>
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      
+    
+  </body>
+</html>

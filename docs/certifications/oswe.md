@@ -1,0 +1,19 @@
+- SQLi
+  - Look fir "query", "search", "sql"
+  - Enable database logs to check for queries with input data
+  - Extract data / structure
+  - Exec code
+  - Blind
+    - Substring + Ascii 
+    - Like based match
+- XSS
+  - Cookie extraction
+  - CSRF bypass
+- XXE
+- Important functions
+  - Login / registration
+  - Forgot password / recovery
+  - Attachments / file uploads
+- Review
+  - Identify publicly accessible pages for initial attack 
+  - Identify interesting high privileged actions for secondary attack

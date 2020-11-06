@@ -1,0 +1,1498 @@
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.0">
+    
+    
+      
+        <title>Enumeration - Security Knowledge Base</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/application.1b62728e.css">
+      
+      
+    
+    
+      <script src="../../../assets/javascripts/modernizr.268332fc.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../../assets/fonts/material-icons.css">
+    
+    
+      <link rel="stylesheet" href="../../../_site/extra.css">
+    
+    
+      
+    
+    
+  </head>
+  
+    <body dir="ltr">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#enumeration" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../../.." title="Security Knowledge Base" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              Security Knowledge Base
+            </span>
+            <span class="md-header-nav__topic">
+              
+                Enumeration
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../../.." title="Security Knowledge Base" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    Security Knowledge Base
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../.." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../apt/" title="APT" class="md-nav__link">
+      APT
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../books/" title="Books" class="md-nav__link">
+      Books
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../bug-hunting/" title="Bug hunting" class="md-nav__link">
+      Bug hunting
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../career/" title="Career" class="md-nav__link">
+      Career
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../collections/" title="Collections" class="md-nav__link">
+      Collections
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../crypto/" title="Crypto" class="md-nav__link">
+      Crypto
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../databases-sqlserver/" title="Databases - SqlServer" class="md-nav__link">
+      Databases - SqlServer
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../databases/" title="Databases" class="md-nav__link">
+      Databases
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../defense/" title="Defense" class="md-nav__link">
+      Defense
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../dfir/" title="DFIR" class="md-nav__link">
+      DFIR
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../embedded-and-iot/" title="Embedded and iot" class="md-nav__link">
+      Embedded and iot
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../exploits_and_shellcoding/" title="Exploits and shellcoding" class="md-nav__link">
+      Exploits and shellcoding
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../iam-kerberos/" title="IAM - Kerberos" class="md-nav__link">
+      IAM - Kerberos
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../iam/" title="IAM" class="md-nav__link">
+      IAM
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../languages/" title="Languages" class="md-nav__link">
+      Languages
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../linux-issues/" title="Linux issues" class="md-nav__link">
+      Linux issues
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../linux/" title="Linux" class="md-nav__link">
+      Linux
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../malware/" title="Malware" class="md-nav__link">
+      Malware
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../network/" title="Network" class="md-nav__link">
+      Network
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../non-security/" title="Z Non Security" class="md-nav__link">
+      Z Non Security
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../operating-systems/" title="Operating systems" class="md-nav__link">
+      Operating systems
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../osint/" title="OSINT" class="md-nav__link">
+      OSINT
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../password-attacks/" title="Password attacks" class="md-nav__link">
+      Password attacks
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../ports-and-protocols/" title="Ports and protocols" class="md-nav__link">
+      Ports and protocols
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../red-blue-team/" title="Red blue team" class="md-nav__link">
+      Red blue team
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../reverse-engineering/" title="Reverse engineering" class="md-nav__link">
+      Reverse engineering
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../rf-and-sdr/" title="RF and SDR" class="md-nav__link">
+      RF and SDR
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../social-engineering/" title="Social engineering" class="md-nav__link">
+      Social engineering
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../steganography/" title="Steganography" class="md-nav__link">
+      Steganography
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../vulnerable/" title="Vulnerable" class="md-nav__link">
+      Vulnerable
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../web/" title="Web" class="md-nav__link">
+      Web
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../wifi/" title="WiFi" class="md-nav__link">
+      WiFi
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-34" type="checkbox" id="nav-34" checked>
+    
+    <label class="md-nav__link" for="nav-34">
+      Certifications
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-34">
+        Certifications
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../cissp/" title="CISSP" class="md-nav__link">
+      CISSP
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../osce/" title="OSCE" class="md-nav__link">
+      OSCE
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-34-3" type="checkbox" id="nav-34-3" checked>
+    
+    <label class="md-nav__link" for="nav-34-3">
+      Oscp
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-34-3">
+        Oscp
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Enumeration
+      </label>
+    
+    <a href="./" title="Enumeration" class="md-nav__link md-nav__link--active">
+      Enumeration
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tcp" class="md-nav__link">
+    TCP
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#udp" class="md-nav__link">
+    UDP
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#snmp-udp-161" class="md-nav__link">
+    SNMP (UDP 161)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#smtp" class="md-nav__link">
+    SMTP
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#snmp" class="md-nav__link">
+    SNMP
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#smb-tcp-139tcp-445" class="md-nav__link">
+    SMB (TCP 139/TCP 445)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#webdav" class="md-nav__link">
+    WebDav
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ftp" class="md-nav__link">
+    FTP:
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#smb-anonymous" class="md-nav__link">
+    SMB (anonymous)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mysql" class="md-nav__link">
+    MySQL
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_collections/" title="collections" class="md-nav__link">
+       collections
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_preparation/" title="Was checking" class="md-nav__link">
+      Was checking
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../lab-setup/" title="Lab Setup" class="md-nav__link">
+      Lab Setup
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../notes/" title="Notes" class="md-nav__link">
+      Notes
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../practice-vulnhub/" title="Practice" class="md-nav__link">
+      Practice
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../setup/" title="Setup" class="md-nav__link">
+      Setup
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../y-Tools/" title="Tools" class="md-nav__link">
+      Tools
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-34-3-9" type="checkbox" id="nav-34-3-9">
+    
+    <label class="md-nav__link" for="nav-34-3-9">
+      Cheatsheet
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-34-3-9">
+        Cheatsheet
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../cheatsheet/0-cheatsheet/" title="Cheatsheets" class="md-nav__link">
+      Cheatsheets
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../cheatsheet/download/" title="Download" class="md-nav__link">
+      Download
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../cheatsheet/exploits/" title="Exploits" class="md-nav__link">
+      Exploits
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../cheatsheet/post-exploitation/" title="Post exploitation" class="md-nav__link">
+      Post exploitation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../cheatsheet/share-files/" title="Share files" class="md-nav__link">
+      Share files
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../cheatsheet/shell/" title="Bash" class="md-nav__link">
+      Bash
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../cheatsheet/tty/" title="TTY" class="md-nav__link">
+      TTY
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../cheatsheet/web/" title="Web" class="md-nav__link">
+      Web
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../cheatsheet/windows/" title="Windows" class="md-nav__link">
+      Windows
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-34-3-9-10" type="checkbox" id="nav-34-3-9-10">
+    
+    <label class="md-nav__link" for="nav-34-3-9-10">
+      Enumeration
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="4">
+      <label class="md-nav__title" for="nav-34-3-9-10">
+        Enumeration
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../cheatsheet/enumeration/network/" title="Network" class="md-nav__link">
+      Network
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../cheatsheet/enumeration/vulnerability/" title="Vulnerability" class="md-nav__link">
+      Vulnerability
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../cheatsheet/enumeration/windows-local/" title="Windows local" class="md-nav__link">
+      Windows local
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-35" type="checkbox" id="nav-35">
+    
+    <label class="md-nav__link" for="nav-35">
+      Cloud
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-35">
+        Cloud
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../cloud/aws/" title="Aws" class="md-nav__link">
+      Aws
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../cloud/azuer-o360/" title="Azuer o360" class="md-nav__link">
+      Azuer o360
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../cloud/general/" title="General" class="md-nav__link">
+      General
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-36" type="checkbox" id="nav-36">
+    
+    <label class="md-nav__link" for="nav-36">
+      Devops
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-36">
+        Devops
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../devops/container/" title="Container" class="md-nav__link">
+      Container
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../devops/docker/" title="Docker" class="md-nav__link">
+      Docker
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../devops/istio/" title="Istio" class="md-nav__link">
+      Istio
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../devops/kubernetes/" title="Kubernetes" class="md-nav__link">
+      Kubernetes
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-37" type="checkbox" id="nav-37">
+    
+    <label class="md-nav__link" for="nav-37">
+      Windows
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-37">
+        Windows
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../windows/active-directory/" title="Active Directory" class="md-nav__link">
+      Active Directory
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../windows/powershell/" title="Powershell" class="md-nav__link">
+      Powershell
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../windows/windows-issues/" title="Windows issues" class="md-nav__link">
+      Windows issues
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../windows/windows-privilege-escalation/" title="Windows Privilege Escalation" class="md-nav__link">
+      Windows Privilege Escalation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../windows/windows/" title="Windows" class="md-nav__link">
+      Windows
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tcp" class="md-nav__link">
+    TCP
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#udp" class="md-nav__link">
+    UDP
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#snmp-udp-161" class="md-nav__link">
+    SNMP (UDP 161)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#smtp" class="md-nav__link">
+    SMTP
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#snmp" class="md-nav__link">
+    SNMP
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#smb-tcp-139tcp-445" class="md-nav__link">
+    SMB (TCP 139/TCP 445)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#webdav" class="md-nav__link">
+    WebDav
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ftp" class="md-nav__link">
+    FTP:
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#smb-anonymous" class="md-nav__link">
+    SMB (anonymous)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mysql" class="md-nav__link">
+    MySQL
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="enumeration">Enumeration<a class="headerlink" href="#enumeration" title="Permanent link">&para;</a></h1>
+<h2 id="tcp">TCP<a class="headerlink" href="#tcp" title="Permanent link">&para;</a></h2>
+<p><code class="codehilite"><span class="n">nmap</span><span class="w"> </span><span class="o">-</span><span class="n">sS</span><span class="w"> </span><span class="o">-</span><span class="n">sV</span><span class="w"> </span><span class="o">-</span><span class="n">sC</span><span class="w"> </span><span class="o">-</span><span class="n">n</span><span class="w"> </span><span class="o">[</span><span class="n">IP</span><span class="o">]</span><span class="w"></span></code>
+<code class="codehilite"><span class="n">nmap</span> <span class="o">-</span><span class="n">vv</span> <span class="o">-</span><span class="n">Pn</span> <span class="o">-</span><span class="n">A</span> <span class="o">-</span><span class="n">sC</span> <span class="o">-</span><span class="n">sS</span> <span class="o">-</span><span class="n">T</span> <span class="mi">4</span> <span class="o">-</span><span class="n">p</span><span class="o">-</span> <span class="mi">10</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">1</span></code></p>
+<h2 id="udp">UDP<a class="headerlink" href="#udp" title="Permanent link">&para;</a></h2>
+<p><code class="codehilite"><span class="n">nmap</span><span class="w"> </span><span class="o">-</span><span class="n">sU</span><span class="w"> </span><span class="o">-</span><span class="n">sV</span><span class="w"> </span><span class="o">-</span><span class="n">n</span><span class="w"> </span><span class="c1">--top-ports 200 [IP]</span></code></p>
+<h2 id="snmp-udp-161">SNMP (UDP 161)<a class="headerlink" href="#snmp-udp-161" title="Permanent link">&para;</a></h2>
+<p><code class="codehilite"><span class="n">snmp</span><span class="o">-</span><span class="k">check</span><span class="w"> </span><span class="o">-</span><span class="n">t</span><span class="w"> </span><span class="o">[</span><span class="n">IP</span><span class="o">]</span><span class="w"> </span><span class="o">-</span><span class="n">c</span><span class="w"> </span><span class="k">public</span><span class="w"></span></code></p>
+<h2 id="smtp">SMTP<a class="headerlink" href="#smtp" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">nmap</span> <span class="err">–</span><span class="n">script</span><span class="o">=</span><span class="n">smtp</span><span class="o">-</span><span class="n">commands</span><span class="p">,</span><span class="n">smtp</span><span class="o">-</span><span class="n">enum</span><span class="o">-</span><span class="n">users</span><span class="p">,</span><span class="n">smtp</span><span class="o">-</span><span class="n">vuln</span><span class="o">-</span><span class="n">cve2010</span><span class="o">-</span><span class="mi">4344</span><span class="p">,</span><span class="n">smtp</span><span class="o">-</span><span class="n">vuln</span><span class="o">-</span><span class="n">cve2011</span><span class="o">-</span><span class="mi">1720</span><span class="p">,</span><span class="n">smtp</span><span class="o">-</span><span class="n">vuln</span><span class="o">-</span><span class="n">cve2011</span><span class="o">-</span><span class="mi">1764</span> <span class="o">-</span><span class="n">p</span> <span class="mi">25</span> <span class="mi">10</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">1</span>
+</pre></div>
+
+<h2 id="snmp">SNMP<a class="headerlink" href="#snmp" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">snmpwalk</span> <span class="o">-</span><span class="k">c</span> <span class="k">public</span> <span class="o">-</span><span class="n">v1</span> <span class="mi">10</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span>
+</pre></div>
+
+<h2 id="smb-tcp-139tcp-445">SMB (TCP 139/TCP 445)<a class="headerlink" href="#smb-tcp-139tcp-445" title="Permanent link">&para;</a></h2>
+<p><code class="codehilite"><span class="n">enum4linux</span><span class="w"> </span><span class="o">[</span><span class="n">IP</span><span class="o">]</span><span class="w"></span></code></p>
+<h2 id="webdav">WebDav<a class="headerlink" href="#webdav" title="Permanent link">&para;</a></h2>
+<p><code class="codehilite"><span class="n">davtest</span><span class="w"> </span><span class="o">-</span><span class="n">url</span><span class="w"> </span><span class="n">http</span><span class="p">(</span><span class="n">s</span><span class="p">)</span><span class="err">:</span><span class="o">//[</span><span class="n">IP</span><span class="o">]</span><span class="w"></span></code></p>
+<h2 id="ftp">FTP:<a class="headerlink" href="#ftp" title="Permanent link">&para;</a></h2>
+<p><div class="codehilite"><pre><span></span><span class="n">ftp</span><span class="w"> </span><span class="o">[</span><span class="n">IP</span><span class="o">]</span><span class="w"></span>
+<span class="nl">Username</span><span class="p">:</span><span class="w"> </span><span class="n">anonymous</span><span class="w"> </span><span class="nl">Password</span><span class="p">:</span><span class="w"> </span><span class="n">anonymous</span><span class="w"></span>
+</pre></div>
+<div class="codehilite"><pre><span></span><span class="n">nmap</span> <span class="err">–</span><span class="n">script</span><span class="o">=</span><span class="n">ftp</span><span class="o">-</span><span class="n">anon</span><span class="p">,</span><span class="n">ftp</span><span class="o">-</span><span class="n">bounce</span><span class="p">,</span><span class="n">ftp</span><span class="o">-</span><span class="n">libopie</span><span class="p">,</span><span class="n">ftp</span><span class="o">-</span><span class="n">proftpd</span><span class="o">-</span><span class="n">backdoor</span><span class="p">,</span><span class="n">ftp</span><span class="o">-</span><span class="n">vsftpd</span><span class="o">-</span><span class="n">backdoor</span><span class="p">,</span><span class="n">ftp</span><span class="o">-</span><span class="n">vuln</span><span class="o">-</span><span class="n">cve2010</span><span class="o">-</span><span class="mi">4221</span><span class="p">,</span><span class="n">tftp</span><span class="o">-</span><span class="n">enum</span> <span class="o">-</span><span class="n">p</span> <span class="mi">21</span> <span class="mi">10</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">1</span>
+</pre></div></p>
+<h2 id="smb-anonymous">SMB (anonymous)<a class="headerlink" href="#smb-anonymous" title="Permanent link">&para;</a></h2>
+<p><div class="codehilite"><pre><span></span><span class="n">smbclient</span><span class="w"> </span><span class="o">-</span><span class="n">L</span><span class="w"> </span><span class="err">\\</span><span class="o">[</span><span class="n">IP</span><span class="o">]</span><span class="w"></span>
+<span class="nl">Username</span><span class="p">:</span><span class="w"> </span><span class="n">root</span><span class="w"> </span><span class="nl">Password</span><span class="p">:</span><span class="w"> </span><span class="k">None</span><span class="w"></span>
+</pre></div>
+<div class="codehilite"><pre><span></span><span class="n">enum4linux</span> <span class="mf">10.0.0.1</span>
+</pre></div>
+<div class="codehilite"><pre><span></span><span class="n">nmap</span> <span class="err">–</span><span class="n">script</span><span class="o">=</span><span class="n">smb</span><span class="o">-</span><span class="n">enum</span><span class="o">-</span><span class="n">domains</span><span class="p">.</span><span class="n">nse</span><span class="p">,</span><span class="n">smb</span><span class="o">-</span><span class="n">enum</span><span class="o">-</span><span class="n">groups</span><span class="p">.</span><span class="n">nse</span><span class="p">,</span><span class="n">smb</span><span class="o">-</span><span class="n">enum</span><span class="o">-</span><span class="n">processes</span><span class="p">.</span><span class="n">nse</span><span class="p">,</span><span class="n">smb</span><span class="o">-</span><span class="n">enum</span><span class="o">-</span><span class="n">sessions</span><span class="p">.</span><span class="n">nse</span><span class="p">,</span><span class="n">smb</span><span class="o">-</span><span class="n">enum</span><span class="o">-</span><span class="n">shares</span><span class="p">.</span><span class="n">nse</span><span class="p">,</span><span class="n">smb</span><span class="o">-</span><span class="n">enum</span><span class="o">-</span><span class="n">users</span><span class="p">.</span><span class="n">nse</span><span class="p">,</span><span class="n">smb</span><span class="o">-</span><span class="n">ls</span><span class="p">.</span><span class="n">nse</span><span class="p">,</span><span class="n">smb</span><span class="o">-</span><span class="n">mbenum</span><span class="p">.</span><span class="n">nse</span><span class="p">,</span><span class="n">smb</span><span class="o">-</span><span class="n">os</span><span class="o">-</span><span class="n">discovery</span><span class="p">.</span><span class="n">nse</span><span class="p">,</span><span class="n">smb</span><span class="o">-</span><span class="n">print</span><span class="o">-</span><span class="nb">text</span><span class="p">.</span><span class="n">nse</span><span class="p">,</span><span class="n">smb</span><span class="o">-</span><span class="n">psexec</span><span class="p">.</span><span class="n">nse</span><span class="p">,</span><span class="n">smb</span><span class="o">-</span><span class="k">security</span><span class="o">-</span><span class="k">mode</span><span class="p">.</span><span class="n">nse</span><span class="p">,</span><span class="n">smb</span><span class="o">-</span><span class="n">server</span><span class="o">-</span><span class="n">stats</span><span class="p">.</span><span class="n">nse</span><span class="p">,</span><span class="n">smb</span><span class="o">-</span><span class="k">system</span><span class="o">-</span><span class="n">info</span><span class="p">.</span><span class="n">nse</span><span class="p">,</span><span class="n">smb</span><span class="o">-</span><span class="n">vuln</span><span class="o">-</span><span class="n">conficker</span><span class="p">.</span><span class="n">nse</span><span class="p">,</span><span class="n">smb</span><span class="o">-</span><span class="n">vuln</span><span class="o">-</span><span class="n">cve2009</span><span class="o">-</span><span class="mi">3103</span><span class="p">.</span><span class="n">nse</span><span class="p">,</span><span class="n">smb</span><span class="o">-</span><span class="n">vuln</span><span class="o">-</span><span class="n">ms06</span><span class="o">-</span><span class="mi">025</span><span class="p">.</span><span class="n">nse</span><span class="p">,</span><span class="n">smb</span><span class="o">-</span><span class="n">vuln</span><span class="o">-</span><span class="n">ms07</span><span class="o">-</span><span class="mi">029</span><span class="p">.</span><span class="n">nse</span><span class="p">,</span><span class="n">smb</span><span class="o">-</span><span class="n">vuln</span><span class="o">-</span><span class="n">ms08</span><span class="o">-</span><span class="mi">067</span><span class="p">.</span><span class="n">nse</span><span class="p">,</span><span class="n">smb</span><span class="o">-</span><span class="n">vuln</span><span class="o">-</span><span class="n">ms10</span><span class="o">-</span><span class="mi">054</span><span class="p">.</span><span class="n">nse</span><span class="p">,</span><span class="n">smb</span><span class="o">-</span><span class="n">vuln</span><span class="o">-</span><span class="n">ms10</span><span class="o">-</span><span class="mi">061</span><span class="p">.</span><span class="n">nse</span><span class="p">,</span><span class="n">smb</span><span class="o">-</span><span class="n">vuln</span><span class="o">-</span><span class="n">regsvc</span><span class="o">-</span><span class="n">dos</span><span class="p">.</span><span class="n">nse</span><span class="p">,</span><span class="n">smbv2</span><span class="o">-</span><span class="n">enabled</span><span class="p">.</span><span class="n">nse</span> <span class="mi">10</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">1</span>
+</pre></div></p>
+<h2 id="mysql">MySQL<a class="headerlink" href="#mysql" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">nmap</span> <span class="o">-</span><span class="n">sV</span> <span class="o">-</span><span class="n">Pn</span> <span class="o">-</span><span class="n">vv</span> <span class="err">–</span><span class="n">script</span><span class="o">=</span><span class="n">mysql</span><span class="o">-</span><span class="n">audit</span><span class="p">,</span><span class="n">mysql</span><span class="o">-</span><span class="n">databases</span><span class="p">,</span><span class="n">mysql</span><span class="o">-</span><span class="n">dump</span><span class="o">-</span><span class="n">hashes</span><span class="p">,</span><span class="n">mysql</span><span class="o">-</span><span class="n">empty</span><span class="o">-</span><span class="n">password</span><span class="p">,</span><span class="n">mysql</span><span class="o">-</span><span class="n">enum</span><span class="p">,</span><span class="n">mysql</span><span class="o">-</span><span class="n">info</span><span class="p">,</span><span class="n">mysql</span><span class="o">-</span><span class="n">query</span><span class="p">,</span><span class="n">mysql</span><span class="o">-</span><span class="n">users</span><span class="p">,</span><span class="n">mysql</span><span class="o">-</span><span class="n">variables</span><span class="p">,</span><span class="n">mysql</span><span class="o">-</span><span class="n">vuln</span><span class="o">-</span><span class="n">cve2012</span><span class="o">-</span><span class="mi">2122</span> <span class="mi">10</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">1</span> <span class="o">-</span><span class="n">p</span> <span class="mi">3306</span>
+</pre></div>
+
+<h1 id="web-applications">Web Applications<a class="headerlink" href="#web-applications" title="Permanent link">&para;</a></h1>
+<h2 id="structure-discovery">Structure Discovery<a class="headerlink" href="#structure-discovery" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">dirb</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="mi">10</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">1</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="k">share</span><span class="o">/</span><span class="n">wordlists</span><span class="o">/</span><span class="n">dirb</span><span class="o">/</span><span class="n">common</span><span class="p">.</span><span class="n">txt</span>
+</pre></div>
+
+<h2 id="vulnerability-discovery">Vulnerability Discovery<a class="headerlink" href="#vulnerability-discovery" title="Permanent link">&para;</a></h2>
+<p><code class="codehilite"><span class="n">nikto</span><span class="w"> </span><span class="o">-</span><span class="n">h</span><span class="w"> </span><span class="n">http</span><span class="p">(</span><span class="n">s</span><span class="p">)</span><span class="err">:</span><span class="o">//[</span><span class="n">IP</span><span class="o">]</span><span class="err">:</span><span class="o">[</span><span class="n">PORT</span><span class="o">]/[</span><span class="n">DIRECTORY</span><span class="o">]</span><span class="w"></span></code></p>
+<h1 id="password-attacks">Password Attacks<a class="headerlink" href="#password-attacks" title="Permanent link">&para;</a></h1>
+<ul>
+<li><a href="https://hashkiller.co.uk">https://hashkiller.co.uk</a></li>
+</ul>
+<p><div class="codehilite"><pre><span></span><span class="n">john</span> <span class="n">hashes</span><span class="p">.</span><span class="n">txt</span>
+<span class="n">hashcat</span> <span class="o">-</span><span class="n">m</span> <span class="mi">500</span> <span class="o">-</span><span class="n">a</span> <span class="mi">0</span> <span class="o">-</span><span class="n">o</span> <span class="k">output</span><span class="p">.</span><span class="n">txt</span> <span class="err">–</span><span class="n">remove</span> <span class="n">hashes</span><span class="p">.</span><span class="n">txt</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="k">share</span><span class="o">/</span><span class="n">wordlists</span><span class="o">/</span><span class="n">rockyou</span><span class="p">.</span><span class="n">txt</span>
+</pre></div>
+<div class="codehilite"><pre><span></span><span class="n">hydra</span> <span class="mi">10</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">1</span> <span class="n">http</span><span class="o">-</span><span class="n">post</span><span class="o">-</span><span class="n">form</span> <span class="err">“</span><span class="o">/</span><span class="k">admin</span><span class="p">.</span><span class="n">php</span><span class="p">:</span><span class="n">target</span><span class="o">=</span><span class="n">auth</span><span class="o">&amp;</span><span class="k">mode</span><span class="o">=</span><span class="n">login</span><span class="o">&amp;</span><span class="k">user</span><span class="o">=^</span><span class="k">USER</span><span class="o">^&amp;</span><span class="n">password</span><span class="o">=^</span><span class="n">PASS</span><span class="o">^</span><span class="p">:</span><span class="n">invalid</span><span class="err">”</span> <span class="o">-</span><span class="n">P</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="k">share</span><span class="o">/</span><span class="n">wordlists</span><span class="o">/</span><span class="n">rockyou</span><span class="p">.</span><span class="n">txt</span> <span class="o">-</span><span class="n">l</span> <span class="k">admin</span>
+
+<span class="n">hydra</span> <span class="o">-</span><span class="n">l</span> <span class="k">admin</span> <span class="o">-</span><span class="n">P</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="k">share</span><span class="o">/</span><span class="n">wordlists</span><span class="o">/</span><span class="n">rockyou</span><span class="p">.</span><span class="n">txt</span> <span class="o">-</span><span class="n">o</span> <span class="n">results</span><span class="p">.</span><span class="n">txt</span> <span class="n">ssh</span><span class="p">:</span><span class="o">//</span><span class="mi">10</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">1</span>
+</pre></div></p>
+<h1 id="tunneling">Tunneling<a class="headerlink" href="#tunneling" title="Permanent link">&para;</a></h1>
+<p>Tunnels traffic through 10.0.0.1 and makes a route for all traffic destined for 10.10.10.0/24 through your sshuttle tunnel.
+<div class="codehilite"><pre><span></span><span class="n">sshuttle</span> <span class="o">-</span><span class="n">r</span> <span class="n">root</span><span class="mf">@10.0.0.1</span> <span class="mf">10.10.10.0</span><span class="o">/</span><span class="mi">24</span>
+</pre></div>
+<div class="codehilite"><pre><span></span><span class="n">sshuttle</span> <span class="o">-</span><span class="n">l</span> <span class="p">(</span><span class="n">any</span> <span class="n">port</span><span class="p">)</span> <span class="o">-</span><span class="n">r</span> <span class="n">root</span><span class="mf">@10.10.0.1</span> <span class="mf">10.10.0.0</span><span class="o">/</span><span class="mi">24</span>
+</pre></div></p>
+<h1 id="av-bypassing">AV Bypassing<a class="headerlink" href="#av-bypassing" title="Permanent link">&para;</a></h1>
+<div class="codehilite"><pre><span></span><span class="n">root</span><span class="nv">@kali</span><span class="err">:</span><span class="o">~/</span><span class="n">Hyperion</span><span class="o">-</span><span class="mf">1.0</span><span class="err">#</span><span class="w"> </span><span class="n">wine</span><span class="w"> </span><span class="n">hyperion</span><span class="p">.</span><span class="n">exe</span><span class="w"> </span><span class="p">..</span><span class="o">/</span><span class="n">backdoor</span><span class="p">.</span><span class="n">exe</span><span class="w"> </span><span class="p">..</span><span class="o">/</span><span class="n">backdoor_mutation</span><span class="p">.</span><span class="n">exe</span><span class="w"></span>
+</pre></div>
+
+<p><a href="https://github.com/furrukhtaj/Enumerator">https://github.com/furrukhtaj/Enumerator</a></p>
+<h1 id="scripts-from-awansec">Scripts from awansec<a class="headerlink" href="#scripts-from-awansec" title="Permanent link">&para;</a></h1>
+<p><a href="https://awansec.com/oscp-review.html">https://awansec.com/oscp-review.html</a></p>
+                
+                  
+                
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../../osce/" title="OSCE" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                OSCE
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../_collections/" title="collections" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                 collections
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../../assets/javascripts/application.808e90bb.js"></script>
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../../.."}})</script>
+      
+    
+  </body>
+</html>

@@ -9,7 +9,12 @@
 w\h\o\a\m\i
 \w\h\o\a\m\i
 ```
-
+```
+'html', 'htm', 'js', 'jsb', 'mhtml', 'mht',
+**'php', 'phtml', 'php3', 'php4', 'php5', 'phps',**
+'shtml', 'jhtml', 'pl', 'py', 'cgi', 'sh', 'ksh', 'bsh', 'c', 'htaccess', 'htpasswd',
+'exe', 'scr', 'dll', 'msi', 'vbs', 'bat', 'com', 'pif', 'cmd', 'vxd', 'cpl', 'empty'
+```
 **Tools**
 
 - Commix - <https://github.com/commixproject/commix>
@@ -216,6 +221,12 @@ java%0d%0ascript%0d%0a:alert(0), j%0d%0aava%0d%0aas%0d%0acrip%0d%0at%0d%0a:confi
 ..././
 ...\.\
 ```
+### Server Side Template Injection (SSTI)
+
+- <https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/Server%20Side%20Template%20Injection>
+- Introduction and Bypasses: <https://bowneconsultingcontent.com/pub/EH/proj/ED105.htm>
+- <https://portswigger.net/research/server-side-template-injection>
+- Diff Template related: Server-Side Template Injection: RCE for the modern webapp: <https://www.blackhat.com/docs/us-15/materials/us-15-Kettle-Server-Side-Template-Injection-RCE-For-The-Modern-Web-App-wp.pdf>
 
 ### Client Side Attacks 
 
@@ -229,6 +240,8 @@ java%0d%0ascript%0d%0a:alert(0), j%0d%0aava%0d%0aas%0d%0acrip%0d%0at%0d%0a:confi
 
 **Payloads**
 
+- <http://htmlpurifier.org/live/smoketests/xssAttacks.xml>
+- <http://heideri.ch/jso/#46>
 - Fetch an external resource: <https://github.com/aurainfosec/xss_payloads/blob/master/fetch.md>
 - Advance XSS Persistence With Oauth: <https://github.com/dxa4481/XSSOauthPersistence>
 - <https://blog.secureideas.com/2018/12/twelve-days-of-xssmas.html>

@@ -41,6 +41,7 @@
 - TCP Flag Key: <http://rapid.web.unc.edu/resources/tcp-flag-key/>
 - Network Discovery
     ```
+    nmap -sn <target addresses> # disable port scanning (keep discovery enabled)
     nmap -sP 192.168.1.1-255
     ettercap -T -i eth0 ///
     netdiscover -i ens33
@@ -545,6 +546,11 @@ ssh -D 9001 home
 ## Defense 
 
 - Phishing Blacklist: <https://www.phishing.army/>
+- Open Source Security (OSSEC) is a free, open-source, host-based intrusion detection system (HIDS)
+  - log analysis portion of OSSEC as a log-based intrusion detection system (LIDS)
+  - OSSEC is a virtual appliance based on CentOS and includes Elastic search-Logstash-Kibana (ELK)
+  - Atomic rules are based on a single event occurring, while a composite rule is based on patterns across multiple logs.
+- Hamachi by LogMeIn is a cloud-based, professional-level application that allows you to easily create a virtual private network (VPN) 
 
 ### IPV6
 

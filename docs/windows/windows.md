@@ -1577,6 +1577,25 @@ Posh_SecMod \ Registry.ps1
 
 - Kernel Internals - Windows Sandbox: <https://techcommunity.microsoft.com/t5/Windows-Kernel-Internals/Windows-Sandbox/ba-p/301849>
 
+## Troubleshooting
+
+- RELI: Reliability History/Monitor
+- Problem Steps Recorder (PSR): troubleshooting, assistance, screen capture, annotation tool
+- PathPing: Details of the path between two hosts and the echo-location statistics for each node are displayed. 
+  - tracert to the destination
+  - ICMP to ping each hop 100 times
+- My TraceRoute (MTR): identify issues between two routers responsible for overall latency
+- Sysinternals: 
+  - Process Explorer
+  - PsExec PsList PsKill PsLoggedOn
+  - Notmyfault: crash or handle kernel memory leaks
+  - Autoruns
+  - SDelete
+- Windows Master Control Panel: gives you access to all the operating systems control panels within one folder.
+  - Right-click your Windows 7, 8.1, or 10 desktop and choose New ➪ Folder.
+  - Name the folder GodMode.{ED7BA470-8E54-465E-825C-99712043E01C}.
+
+
 ### Random 
 
 ```bat

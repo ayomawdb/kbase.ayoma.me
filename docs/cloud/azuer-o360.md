@@ -20,3 +20,16 @@
 - <https://www.guardicore.com/2018/03/recovering-plaintext-passwords-azure/>
 - <https://blog.xpnsec.com/azuread-connect-for-redteam/>
 - <https://gist.github.com/xpn/0dc393e944d8733e3c63023968583545#file-azuread_decrypt_msol-ps1>
+
+## AZ900
+
+- Regions
+  - Every region has a pair region for DR purposes
+  - Region have multiple data centers 
+- Availability Zones
+  - deploy your VM’s into different data centers within the same region
+  - VM’s are spread across different buildings but within same Azure Region
+- Availability Sets
+  - increase the availability of your Applications
+  - VM would be spread across update and fault domains but it could happen that your Azure VM is running within the same building
+  - in outage your VM may go down

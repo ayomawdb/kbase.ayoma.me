@@ -1,0 +1,1987 @@
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.0">
+    
+    
+      
+        <title>Reverse engineering - Security Knowledge Base</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/application.1b62728e.css">
+      
+      
+    
+    
+      <script src="../assets/javascripts/modernizr.268332fc.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../assets/fonts/material-icons.css">
+    
+    
+      <link rel="stylesheet" href="../_site/extra.css">
+    
+    
+      
+    
+    
+  </head>
+  
+    <body dir="ltr">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#tools" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href=".." title="Security Knowledge Base" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              Security Knowledge Base
+            </span>
+            <span class="md-header-nav__topic">
+              
+                Reverse engineering
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href=".." title="Security Knowledge Base" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    Security Knowledge Base
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href=".." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../apt/" title="APT" class="md-nav__link">
+      APT
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../books/" title="Books" class="md-nav__link">
+      Books
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../bug-hunting/" title="Bug hunting" class="md-nav__link">
+      Bug hunting
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../career/" title="Career" class="md-nav__link">
+      Career
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../collections/" title="Collections" class="md-nav__link">
+      Collections
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../crypto/" title="Crypto" class="md-nav__link">
+      Crypto
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../databases-sqlserver/" title="Databases - SqlServer" class="md-nav__link">
+      Databases - SqlServer
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../databases/" title="Databases" class="md-nav__link">
+      Databases
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../defense/" title="Defense" class="md-nav__link">
+      Defense
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../dfir/" title="DFIR" class="md-nav__link">
+      DFIR
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../embedded-and-iot/" title="Embedded and iot" class="md-nav__link">
+      Embedded and iot
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../exploits_and_shellcoding/" title="Exploits and shellcoding" class="md-nav__link">
+      Exploits and shellcoding
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../iam-kerberos/" title="IAM - Kerberos" class="md-nav__link">
+      IAM - Kerberos
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../iam/" title="IAM" class="md-nav__link">
+      IAM
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../languages/" title="Languages" class="md-nav__link">
+      Languages
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../linux-issues/" title="Linux issues" class="md-nav__link">
+      Linux issues
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../linux/" title="Linux" class="md-nav__link">
+      Linux
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../malware/" title="Malware" class="md-nav__link">
+      Malware
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../network/" title="Network" class="md-nav__link">
+      Network
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../non-security/" title="Z Non Security" class="md-nav__link">
+      Z Non Security
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../operating-systems/" title="Operating systems" class="md-nav__link">
+      Operating systems
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../osint/" title="OSINT" class="md-nav__link">
+      OSINT
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../password-attacks/" title="Password attacks" class="md-nav__link">
+      Password attacks
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../ports-and-protocols/" title="Ports and protocols" class="md-nav__link">
+      Ports and protocols
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../red-blue-team/" title="Red blue team" class="md-nav__link">
+      Red blue team
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Reverse engineering
+      </label>
+    
+    <a href="./" title="Reverse engineering" class="md-nav__link md-nav__link--active">
+      Reverse engineering
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tools" class="md-nav__link">
+    Tools
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#collections" class="md-nav__link">
+    Collections
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#languageos-specific" class="md-nav__link">
+    Language/OS Specific
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#linux" class="md-nav__link">
+    Linux
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#windows" class="md-nav__link">
+    Windows
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#net" class="md-nav__link">
+    .NET
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#techniques" class="md-nav__link">
+    Techniques
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#practice" class="md-nav__link">
+    Practice
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#defense" class="md-nav__link">
+    Defense
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    References
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vnotes" class="md-nav__link">
+    VNotes
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../rf-and-sdr/" title="RF and SDR" class="md-nav__link">
+      RF and SDR
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../social-engineering/" title="Social engineering" class="md-nav__link">
+      Social engineering
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../steganography/" title="Steganography" class="md-nav__link">
+      Steganography
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../vulnerable/" title="Vulnerable" class="md-nav__link">
+      Vulnerable
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../web/" title="Web" class="md-nav__link">
+      Web
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../wifi/" title="WiFi" class="md-nav__link">
+      WiFi
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-34" type="checkbox" id="nav-34">
+    
+    <label class="md-nav__link" for="nav-34">
+      Certifications
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-34">
+        Certifications
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../certifications/cissp/" title="CISSP" class="md-nav__link">
+      CISSP
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../certifications/osce/" title="OSCE" class="md-nav__link">
+      OSCE
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-34-3" type="checkbox" id="nav-34-3">
+    
+    <label class="md-nav__link" for="nav-34-3">
+      Oscp
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-34-3">
+        Oscp
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../certifications/oscp/0-cheatsheet/" title="Enumeration" class="md-nav__link">
+      Enumeration
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../certifications/oscp/_collections/" title="collections" class="md-nav__link">
+       collections
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../certifications/oscp/_preparation/" title="Was checking" class="md-nav__link">
+      Was checking
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../certifications/oscp/lab-setup/" title="Lab Setup" class="md-nav__link">
+      Lab Setup
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../certifications/oscp/notes/" title="Notes" class="md-nav__link">
+      Notes
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../certifications/oscp/practice-vulnhub/" title="Practice" class="md-nav__link">
+      Practice
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../certifications/oscp/setup/" title="Setup" class="md-nav__link">
+      Setup
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../certifications/oscp/y-Tools/" title="Tools" class="md-nav__link">
+      Tools
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-34-3-9" type="checkbox" id="nav-34-3-9">
+    
+    <label class="md-nav__link" for="nav-34-3-9">
+      Cheatsheet
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-34-3-9">
+        Cheatsheet
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../certifications/oscp/cheatsheet/0-cheatsheet/" title="Cheatsheets" class="md-nav__link">
+      Cheatsheets
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../certifications/oscp/cheatsheet/download/" title="Download" class="md-nav__link">
+      Download
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../certifications/oscp/cheatsheet/exploits/" title="Exploits" class="md-nav__link">
+      Exploits
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../certifications/oscp/cheatsheet/post-exploitation/" title="Post exploitation" class="md-nav__link">
+      Post exploitation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../certifications/oscp/cheatsheet/share-files/" title="Share files" class="md-nav__link">
+      Share files
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../certifications/oscp/cheatsheet/shell/" title="Bash" class="md-nav__link">
+      Bash
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../certifications/oscp/cheatsheet/tty/" title="TTY" class="md-nav__link">
+      TTY
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../certifications/oscp/cheatsheet/web/" title="Web" class="md-nav__link">
+      Web
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../certifications/oscp/cheatsheet/windows/" title="Windows" class="md-nav__link">
+      Windows
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-34-3-9-10" type="checkbox" id="nav-34-3-9-10">
+    
+    <label class="md-nav__link" for="nav-34-3-9-10">
+      Enumeration
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="4">
+      <label class="md-nav__title" for="nav-34-3-9-10">
+        Enumeration
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../certifications/oscp/cheatsheet/enumeration/network/" title="Network" class="md-nav__link">
+      Network
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../certifications/oscp/cheatsheet/enumeration/vulnerability/" title="Vulnerability" class="md-nav__link">
+      Vulnerability
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../certifications/oscp/cheatsheet/enumeration/windows-local/" title="Windows local" class="md-nav__link">
+      Windows local
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-35" type="checkbox" id="nav-35">
+    
+    <label class="md-nav__link" for="nav-35">
+      Cloud
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-35">
+        Cloud
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../cloud/aws/" title="Aws" class="md-nav__link">
+      Aws
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../cloud/azuer-o360/" title="Azuer o360" class="md-nav__link">
+      Azuer o360
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../cloud/general/" title="General" class="md-nav__link">
+      General
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-36" type="checkbox" id="nav-36">
+    
+    <label class="md-nav__link" for="nav-36">
+      Devops
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-36">
+        Devops
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../devops/container/" title="Container" class="md-nav__link">
+      Container
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../devops/docker/" title="Docker" class="md-nav__link">
+      Docker
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../devops/istio/" title="Istio" class="md-nav__link">
+      Istio
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../devops/kubernetes/" title="Kubernetes" class="md-nav__link">
+      Kubernetes
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-37" type="checkbox" id="nav-37">
+    
+    <label class="md-nav__link" for="nav-37">
+      Windows
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-37">
+        Windows
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../windows/active-directory/" title="Active Directory" class="md-nav__link">
+      Active Directory
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../windows/powershell/" title="Powershell" class="md-nav__link">
+      Powershell
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../windows/windows-issues/" title="Windows issues" class="md-nav__link">
+      Windows issues
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../windows/windows-privilege-escalation/" title="Windows Privilege Escalation" class="md-nav__link">
+      Windows Privilege Escalation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../windows/windows/" title="Windows" class="md-nav__link">
+      Windows
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tools" class="md-nav__link">
+    Tools
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#collections" class="md-nav__link">
+    Collections
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#languageos-specific" class="md-nav__link">
+    Language/OS Specific
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#linux" class="md-nav__link">
+    Linux
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#windows" class="md-nav__link">
+    Windows
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#net" class="md-nav__link">
+    .NET
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#techniques" class="md-nav__link">
+    Techniques
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#practice" class="md-nav__link">
+    Practice
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#defense" class="md-nav__link">
+    Defense
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    References
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vnotes" class="md-nav__link">
+    VNotes
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  <h1>Reverse engineering</h1>
+                
+                <h2 id="tools">Tools<a class="headerlink" href="#tools" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Hex Editors </li>
+<li>Decompilers</li>
+<li>Disassemblers</li>
+<li>Debuggers<ul>
+<li>Ring0 </li>
+<li>Ring3</li>
+</ul>
+</li>
+<li>System Monitoring Tools </li>
+<li>Windows API Monitoring Tools</li>
+</ul>
+<ul>
+<li>Diaphora - is a program diffing plugin for IDA / Ghidra: <a href="https://github.com/joxeankoret/diaphora">https://github.com/joxeankoret/diaphora</a></li>
+<li>YaDiff - is a program diffing </li>
+<li>BinDiff: Patch analysis </li>
+</ul>
+<ul>
+<li>radare2</li>
+<li>Frida - Dynamic instrumentation toolkit for developers, reverse-engineers, and security researchers: <a href="https://www.frida.re/">https://www.frida.re/</a></li>
+<li>angr - Python framework for analyzing binaries. It combines both static and dynamic symbolic ("concolic") analysis, making it applicable to a variety of tasks: <a href="https://angr.io/">https://angr.io/</a></li>
+<li>GEF - GDB Enhanced Features for exploit devs &amp; reversers: <a href="https://github.com/hugsy/gef">https://github.com/hugsy/gef</a></li>
+<li>YY-CHR - Supports editing NES, SNES, Genesis, PCE, GG, WS/C, GB/C, MSX 1+2, NGP/C, SMS, and GBA graphics: <a href="https://www.romhacking.net/utilities/119/">https://www.romhacking.net/utilities/119/</a></li>
+<li>ProcDump - ProcDump provides a convenient way for Linux developers to create core dumps of their application based on performance triggers: <a href="https://github.com/Microsoft/ProcDump-for-Linux">https://github.com/Microsoft/ProcDump-for-Linux</a></li>
+<li>mleak - Memory leak tracer for C programs: <a href="https://github.com/hyc/mleak">https://github.com/hyc/mleak</a></li>
+<li>Demangle function names (C/C++): <a href="http://demangler.com">http://demangler.com</a></li>
+</ul>
+<h2 id="collections">Collections<a class="headerlink" href="#collections" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Vagrant box with binary analysis tools: <a href="https://github.com/Hamz-a/binanalysisbox">https://github.com/Hamz-a/binanalysisbox</a></li>
+<li>microsoft-pdb: <a href="https://github.com/Microsoft/microsoft-pdb">https://github.com/Microsoft/microsoft-pdb</a><ul>
+<li><code class="codehilite"><span class="n">cvdump</span> <span class="n">Whatever</span><span class="p">.</span><span class="n">pdb</span></code> <a href="https://github.com/Microsoft/microsoft-pdb/blob/master/cvdump/cvdump.exe">https://github.com/Microsoft/microsoft-pdb/blob/master/cvdump/cvdump.exe</a></li>
+<li>How to Inspect the Content of a Program Database (PDB) File: <a href="https://www.codeproject.com/Articles/37456/How-To-Inspect-the-Content-of-a-Program-Database-P">https://www.codeproject.com/Articles/37456/How-To-Inspect-the-Content-of-a-Program-Database-P</a></li>
+<li><a href="https://docs.microsoft.com/en-us/windows-hardware/drivers/debugger/debugger-download-symbols">https://docs.microsoft.com/en-us/windows-hardware/drivers/debugger/debugger-download-symbols</a></li>
+<li><a href="https://techcommunity.microsoft.com/t5/iis-support-blog/pdb-downloader/ba-p/342969">https://techcommunity.microsoft.com/t5/iis-support-blog/pdb-downloader/ba-p/342969</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="languageos-specific">Language/OS Specific<a class="headerlink" href="#languageos-specific" title="Permanent link">&para;</a></h2>
+<h3 id="linux">Linux<a class="headerlink" href="#linux" title="Permanent link">&para;</a></h3>
+<p><strong>Setup</strong></p>
+<ul>
+<li>Disable ASLR: <code class="codehilite"><span class="n">sudo</span> <span class="n">sysctl</span> <span class="o">-</span><span class="n">w</span> <span class="n">kernel</span><span class="p">.</span><span class="n">randomize_va_space</span><span class="o">=</span><span class="mi">0</span></code></li>
+<li>Allow ptrace processes: <code class="codehilite"><span class="n">sudo</span> <span class="n">sysctl</span> <span class="o">-</span><span class="n">w</span> <span class="n">kernel</span><span class="p">.</span><span class="n">yama</span><span class="p">.</span><span class="n">ptrace_scope</span><span class="o">=</span><span class="mi">0</span></code></li>
+<li>Installing 32bit Libraries
+    <div class="codehilite"><pre><span></span>dpkg --add-architecture i386
+apt-get install libc6:i386
+</pre></div>
+<strong>GDB</strong></li>
+</ul>
+<ul>
+<li>PEDA: <a href="http://ropshell.com/peda/Linux_Interactive_Exploit_Development_with_GDB_and_PEDA_Slides.pdf">http://ropshell.com/peda/Linux_Interactive_Exploit_Development_with_GDB_and_PEDA_Slides.pdf</a></li>
+</ul>
+<ul>
+<li>Run GBD with env variables: <code class="codehilite"><span class="n">env</span> <span class="o">-</span> <span class="n">gdb</span> <span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">lcars</span></code></li>
+<li>Display Information
+    <div class="codehilite"><pre><span></span><span class="n">info</span> <span class="n">registers</span>
+<span class="n">info</span> <span class="k">all</span><span class="o">-</span><span class="n">registers</span>
+</pre></div></li>
+<li>Display memory map: <code class="codehilite"><span class="n">vmmap</span></code></li>
+<li>Display Registers / Memory: <code class="codehilite"><span class="n">display</span> <span class="o">/</span><span class="n">x</span> <span class="err">$</span><span class="n">eax</span></code> <code class="codehilite"><span class="n">x</span><span class="o">/</span><span class="mi">50</span><span class="k">c</span> <span class="err">$</span><span class="n">eax</span></code> <code class="codehilite"><span class="n">x</span><span class="o">/</span><span class="n">s</span> <span class="err">$</span><span class="n">eax</span></code></li>
+<li>Disassemble-flavor: <code class="codehilite"><span class="k">set</span> <span class="n">disassembly</span><span class="o">-</span><span class="n">flavor</span> <span class="n">intel</span></code></li>
+<li>Disassemble: <code class="codehilite"><span class="n">disassemble</span> <span class="err">$</span><span class="n">eip</span></code></li>
+<li>Print Type Information: <code class="codehilite"><span class="n">ptype</span> <span class="n">Student</span></code></li>
+<li>Check security information: <code class="codehilite"><span class="n">checksec</span></code></li>
+</ul>
+<p><strong>References</strong></p>
+<ul>
+<li>ELF Binary Mangling Part 1 — Concepts: <a href="https://medium.com/@dmxinajeansuit/elf-binary-mangling-part-1-concepts-e00cb1352301">https://medium.com/@dmxinajeansuit/elf-binary-mangling-part-1-concepts-e00cb1352301</a></li>
+<li>Elf Binary Mangling Pt. 2: Golfin’: <a href="https://medium.com/@dmxinajeansuit/elf-binary-mangling-pt-2-golfin-7e5c82bb482c">https://medium.com/@dmxinajeansuit/elf-binary-mangling-pt-2-golfin-7e5c82bb482c</a></li>
+<li>Elf Binary Mangling Part 3 — Weaponization: <a href="https://medium.com/@dmxinajeansuit/elf-binary-mangling-part-3-weaponization-6e11971108b3">https://medium.com/@dmxinajeansuit/elf-binary-mangling-part-3-weaponization-6e11971108b3</a></li>
+<li><a href="http://romainthomas.fr/slides/18-06-Recon18-Formats-Instrumentation.pdf">http://romainthomas.fr/slides/18-06-Recon18-Formats-Instrumentation.pdf</a></li>
+<li>Dissecting and exploiting ELF files: <a href="https://0x00sec.org/t/dissecting-and-exploiting-elf-files/7267">https://0x00sec.org/t/dissecting-and-exploiting-elf-files/7267</a></li>
+</ul>
+<h3 id="windows">Windows<a class="headerlink" href="#windows" title="Permanent link">&para;</a></h3>
+<p><strong>Tools</strong></p>
+<ul>
+<li>Collections<ul>
+<li>A list of static analysis tools for Portable Executable (PE) files: <a href="https://www.peerlyst.com/posts/a-list-of-static-analysis-tools-for-portable-executable-pe-files-susan-parker?utm_source=twitter&amp;utm_medium=social&amp;utm_content=peerlyst_post&amp;utm_campaign=peerlyst_shared_post">https://www.peerlyst.com/posts/a-list-of-static-analysis-tools-for-portable-executable-pe-files-susan-parker?utm_source=twitter&amp;utm_medium=social&amp;utm_content=peerlyst_post&amp;utm_campaign=peerlyst_shared_post</a></li>
+</ul>
+</li>
+<li>Generate call graphs from VBA code -  <a href="https://github.com/MalwareCantFly/Vba2Graph">https://github.com/MalwareCantFly/Vba2Graph</a></li>
+<li>libpeconv - A library to load, manipulate, dump PE files <a href="https://github.com/hasherezade/libpeconv">https://github.com/hasherezade/libpeconv</a></li>
+<li>filealyzer - Helps you explore alternate data streams, #PE/#ELF data and anomalies, file signatures, EXIF data, MZ header, #OpenSBI, #PEiD, #VirusTotal, Android and iOS app (file) info, all in one neat UI: <a href="https://www.safer-networking.org/products/filealyzer/">https://www.safer-networking.org/products/filealyzer/</a></li>
+<li>WinDbg - Toy scripts for playing with WinDbg JS API: <a href="https://github.com/hugsy/windbg_js_scripts">https://github.com/hugsy/windbg_js_scripts</a></li>
+<li>HXD - Hex Editor: <a href="https://mh-nexus.de/en/hxd/">https://mh-nexus.de/en/hxd/</a></li>
+</ul>
+<p><strong>Defense</strong></p>
+<ul>
+<li>Control Flow Guard - Protects the execution flow from redirection - for example, from exploits that overwrite an address in the stack <a href="https://86hh.github.io/cfg.html">https://86hh.github.io/cfg.html</a></li>
+</ul>
+<p><strong>References</strong></p>
+<ul>
+<li>Rich Header - <a href="http://bytepointer.com/articles/the_microsoft_rich_header.htm">http://bytepointer.com/articles/the_microsoft_rich_header.htm</a></li>
+<li>Learning binary file formats: <ul>
+<li><a href="https://board.flatassembler.net/topic.php?t=20690">https://board.flatassembler.net/topic.php?t=20690</a></li>
+<li><a href="https://twitter.com/grysztar/status/1088901193747845120">https://twitter.com/grysztar/status/1088901193747845120</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="net">.NET<a class="headerlink" href="#net" title="Permanent link">&para;</a></h3>
+<ul>
+<li>File Format<ul>
+<li><code class="codehilite"><span class="na">.text</span></code> - Import Table, Import Address Table and .NET Section</li>
+<li><code class="codehilite"><span class="na">.reloc</span></code> - To relocate the address which the EntryPoint instruction jumps to (it's the only address contained the IAT). The IT counts just one imported module (mscoree.dll) and one imported function (_CorExeMain for executables and _CorDllMain for dynamic load libraries).</li>
+<li><code class="codehilite"><span class="na">.rsrc</span></code> - Main icon for an executable, since all others resources are in the .NET Section.</li>
+<li><a href="https://www.ntcore.com/files/dotnetformat.htm">https://www.ntcore.com/files/dotnetformat.htm</a></li>
+<li><a href="https://www.red-gate.com/simple-talk/blogs/anatomy-of-a-net-assembly-pe-headers/">https://www.red-gate.com/simple-talk/blogs/anatomy-of-a-net-assembly-pe-headers/</a></li>
+</ul>
+</li>
+<li>Dynamically load memory-only modules: <a href="https://msdn.microsoft.com/en-us/library/system.reflection.assembly.load">Assembly.Load(byte[])</a><ul>
+<li><a href="https://www.endgame.com/blog/technical-blog/hunting-memory-net-attacks">https://www.endgame.com/blog/technical-blog/hunting-memory-net-attacks</a></li>
+</ul>
+</li>
+<li>.NET framework included in OS version: <a href="https://blogs.msdn.microsoft.com/astebner/2007/03/14/mailbag-what-version-of-the-net-framework-is-included-in-what-version-of-the-os/">https://blogs.msdn.microsoft.com/astebner/2007/03/14/mailbag-what-version-of-the-net-framework-is-included-in-what-version-of-the-os/</a></li>
+</ul>
+<p><strong>Tools</strong></p>
+<ul>
+<li>CFF Explorer: <a href="https://ntcore.com/?page_id=388">https://ntcore.com/?page_id=388</a></li>
+<li>PE inspection library allowing .NET programmers to read, modify and write executable files: <a href="https://github.com/Washi1337/AsmResolver">https://github.com/Washi1337/AsmResolver</a></li>
+<li>Parser for Windows Portable Executable headers: <a href="https://github.com/secana/PeNet">https://github.com/secana/PeNet</a></li>
+</ul>
+<p><strong>References</strong></p>
+<ul>
+<li>Reverse Engineering .NET Applications For Beginners: <a href="https://www.youtube.com/watch?v=KOVXWRrd_qg">https://www.youtube.com/watch?v=KOVXWRrd_qg</a></li>
+</ul>
+<h2 id="techniques">Techniques<a class="headerlink" href="#techniques" title="Permanent link">&para;</a></h2>
+<p><strong>Stack Based BOF</strong></p>
+<ul>
+<li>Day 71: Essential Immunity Commands for OSCP and CTFs: <a href="https://medium.com/@int0x33/day-71-essential-immunity-commands-for-oscp-and-ctfs-cebfe06d935a">https://medium.com/@int0x33/day-71-essential-immunity-commands-for-oscp-and-ctfs-cebfe06d935a</a></li>
+</ul>
+<h2 id="practice">Practice<a class="headerlink" href="#practice" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://www.malwaretech.com/beginner-malware-reversing-challenges">https://www.malwaretech.com/beginner-malware-reversing-challenges</a></li>
+</ul>
+<h2 id="defense">Defense<a class="headerlink" href="#defense" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Disassembly desynchronization: <a href="https://github.com/yellowbyte/analysis-of-anti-analysis/blob/master/research/the_return_of_disassembly_desynchronization/the_return_of_disassembly_desynchronization.md">https://github.com/yellowbyte/analysis-of-anti-analysis/blob/master/research/the_return_of_disassembly_desynchronization/the_return_of_disassembly_desynchronization.md</a></li>
+</ul>
+<h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Basic Reverse Engineering
+with Immunity Debugger: <a href="https://www.sans.org/reading-room/whitepapers/malicious/basic-reverse-engineering-immunity-debugger-36982">https://www.sans.org/reading-room/whitepapers/malicious/basic-reverse-engineering-immunity-debugger-36982</a></li>
+<li>101 - <a href="https://www.youtube.com/watch?v=Min6DWTHDBw&amp;feature=em-uploademail">https://www.youtube.com/watch?v=Min6DWTHDBw&amp;feature=em-uploademail</a></li>
+<li>Reverse Engineering for Beginners: <a href="https://www.begin.re/">https://www.begin.re/</a></li>
+<li>Learning Radare2 by Reversing a UMPC Bios: <a href="https://stragedevices.blogspot.com/2019/02/finding-verified-intel-atom-msrs-in.html">https://stragedevices.blogspot.com/2019/02/finding-verified-intel-atom-msrs-in.html</a></li>
+<li>Survival guide for Radare2 with practice: <a href="https://github.com/ZigzagSecurity/survival-guide-radare2">https://github.com/ZigzagSecurity/survival-guide-radare2</a></li>
+<li><a href="http://www.capstone-engine.org/showcase.html">http://www.capstone-engine.org/showcase.html</a></li>
+<li>Reverse engineering simple binaries created in Fortran, C, C++, Pascal and Ada: <a href="https://www.mkdynamics.net/current_projects/computer_security/Disassembling_binaries/disassembling_binaries.html">https://www.mkdynamics.net/current_projects/computer_security/Disassembling_binaries/disassembling_binaries.html</a></li>
+<li>Port-oriented Programming: <a href="https://twitter.com/bxl1989/status/1085101696735268865">https://twitter.com/bxl1989/status/1085101696735268865</a></li>
+<li>OALabs - WinDbg Basics for Malware Analysis: <a href="https://www.youtube.com/watch?v=QuFJpH3My7A&amp;list=PLGf_j68jNtWG_6ZwFN4kx7jfKTQXoG_BN">https://www.youtube.com/watch?v=QuFJpH3My7A&amp;list=PLGf_j68jNtWG_6ZwFN4kx7jfKTQXoG_BN</a></li>
+<li>The 101 of ELF files on Linux: Understanding and Analysis: <a href="https://linux-audit.com/elf-binaries-on-linux-understanding-and-analysis/">https://linux-audit.com/elf-binaries-on-linux-understanding-and-analysis/</a></li>
+<li>Ground Zero: Reverse Engineering: <a href="https://scriptdotsh.com/index.php/category/reverse-engineering/">https://scriptdotsh.com/index.php/category/reverse-engineering/</a></li>
+<li>DEF CON 26 - Alexei Bulazel - Reverse Engineering Windows Defenders Emulator: <a href="https://www.youtube.com/watch?v=2NawGCUOYT4">https://www.youtube.com/watch?v=2NawGCUOYT4</a></li>
+</ul>
+<p><strong>ARM</strong></p>
+<ul>
+<li>SUE 2017 - Reverse Engineering Embedded ARM Devices - by pancake: <a href="https://www.youtube.com/watch?v=oXSx0Qo2Upk&amp;feature=youtu.be">https://www.youtube.com/watch?v=oXSx0Qo2Upk&amp;feature=youtu.be</a></li>
+<li>ARM ASSEMBLY BASICS CHEATSHEET: <a href="https://azeria-labs.com/assembly-basics-cheatsheet/">https://azeria-labs.com/assembly-basics-cheatsheet/</a></li>
+</ul>
+<p><strong>GO</strong></p>
+<ul>
+<li>Set of IDA Pro scripts for parsing GoLang types information stored in compiled binary: <a href="https://github.com/sibears/IDAGolangHelper">https://github.com/sibears/IDAGolangHelper</a></li>
+</ul>
+<p><strong>Java</strong></p>
+<ul>
+<li>Toold, JADX, JD-GUI, Procyon, CFR, Fernflower etc., Bytecodeviewer, dex2jar, APK tool </li>
+</ul>
+<p><strong>Mobile Apps</strong></p>
+<ul>
+<li>Inro: <a href="https://medium.com/@xplodwild/turning-the-frustration-of-a-mobile-game-into-a-reverse-engineering-training-a9887043efdf">https://medium.com/@xplodwild/turning-the-frustration-of-a-mobile-game-into-a-reverse-engineering-training-a9887043efdf</a></li>
+<li>They updated, we dumped memory: <a href="https://blog.usejournal.com/reverse-engineering-of-a-mobile-game-part-2-they-updated-we-dumped-memory-27046efdfb85">https://blog.usejournal.com/reverse-engineering-of-a-mobile-game-part-2-they-updated-we-dumped-memory-27046efdfb85</a></li>
+<li>Now, it’s obfuscated: <a href="https://medium.com/@xplodwild/reverse-engineering-of-a-mobile-game-part-3-now-its-obfuscated-9c31e29c386b">https://medium.com/@xplodwild/reverse-engineering-of-a-mobile-game-part-3-now-its-obfuscated-9c31e29c386b</a></li>
+</ul>
+<h2 id="vnotes">VNotes<a class="headerlink" href="#vnotes" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<blockquote>
+<p>Introduction to RE</p>
+</blockquote>
+</li>
+<li>
+<blockquote>
+<p>Why RE is necessary (no-support/source/malware)</p>
+</blockquote>
+</li>
+<li>IA-32 CPU architecture <ul>
+<li>General Purpose Registers (V1 C3.4.1): <ul>
+<li>EAX - accumulator</li>
+<li>EBX - pointer to data in DS segment</li>
+<li>ECX - counter for string and loop operations </li>
+<li>EDX - I/O pointer</li>
+<li>ESI <ul>
+<li>Pointer to data in the segment pointed to by the DS register</li>
+<li>Source pointer for string operations</li>
+</ul>
+</li>
+<li>EDI<ul>
+<li>Pointer to data or destination in the segment pointed to by the ES register</li>
+<li>Destination pointer for string operations</li>
+</ul>
+</li>
+<li>ESP - Stack pointer, in the SS segment</li>
+<li>EBP - Pointer to data on the stack, in the SS segment </li>
+</ul>
+</li>
+<li>Accessing parts of registers (EAX AH AL)</li>
+<li>EFLAGS (V1 C3.4.3)<ul>
+<li>Arithmetic: OF SF ZF AF PF CF</li>
+<li>ZF<ul>
+<li>SCAS</li>
+<li>CMPS (CMSB/CMPSW/CMPSD)</li>
+<li>LOOP (LOOPE/LOOPE/LOOPZ/LOOPNE/LOOPNZ)</li>
+</ul>
+</li>
+<li>DF (direction flag)<ul>
+<li>1: String instructions auto-decrement (processed from higher to lower address)</li>
+<li>0: String instructions auto-increment (processed from from lower to higher address)</li>
+<li><code class="codehilite"><span class="n">cld</span></code> to **cl**ear **d**irection flag</li>
+<li><code class="codehilite"><span class="n">std</span></code> to <strong>s**e**t</strong> **d**irection flag</li>
+<li>String operation<ul>
+<li>ESI/EDI: must point to either to start/end of the string</li>
+<li>ECX must contain number of bytes to compare </li>
+</ul>
+</li>
+</ul>
+</li>
+<li>IOPL (<strong>IO</strong> **p**rivilege **l**evel) - OS operations </li>
+<li>Trap Flag - Enable single step mode (debugging)</li>
+</ul>
+</li>
+<li>Segment Registers (V1 C3.4.2)<ul>
+<li>CS - code</li>
+<li>DS - data</li>
+<li>SS - stack</li>
+<li>ES - data</li>
+<li>FS - data</li>
+<li>GS - data</li>
+</ul>
+</li>
+<li>EIP - Instruction Pointer Register = PC (V1 C3.5)<ul>
+<li>Cannot access directly</li>
+</ul>
+</li>
+<li>DR0 - DR7: Debug Registers (V3 C317.2)<ul>
+<li>DR0 - DR3 are important: Used to store hardware breakpoints (addresses)</li>
+<li>Cannot be accessed directly from userland (Ring-3)</li>
+<li>In Windows use Ring 3 API and transfer execution to kernel level to update the register </li>
+</ul>
+</li>
+<li>Machine/Model Specific Registers  (V1 C3.2)<ul>
+<li>Not accessible to applications, except from Time-Stamp Counter </li>
+<li>64-bit </li>
+<li>Read using RDTSC (Read time-stamp counter) <ul>
+<li>Low read to EAX</li>
+<li>High read to EDX</li>
+</ul>
+</li>
+<li>Incremented with every clock cycle (reset when processor reset)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>CPU has a thread-wise context</li>
+<li>Software breakpoints work by 0xCC (int 3h) instruction. Core modification, is independent from thread context.</li>
+<li>Functions<ul>
+<li>Why functions are required in a program</li>
+<li>Execution flow changes and it's required to remember where the execution was left off (and registers)</li>
+<li>Introduce stack (SS)</li>
+</ul>
+</li>
+<li>Stack: <a href="https://en.wikibooks.org/wiki/X86_Disassembly/The_Stack">https://en.wikibooks.org/wiki/X86_Disassembly/The_Stack</a><ul>
+<li>Process: <ul>
+<li>Contain threads</li>
+<li>Created by OS and provided with a virtual address space </li>
+<li>OS creates at least one thread, ready to be executed</li>
+</ul>
+</li>
+<li>Thread:<ul>
+<li>Has it's own stack</li>
+<li>Share the same virtual address space (of process)</li>
+<li>Time slice assigned by processor to that specific process </li>
+<li>Singe processor system: One thread at a time</li>
+<li>Multi processor system: Simultaneous threads </li>
+</ul>
+</li>
+<li>Multi-tasking: Illusion of simultaneous execution of multiple application at the same time </li>
+<li>Multi-threading: Multiple threads that actually run in parallel</li>
+<li>PUSH POP - LIFO and bottom to top  nature<ul>
+<li>ESP always point to TOS is decremented to point to new place  <ul>
+<li>Addition decrement </li>
+<li>Removal increment</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Function calling (V1 C6): <a href="https://en.wikibooks.org/wiki/X86_Disassembly/Functions_and_Stack_Frames">https://en.wikibooks.org/wiki/X86_Disassembly/Functions_and_Stack_Frames</a><ul>
+<li>Parameters pushed to stack </li>
+<li>CALL <ul>
+<li>Push return address to (return IP) ti stack</li>
+<li>Load the address of the function's entry-point (to EIP)</li>
+</ul>
+</li>
+<li>RET<ul>
+<li>POP address from TOS to EIP and resume execution </li>
+<li>RET 4. RET + increment ESP 4 bytes (used in <code class="codehilite"><span class="n">stdcall</span></code> and <code class="codehilite"><span class="n">fastcall</span></code>) </li>
+</ul>
+</li>
+<li>Stack frames (V1 C6) <ul>
+<li>Each function need a way to store return/local variables etc.</li>
+<li>Function <code class="codehilite"><span class="n">prologue</span></code> create a frame for each function <ul>
+<li>After this some GP registers stored in stack</li>
+</ul>
+</li>
+<li>Function <code class="codehilite"><span class="n">epilogue</span></code> re-balance the stack (free memory) after execution<ul>
+<li>Before this GP registers are restored</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>prologue: <a href="https://en.wikipedia.org/wiki/Function_prologue">https://en.wikipedia.org/wiki/Function_prologue</a>
+  <div class="codehilite"><pre><span></span>push ebp      <span class="c1"># save base pointer</span>
+mov ebp, esp  <span class="c1"># set the base-pointer, so that it points to the top of the stack</span>
+sub esp, N    <span class="c1"># allocate memory for current stack frame</span>
+</pre></div>
+  <div class="codehilite"><pre><span></span>enter   N, <span class="m">0</span>   <span class="c1"># More complex prologues can be obtained using different values (other than 0)</span>
+</pre></div></li>
+<li>function invocation
+  <div class="codehilite"><pre><span></span>push eax    <span class="c1"># save registers</span>
+push ebx
+
+<span class="c1"># Function body </span>
+
+pop ebx    <span class="c1"># restore saved registers</span>
+pop eax
+</pre></div></li>
+<li>epilogue:
+  <div class="codehilite"><pre><span></span>mov esp, ebp   <span class="c1"># free memory allocated for current stack frame </span>
+pop ebp        <span class="c1"># restore previous base pointer </span>
+ret            <span class="c1"># exit function</span>
+</pre></div>
+  <div class="codehilite"><pre><span></span>leave
+ret
+</pre></div></li>
+<li>Calling conventions: <a href="https://en.wikibooks.org/wiki/X86_Disassembly/Calling_Conventions">https://en.wikibooks.org/wiki/X86_Disassembly/Calling_Conventions</a><ul>
+<li><code class="codehilite"><span class="n">cdecl</span></code><ul>
+<li>Arguments are passed on the stack in <code class="codehilite"><span class="k">Right</span><span class="o">-</span><span class="k">to</span><span class="o">-</span><span class="k">Left</span></code> order, and <code class="codehilite"><span class="k">return</span> <span class="nv">values</span> <span class="nv">are</span> <span class="nv">passed</span> <span class="nv">in</span> <span class="nv">eax</span></code>.</li>
+<li>The <code class="codehilite"><span class="n">calling</span> <span class="k">function</span> <span class="n">cleans</span></code> the stack. <ul>
+<li>CDECL functions to have variable-length argument lists (aka variadic functions)</li>
+<li>Number of arguments is not appended to the name of the function by the compiler, and the assembler and the linker are therefore unable to determine if an incorrect number of arguments is used.</li>
+</ul>
+</li>
+<li>CDECL functions are almost always prepended with an <code class="codehilite"><span class="n">_</span></code>. 
+  <div class="codehilite"><pre><span></span><span class="n">_cdecl</span> <span class="kt">int</span> <span class="nf">MyFunction1</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">MyFunction1</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span>
+</pre></div>
+  <div class="codehilite"><pre><span></span>_MyFunction1:
+push ebp              <span class="c1"># prologue</span>
+mov ebp, esp          <span class="c1"># prologue</span>
+mov eax, <span class="o">[</span>ebp + <span class="m">8</span><span class="o">]</span>    <span class="c1"># read 1st param into eax</span>
+mov edx, <span class="o">[</span>ebp + <span class="m">12</span><span class="o">]</span>   <span class="c1"># read 2nd param into abx</span>
+add eax, edx          
+pop ebp               <span class="c1"># epilogue</span>
+ret                   <span class="c1"># epilogue</span>
+
+push <span class="m">3</span>                <span class="c1"># push rightmost param into stack (b)</span>
+push <span class="m">2</span>                <span class="c1"># push next-rightmost param into stack (a)</span>
+call _MyFunction1     <span class="c1"># call</span>
+add esp, <span class="m">8</span>            <span class="c1"># calling function cleans (free memory)</span>
+</pre></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code class="codehilite"><span class="n">stdcall</span></code> (WINAPI)<ul>
+<li>Exclusively by Microsoft as the standard calling convention for the Win32 API</li>
+<li>Arguments are passed on the stack in <code class="codehilite"><span class="k">Right</span><span class="o">-</span><span class="k">to</span><span class="o">-</span><span class="k">Left</span></code> order, and <code class="codehilite"><span class="k">return</span> <span class="nv">values</span> <span class="nv">are</span> <span class="nv">passed</span> <span class="nv">in</span> <span class="nv">eax</span></code>. (same as <code class="codehilite"><span class="n">__cdecl</span></code>)</li>
+<li>The <code class="codehilite"><span class="k">called</span> <span class="k">function</span> <span class="n">cleans</span></code> the stack, unlike CDECL. <ul>
+<li>STDCALL doesn't allow variable-length argument lists.</li>
+</ul>
+</li>
+<li>Name-decorated with a leading <code class="codehilite"><span class="n">_</span></code>, followed by an <code class="codehilite"><span class="o">@</span></code>, and then the <code class="codehilite"><span class="nb">number</span> <span class="p">(</span><span class="k">in</span> <span class="n">bytes</span><span class="p">)</span></code> of arguments passed on the stack. This number will always be a multiple of 4, on a 32-bit aligned machine.</li>
+<li>Resulting code is smaller because <code class="codehilite"><span class="n">clean</span> <span class="n">up</span></code> instructions are not repeated with each invocation. 
+    <div class="codehilite"><pre><span></span><span class="n">_stdcall</span> <span class="kt">int</span> <span class="nf">MyFunction2</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">MyFunction2</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span>
+</pre></div>
+    <div class="codehilite"><pre><span></span>:_MyFunction2@8       <span class="c1"># Function name contains info about number of bytes to clean</span>
+push ebp              <span class="c1"># prologue</span>
+mov ebp, esp          <span class="c1"># prologue</span>
+mov eax, <span class="o">[</span>ebp + <span class="m">8</span><span class="o">]</span>    <span class="c1"># read 1st param into eax</span>
+mov edx, <span class="o">[</span>ebp + <span class="m">12</span><span class="o">]</span>   <span class="c1"># read 2nd param into abx</span>
+add eax, edx          
+pop ebp               <span class="c1"># epilogue</span>
+ret <span class="m">8</span>                 <span class="c1"># epilogue + called function cleans (free memory). 8 is how many bytes to pop off.</span>
+
+push <span class="m">3</span>                <span class="c1"># push rightmost param into stack (b)</span>
+push <span class="m">2</span>                <span class="c1"># push next-rightmost param into stack (a)</span>
+call _MyFunction2@8   <span class="c1"># call</span>
+</pre></div></li>
+</ul>
+</li>
+<li><code class="codehilite"><span class="n">fastcall</span></code><ul>
+<li>not completely standard across all compilers</li>
+<li>first 2 or 3 32-bit (or smaller) arguments are passed in registers, with the most commonly used registers being <code class="codehilite"><span class="n">edx</span></code>, <code class="codehilite"><span class="n">eax</span></code>, and <code class="codehilite"><span class="n">ecx</span></code></li>
+<li>Additional arguments, or arguments larger than 4-bytes are passed on the stack, often in <code class="codehilite"><span class="k">Right</span><span class="o">-</span><span class="k">to</span><span class="o">-</span><span class="k">Left</span></code> order (similar to CDECL)</li>
+<li><code class="codehilite"><span class="n">Calling</span> <span class="k">function</span> <span class="n">cleans</span></code> most frequently</li>
+<li>prepends an <code class="codehilite"><span class="o">@</span></code> to the function name, and follows the function name with <code class="codehilite"><span class="nv">@x</span><span class="w"></span></code>, where x is the number (in bytes) of arguments</li>
+<li>FASTCALL function doesn't need a stack frame</li>
+<li>Commonly <code class="codehilite"><span class="n">gcc</span></code> and <code class="codehilite"><span class="n">Windows</span> <span class="n">FASTCALL</span></code> convention pushes parameters one and two into <code class="codehilite"><span class="n">ecx</span></code> and <code class="codehilite"><span class="n">edx</span></code>, respectively, before pushing any remaining parameters onto the stack.
+    <div class="codehilite"><pre><span></span><span class="n">_fastcall</span> <span class="kt">int</span> <span class="nf">MyFunction3</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">MyFunction3</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span>
+</pre></div>
+    <div class="codehilite"><pre><span></span>:@MyFunction3@8
+push ebp           <span class="c1"># prologue</span>
+mov ebp, esp       <span class="c1"># prologue</span>
+add ecx, edx       <span class="c1"># a is in ecx, b is in edx</span>
+pop ebp            <span class="c1"># epilogue</span>
+ret                <span class="c1"># epilogue</span>
+
+mov ecx, <span class="m">2</span>         <span class="c1"># move rightmost param to eax </span>
+mov edx, <span class="m">3</span>         <span class="c1"># move next-rightmost param to edx</span>
+call @MyFunction3@8 
+</pre></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Read EIP (used in <code class="codehilite"><span class="n">relocatable</span> <span class="n">code</span></code>)<ul>
+<li>Move return address (EIP) to the EAX register
+  <div class="codehilite"><pre><span></span><span class="n">GetEIP</span><span class="w"> </span><span class="k">proc</span><span class="w"> </span>
+<span class="n">mov</span><span class="w"> </span><span class="n">eax</span><span class="p">,</span><span class="w"> </span><span class="n">dword</span><span class="w"> </span><span class="n">ptr</span><span class="w"> </span><span class="nl">ss</span><span class="p">:</span><span class="o">[</span><span class="n">esp</span><span class="o">]</span><span class="w"></span>
+<span class="n">ret</span><span class="w"></span>
+<span class="n">GetEIP</span><span class="w"> </span><span class="n">endp</span><span class="w"></span>
+</pre></div></li>
+<li>Put the address of previous instruction executed into EAX. Usable to locate other parts of code in memory (by adding  / subtracting to EIP value):<br />
+  <div class="codehilite"><pre><span></span><span class="k">Call</span> <span class="n">_getEIP</span>
+<span class="n">_getEIP</span><span class="p">:</span> <span class="n">pop</span> <span class="n">eax</span>
+</pre></div></li>
+</ul>
+</li>
+<li>Heaps - Dynamically &amp; runtime allocated memory (used to store data that doesn't fit in stack)</li>
+<li>Handles - References to resources. Used by OS to control resource access. <ul>
+<li>Example: To access a file need to create a file-handle using Windows API.</li>
+</ul>
+</li>
+<li>Exceptions: Events occurred during runtime. and handlers to handle events. <ul>
+<li>Hardware exceptions: Bad sequence (div by zero). OS map to error codes.</li>
+<li>Software exceptions: </li>
+<li>Windows implements: <code class="codehilite"><span class="n">Structured</span> <span class="k">Exception</span> <span class="n">Handling</span> <span class="p">(</span><span class="n">SEH</span><span class="p">)</span></code> to handle both software and hardware exceptions. </li>
+</ul>
+</li>
+</ul>
+<p><img alt="" src="../_assets/2020-05-11-23-32-07.png" /></p>
+<ul>
+<li>The CPU ring0, ring1, ring2, ring3: <a href="http://www.programmersought.com/article/47422162127/">http://www.programmersought.com/article/47422162127/</a></li>
+<li>Tracking Ring3 - Ring0 of running processes: <a href="http://www.programmersought.com/article/81722595513/;jsessionid=B89F397D53E2BA65418324AA33A1437D">http://www.programmersought.com/article/81722595513/;jsessionid=B89F397D53E2BA65418324AA33A1437D</a></li>
+<li>The CPU privilege level is divided into four levels: <code class="codehilite"><span class="n">RING0</span></code>, <code class="codehilite"><span class="n">RING1</span></code>, <code class="codehilite"><span class="n">RING2</span></code>, <code class="codehilite"><span class="n">RING3</span></code>. </li>
+<li>Windows uses only one of the two levels <code class="codehilite"><span class="n">RING0</span></code> and <code class="codehilite"><span class="n">RING3</span></code> (<code class="codehilite"><span class="n">userland</span></code>). </li>
+<li>If the application attempts to execute <code class="codehilite"><span class="n">RING0</span></code>general instructions, then Windows will display <code class="codehilite"><span class="n">Illegal</span> <span class="n">Instruction</span></code> error message.</li>
+<li>Windows <code class="codehilite"><span class="n">Ring3</span></code> Internal Structures <a href="http://index-of.es/EBooks/nt_internals.pdf">http://index-of.es/EBooks/nt_internals.pdf</a>:<ul>
+<li><code class="codehilite"><span class="n">THREAD_ENVIRONMENT_BLOCK</span> <span class="p">(</span><span class="n">TEB</span><span class="p">)</span></code> contains:<ul>
+<li>Address of the top and bottom of current thread's stack</li>
+<li>Thread identifier </li>
+<li>Process thread belongs to </li>
+<li>Code of the last error </li>
+<li>Address of the <code class="codehilite"><span class="n">Thread</span> <span class="k">Local</span> <span class="k">Storage</span> <span class="p">(</span><span class="n">TLS</span><span class="p">)</span></code></li>
+<li>Address of the <code class="codehilite"><span class="n">PROCESS_ENVIRONMENT_BLOCK</span> <span class="p">(</span><span class="n">PEB</span><span class="p">)</span></code></li>
+</ul>
+</li>
+<li><code class="codehilite"><span class="n">PROCESS_ENVIRONMENT_BLOCK</span> <span class="p">(</span><span class="n">PEB</span><span class="p">)</span></code> contains:<ul>
+<li>Image base of the process </li>
+<li>Address of Loader data structure (PEB_LDR_DATA)</li>
+<li><code class="codehilite"><span class="n">NtGlobalFlag</span></code> value  (<code class="codehilite"><span class="n">useable</span> <span class="k">in</span> <span class="n">detecting</span> <span class="n">debugging</span></code>)</li>
+<li>Major and minor version of Windows OS</li>
+<li>Number of processors</li>
+<li><code class="codehilite"><span class="n">BeingDebugged</span></code> flag (<code class="codehilite"><span class="n">useable</span> <span class="k">in</span> <span class="n">detecting</span> <span class="n">debugging</span></code>)</li>
+</ul>
+</li>
+<li><code class="codehilite"><span class="n">CONTEXT</span></code> contains:<ul>
+<li>All CPU state info for thread (during internal operations)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Windows APIs <ul>
+<li><code class="codehilite"><span class="n">Ring3</span></code> OS functions</li>
+<li>Communicate with kernel function in a safe way (app to OS communication)</li>
+<li>Categories:<ul>
+<li>Administration and Management</li>
+<li>Diagnostics </li>
+<li>Graphics and Multimedia</li>
+<li>Networking</li>
+<li>System Services</li>
+<li>Windows User Interface</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Tool categories </li>
+<li>Immunity Practice<ul>
+<li>Level 1: App that branch based on password. Function that return if password is valid using two params. <ul>
+<li>Change ZF </li>
+<li>New origin </li>
+<li>Substitute JMP with NOPs (Binary -&gt; Fill with NOPs)</li>
+<li>Substitute JMP to desired location (Binary -&gt; Edit and set offset to X)</li>
+<li>Inverse JMP (double click on instruction and change JNE to JE, etc.)</li>
+<li>Check params sent to check function and extract password. </li>
+<li>Save changes with right-click, save to executable. right-click save-file. </li>
+</ul>
+</li>
+<li>Looking at memory regions </li>
+<li>PE information: Right click "PE header" memory section -&gt; dump in cpu -&gt; right-click in dump -&gt; special -&gt; PE header<ul>
+<li>Check offset value and go to that address </li>
+<li>Beginning of section: <code class="codehilite"><span class="k">from</span> <span class="n">memory</span> <span class="k">view</span></code></li>
+<li>Actual beginning of section within binary:  <code class="codehilite"><span class="n">PointerToRawData</span></code></li>
+</ul>
+</li>
+<li>Find offset within binary:<ul>
+<li><code class="codehilite"><span class="k">offset</span> <span class="n">within</span> <span class="n">code</span> <span class="n">section</span></code> = (<code class="codehilite"><span class="n">address</span> <span class="k">of</span> <span class="n">the</span> <span class="n">instruction</span></code> - <code class="codehilite"><span class="k">start</span> <span class="n">address</span> <span class="k">of</span> <span class="n">code</span> <span class="n">section</span></code>)</li>
+<li><code class="codehilite"><span class="k">offset</span> <span class="n">within</span> <span class="n">code</span> <span class="n">section</span></code> + <code class="codehilite"><span class="n">PointerToRawData</span> <span class="k">of</span> <span class="n">the</span> <span class="n">code</span> <span class="n">section</span></code> = <code class="codehilite"><span class="n">exact</span> <span class="k">location</span> <span class="n">within</span> <span class="nb">binary</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+                
+                  
+                
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../red-blue-team/" title="Red blue team" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Red blue team
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../rf-and-sdr/" title="RF and SDR" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                RF and SDR
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../assets/javascripts/application.808e90bb.js"></script>
+      
+      <script>app.initialize({version:"1.0.4",url:{base:".."}})</script>
+      
+    
+  </body>
+</html>

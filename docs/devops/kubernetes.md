@@ -249,6 +249,13 @@
 ```
 ## Yamls
 
+```yaml
+apiVersion:
+kind:
+metadata:
+spec:
+```
+
 ### Pod
 
 - The basic execution unit of a Kubernetes application--the smallest and simplest unit in the Kubernetes object model that you create or deploy. 
@@ -703,14 +710,15 @@ spec:
 - Follows single responsibility concept
 - Cluster
   - Master Node - Manage Cluster
-    - API Server (kube-apiserver)
-    - Distributed Database (etcd)
-    - Scheduler  (kube-scheduler)
-    - Controller Manager (kube-controller-manager)
+    - API Server (`kube-apiserver`)
+    - Distributed Database (`etcd`)
+    - Scheduler  (`kube-scheduler`)
+    - Controller Manager (`kube-controller-manager`)
   - Worker Nodes - Run Applications 
-    - Node Agent (kubelet)
-    - Networking Component (kube-proxy)
-    - Container Runtime (CRI - OCI/docker/rkt)
+    - Node Agent (`kubelet`)
+      - Interacts with `kube-apiserver`
+    - Networking Component (`kube-proxy`)
+    - Container Runtime (CRI-OCI/docker/rkt)
     - PODS
 - Service
   - Pods are not visible outside k8s cluster
@@ -1083,3 +1091,40 @@ spec:
     terraform workspace list
     terraform workspace select prod-env
 ```
+
+## Networking 
+
+- Flannel 
+- Calico
+- Canel = Flannel + Network Policy (Calico)
+- Weave 
+- CNI has less performance than VXLAN
+- Azure Network CNI plugin 
+- IPSec 
+
+## Security
+
+- Layer 0 - Kernel
+  - Check allowed syscalls and restrict
+  - Improve sandbox with
+    - gViser 
+    - Kata container
+    - AWS Firecracker 
+  - Keep kernel updated
+- Layer 1 - The container 
+  - Build
+    - Remove unnecessary tools 
+    - Lightweight image 
+    - Scan images 
+    - Known sources 
+    - Check integrity 
+  - Run
+    - Epherminal containers for live debugging (never exec into running container)
+    - Hook into running container and watch for anomalies 
+      - EBPF
+      - sysdig
+      - falko
+    - ----
+- Layer 2 - The workloads 
+  - Pod security context 
+    - 

@@ -8,7 +8,9 @@
 - wifite2 - Attack multiple WEP and WPA encrypted networks at the same time: <https://github.com/derv82/wifite2>
 - WIFIPhisher - Phishing attack tool for Wifi networks: <https://github.com/wifiphisher/wifiphisher>
 - WiFi Wardriving with Android - WiGLE WiFi Wardriving: <https://play.google.com/store/apps/details?id=net.wigle.wigleandroid&hl=en>
-
+- inSSIDer is a wireless network scanner. It was meant to replace NetStumbler, which was a Microsoft Windows Wi-Fi scanner.
+- Network Watcher by NirSoft - displays the list of all computers and devices that are connected to the same network
+- 
 ### Quick Reference 
 - `iwconfig`
 - `iwlist wlan0 scan`
