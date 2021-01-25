@@ -14,7 +14,7 @@
     ```
 - Vigenere Cipher: https://www.dcode.fr/vigenere-cipher
 - Elliptic Curve Cryptography for Python: <https://pypi.org/project/seccure/>
-
+- SSL Config Generator: <https://ssl-config.mozilla.org/>
 
 ### PadBuster
 
@@ -34,6 +34,10 @@
 
 #### General
 
+- Create key pair: `openssl genrsa -out keypair.pem 2048`
+- Extracting public key from rsa context: `openssl rsa -in keypair.pem -pubout -out publickey.crt`
+- Convert public key to PKCS#8: `openssl pkcs8 -topk8 -inform PEM -outform PEM -nocrypt -in keypair.pem -out pkcs8.key`
+- Retrieve exponent and modulus values: `openssl rsa -pubin -in publickey.crt -text -noout`
 - Extracting Public Key - Using private key: `openssl pkey -in example.key -pubout`
 - Extracting Public Key - From certificate: `openssl x509 -in example.crt -pubkey -noout`
 
@@ -110,3 +114,6 @@ openssl pkcs12 -export -clcerts -in server.crt -inkey server.key -out cert.p12
 - [How to create a self-signed SSL Certificate](https://www.akadia.com/services/ssh_test_certificate.html)
 - [How to Set Up Mutual TLS Authentication to Protect Your Admin Console](https://blog.codeship.com/how-to-set-up-mutual-tls-authentication/)
 - MD5 collisions of any pair of PDFs: https://twitter.com/angealbertini/status/1075417521799528448
+- raccoon: <https://raccoon-attack.com/>
+  - all leading zero bytes in the premaster secret are stripped before used in further computations
+  - Since the resulting premaster secret is used as an input into the key derivation function, which is based on hash functions with different timing profiles, precise timing measurements may enable an attacker to construct an oracle from a TLS server

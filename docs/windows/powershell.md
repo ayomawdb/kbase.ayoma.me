@@ -254,6 +254,7 @@ powershell.exe -ExecutionPolicy Bypass -NoLogo -NonInterative -NoProfile -File w
     - `Get-PSSession`
     - `Enter-PSSession`
   - Interactive session: `Enter-PSSession -Sessions $ses`
+    - `​$cred = Get-Credential` -> `Enter-PSSession -ComputerName 10.0.24.244 -Authentication Negotiate -Credential $cred`
   - Define a function in a remote machine and call it:
     ```
     Invoke-Command -ScriptBlock {function Example1 {whoami;}} -Session $ses

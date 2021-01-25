@@ -90,6 +90,7 @@ Disclaimer: These links are intended to be used by information security research
     - **RPCOUTCH** get info about windows via RPC
     - **DOPU** used to connect to machines exploited by ETERNALCHAMPIONS
     - **NAMEDPIPETOUCH** Utility to test for a predefined list of named pipes, mostly AV detection. User can add checks for custom named pipes.
+
 ### Password Dumps
 
 - <http://scylla.sh>
@@ -103,9 +104,24 @@ Disclaimer: These links are intended to be used by information security research
 
 ## Word-lists
 
+- <https://labs.nettitude.com/tools/rocktastic/>
 - Parameters
   - <https://github.com/danielmiessler/SecLists/blob/master/Discovery/Web-Content/burp-parameter-names.txt>
 
+```
+ftp://ftp.openwall.com/pub/wordlists/
+http://www.openwall.com/mirrors/
+https://github.com/danielmiessler/SecLists
+http://www.outpost9.com/files/WordLists.html
+http://www.vulnerabilityassessment.co.uk/passwords.htm
+http://packetstormsecurity.org/Crackers/wordlists/
+http://www.ai.uga.edu/ftplib/natural-language/moby/
+http://wordlist.sourceforge.net/
+https://github.com/berzerk0/Probable-Wordlists
+https://weakpass.com/wordlist
+https://pypi.org/project/wordlist/
+https://packages.debian.org/jessie/wordlist
+```
 
 ## References 
 

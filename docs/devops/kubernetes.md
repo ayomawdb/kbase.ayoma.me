@@ -1016,6 +1016,7 @@ spec:
 
 ## New References
 
+- <https://github.com/Salaboy/orchestrating-cloud-events>
 - Understanding Kubernetes limits and requests by example: <https://sysdig.com/blog/kubernetes-limits-requests/>
 - Understanding Kubernetes pod evicted and scheduling problems: <https://sysdig.com/blog/kubernetes-pod-evicted/>
 - How to troubleshoot Kubernetes OOM and CPU Throttle: <https://sysdig.com/blog/troubleshoot-kubernetes-oom/>

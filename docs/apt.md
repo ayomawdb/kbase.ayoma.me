@@ -1,6 +1,8 @@
 # APT
 
 - Sponsored Cyber attacks targeting specific organizations to achieve a clear objective without being detected for a long period of time - CSTT
+- Trainings:
+  - <https://www.activecountermeasures.com/cyber-threat-hunting-training-course/>
 
 ## Workflow 
 

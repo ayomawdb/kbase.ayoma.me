@@ -264,3 +264,11 @@ References:
 - [https://www.exploit-db.com/exploits/42020](https://www.exploit-db.com/exploits/42020)
 
 ### MS11-013
+
+### Juicy Potato 
+
+- Need `SeImpersonate` or `SeAssignPrimaryToken` (`whoami /priv`)
+- <https://github.com/ohpe/juicy-potato>
+- <https://github.com/TsukiCTF/Lovely-Potato>
+- <http://ohpe.it/juicy-potato/CLSID/Windows_Server_2012_Datacenter/>
+- Internals: Rotten Potato – Privilege Escalation from Service Accounts to SYSTEM: <https://foxglovesecurity.com/2016/09/26/rotten-potato-privilege-escalation-from-service-accounts-to-system/>

@@ -17,3 +17,24 @@
 - Review
   - Identify publicly accessible pages for initial attack 
   - Identify interesting high privileged actions for secondary attack
+
+
+- Try default passwords (admin:admin admin:password)
+- When Base64 (or similar encoded) value is observed, decode and check. 
+- User provided XML, JSON, Pickle is processed
+  - Check for locations that reflect values in XML/JSON
+  - Deserialization vulnerabilities 
+  - Parser related issues 
+    - XXE
+    - JSON
+      - <https://www.newtonsoft.com/json>
+  - Break the syntax to see parser errors
+- When a hash values is observed check if it can be broken based on online search (admin:admin)
+- Look for file with "credential" "password" "key" in it. 
+- Look for configuration files like:
+  - FileZilla Server.xml
+  - wp-config.php
+  - /etc/hosts <- for custom mappings
+  - ifconfig <- for other interfaces
+- Look at logs
+  - /var/log/auth.log

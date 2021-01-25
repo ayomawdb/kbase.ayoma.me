@@ -2,7 +2,9 @@
 
 ## Quick References
 
+- <https://github.com/S1ckB0y1337/Active-Directory-Exploitation-Cheat-Sheet>
 - [Active Directory Kill Chain Attack & Defense](https://github.com/infosecn1nja/AD-Attack-Defense)
+- Active Directory Penetration Testing Checklist: <https://gbhackers.com/active-directory-penetration-testing-checklist/?fbclid=IwAR0sd1LYx9O-w8PCXuQDO7NZHDe8YnJC0aJllppl6Jr0nf9gGWZ8qoTaKc8>
 
 ![Active Directory Introduction](https://i-technet.sec.s-msft.com/dynimg/IC196825.gif)
 > https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2003/cc780036(v=ws.10)

@@ -188,7 +188,9 @@ useradd -p 'encryptedPassWd'  username
     /usr/share/crunch/charset.lsr mixalpha -o  mixda.txt
     ```
   - Common password pattern generator using strings list: <https://github.com/localh0t/m4ngl3m3>
-  - A script for generating custom passphrase lists to be used for password cracking with hashcat rules: <https://github.com/dafthack/PassphraseGen>
+  - Rules:
+    - A script for generating custom passphrase lists to be used for password cracking with hashcat rules: <https://github.com/dafthack/PassphraseGen>
+    - Rules: <https://github.com/NotSoSecure/password_cracking_rules>
 - Extraction
   - Firefox Decrypt - Tool to extract passwords from Mozilla (Firefox/Thunderbird/Seabird) profiles: <https://github.com/unode/firefox_decrypt>
   - Responder - A LLMNR, NBT-NS and MDNS poisoner, with built-in HTTP/SMB/MSSQL/FTP/LDAP rogue authentication server supporting NTLMv1/NTLMv2/LMv2, Extended Security NTLMSSP and Basic HTTP authentication <https://github.com/SpiderLabs/Responder>

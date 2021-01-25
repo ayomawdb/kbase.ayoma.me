@@ -51,6 +51,23 @@
     ping (TARGET IP ADDRESS)
     arp -a
     ```
+- Virtual firewall bypass 
+  - <https://0xdf.gitlab.io/2019/04/06/htb-vault.html>
+  - `route` check routing table and look for the firewall node (gateways)
+  - `ip addr add 192.168.5.3/24 dev ens3` add a new network interface 
+  - `route delete -net 192.168.5.0 gw 192.168.122.5 netmask 255.255.255.0` remove rule that's doing traffic forwarding to firewall
+  - `time for i in $(seq 1 254); do (ping -c 1 192.168.5.${i} | grep "bytes from" &); done` host scan
+  - `iptables -L` to get an idea about any blocking rules
+- Simple Protocol for Independent Computing Environments (SPICE)
+  - <https://en.wikipedia.org/wiki/Simple_Protocol_for_Independent_Computing_Environments>
+  - <https://0xdf.gitlab.io/2019/04/06/htb-vault.html>
+  - `ps -auxww | grep -F 'spice port'`
+  - `apt install remmina remmina-plugin-spice`
+  - Send `alt+ctrl+del` to restart 
+  - Send `e` to do to recovery mode 
+  - Scroll down to the line that starts with linux
+  - Change `ro` to `rw`, and add `init=/bin/bash` to the end 
+  - Save & reboot
 
 ## Network Security Monitoring
 
@@ -279,10 +296,16 @@ One local port for tunneling data to all remote destinations (SOCKS protocol)
 ```bash
 ssh -D 9001 home
 ```
-
+```bash
+ssh -fND 9001 home
+```
+```
+echo 'socks5 127.0.0.1 9999' >> /etc/proxychains.conf
+```
+```
+curl http://192.168.122.4 && proxychains curl 192.168.122.4
+```
 ![](https://chamibuddhika.files.wordpress.com/2012/03/dynamicportforwarding.jpg)
-
-
 
 ### Quick Reference
 
@@ -311,7 +334,9 @@ ssh -D 9001 home
 
     proxychains rdesktop rdp-ip-in-non-routable-range
     ```
-
+- Ncat: 
+  - Forward local 1234 to command
+  - `sudo /usr/bin/ncat -l 1234 --sh-exec "ncat 192.168.5.2 987 -p 53"`
 **Tools**
 
 - rinetd

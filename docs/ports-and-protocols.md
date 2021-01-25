@@ -432,6 +432,7 @@ Snapshots                           | `_snapshot`
   - Examine Inbox: `ex1 EXAMINE INBOX`
   - List of folders
     ```
+    L1 LIST "" "*"
     LIST "<mailbox path>" "<search argument>"
     L1 list "INBOX/" "*"
     ```
@@ -441,8 +442,12 @@ Snapshots                           | `_snapshot`
     - case-sensitive mailbox name with possible wildcards
     - `-` is a wildcard, and matches zero or more characters at this position.
     - `%` is similar to `*` but it does not match a hierarchy delimiter
+- Status
+  - `aa STATUS INBOX (MESSAGES)`
 - Fetch Messages
     ```
+    aa SELECT INBOX
+
     f1 FETCH 1 BODY[]
     f2 fetch 2 RFC822
     f3 fetch 1:4 (BODY[HEADER.FIELDS (Subject)])

@@ -64,3 +64,9 @@ Detecting PTH attacks:
   - `Import-Module Merge-SysmonXML.ps1`
   - `Merge-AllSysmonXml -Path ( Get-ChildItem '[0-9]*\*.xml') -AsString | Out-File sysmonconfig.xml`
 - Endpoint-protection vs aEDR
+
+## Tooling 
+
+- Collaboration
+  - <https://vectr.io/>
+  - <https://plextrac.com/>
