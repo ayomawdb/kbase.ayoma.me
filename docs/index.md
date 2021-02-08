@@ -97,6 +97,7 @@ echo 'fpath=(~/.zsh.d/ $fpath)' >> ~/.zshrc
 - [https://scriptdotsh.com](https://scriptdotsh.com)
 - [https://room362.com/blog](https://room362.com/blog)
 - [https://root4loot.com/](https://root4loot.com/)
+- <https://medium.com/@notsoshant>
 
 ## POC Repos
 

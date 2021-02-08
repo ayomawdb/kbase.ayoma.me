@@ -223,6 +223,11 @@ java%0d%0ascript%0d%0a:alert(0), j%0d%0aava%0d%0aas%0d%0acrip%0d%0at%0d%0a:confi
 ```
 ### Server Side Template Injection (SSTI)
 
+- Server-Side Template Injection (Twig, FreeMaker, Smaarty, Jade): <https://portswigger.net/research/server-side-template-injection>
+  - <https://www.youtube.com/watch?v=3cT0uE7Y87s>
+- Java, Twig, Perl, Smarty, Freemaker, Jade, Codepen, Velocity, Mako, Jinja2, Jinjava: <https://medium.com/server-side-template-injection/server-side-template-injection-faf88d0c7f34>
+- Junja2: <https://0day.work/jinja2-template-injection-filter-bypasses/>
+- Twig v2: <http://ha.cker.info/exploitation-of-server-side-template-injection-with-craft-cms-plguin-seomatic/>
 - <https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/Server%20Side%20Template%20Injection>
 - Introduction and Bypasses: <https://bowneconsultingcontent.com/pub/EH/proj/ED105.htm>
 - <https://portswigger.net/research/server-side-template-injection>

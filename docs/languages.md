@@ -20,6 +20,18 @@
   - Right Click - Open All Modules
   - <https://docs.microsoft.com/en-us/visualstudio/debugger/how-to-debug-dotnet-framework-source?view=vs-2019>
   - <https://www.domstamand.com/debugging-your-dotnet-applications-and-packages-howto/>
+- ViewState:
+  - CASE 1: Target framework ≤4.0 (ViewState Mac is disabled): `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETFramework\v{VersionHere}`
+  - CASE 2: When ViewState is removed from the HTTP request
+  - CASE 3: Target framework ≤4.0 (ViewState Mac is enabled)
+    -  get access to the web.config 
+    -  get validation key and algorithm
+  - CASE 4: Target framework ≤4.0 (Encryption is enabled for ViewState)
+  - CASE 5: Target framework is ≥.NET 4.5
+    - decryption algorithm and the decryption key to the ysoserial payload generator 
+  - CASE 6: ViewStateUserKey is being used
+    - need `viewstateuserkey`
+  - <https://medium.com/@swapneildash/deep-dive-into-net-viewstate-deserialization-and-its-exploitation-54bf5b788817>
 - Deserialization
   - Ref:
     - <https://media.blackhat.com/bh-us-12/Briefings/Forshaw/BH_US_12_Forshaw_Are_You_My_Type_WP.pdf>
@@ -67,6 +79,7 @@
 
 ## Java
 
+- Decompiler: <https://github.com/skylot/jadx>
 - Simple steps to create Jar
     ```bash
     javac -source 1.8 -target 1.8 test.java
@@ -94,6 +107,9 @@
 **Deserialization**
 
 - <https://github.com/GrrrDog/Java-Deserialization-Cheat-Sheet>
+- Deserialization Intro: <https://klezvirus.github.io/Advanced-Web-Hacking/Serialisation/>
+- All about Deserialization: <https://book.hacktricks.xyz/pentesting-web/deserialization>
+
 - Decode serialized data: <https://github.com/NickstaDB/SerializationDumper>
 - <https://www.youtube.com/watch?v=KSA7vUkXGSg>
 - Deserialization: what, how and why [not] - Alexei Kojenov - AppSecUSA 2018: <https://www.youtube.com/watch?v=t-zVC-CxYjw>
@@ -120,6 +136,7 @@
   - Runtime application self protection (RASP)
   - Java-Agent
 - Tools
+  - <https://raw.githubusercontent.com/NickstaDB/SerialBrute/master/SerialBrute.py>
   - <https://github.com/JackOfMostTrades/gadgetinspector>
     - Enum class hierarchy 
     - Discover passthrough dataflow
@@ -133,6 +150,7 @@
   - <https://github.com/Contrast-Security-OSS/joogle>
   - <https://github.com/federicodotta/Java-Deserialization-Scanner>
   - <https://github.com/nccgroup/freddy>
+- java.lang.Runtime.exec() Payload Workarounds: <http://www.jackson-t.ca/runtime-exec-payloads.html>
 
 
 **References**
@@ -351,16 +369,20 @@ pickle.load(pickled)
 - <https://www.logicbig.com/tutorials/misc/php/php-advance-cheat-sheet.html>
 - <http://overapi.com/php>
 - <https://courses.cs.washington.edu/courses/cse154/18au/resources/cheatsheets/php-cheatsheet.pdf>
-
+- Type Juggling, Math issues, Strcmp issues: <http://turbochaos.blogspot.com/2013/08/exploiting-exotic-bugs-php-type-juggling.html>
+- Serialized data: `O:len(class_name):"class_name":len(properties_to_edit):{s:len(variable_name):"variable_name";s:len(variable_value):"variable_value";}`
+  - <https://securitycafe.ro/2015/01/05/understanding-php-object-injection/>
 ### References
 
 - dangerous-php-functions: <https://alionder.net/dangerous-php-functions/>
 - [Understanding PHP Object Injection](https://securitycafe.ro/2015/01/05/understanding-php-object-injection/)
+  - <https://blog.ripstech.com/2018/php-object-injection/>
 - <https://eev.ee/blog/2012/04/09/php-a-fractal-of-bad-design/>
 - <https://www.acunetix.com/blog/articles/web-shells-101-using-php-introduction-web-shells-part-2/>
 - <http://pentestmonkey.net/tools/web-shells/php-reverse-shell>
 - [PHP Remote File Inclusion command shell using data://](https://www.idontplaydarts.com/2011/03/php-remote-file-inclusion-command-shell-using-data-stream/)
 - [Hardening and securing PHP on Linux](https://www.idontplaydarts.com/2011/02/hardening-and-securing-php-on-linux/)
+- [SQL injection via PHP Object Injection](https://foxglovesecurity.com/2017/02/07/type-juggling-and-php-object-injection-and-sqli-oh-my/)
 
 - [HTTP Parameter Pollution with cookies in PHP](https://www.idontplaydarts.com/2013/06/http-parameter-pollution-with-cookies-in-php/)
 
@@ -376,7 +398,6 @@ http://example.com?param=../../../../etc/passed
 http://example.com?param=../../../../etc/passed%00
   -> /etc/passed
 ```
-
 #### Vulnerable Functions
 
 Local / Remote file inclusion bugs:
