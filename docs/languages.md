@@ -4,6 +4,49 @@
 - Brainfuck Interpreter: https://sange.fi/esoteric/brainfuck/impl/interp/i.html
 - Piet Interpreter: https://www.bertnase.de/npiet/npiet-execute.php
 
+## Static Analysis 
+
+![](_assets/2021-02-18-23-33-42.png)
+- Flawfinder - C/C++
+- Graudit - ASP/C/.Net/JSP/Perl/PHP/Python
+- Find Security Bugs - Java 
+- RATS - C/C++/Perl/PHP/Python
+- RIPS - PHP
+- Brakeman - Ruby/Rails
+- Build your own
+  - Clang Analyzer 
+  - Python PLY and libs build on it (PLYJ for Java)
+  - Pyparsing
+  - ANTLR
+  - Coco/R
+- Commercial          
+  - Veracode 
+  - Covertity
+  - Fortify
+  - Checkmarx
+  - Klocwork
+
+
+## Remote debugging 
+
+- <https://z-r0crypt.github.io/blog/2020/01/22/oswe/awae-preparation/>
+- sshfs and port forwarding through my kali VM via PuTTY to mount one of my targets as a network drive within windows and then opened that folder in my local VSCode.
+- Java
+  - Remote debug
+    - `java -agentlib:jdwp=transport=dt_shmem,address=XXXXX,server=y,suspend=n -jar YourJar`
+    - `jdb -attach XXXXX`
+    - `jdb -sourcepath [unzipped jar path] -classpath [your main class path]`
+    - `stop at <TheClassName>:<ThePosition>`
+    - `run <your main class, for example org.springframework.boot.loader.JarLauncher>`
+  - <https://sourceforge.net/projects/realignmentjd/>
+    - <https://stackoverflow.com/a/7767823>
+    - <http://java.decompiler.free.fr/?q=jdeclipse>
+- PHP
+  - <https://jonathansblog.co.uk/remote-debugging-php-in-visual-studio-code-with-xdebug>
+  - <https://medium.com/bugbountywriteup/oswe-remote-debugging-php-code-with-visual-studio-code-278140962c36>
+- NodeJS
+  - <https://maikthulhu.github.io/2019-05-17-remote-debugging-node-vscode/>
+  
 ## .Net
 
 - Compiling `cs` files: `C:\Windows\Microsoft.NET\Framework64\v4.0.30319\csc.exe test.cs`
