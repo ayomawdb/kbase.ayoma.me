@@ -99,6 +99,17 @@ echo 'fpath=(~/.zsh.d/ $fpath)' >> ~/.zshrc
 - [https://root4loot.com/](https://root4loot.com/)
 - <https://medium.com/@notsoshant>
 
+## Books 
+
+- Rev engineering
+  - Reversing: Secrets of Reverse Engineering by Eldad Eilam
+  - Hacker Disassembling Uncovered by Kris Kaspersky
+  - The Art of Software Security Assessment by Mark Dowd, John McDonald, and Justin Schuh
+  - Fuzzing for Software Security Testing and Quality Assurance (Artech House Information Security and Privacy) by Ari Takanen, Jared DeMott, and Charlie Miller
+  - The IDA Pro Book: The Unofficial Guide to the World’s Most Popular Disassembler by Chris Eagle
+  - www.acm.uiuc.edu/sigmil/RevEng
+  - www.uninformed.org/?v=1&a=7
+
 ## POC Repos
 
 - https://github.com/qazbnm456/awesome-cve-poc

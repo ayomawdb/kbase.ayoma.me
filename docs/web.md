@@ -525,6 +525,17 @@ wfuzz -z \
 - Damn Vulnerable Serverless Application: <https://www.owasp.org/index.php/OWASP_DVSA>
   - <https://serverlessrepo.aws.amazon.com/applications/arn:aws:serverlessrepo:us-east-1:889485553959:applications~DVSA>
 
+## Encoding 
+
+- URL encoding - %3d — =
+- Unicode encoding
+  - %u2215 — /
+  - UTF-8 bytes: %c2%a9 — ©
+- HTML encoding
+  - `&quot;` — "
+  - Ascii code: `&#34;` — "
+  - Hex: `&#x22;` — "
+
 ## 
 
 - Login, registration, change password, change email, confirmation of email update

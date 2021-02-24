@@ -123,6 +123,9 @@
 ## Java
 
 - Decompiler: <https://github.com/skylot/jadx>
+- Older tools 
+  - Debug running app (using hooks): JavaSnoop
+  - How-swap classes on running application: <https://github.com/nlfiedler/jswat>
 - Simple steps to create Jar
     ```bash
     javac -source 1.8 -target 1.8 test.java

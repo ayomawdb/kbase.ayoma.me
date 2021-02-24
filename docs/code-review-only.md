@@ -1,57 +1,13 @@
-- Templates 
-  - Find
-    - `find . -type f -regex ".*/.*abc.*"`
-    - `find . -type f -iname "*abc*"`
-    - `find . -type f -regex ".*/.*abc.*" -exec echo 'I found a file named {}' ';'`
-  - Grep
-    - `grep -nrP --color=always`
-    - `grep -nrP -A 1 -B 3 --color=always`
-    - `grep -nrP --include *.html`
-    - `grep -nrP --include=\*.{cpp,h}`
-    - -E, --extended-regexp Interpret PATTERN as an extended regular expression (ERE, see below). (-E is specified by POSIX .) 
-    - -F, --fixed-strings Interpret PATTERN as a list of fixed strings, separated by newlines, any of which is to be matched. (-F is specified by POSIX .) 
-    - -G, --basic-regexp Interpret PATTERN as a basic regular expression (BRE, see below). This is the default. 
-    - -P, --perl-regexp Interpret PATTERN as a Perl regular expression. This is highly experimental and grep -P may warn of unimplemented features. 
-    - -i, --ignore-case 
-    - -v, --invert-match 
-    - -n, --line-number 
-    - --include=GLOB Search only files whose base name matches GLOB can use *, ?, and [...] as wildcards
-    - --exclude=GLOB Skip files whose base name matches GLOB 
-    - -w, --word-regexp matching substring must either be at the beginning of the line, or preceded by a  non-word constituent character
-
 - Initial discovery
-  - [ ] Basic port scan
-  - [ ] Default user accounts 
   - [ ] Check cookies and response headers
   - [ ] Check how each user controlled input reflect in the UI (XSS/SSTI)
   - [ ] Loose comparison in PHP (+ magic hashes)
-  - [ ] Find deployment location using "ps -ef" or "Process Explorer" 
-  - [ ] `grep -rnw "eval(" . --color`
-  - [ ] query `^.*?query.*?select.*?`
   - [ ] Routing configuration
   - [ ] whitelist/blacklists
   - [ ] "Random" usage or MD5 SHA1 usage
   - [ ] Source of 404 and other error pages
-  - [ ] README.md / CHANGELOG.md
-    - [ ] `while read l; do echo "===$l==="; curl $l/README.md -k; done < packages.txt`
-    - [ ] `cat commands.html | grep -E "script.*src" | grep -Ev "vendor|lib|plugin"`
-    - [ ] `wget --no-check-certificate -q -i list.txt`
-    - [ ] `for f in compressed_*.js; do js-beautify $f > pretty/"${f//compressed_}"; done;`
-  - Identify libraries
-    - [ ] `wget https://github.com/nice-registry/all-the-package-names/raw/master/names.json`
-    - [ ] `jq '.[0:10000]' names.json | grep ","| cut -d'"' -f 2 > npm-10000.txt`
-    - [ ] `gobuster dir -w ./npm-10000.txt -u https://openitcockpit/js/vendor/ -k`
-  - Files
-    - `find ./ -iname "*.html"`
-    - `grep -r "document.write" ./ --include *.html`
-  - Identify WSS endpoint and client code that interact with it 
-  - Identify serialized values 
-  - Check network interfaces
-  - /var/log/auth.log
-  - `wget https://github.com/nice-registry/all-the-package-names/raw/master/names.json`
-    - `jq '.[0:10000]' names.json | grep ","| cut -d'"' -f 2 > npm-10000.txt`
-    - `gobuster dir -w ./npm-10000.txt -u https://openitcockpit/js/vendor/ -k`
-
+  - [ ] Identify WSS endpoint and client code that interact with it 
+  - [ ] Identify serialized values 
 
 - Enabling Logging 
   - [ ] Enable database query logs
@@ -137,8 +93,6 @@
   - [ ] .Net fiddle
   - [ ] <https://github.com/blabla1337/skf-labs>
   - [ ] <https://www.tunnelsup.com/hash-analyzer/>
-  - [ ] 
-
 
 - Steps
   - What are the exposed functions to non-auth users
@@ -159,5 +113,6 @@ XXE
 ]>
 <org.opencrx.kernel.account1.Contact>
 <lastName>&wrapper;</lastName>
-<firstName>Tom</firstName> </org.opencrx.kernel.account1.Contact>
+<firstName>Tom</firstName>
+</org.opencrx.kernel.account1.Contact>
 ```

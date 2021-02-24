@@ -78,6 +78,17 @@ Create P12
 openssl pkcs12 -export -clcerts -in server.crt -inkey server.key -out cert.p12
 ```
 
+## Modes 
+
+- ECB
+  - ECB cipher being employed operates on 8-byte blocks of data, and the blocks of plaintext map to the corresponding blocks of ciphertext 
+  - manipulate the sequence of ciphertext blocks so as to modify the corresponding plaintext
+  - Ex: change UID value of a token
+- CBC
+  - each block of plaintext is encrypted it is XORed against the preceding block of ciphertext
+  - manipulating a single individual block of the token, the attacker can systemati- cally modify the decrypted contents of the block that follows it
+  - Use bit-flipping (burp) to guess values
+
 ## Encoding/Decoding
 
 - IP to Decimal: <https://www.browserling.com/tools/ip-to-dec>
